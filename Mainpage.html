@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<style>
+#teksti {
+  color:white;
+  font-size:120%;
+  font-family:Verdana, Tahoma, sans-serif;
+}
+
+h2 {
+  border-bottom:2px solid white;
+}
+
+</style>
+<body style="background-color:black;margin:100px";>
+
+<h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">GrapheneOS</h1>
+
+<h2 style="color:white;text-align:center;font-family:tahoma;">GrapheneOS on turvallisuuteen ja yksityisyyteen keskittynyt mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella jota kehitetään voittoa tavoittelemattomana ja avoimenlähdekoodin projektina. Se keskittyy turvallisuusteknologioiden kehittämiseen ja käyttöön kuten huomattaviin parannuksiin sandboxeihin, exploittien mitigointiin ja turvallisempaan muistinhallintaan.
+GrapheneOS parantaa käyttöjärjestelmän turvallisuutta pohjasta ylöspäin. Se ottaa käyttöön teknologioita mitikoidakseen yleisiä exploitteja sekä tekee niiden suorittamisesta huomattavasti vaikeampaa. Se parantaa itse käyttöjärjestelmän turvallisuutta sekä sovelluksien jotka siinä ovat. Sovellusten sandbox ja muut muurit ovat vahvistettuja. GrapheneOS yrittää välttää vaikuttamista käyttäjäkokemukseen. Parhaassa tilanteessa ominaisuudet voi aina olla käytössä ilman käyttäjän toimia. Tämä ei ole aina mahdollista ja GrapheneOS lisää useita kytkimiä kuten Internet ja Sensors luvan, rajoitukset kun laite on lukittu, automaattinen uudelleenkäynnistys jne.
+GrapheneOS myös kehittää useita sovelluksia ja palveluita kuten Vanadium selaimen mikä on vahvistettu forkki chromium selaimesta, minimaalisen PDF lukijan sekä Auditor sovelluksen
+</h2>
+
+<h3 style="text-align:center;color:white;font-family:verdana;">Historia</h3>
+
+<div id="teksti";>Daniel Micay perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei viellä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää. Vuoden 2015 lopussa, firma tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän firman alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Firman piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Firma epäonnistui kunnioittamaan tätä. 2018 firman toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui firmasta ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
+</div>
+
+<p7 style="color:white;font-size:175%;font-family:verdana;"><br>Googlen PlayPalvelut</p7>
+<div id="teksti"><br>Niinkuin AOSP, GrapheneOS ei sisällä Googlen sovelluksia tai palveluita. Ne ei ikinä tule olemaan ennalta asennettuja perus käyttöjärjestelmään. Useat sovellukset vaativat kuitenkin näitä toimintaan, joten 18. Heinäkuuta 2021 GrapheneOS julkaisi aikaisen prototyypin yhteensopivuuskerrokselle. Tämä mahdollistaa Googlen playpalveluiden ja kaupan asentamisen sandboxattuna sovelluksena haluttuun profiiliin. Nämä ei saa erityisiä oikeuksia ja itse OS ei käytä näitä mihinkään. Ne ovat täysin sandboxattuja sovelluksia niinkuin kaikki muutkin. GrapheneOS vain lisää fallback koodia opettaen näille miten toimia ilman erityisiä oikeuksia ja SElinux poikkeuksia joita nämä usein vaatii. Nämä voi asentaa haluttuun profiiliin jolloin ainoastaan tässä profiilissa olevat sovellukset voivat käyttää näitä. Sillä sovellukset voivat kommunikoida yhteisellä päätöksellä profiilin siällä mutta ei sen ulkona.</div>
+
+  <a style="color:white;" href="features.html">Ominaisuudet</a>
+
+</body>
+</html>
