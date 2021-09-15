@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<style>
+#teksti {
+  color:white;
+  font-size:120%;
+  font-family:Verdana, Tahoma, sans-serif;
+}
+
+h2 {
+  border-bottom:2px solid white;
+}
+
+</style>
+<body style="background-color:black;margin:100px";>
+  
+<h4 style="text-align:center;color:white;font-family:verdana;">Ominaisuudet</h4>
+
+<div id="teksti">Tämä ei sisällä ominaisuuksia jotka ovat tulleet osaksi näitä infrastruktuuri projekteja mihin GrapheneOS nojautuu (AOSP, LLVM, OpenBSD) tämä myöski on VAIN ominaisuudet jota GrapheneOS lisää jo valmiiseen AOSPn turvallisuusmalliin. AOSP on jo valmiiksi erittäin turvallinen kuten sisältää koko systeemiä koskevat SElinux käytännöt, verified-bootin, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) CFI, SCS, kunnollinen hiekkalaatikko ja modernit exploittien lievennys kyvyt.
+GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä. Se aloittaa vahvasta Android Open Source Projectin (AOSP) turvallisuumallista ja varoo tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS säilyttää kaikki Androidin tarjoamat turvallisuus ominaisuudet ja kyvyn lukita bootloader asennuksen jälkeen antaen täyden verified-bootin. GrapheneOS keskittyy oleelliseen markkinoinnin sijan, se ei ota tyypillistä käytäntöä asettaa satunnaisia parannuksia ja ominaisuuksia vain koska ne näyttävät hyvältä. Se on erittäin tekninen projekti rakentaen turvallisuutta ja yksityisyyttä itse käyttöjärjestelmään.
+</div>
+
+<div id="teksti">GrapheneOS sisältää oman vahvistetun / hardened mallocin. (memory allocator) Tämä on turvallisuuteen keskittynyt memory_allocator joka tarjoaa huomattavia vahvistuksia kasan korruptoitumis bugien hyväksikäyttöä vastaan. Turvallisuuspainotteinen rakenne myös johtaa pienempään metatieto määrään ja pienempään muistihukkaan sisäisen pirstoutumisen vuoksi. Virallinen dokumentaatio rakenteesta ja ominaisuuksista löytyy <a style="color:white;"href="https://github.com/GrapheneOS/hardened_malloc">Tästä</a>
+</div>
+
+<div id="teksti">Muut omiaisuudet jotka GrapheneOS lisää: </div>
+
+<ul style="color:white;font-size:130%;">
+  <li>Vahvistettu / Hardened bionic-c standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
+  <li>Vahvistettu / Hardened sovellusten hiekkalaatikko / sandbox</li>
+  <li>Tiukennetut SElinux käytännöt</li>
+  <li>Vahvistettu / Hardened app-runtime</li>
+  <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (compiler toolchain)</li>
+  <li>Vahvistettu / Hardened kernel</li>
+</ul>
+<ul style="color:white;font-family:verdana;list-style-type:circle;">
+  <li>Tuki dynaamisesti ladattaville kernel moduuleille on poistettu käytöstä ja ainoastaan minimaalinen sarja moduuleja laitteen mallille on rakennettu kerneliin huomattavasti parantamaan CFIn (Control Flow Integrity) rakeisuutta ja pienentämään hyökkäyspintaa</li>
+  <li>Neljäsivuistet sivupöydät on otettu käyttöön antaakseen huomattavasti suuremman osoitetilan (48 bittiä 39 bitin sijan) ja huomattavasti korkeamman entropian ASLRän (Address Space Layout Randomization) (33 bttiä 24 bitin sijan)</li>
+  <li>Satunnaiset canary arvot asetetaan kernelin kekoon (heap)</li>
+  <li>Muisti pyyhitään heti vapautuksen yhteydessä</li>
+</ul>
+<ul style="color:white;font-size:130%;">
+  <li>Dynaamisen natiivikoodin suorittamisen estäminen</li>
+  <li>Tiedostojärjestelmän käytön vahvistaminen</li>
+  <li>Paranneltu laitteisto pohjainen vahvistus tarkemmille laitteisto tiedoilla</li>
+  <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn laitetunnistimiin</li>
+  <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
+  <li>Vaihtoehto kytkeä ptrace pois päältä hyökkäyspinnan pienentämiseksi</li>
+  <li>Pieniä parannuksia laitteen salaukseen</li>
+  <li>Tuki kirjautua ulos profiileista ilman laitteen uudelleenkäynnistämistä. Tämä tuhoaa profiilin salausavaimet ja asettaa profiilin takaisin lepoon</li>
+  <li>Vaihtoehto asettaa laite käynnistymään uudelleen haluaman ajan jälkeen asettaen laitteen BFU (Before First Unlock) tilaan</li>
+  <li>Vaihtoehto sekoittaa PIN näppäimistön numeroiden järjestys</li>
+  <li>LTE-only vaihtoehto poistaen jättimäisiä määriä vanhentunutta koodia pienentäen hyökkäyspintaa</li>
+  <li>Satunnaistettu MAC osoite joka kerta kun laite etsii wifi verkkoja (Käytössä oletuksena)</li>
+  <li>Kun satunnaistettu MAC osoite on käytössä DHCP tila pyyhitään joka kerta ettei verkko voi tunnistaa että laite on sama kuin viimeksi</li>
+  <li>Parannellut ipv6 yksityisyys osoitteet estäen seurantaa verkkojen välillä</li>
+  <li>Vanadium joka on vahvistettu forkki chromium selaimesta sekä laitteen webviewin tarjoaja</li>
+  <li>Auditor sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
+  <li>PDF lukija, simppeli, sandboxattu, ei tarvitse lupia</li>
+  <li>Salatut varmuuskopiot seedvault-backup sovelluksen avulla</li>
+  <li>Turvallinen sovellusten laukasu malli (Exec)</li>
+  <li>Kyky evätä haluamiltaan sovelluksilta internet lupa estäen suorat ja ei suorat yhteydet sovellukselta. Localhost on myös suojattu tämän avulla. Toisinkuin palomuuri tyylinen asettelu, Network kytkin estää sovellusta käyttämästä internettiä käyttöjärjestelmän tarjoamien ohjelmointirajapintojen (API) avulla joten sovellukset ei voi esimerkiksi käyttää IPCtä rajoitusten ohittamiseen</li>
+  <li>Kyky evätä haluamiltaan sovelluksilta Sensors pääsy mikä estää sovellusta käyttämästä laitesensoreita (kiihtyvyysanturi, gyroskooppi, kompassi, barometri, lämpömittari jne)</li>
+  <li>Kellon päivittäminen omien GrapheneOS palvelimien kautta</li>
+  <li>Kunnollinen tuki poistaakseen puhelinoperaattorin kyvyn vaihtaa laitteen kellonaikaa eikä vain olla näyttämättä heidän tarjoamaa aikaa</li>
+  <li>Vahvistettu / Hardened signeeraus infrastruktuuri</li>
+  <li>Tuki 64 merkkiselle laitteen salasanalle</li>
+  <li>Vaivattomat käyttöjärjestelmän päivitykset mitkä pysyvät poissa tieltä sekä tuki mennä aiempaan versioon jos päivitys epäonnistuu</li>
+  <li>Vaatii laitteen avausta ennen kuin sensitiiviä ominaisuuksia quick-tilesseissä voi käyttää (Wifi, lentokonetila, GPS, NFC jne)</li>
+  <li>Minimaalinen määrä ennalta asennettuja sovelluksia / palveluita</li>
+  <li>Ei Googlen palveluita (GooglePlayPalvelut) tai sovelluksia integroitu itse käyttöjärjestelmään</li>
+</ul>
+
+</body>
+</html>
