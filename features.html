@@ -6,18 +6,17 @@
 <style>
 #teksti {
   color:white;
-  font-size:120%;
+  font-size:125%;
   font-family:Verdana, Tahoma, sans-serif;
 }
-
 h2 {
   border-bottom:2px solid white;
 }
 
 </style>
-<body style="background-color:black;margin:100px";>
-  
-<h4 style="text-align:center;color:white;font-family:verdana;">Ominaisuudet</h4>
+<body style="background-color:black;margin:200px";>
+
+<h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Omiaisuudet</h1>
 
 <div id="teksti">Tämä ei sisällä ominaisuuksia jotka ovat tulleet osaksi näitä infrastruktuuri projekteja mihin GrapheneOS nojautuu (AOSP, LLVM, OpenBSD) tämä myöski on VAIN ominaisuudet jota GrapheneOS lisää jo valmiiseen AOSPn turvallisuusmalliin. AOSP on jo valmiiksi erittäin turvallinen kuten sisältää koko systeemiä koskevat SElinux käytännöt, verified-bootin, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) CFI, SCS, kunnollinen hiekkalaatikko ja modernit exploittien lievennys kyvyt.
 GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä. Se aloittaa vahvasta Android Open Source Projectin (AOSP) turvallisuumallista ja varoo tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS säilyttää kaikki Androidin tarjoamat turvallisuus ominaisuudet ja kyvyn lukita bootloader asennuksen jälkeen antaen täyden verified-bootin. GrapheneOS keskittyy oleelliseen markkinoinnin sijan, se ei ota tyypillistä käytäntöä asettaa satunnaisia parannuksia ja ominaisuuksia vain koska ne näyttävät hyvältä. Se on erittäin tekninen projekti rakentaen turvallisuutta ja yksityisyyttä itse käyttöjärjestelmään.
@@ -26,9 +25,9 @@ GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä k
 <div id="teksti">GrapheneOS sisältää oman vahvistetun / hardened mallocin. (memory allocator) Tämä on turvallisuuteen keskittynyt memory_allocator joka tarjoaa huomattavia vahvistuksia kasan korruptoitumis bugien hyväksikäyttöä vastaan. Turvallisuuspainotteinen rakenne myös johtaa pienempään metatieto määrään ja pienempään muistihukkaan sisäisen pirstoutumisen vuoksi. Virallinen dokumentaatio rakenteesta ja ominaisuuksista löytyy <a style="color:white;"href="https://github.com/GrapheneOS/hardened_malloc">Tästä</a>
 </div>
 
-<div id="teksti">Muut omiaisuudet jotka GrapheneOS lisää: </div>
+<div id="teksti"><br>Muut omiaisuudet jotka GrapheneOS lisää: </div>
 
-<ul style="color:white;font-size:130%;">
+<ul style="color:white;font-size:130%;font-family: Verdana, Tahoma;">
   <li>Vahvistettu / Hardened bionic-c standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
   <li>Vahvistettu / Hardened sovellusten hiekkalaatikko / sandbox</li>
   <li>Tiukennetut SElinux käytännöt</li>
@@ -36,13 +35,13 @@ GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä k
   <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (compiler toolchain)</li>
   <li>Vahvistettu / Hardened kernel</li>
 </ul>
-<ul style="color:white;font-family:verdana;list-style-type:circle;">
+<ul style="color:white;font-family:verdana, tahoma;list-style-type:circle;">
   <li>Tuki dynaamisesti ladattaville kernel moduuleille on poistettu käytöstä ja ainoastaan minimaalinen sarja moduuleja laitteen mallille on rakennettu kerneliin huomattavasti parantamaan CFIn (Control Flow Integrity) rakeisuutta ja pienentämään hyökkäyspintaa</li>
   <li>Neljäsivuistet sivupöydät on otettu käyttöön antaakseen huomattavasti suuremman osoitetilan (48 bittiä 39 bitin sijan) ja huomattavasti korkeamman entropian ASLRän (Address Space Layout Randomization) (33 bttiä 24 bitin sijan)</li>
   <li>Satunnaiset canary arvot asetetaan kernelin kekoon (heap)</li>
   <li>Muisti pyyhitään heti vapautuksen yhteydessä</li>
 </ul>
-<ul style="color:white;font-size:130%;">
+<ul style="color:white;font-size:130%;font-family: Verdana, Tahoma;">
   <li>Dynaamisen natiivikoodin suorittamisen estäminen</li>
   <li>Tiedostojärjestelmän käytön vahvistaminen</li>
   <li>Paranneltu laitteisto pohjainen vahvistus tarkemmille laitteisto tiedoilla</li>
@@ -73,6 +72,11 @@ GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä k
   <li>Minimaalinen määrä ennalta asennettuja sovelluksia / palveluita</li>
   <li>Ei Googlen palveluita (GooglePlayPalvelut) tai sovelluksia integroitu itse käyttöjärjestelmään</li>
 </ul>
+
+
+<div id="teksti"><br>Käytännö kysymyksistä katso <a style="color:white;" href="kautto.html">Käyttö sivu</a>
+
+<div id="teksti"><br>Etusivulle pääset <a style="color:white;" href="index.html">Tästä</a>
 
 </body>
 </html>
