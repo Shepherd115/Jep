@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<style>
+#teksti {
+  color:white;
+  font-size:125%;
+  font-family:Verdana, Tahoma, sans-serif;
+}
+h2 {
+  border-bottom:2px solid white;
+}
+
+</style>
+<body style="background-color:black;margin:200px";>
+
+
+<h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Käyttö</h1>
+
+<p1 style="color:white;font-size:175%;font-family:verdana;">Päivitykset</p1>
+
+<div id="teksti"><br>GrapheneOS tarkistaa päivitykset joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. Se jatkuu siitä mihin se jäi joten ei tarvitse pelätä sen keskeyttämistä, samanlailla päivityksen asentamisen keskeytys ei ole riski sillä päivitykset asennetaan toissijaiseen GrapheneOS:sään josta tulee aktiivinen vasta kun päivitys on asennettu kunnolla. Tämän jälkeen laite on käynnistettävä uudelleen uuteen GrapheneOS versioon. Jos tämä epäonnistuu se perääntyy käyttämään vanhempaa versiota ja yrittää ladata / asentaa päivityksen uudestaan.
+Päivittäjä käyttää delta (incremental) päivityksiä ladatakseen ainoastaan muutokset koko käyttöjärjestelmän lataamisen sijan.
+Päivittäjä toimii vaikka laite olisi lukittu tai BFU tilassa.
+Päivityspalvelin ei ole luotettu osapuoli sillä päivitykset signeerataan ja vahvistetaan ja alennukset aiempaan versioon estetään. Päivitys protokolla ei lähetä tunnisteita päivityspalvelimelle ja voidaan helposti vetää VPN / Tor palvelun kautta.
+GrapheneOS ei kykene rakentamaan, signeeraamaan ja kuljettamaan haitallista päivitystä tietyn käyttäjän laitteelle esim IMEIn tai sarjanumeron jne perusteella. Päivityspalvelin päätyy ainoastaan tietämään laitteen IP osoitteen sekä nykyisen GrapheneOS version ja version jonka laite yrittää hakea. Päivitykset voidaan tarvittaessa asentaa erillisen tietokoneen avulla jos ei pysty yhdistämään laitetta internettiin.
+</div>
+
+<p2 style="color:white;font-size:175%;font-family:verdana;"><br>Puhelut & SMS</p2>
+
+<div id="teksti"><br>GrapheneOS aina olettaa että puhelinoperaattorit ovat vihollisia. Se jättää pois useita sovelluksia mitkä ovat AOSPssä jotka antavat puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myöskin päivittää kellon itse sen sijan että luottaisi että puhelinoperaattori tekisi tätä. Aika on nimittäin arvokasta jota voidaan hyväksi käyttää, tämän takia TitanM siru sisältää kokonaan oman kellon jota se itse määrää.
+Puhelin verkostot käyttävät erittäin epä-turvallisia teknologioita ja niillä on useita luotettavia osapuolia. Luotto on asia mitä ei pitäisi olla tietoturvassa, kenenkään ei pitäisi luottaa että palvelu tekee asiat oikein, on oltava kunnollinen ja robusti tapa joka välttää luottamista muuhun kuin osapuoleen kehen haluat ottaa yhteyttä. Luotettavin järjestelmä on järjestelmä johon ei tarvitse luottaa.
+Kaikilla virallisesti tuetuilla laitteilla on tuki ottaa käyttöön lentokonetila mutta ottaa käyttöön wifi samaan aikaan. Tämä estää kaikki yhteydet puhelinoperaattoriin ja mahdollistaa laitteen käytön wifi-only laitteena. MAC osoitteen randomisointi on aina käytössä kun laite skannaa wifi verkkoja. Pixel puhelimissa on laiteohjelmistotuki MAC osoitteen randomisointiin mikä menee yli perus randomisoinnin 
+Useilla muilla laitteilla laite wifi skannaus vuotaa tunnisteita.
+GrapheneOS myös lisää LTE-only vaihtoehdon joka kytkee 2g/3g/5g yhteyden kokonaan pois ja käyttää pelkästään 4g:tä. Tämä on ainoastaan pinentämään hyökkäyspintaa poistamalla vanhentunutta koodia eikä pidä erehtyä että se on jotain mikä tekisi puhelinoperaattorista luotettavan. Perus puhelut eivät toimi kun LTE-only on käytössä.
+</div>
+
+<p3 style="color:white;font-size:175%;font-family:verdana;"><br>Exec Spawning</p3>
+<div id="teksti"><br>GrapheneOS luo uudet prosessit execin kautta sovellusten aukaisuun yleisen zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta hitaamman sovellusten aukaisu ajan sekä korkeamman muistin käytön hinnalla. Se lisää noin 100ms sovellusten aukaisuun ja on ainoastaan huomattava laitteilla joissa on heikko CPU ja pienempi tallennustila.
+Tyypillisessä zygote mallissa mallisovellusprosessi luodaan käynnistyksen aikana ja jokainen sovellus syntyy sen kloonina. Tämä johtaa siihen että kaikki sovellukset jakavat saman muisti sisällön ja järjestyksen mikä osittain rikkoo sovellusten hiekkalaatikon tarkoituksen. Zygote malli heikentää useita vahvistuksia joiden tarkoitus on satunnaistaa muistisisältö ja järjestys kuten Address Space Layout Randomization (ASLR), kasojen sekä pinojen canary arvot, randomisoidut pinojen järjestykset jne. Se rampauttaa nämä ominaisuudet sillä jokaisella sovelluksella on pääsy muiden sovellusten muistisisältöön ja järjestykseen muutenkin.
+</div>
+
+<p4 style="color:white;font-size:175%;font-family:verdana;"><br>USB yhteydet</p4>
+<div id="teksti"><br>GrapheneOS oletuksena hylkää USB yhteydet kun laite on avattu ja näyttö lukittu. USB laite yhdistetty jo käynnistäessä silti toimii. Tämän tarkoitus on vähentää hyökkäyspintaa lukitulle laitteille joissa on aktiivisia profiili sessioita suojellakseen dataa joka ei ole levossa.
+GrapheneOS myös lisää vaihtoehdon kokonaan evätä USB yhteydet.</div>
+
+<p5 style="color:white;font-size:175%;font-family:verdana;"><br>Sovellukset</p5>
+<div id="teksti"><br>Oletuksena käyttäjän lataamilla sovelluksilla on aina pääsy vain heidän oman hiekkalaatikon resursseihin. Hiekkalaatikon muurit ovat huomattavasti vahvempia kuin AOSP:n. Oletuksena sovellukset eivät kykene "vakoilemaan" käyttäjää. Sovelluksilla on ainoastaan pääsy niihin tietoihin mitä sille myöntää. Jos antaa sovellukselle pääsyn kameraan voi sovellus käyttää kameraa. Käyttäjä itse hallitsee sovellusten kykyjä.
+GrapheneOS myös lisää kaksi uutta lupaa, Sensors ja Network. Sensors luvan evääminen estää sovellusta käyttämästä laitesensoreita kuten kiihtyvyysmittaria,  gyroskooppia, kompassia, barometria, lämpömittaria jne.
+Network lupa evää sovelluksen kyvyn käyttää internettiä, localhost on myös suojattu tämän avulla, mikä on tärkeää estääkseen sovelluksia kommunikoimasta profiilien välillä. Toisinkuin palomuuri, network luvan evääminen estää kokonaan sovellusta käyttämästä internettiä käyttöjärjestelmän ohjelmointirajapintojen tai muiden sovellusten avulla.
+Jos sovellus ei kykene pyörimään ilman tunkeilevia lupia kuten pääsyä tiedostoihin (Tiedosto pääsy lupa on menossa pois, sovelluksien ei enään kuuluisi sitä käyttää) niin voi sovelluksen asettaa erilliseen käyttäjäprofiiliin joissa ei ole muuta kuin tämä sovellus. Käyttäjäprofiili on kuin toinen puhelin, siinä on omat tiedostot, sovellukset, leikepöytä, asetukset jne.
+GrapheneOS lisää kyvyn lopettaa käyttäjäprofiili sessio, tämä tuhoaa salausavaimet ja laittaa profiilin takaisin lepoon.
+Käyttäjäprofiilit eivät pysty kommunikoimaan toistensa kanssa.</div>
+
+<p6 style="color:white;font-size:175%;font-family:verdana;"><br>Turvallisuusominaisuuksien paljastamat bugit</p6>
+<div id="teksti"><br>GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa suojausta muistin korruptio ongelmia vastaan. Jotkut ominaisuuksista on suuniteltu suoraan nappaamaan muistin korruptio bugi joko tarkistuksella tai muistin suojauksella ja keskeyttämään sovellus ettei sitä voitaisiin hyväksikäyttää. Muut ominaisuudet lieventävät ongelmaa ei niin suoraa kuten nollaamalla muistialueen välittömästi vapautuksen jälkeen, eristetyillä muistialueilla, pinon randomisoinnilla jne. Bugit jotka saattavat aiheutua näistä ei ole GrapheneOSsän aiheuttamia vaan jo olemassa olevia bugeja jotka paljastuvat vahvistusten vuoksi.
+Samanlailla jotkut ominaisuudet voivat pienentää sovelluksen pääsyä tiettyihin resursseihin ja sovellus voi kaatua. Jotkut näistä ovat aina käytössä ilman käyttäjän interaktiota kun taas esimerkiksi Sensors ja Network lupa on käyttäjän hallinnassa. Sovellukset eivät välttämättä kestä näiden oikeuksien pois ottamista.</div>
+
+<p8 style="color:white;font-size:175%;font-family:verdana;"><br>Laite tuki</p8>
+<div id="teksti"><br>Laitteiden on tavattava tarkat ja tiukat kriteerit ennen kuin ne voidaan luokitella mahdollisiksi kohteiksi. Sillä jos laitteisto / laiteohjelmisto on huono, ei käyttöjärjestelmä voi tarjota korviketta. Laitteessa on oltava kyky asentaa erillisiä käyttöjärjestelmiä sekä tuki omille signeeraus avaimille antaen täyden verified-bootin. Useat Android OEM:mät epäonnistuu kunnollisen verified-bootin implementoinnissa. Laitteessa on myös oltava laitteistopohjaisia turvallisuusominaisuuksia kuten Hardware-Backed-Keystore, useita exploittien mitigointeja, sekä kunnollinen IOMMU eristämään esim radiot toisistaan. Toistaiseksi ainoat laitteet jotka tapaavat tarpeet ovat Googlen Pixel puhelimet
+</div>
+
+<ul style="color:white;font-size:125%;">
+  <li>Täysi verified boot ja tuki omille signeeraus avaimille</li>
+  <li>TitanM siru, Pixelien HSM (Harware Security Module) moduli joka tarjoaa useita ominaisuuksia. Se voi turvallisesti varastoida krytpograafista materiaalia käyttäen Androidin StrongBox avainvarastoa ja vahvistettu rankaisemalla hyökkääjää väärien yritysten jälkeen pidentämällä aikaa ennen uudelleenyritystä. Se on myöskin integroitu verified-boot prosessiin ja TitanM sirun vahvuuden vuoksi on erittäin vaikea tätä ohittaa. Vaikka hyökkääjä pääsisi käsiksi TitanM laiteohjelmiston signeerausavaimiin, (Tai Google itse) he ei kykenisi asentamaan omaa haitallista laiteohjelmistoa Insider-Attack-Resistancen vuoksi joka estää laiteohjelmiston päivittämisen ennen kuin oikea näytön salasana on syötetty.</li>
+  <li>Kunnolliset exoloittien mitigoinnit SoC:issa ja tiukka IOMMU eristämään komponentit. Qualcommin SoC jota käytetään Pixel puhelimissa ottaa käyttöön modernit exploittien mitigoinnit sekä robustin IOMMU:n</li>
+  <li>Fine-grained, forward-edge kernelin CFI (Control Flow Integrity) ja ShadowCallStack - Pixelien kernelit kootaan muokkautettujen vahvistusten kera joihin kuuluu esimerkiksi CFI ja SCS</li>
+  <li>Wifi yksityisyys - Pixelit käyttävät erilaista MAC osoitteen randomisointia kuin muut joka ei vuoda muitakaan tunnisteita MAC osoitteen lisäksi <a style="color:white;"href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">(Dokumentaatio)</a> </li>
+</ul>
+
+<p10 style="color:white;font-size:175%;font-family:verdana;"><br>Selain</p10>
+<div id="teksti"><br>GrapheneOS sisältää Vanadium sub-projektin tarjoten turvallisuus / yksityisyys painotteisen chromium forkin. Se on molemmat käytettävä selain sekä laitteen webview jota muut selaimet ja sovellukset käyttävät.
+Vanadium on suunniteltu käytettäväksi ainoastaan Graphene käyttöjärjestelmälle eikä tuplaa turvallisuus ominaisuuksia kuten hardened_malloccia.
+Chromium pohjaiset selaimet tarjoavat vahvimman hiekkalaatikko implementaation. Se on huomattavasti vaikeampaa paeta hiekkalaatikosta ja se tarjoaa paljon enemmän kuin vain muurin ettei itse käyttöjärjestelmää infektoida. Site-isolation pakottaa turvallisuus muurit jokaisen sivuston ympärille asettaen jokaisen sivuston heidän omaan eristettyyn hiekkalaatikkoon. Mobiililaitteilla muistin vähäisyyden vuoksi site-isolationIlla on eri tiloja, Vanadium käyttää Strict-Site-Isolationia kaikilla tuetuilla laitteilla täsmäten chromiumia pöytäkoneilla. Selaimet ilman site-isolationia ovat erittäin alttiita hyökkäyksiä kuten Spectre:ä vastaan.
+Chromiumilla on kohtalaiset exploittien mitigointi tekniikat, toisinkuin muilla. Vanadium huomattavasti parantaa chromiumin turvallisuutta entisestään, esimerkiksi se vahvistaa hiekkalaatikon muureja patceillä kuten
+</div>
+
+<ul style="color:white;font-size:130%;">
+  <li>enable-strict-site-isolation-by-default-on-Android.patch</li>
+  <li>enable-split-cache-by-default.patch</li>
+  <li>enable-partitioning-connections-by-default.patch</li>
+  <li>disable-third-party-cookies-by-default.patch</li>
+</ul>
+
+<div id="teksti"><br>Sekä puhdasta turvallisuutta patcheillä kuten</div>
+
+<ul style="color:white;font-size:130%;">
+  <li>JIT-less-toggle.patch</li>
+  <li>use-64-bit-WebView-processes.patch</li>
+  <li>switch-to-fstack-protector-strong.patch</li>
+  <li>most-private-WebRTC-IP-handling-policy-by-default.patch</li>
+  <li>mark-non-secure-origins-as-dangerous.patch</li>
+</ul>
+
+<div id="teksti"><br>Vanadium on keskittynyt turvallisuuteen, ei yksityisyyteen. Vanadium kuitenkin lisää useita patchejä parantamaan käyttäjien yksityisyyttä. On myös hyvä huomioida että Vanadiumin WebGL / Audio / Canvas sormenjäljet täsmäävät chrome selaimen sormenjälkiä stock-androidilla joissa on sama SoC. Lisäksi on käytössä useita pätchejä auttamaan asiaa kuten</div>
+
+<ul style="color:white;font-size:130%;">
+  <li>disable-sensors-access-by-default.patch</li>
+  <li>enable-user-agent-freeze-by-default.patch</li>
+  <li>enable-dubious-Do-Not-Track-feature-by-default.patch</li>
+  <li>stub-out-the-battery-status-API.patch</li>
+  <li>disable-component-updater-pings-by-default.patch</li>
+  <li>set-default-search-engine-to-DuckDuckGo.patch</li>
+  <li>disable-mobile-identity-consistency-by-default.patch</li>
+</ul>
+
+</body>
+</html>
