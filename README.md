@@ -13,5 +13,8 @@
   <div style="font-size:125%;">1.01</div>
   <p>-Lisätty: Navigointipalkki<br>-Lisätty: Uusi sivu (Q&A) johon tulee Q&A<br>-Lisätty: Linkki muutoslokiin<br>-Parannuksia fontteihin ja tekstien kokoihin </p>
   
+  <div style:font-size:125%;">1.02</div>
+  <p>-Lisätty: Title<br>-Lisätty: Käyttö osioon "Auditor"<br>-Lisätty: Käyttö osioon "Yhteensopivuuskerros"<br>-Lisätty: Käyttö osioon "LTE-only"<br>-Lisätty: Käyttö osioon "Kamera"<br>-Lisätty: Käyttö osioon "Pankki sovellukset"<br>-Laite tuki ja Puhelut&SMS osiot siirretty Q&A osioon<br>-Muunnoksia fonttien kokoihin<br>-[Tuleva] Fonttien koot suurenevat / pienenevät laitteen näytön mukaisesti<br>-[Tuleva] Javascript nappi joka muuntaa tekstin mustaksi ja taustan valkoiseksi ja toisinpäin</p>                         
+  
   </body>
   </html>
