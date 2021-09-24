@@ -39,7 +39,7 @@ h2 {
   background-color: grey;
 }
 </style>
-<body style="background-color:black;margin:225px";>
+<body style="background-color:black;margin:75px";>
 
 <ul id="ul">
   <li id="li"><a id="lia" href="index.html">Home</a></li>
@@ -47,6 +47,27 @@ h2 {
   <li id="li"><a id="lia" href="kautto.html">Käyttö</a></li>
   <li id="li"><a id="lia" class="active" href="kysymys.html">Q&A</a></li>
 </ul>
+
+<p1 style="color:white;font-size:175%;font-family:verdana;text-decoration: underline;"><br>Laite tuki</p1>
+<div id="teksti"><br>Laitteiden on tavattava tarkat ja tiukat kriteerit ennen kuin ne voidaan luokitella mahdollisiksi kohteiksi. Sillä jos laitteisto / laiteohjelmisto on huono, ei käyttöjärjestelmä voi tarjota korviketta. Laitteessa on oltava kyky asentaa erillisiä käyttöjärjestelmiä sekä tuki omille signeeraus avaimille antaen täyden verified-bootin. Useat Android OEM:mät epäonnistuu kunnollisen verified-bootin implementoinnissa. Laitteessa on myös oltava laitteistopohjaisia turvallisuusominaisuuksia kuten Hardware-Backed-Keystore, useita exploittien mitigointeja, sekä kunnollinen IOMMU eristämään esim radiot toisistaan. Toistaiseksi ainoat laitteet jotka tapaavat tarpeet ovat Googlen Pixel puhelimet
+</div>
+
+<ul style="color:white;font-size:125%;">
+  <li>Täysi verified boot ja tuki omille signeeraus avaimille</li>
+  <li>TitanM siru, Pixelien HSM (Harware Security Module) moduli joka tarjoaa useita ominaisuuksia. Se voi turvallisesti varastoida krytpograafista materiaalia käyttäen Androidin StrongBox avainvarastoa ja vahvistettu rankaisemalla hyökkääjää väärien yritysten jälkeen pidentämällä aikaa ennen uudelleenyritystä. Se on myöskin integroitu verified-boot prosessiin ja TitanM sirun vahvuuden vuoksi on erittäin vaikea tätä ohittaa. Vaikka hyökkääjä pääsisi käsiksi TitanM laiteohjelmiston signeerausavaimiin, (Tai Google itse) he ei kykenisi asentamaan omaa haitallista laiteohjelmistoa Insider-Attack-Resistancen vuoksi joka estää laiteohjelmiston päivittämisen ennen kuin oikea näytön salasana on syötetty.</li>
+  <li>Kunnolliset exoloittien mitigoinnit SoC:issa ja tiukka IOMMU eristämään komponentit. Qualcommin SoC jota käytetään Pixel puhelimissa ottaa käyttöön modernit exploittien mitigoinnit sekä robustin IOMMU:n</li>
+  <li>Fine-grained, forward-edge kernelin CFI (Control Flow Integrity) ja ShadowCallStack - Pixelien kernelit kootaan muokkautettujen vahvistusten kera joihin kuuluu esimerkiksi CFI ja SCS</li>
+  <li>Wifi yksityisyys - Pixelit käyttävät erilaista MAC osoitteen randomisointia kuin muut joka ei vuoda muitakaan tunnisteita MAC osoitteen lisäksi <a style="color:white;"href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">(Dokumentaatio)</a> </li>
+</ul>
+
+<p2 style="color:white;font-size:175%;font-family:verdana;text-decoration: underline;"><br>Puhelut & SMS</p2>
+
+<div id="teksti"><br>GrapheneOS aina olettaa että puhelinoperaattorit ovat vihollisia. Se jättää pois useita sovelluksia mitkä ovat AOSPssä jotka antavat puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myöskin päivittää kellon itse sen sijan että luottaisi että puhelinoperaattori tekisi tätä. Aika on nimittäin arvokasta jota voidaan hyväksi käyttää, tämän takia TitanM siru sisältää kokonaan oman kellon jota se itse määrää.
+Puhelin verkostot käyttävät erittäin epä-turvallisia teknologioita ja niillä on useita luotettavia osapuolia. Luotto on asia mitä ei pitäisi olla tietoturvassa, kenenkään ei pitäisi luottaa että palvelu tekee asiat oikein, on oltava kunnollinen ja robusti tapa joka välttää luottamista muuhun kuin osapuoleen kehen haluat ottaa yhteyttä. Luotettavin järjestelmä on järjestelmä johon ei tarvitse luottaa.
+Kaikilla virallisesti tuetuilla laitteilla on tuki ottaa käyttöön lentokonetila mutta ottaa käyttöön wifi samaan aikaan. Tämä estää kaikki yhteydet puhelinoperaattoriin ja mahdollistaa laitteen käytön wifi-only laitteena. MAC osoitteen randomisointi on aina käytössä kun laite skannaa wifi verkkoja. Pixel puhelimissa on laiteohjelmistotuki MAC osoitteen randomisointiin mikä menee yli perus randomisoinnin 
+Useilla muilla laitteilla laite wifi skannaus vuotaa tunnisteita.
+GrapheneOS myös lisää LTE-only vaihtoehdon joka kytkee 2g/3g/5g yhteyden kokonaan pois ja käyttää pelkästään 4g:tä. Tämä on ainoastaan pinentämään hyökkäyspintaa poistamalla vanhentunutta koodia eikä pidä erehtyä että se on jotain mikä tekisi puhelinoperaattorista luotettavan. Perus puhelut eivät toimi kun LTE-only on käytössä.
+</div>
 
 </body>
 </html>
