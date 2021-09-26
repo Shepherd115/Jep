@@ -17,7 +17,7 @@
   <p>-Lisätty: Title<br>-Lisätty: Käyttö osioon "Auditor"<br>-Lisätty: Käyttö osioon "Yhteensopivuuskerros"<br>-Lisätty: Käyttö osioon "LTE-only"<br>-Lisätty: Käyttö osioon "Kamera"<br>-Lisätty: Käyttö osioon "Pankki sovellukset"<br>-Laite tuki ja Puhelut&SMS osiot siirretty Q&A osioon<br>-Muunnoksia fonttien kokoihin<br>-[Tuleva] Fonttien koot suurenevat / pienenevät laitteen näytön mukaisesti<br>-[Tuleva] Javascript nappi joka muuntaa tekstin mustaksi ja taustan valkoiseksi ja toisinpäin</p>        
   
   <div style="font-size:125%;">1.03</div>
-  <p>-Lisätty: Kytkin joka vaihtaa sivuston tummaan teemaan ja toisinpäin (Vaatii javascriptin selaimessa)<br>-Lisätty: Käyttö osioon "Kamera"<br>-Lisätty: Käyttö osioon "Pankki sovellukset"<br>-Parannuksia fontteihin<br>-Lisätty: Q&A osioon "Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?"<br>-Lisätty: Q&A osioon "Mihin sovellukset kykenevät?"<br>-Käännöksiä poistettu ja laitettu englanniksi<br>-Useita linkkejä teksteihin</p>
+  <p>-Lisätty: Kytkin joka vaihtaa sivuston tummaan teemaan ja toisinpäin (Vaatii javascriptin selaimessa)<br>-Lisätty: Käyttö osioon "Kamera"<br>-Lisätty: Käyttö osioon "Pankki sovellukset"<br>-Parannuksia fontteihin<br>-Lisätty: Q&A osioon "Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?"<br>-Lisätty: Q&A osioon "Mihin sovellukset kykenevät?"<br>-Käännöksiä poistettu ja laitettu englanniksi<br>-Useita linkkejä teksteihin<br>-[Tuleva] Yöteema säilyy sivua vaihtaessa</p>
   
   </body>
   </html>
