@@ -6,7 +6,6 @@
 </head>
 <style>
 #teksti {
-  color:white;
   font-size:125%;
   font-family:Verdana, Tahoma, sans-serif;
 }
@@ -39,8 +38,18 @@ h2 {
 .active {
   background-color: grey;
 }
+
+body {
+  background-color:white;
+  margin:75px;
+}
+.dark-mode {
+  background-color:black;
+  color:white;
+}
 </style>
-<body style="background-color:black;margin:75px";>
+
+<body>
 
 <ul id="ul">
   <li id="li"><a id="lia" href="index.html">Home</a></li>
@@ -49,7 +58,16 @@ h2 {
   <li id="li"><a id="lia" href="kysymys.html">Q&A</a></li>
 </ul>
 
-<h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Ominaisuudet</h1>
+<button style="font-size:225%"; onclick="myFunction()">Tumma teema</button>
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
+<h1 style="text-align:center;font-family:verdana, Tahoma;">Ominaisuudet</h1>
 
 <div id="teksti">Tämä ei sisällä ominaisuuksia jotka ovat tulleet osaksi näitä infrastruktuuri projekteja mihin GrapheneOS nojautuu (AOSP, LLVM, OpenBSD) tämä myöski on VAIN ominaisuudet jota GrapheneOS lisää jo valmiiseen AOSPn turvallisuusmalliin. AOSP on jo valmiiksi erittäin turvallinen kuten sisältää koko systeemiä koskevat SElinux käytännöt, verified-bootin, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) CFI, SCS, kunnollinen hiekkalaatikko ja modernit exploittien lievennys kyvyt.
 GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä. Se aloittaa vahvasta Android Open Source Projectin (AOSP) turvallisuumallista ja varoo tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS säilyttää kaikki Androidin tarjoamat turvallisuus ominaisuudet ja kyvyn lukita bootloader asennuksen jälkeen antaen täyden verified-bootin. GrapheneOS keskittyy oleelliseen markkinoinnin sijan, se ei ota tyypillistä käytäntöä asettaa satunnaisia parannuksia ja ominaisuuksia vain koska ne näyttävät hyvältä. Se on erittäin tekninen projekti rakentaen turvallisuutta ja yksityisyyttä itse käyttöjärjestelmään.
@@ -60,7 +78,7 @@ GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä k
 
 <div id="teksti"><br>Muut omiaisuudet jotka GrapheneOS lisää: </div>
 
-<ul style="color:white;font-size:130%;font-family: Verdana, Tahoma;">
+<ul style="font-size:130%;font-family: Verdana, Tahoma;">
   <li>Vahvistettu / Hardened bionic-c standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
   <li>Vahvistettu / Hardened sovellusten hiekkalaatikko / sandbox</li>
   <li>Tiukennetut SElinux käytännöt</li>
@@ -68,13 +86,13 @@ GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä k
   <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (compiler toolchain)</li>
   <li>Vahvistettu / Hardened kernel</li>
 </ul>
-<ul style="color:white;font-family:verdana, tahoma;list-style-type:circle;">
+<ul style="font-family:verdana, tahoma;list-style-type:circle;">
   <li>Tuki dynaamisesti ladattaville kernel moduuleille on poistettu käytöstä ja ainoastaan minimaalinen sarja moduuleja laitteen mallille on rakennettu kerneliin huomattavasti parantamaan CFIn (Control Flow Integrity) rakeisuutta ja pienentämään hyökkäyspintaa</li>
   <li>Neljäsivuistet sivupöydät on otettu käyttöön antaakseen huomattavasti suuremman osoitetilan (48 bittiä 39 bitin sijan) ja huomattavasti korkeamman entropian ASLRän (Address Space Layout Randomization) (33 bttiä 24 bitin sijan)</li>
   <li>Satunnaiset canary arvot asetetaan kernelin kekoon (heap)</li>
   <li>Muisti pyyhitään heti vapautuksen yhteydessä</li>
 </ul>
-<ul style="color:white;font-size:130%;font-family: Verdana, Tahoma;">
+<ul style="font-size:130%;font-family: Verdana, Tahoma;">
   <li>Dynaamisen natiivikoodin suorittamisen estäminen</li>
   <li>Tiedostojärjestelmän käytön vahvistaminen</li>
   <li>Paranneltu laitteisto pohjainen vahvistus tarkemmille laitteisto tiedoilla</li>
