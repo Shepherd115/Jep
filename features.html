@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ominaisuudet</title>
+<title>Ominaisuudet | GrapheneOS Tieto</title>
 <meta charset="UTF-8">
 </head>
 <style>
@@ -18,8 +18,6 @@ h2 {
   padding: 0;
   overflow: hidden;
   background-color: #333;
-  position: -webkit-sticky;
-  position: sticky;
   top: 0;
 }
 
@@ -31,7 +29,7 @@ h2 {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 32px 25px;
   text-decoration: none;
 }
 
@@ -40,13 +38,24 @@ h2 {
 }
 
 body {
-  background-color:white;
-  margin:75px;
-}
-.dark-mode {
   background-color:black;
+  margin:75px;
   color:white;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+   }
+}
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: white;
+        color: black;
+    }
+}
+
 </style>
 
 <body>
@@ -58,46 +67,39 @@ body {
   <li id="li"><a id="lia" href="kysymys.html">Q&A</a></li>
 </ul>
 
-<button style="font-size:225%"; onclick="myFunction()">Tumma teema</button>
-
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
-
 <h1 style="text-align:center;font-family:verdana, Tahoma;">Ominaisuudet</h1>
 
-<div id="teksti">Tämä ei sisällä ominaisuuksia jotka ovat tulleet osaksi näitä infrastruktuuri projekteja mihin GrapheneOS nojautuu (AOSP, LLVM, OpenBSD) tämä myöski on VAIN ominaisuudet jota GrapheneOS lisää jo valmiiseen AOSPn turvallisuusmalliin. AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> käytännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">hiekkalaatikon</a><br>
+<div id="teksti">Tämä ei sisällä ominaisuuksia jotka ovat tulleet osaksi näitä infrastruktuuri projekteja mihin GrapheneOS nojautuu (AOSP, LLVM, OpenBSD) tämä myöski on VAIN ominaisuudet jota GrapheneOS lisää jo valmiiseen AOSPn turvallisuusmalliin. AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> säännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">hiekkalaatikon</a><br>
 <br>GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä. Se aloittaa vahvasta <a href="https://source.android.com/security">Android Open Source Projectin (AOSP)</a> turvallisuumallista ja varoo tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS säilyttää kaikki Androidin tarjoamat turvallisuus ominaisuudet ja kyvyn lukita bootloader asennuksen jälkeen antaen täyden verified-bootin. GrapheneOS keskittyy oleelliseen markkinoinnin sijan, se ei ota tyypillistä käytäntöä asettaa satunnaisia parannuksia ja ominaisuuksia vain koska ne näyttävät hyvältä. Se on erittäin tekninen projekti rakentaen turvallisuutta ja yksityisyyttä itse käyttöjärjestelmään.
 </div>
 
-<div id="teksti">GrapheneOS sisältää oman vahvistetun / hardened mallocin. (memory allocator) Tämä on turvallisuuteen keskittynyt memory_allocator joka tarjoaa huomattavia vahvistuksia kasan korruptoitumis bugien hyväksikäyttöä vastaan. Turvallisuuspainotteinen rakenne myös johtaa pienempään metatieto määrään ja pienempään muistihukkaan sisäisen pirstoutumisen vuoksi. Virallinen dokumentaatio rakenteesta ja ominaisuuksista löytyy <a href="https://github.com/GrapheneOS/hardened_malloc">Tästä</a>
-</div>
-
-<div id="teksti"><br>Muut omiaisuudet jotka GrapheneOS lisää: </div>
+<div id="teksti"><br>Muut omiaisuudet jotka GrapheneOS lisää, katso linkit yksityiskohtiin, tämä on vain yhteenveto!: </div>
 
 <ul style="font-size:130%;font-family: Verdana, Tahoma;">
+  <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
+  <ul>
+    <li>Out-Of-Line meatiedot sekä suojaus korruptoitumiselta estäen yleiset hyväksikäytöt</li>
+    <li>Erilliset muistialueet metatiedoille, suurille varauksille sekä pienille eikä osoitetilaa koskaan uudelleenkäytetä muilla alueilla kuin heidän omallaan</li>
+    <li>Virheellisten vapautusten determistinen havaitseminen</li>
+    <li>Alustus vapautuksen yhteydessä sekä kirjoitus-vapautuksen-jälkeen havaitseminen tarkistamalla että muisti on silti vapautettu ennen kuin se annetaan käyttöön uudelleen</li>
+    <li>Viivästetty osoitetilan uudelleenkäyttö</li>
+    <li>Korkean entropian satunnaisen kokoiset vartija alueet suurien varausten ympärillä</li>
+    <li>Canary-arvoja lisätään pienempiin varauksiin</li>
+  </ul>
+
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
   <li>Vahvistettu / Hardened sovellusten hiekkalaatikko / sandbox</li>
-  <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux käytännöt</a></li>
+  <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
   <li>Vahvistettu / Hardened app-runtime</li>
   <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (compiler toolchain)</li>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/device_google_sunfish-kernel">Hardened kernel</a></li>
-</ul>
-
-<ul style="font-family:verdana, tahoma;list-style-type:circle;">
-  <li>Tuki dynaamisesti ladattaville kernel moduuleille on poistettu käytöstä ja ainoastaan minimaalinen sarja moduuleja laitteen mallille on rakennettu kerneliin huomattavasti parantamaan CFIn (Control Flow Integrity) rakeisuutta ja pienentämään hyökkäyspintaa</li>
-  <li>Eng: 4-level page tables are enabled on arm64 to provide a much larger address space (48-bit instead of 39-bit) with significantly higher entropy Address Space Layout Randomization (33-bit instead of 24-bit)</li>
-  <li>Eng: Random canaries with a leading zero are added to the kernel heap (slub) to block C string overflows, absorb small overflows and detect linear overflows or other heap corruption when the canary value is checked (on free, copies to/from userspace, etc.)</li>
-  <li>Eng: Memory is wiped (zeroed) as soon as it's released in both the low-level kernel page allocator and higher level kernel heap allocator (slub). This substantially reduces the lifetime of sensitive data in memory, mitigates use-after-free vulnerabilities and makes most uninitialized data usage vulnerabilities harmless. Without our changes, memory that's released retains data indefinitely until the memory is handed out for other uses and gets partially or fully overwritten by new data</li>
-  <li>Eng: Kernel stack allocations are zeroed to make most uninitialized data usage vulnerabilities harmless</li>
-  <li>Eng: Assorted attack surface reduction through disabling features or setting up infrastructure to dynamically enable/disable them only as needed (perf, ptrace)</li>
-  <li>Eng: Assorted upstream hardening features are enabled, including many which we played a part in developing and landing upstream as part of our linux-hardened project (which we intend to revive as a more active project again)</li>
-</ul>
-
-<ul style="font-size:130%;font-family: Verdana, Tahoma;">
+  <ul>
+  <li>Dynaamisesti ladattavat kernel moduulit on poistettu käytöstä parantamaan CFIn rakeisuutta ja pienentämään hyökkäyspintaa</li>
+  <li>4-level-page-tables käytössä arm64 alustalla antamaan huomattavasti suuremman entropian osoitetila ja ASLR</li>
+  <li>Canary-arvoja asetetaan kernelin kasaan (heap)</li>
+  <li>Muisti pyyhitään (nollataan) heti vapautuksen jälkeen</li>
+  <li>Mahdollisuus kytkeä perf ja ptrace pois päältä hyökkäyspinnan vähentämiseksi</li>
+  </ul>
   <li>Eng:Prevention of dynamic native code execution in-memory or via the filesystem for the base OS without going via the package manager, etc.</li>
   <li>Eng:Filesystem access hardening</li>
   <li>Paranneltu laitteisto pohjainen vahvistus tarkemmille laitteisto tiedoilla</li>
