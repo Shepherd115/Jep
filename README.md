@@ -19,5 +19,11 @@
   <div style="font-size:125%;">1.03</div>
   <p>-Lisätty: Kytkin joka vaihtaa sivuston tummaan teemaan ja toisinpäin (Vaatii javascriptin selaimessa)<br>-Lisätty: Käyttö osioon "Kamera"<br>-Lisätty: Käyttö osioon "Pankki sovellukset"<br>-Parannuksia fontteihin<br>-Lisätty: Q&A osioon "Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?"<br>-Lisätty: Q&A osioon "Mihin sovellukset kykenevät?"<br>-Käännöksiä poistettu ja laitettu englanniksi<br>-Useita linkkejä teksteihin<br>-[Tuleva] Yöteema säilyy sivua vaihtaessa</p>
   
+<div style="font-size:125%;">1.04</div>
+<p>-Lisätty: Q&A osioon "Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?"<br>-Lisätty: Q&A osioon "Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)"<br>-Lisätty: Q&A osioon "GrapheneOS VS NSA / FBI jne"<br>-Lisätty: Q&A osioon "GrapheneOS VS iOS"<br>-Lisätty: Q&A osioon "Onko sovelluksilla pääsy leikepöytään?"<br>-Lisätty: Q&A osioon "Tarjoaako GrapheneOS palomuurin?"<br>-Navigointipalkki pysyy paikoillaan<br>-Navigointipalkin kokoa suurennettu<br>
+-Pieniä parannuksia otsikoiden ulkonäköön<br>-"Mihin sovellukset kykenevät?" osioon lisätty tietoa kuten IPC<br>-Suuria parannuksia "Ominaisuudet" sivuun kuten paranneltuja käännöksiä ja selkeämpää tekstiä<br>-Tummateema nappula poistettu ja korjattu havaitsemaan lukijan laitteella oleva teema ja täsmäävän sitä<br>
+-Korjattu paljon kirjoitusvirheitä<br>-Muutosloki linkki muutettu napiksi<br>-Q&A ja Käyttö sivuilla on sivun "sisältö" osio jonka avulla voi navigoida haluttuun kohtaan</p>
+
+  
   </body>
   </html>
