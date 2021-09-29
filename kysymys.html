@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
 <head>
-<meta charset="UTF-8">
-<title>Q&A | GrapheneOS Tieto</title>
+  <meta charset="UTF-8">
+  <title>Q&A | GrapheneOS Tieto</title>
+  <meta name="description" content="GrapheneOS kysymyksiä"/>
 </head>
 <style>
+
+a {
+    color: #1565c0;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #6a1b9a;
+}
+
+a:hover {
+    background-color: #0e0f0f;
+    text-decoration: underline;
+}
+
 #teksti {
   font-size:125%;
-  font-family:Verdana, Tahoma, sans-serif;
+  font-family: Roboto, verdana;
 }
 #ul {
   list-style-type: none;
@@ -20,6 +36,7 @@
 
 #li {
   float: left;
+  border-right:1px solid #bbb;
 }
 
 #lia {
@@ -30,39 +47,43 @@
   text-decoration: none;
 }
 
+li a:hover {
+  background-color: #111;
+}
+
 .active {
   background-color: grey;
 }
+
 body {
-  background-color:black;
-  margin:75px;
+  background-color:#0e0f0f;
+  margin-right:100px;
+  margin-left:100px;
   color:white;
+  font-family:Roboto, sans-serif, verdana;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: black;
-        color: white;
-   }
+@media only screen and (min-width: 1200px) {
+  body {
+    margin-left:225px;
+    margin-right:225px;
+  }
 }
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: white;
-        color: black;
-    }
-}
+
+p1 a, p1 a:visited, p2 a, p2 a:visited, p3 a, p3 a:visited, p4 a, p4 a:visited, p5 a, p5 a:visited, p6 a, p6 a:visited, p7 a, p7 a:visited, p8 a, p8 a:visited, p9 a, p9 a:visited, p10 a, p10 a:visited, p11 a, p11 a:visited {
+    color: white;
 
 </style>
 <body>
 
-<ul id="ul">
+<ul style="font-size:200%;" id="ul">
   <li id="li"><a id="lia" href="index.html">Home</a></li>
   <li id="li"><a id="lia" href="features.html">Ominaisuudet</a></li>
   <li id="li"><a id="lia" href="kautto.html">Käyttö</a></li>
   <li id="li"><a id="lia" class="active" href="kysymys.html">Q&A</a></li>
 </ul>
 
-<ul style="font-size:125%;" class="headers">
+<ul style="font-size:125%;border-left:5px solid;border-radius:10px;" class="headers">
   <li><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></li>
   <li><a href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></li>
   <li><a href="#sovellukset">Mihin sovellukset kykenevät?</a></li>
@@ -76,20 +97,20 @@ body {
   <li><a href="#apple">GrapheneOS VS iOS</a></li>
 </ul>
 
-<p1 style="font-size:175%;font-family:verdana;text-deocration:underline;" id="laite-tuki"><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></p1>
+<p1 style="font-size:175%;text-deocration:underline;" id="laite-tuki"><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></p1>
 
 <div id="teksti"><br>Laitteiden on tavattava tarkat ja tiukat kriteerit ennen kuin ne voidaan luokitella mahdollisiksi kohteiksi. Sillä jos laitteisto / laiteohjelmisto on huono, ei käyttöjärjestelmä voi tarjota korviketta. Laitteessa on oltava kyky asentaa erillisiä käyttöjärjestelmiä sekä tuki omille signeeraus avaimille antaen täyden verified-bootin. Useat Android OEM:mät epäonnistuu kunnollisen verified-bootin implementoinnissa. Laitteessa on myös oltava laitteistopohjaisia turvallisuusominaisuuksia kuten Hardware-Backed-Keystore, useita exploittien mitigointeja, sekä kunnollinen IOMMU eristämään esim radiot toisistaan. Toistaiseksi ainoat laitteet jotka tapaavat tarpeet ovat Googlen Pixel 4a, 4a5g, 5 ja 5a puhelimet. Vanhemmat Pixel laitteet eivät ole listassa sillä niiden tuki on loppunut sillä näiden OEM on lopettanut tuen. Pixel puhelimet on valittu seuraavista sysitä:
 </div>
 
-<ul style="font-size:125%;font-family:verdana;">
+<ul style="font-size:125%;">
   <li>Täysi verified boot ja tuki omille signeeraus avaimille</li>
-  <li>TitanM siru, Pixelien HSM (Harware Security Module) moduli joka tarjoaa useita ominaisuuksia. Se voi turvallisesti varastoida krytpograafista materiaalia käyttäen Androidin StrongBox avainvarastoa ja vahvistettu rankaisemalla hyökkääjää väärien yritysten jälkeen pidentämällä aikaa ennen uudelleenyritystä. Se on myöskin integroitu verified-boot prosessiin ja TitanM sirun vahvuuden vuoksi on erittäin vaikea tätä ohittaa. Vaikka hyökkääjä pääsisi käsiksi TitanM laiteohjelmiston signeerausavaimiin, (Tai Google itse) he ei kykenisi asentamaan omaa haitallista laiteohjelmistoa Insider-Attack-Resistancen vuoksi joka estää laiteohjelmiston päivittämisen ennen kuin oikea näytön salasana on syötetty.</li>
+  <li>TitanM siru, Pixelien HSM (Harware Security Module) moduli joka tarjoaa useita ominaisuuksia. Se voi turvallisesti varastoida krytpograafista materiaalia käyttäen Androidin StrongBox avainvarastoa. Se on myöskin integroitu verified-boot prosessiin ja TitanM sirun vahvuuden vuoksi on erittäin vaikea tätä ohittaa. Vaikka hyökkääjä pääsisi käsiksi TitanM laiteohjelmiston signeerausavaimiin, (Tai Google itse) he ei kykenisi asentamaan omaa haitallista laiteohjelmistoa <a ="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html">Insider-Attack-Resistancen</a> vuoksi joka estää laiteohjelmiston päivittämisen ennen kuin oikea näytön salasana on syötetty.</li>
   <li>Kunnolliset exoloittien mitigoinnit SoC:issa ja tiukka IOMMU eristämään komponentit. Qualcommin SoC jota käytetään Pixel puhelimissa ottaa käyttöön modernit exploittien mitigoinnit sekä robustin IOMMU:n</li>
   <li>Fine-grained, forward-edge kernelin CFI (Control Flow Integrity) ja ShadowCallStack - Pixelien kernelit kootaan muokkautettujen vahvistusten kera joihin kuuluu esimerkiksi CFI ja SCS</li>
   <li>Wifi yksityisyys - Pixelit käyttävät erilaista MAC osoitteen randomisointia kuin muut joka ei vuoda muitakaan tunnisteita MAC osoitteen lisäksi <a style="color:white;"href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">(Dokumentaatio)</a> </li>
 </ul>
 
-<p2 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="verkot"><a href="#verkot"><br>Mitä GrapheneOS tekee puhelinverkoille?</a></p2>
+<p2 style="font-size:175%;text-decoration: underline;" id="verkot"><a href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></p2>
 
 <div id="teksti"><br>GrapheneOS aina olettaa että puhelinoperaattorit ovat vihollisia. Se jättää pois useita sovelluksia mitkä ovat AOSPssä jotka antavat puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myöskin päivittää kellon itse sen sijan että luottaisi että puhelinoperaattori tekisi tätä. Aika on nimittäin arvokasta jota voidaan hyväksi käyttää, tämän takia TitanM siru sisältää kokonaan oman kellon jota se itse määrää.
 Puhelin verkostot käyttävät erittäin epä-turvallisia teknologioita ja niillä on useita luotettavia osapuolia. Luotto on asia mitä ei pitäisi olla tietoturvassa, kenenkään ei pitäisi luottaa että palvelu tekee asiat oikein, on oltava kunnollinen ja robusti tapa joka välttää luottamista muuhun kuin osapuoleen kehen haluat ottaa yhteyttä. Luotettavin järjestelmä on järjestelmä johon ei tarvitse luottaa.
@@ -98,41 +119,41 @@ Useilla muilla laitteilla laite wifi skannaus vuotaa tunnisteita.
 GrapheneOS myös lisää LTE-only vaihtoehdon joka kytkee 2g/3g/5g yhteyden kokonaan pois ja käyttää pelkästään 4g:tä. Tämä on ainoastaan pinentämään hyökkäyspintaa poistamalla vanhentunutta koodia eikä pidä erehtyä että se on jotain mikä tekisi puhelinoperaattorista luotettavan. Perus puhelut eivät toimi kun LTE-only on käytössä.
 </div>
 
-<p3 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="sovellukset"><a href="#sovellukset"><br><br>Mihin sovellukset kykenevät</a></p3>
+<p3 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="sovellukset"><a href="#sovellukset"><br>Mihin sovellukset kykenevät</a></p3>
 
-<div id="teksti"><br>Android10 myötä, sovellukset eivät voi saada pääsyä muuttumattomiin laitteisto tunnisteisiin kuten sarjanumero, MAC osoite, IMEI/MEID, SIM kortin sarjanumero jne. Ainoastaan tietyt käyttöjärjestelmän komponentit voivat saada nämä tiedot. Sovellukset joiden kohde on Android10 saavat SeucityException:in ja vanhemmat sovellukset tyhjän arvon yhteensopivuuden vuoksi. Sillä näistä tuli oletuksia GrapheneOS ei enään sisällä ominaisuutta rajoittaa näihin pääsyä.<br><br>Näiden lisäksi sovellukset eivät voi suoraan nähdä laitteistolla olevaa käyttöjärjestelmää, mutta voivat silti havaita tämän turvallisuus / yksityisyys ominaisuuksien vuoksi. Sovellukset voivat luoda oman 128 bittisen tai suuremman satunnaisen arvon ja käyttää sitä tunnistamaan onko sovellus ollut tällä laitteella ja tällä profiililla ennen. Sovellukset voivat myös luoda arvoja heidän omassa kansiossaan ilman luvan pyytämistä, ja sovellukset joiden target SDK on vähemmän kuin 29 nämä arvot säilyvät kansiossaan vaikka sovellus poistettaisiin. On kuitenkin mahdollista manuaalisesti poistaa nämä. Android_ID on 64 bittinen satunnainen numero joka muodostuu profiilista ja sovelluksen signeeraus avaimesta. Pienen arvonsa vuoksi se ei kuitenkaan ole kovin hyödyllinen seurannassa ja se tuhoutuu profiilin poistaessa.<br><br>Käyttäjän asentamat sovellukset asetetaan automaattisesti vahvistettuun sandboxiin / <a href="https://source.android.com/security/app-sandbox">hiekkalaatikkoon</a> ja heillä on ainoastaan pääsy oman hiekkalaatikon resursseihin. Sovelluksella on kuitenkin kyky pyytää pääsyä käyttäjän tietoihin, mutta vain jos käyttäjä tämän sallii. Näihin kuuluu esim kamera, sijainti, tallennustila jne. Pääsy tiedostoihin on vanhanaikainen lupa ja uudemmat sovellukset (TargetSDK<29) eivät voi saada pääsyä kaikkiin tiedostoihin vaan käyttäjä valitsee mitä tiedostoja annetaan. Eli ei, sovellukset eivät voi "vakoilla" käyttäjää ellei käyttäjä mene itse myöntämään sovellukselle lupia tehdä tämä.<br><br>IPC (Inter App Communication) - Sovellukset voivat keskustella profiilin sisällä yhteisellä sovinnolla ja jakaa tietoa keskenään. Esimerkiksi jos sovellus A sisältää pelkän Network luvan ja sovellus B pelkän tiedostot luvan mutta ei Network, voi sovellus B pyytää sovellus A:ta lähettämään tiedot haluamalleen osapuolelle. Ainoa tapa toistaiseksi estää tämä on käyttäjäprofiileilla sillä sovellukset kykenevät keskustelemaan ainoastaan samassa profiilissa olevien sovellusten kanssa.<br><br>Target SDK - Target SDK tarkoittaa mikä on korkein Android versio jolle sovellus on suuniteltu. Jokainen AOSP versio tuo suuria yksityisyys / turvallisuus parannuksia jonka vuoksi korkeampi target SDK yleensä tarkoittaa parempaa turvallisuutta, esimerkiksi SDK24 toi turvallisempia oletuslupia kun taas sovellukset joiden TargetSDK on 28 tai yli saa heidän oman turvallisuus tason MultiLevelSecurityssä jota vahvistaa SElinux.<br><br>GrapheneOS ei toistaiseksi sisällä omaa "sovelluskauppaa" joten käyttäjien on itse tämä tehtävä. F-Droid on yleinen vaihtoehto mutta useimmat sovellukset täällä ovat erittäin vanhanaikaisia ja F-Droid toimii heikkona välikätenä. Toinen vaihtoehto on sovellusten asentaminen suoraan kehittäjältä esim heidän Github sivulta. Kolmas on Aurora Store mikä on PlayStore front-end mutta tämä vaatii pääsyä kaikkiin tiedostoihin, antaa vääriä versioita sovelluksista, ei ole TLS pinnausta. Googlen Playkauppa on paras vaihtoehto mikä on osa yhteensopivuuskerrosta.</div>
+<div id="teksti"><br>Android10 myötä, sovellukset eivät voi saada pääsyä muuttumattomiin laitteisto tunnisteisiin kuten sarjanumeroon, MAC osoitteeseen, IMEI/MEID, SIM kortin sarjanumeroon jne. Ainoastaan tietyt käyttöjärjestelmän komponentit voivat saada nämä tiedot. Sovellukset joiden kohde on Android10 saavat SeucityException:in ja vanhemmat sovellukset tyhjän arvon yhteensopivuuden vuoksi. Sillä näistä tuli oletuksia GrapheneOS ei enään sisällä ominaisuutta rajoittaa näihin pääsyä.<br><br>Näiden lisäksi sovellukset eivät voi suoraan nähdä laitteistolla olevaa käyttöjärjestelmää, mutta voivat silti havaita tämän turvallisuus / yksityisyys ominaisuuksien vuoksi. Sovellukset voivat luoda oman 128 bittisen tai suuremman satunnaisen arvon ja käyttää sitä tunnistamaan onko sovellus ollut tällä laitteella ja tällä profiililla ennen. Sovellukset voivat myös luoda arvoja heidän omassa kansiossaan ilman luvan pyytämistä, ja sovellukset joiden target SDK on vähemmän kuin 29 nämä arvot säilyvät kansiossaan vaikka sovellus poistettaisiin. On kuitenkin mahdollista manuaalisesti poistaa nämä. Android_ID on 64 bittinen satunnainen numero joka muodostuu profiilista ja sovelluksen signeeraus avaimesta. Pienen arvonsa vuoksi se ei kuitenkaan ole kovin hyödyllinen seurannassa ja se tuhoutuu profiilin poistaessa.<br><br>Käyttäjän asentamat sovellukset asetetaan automaattisesti vahvistettuun sandboxiin / <a href="https://source.android.com/security/app-sandbox">hiekkalaatikkoon</a> ja heillä on ainoastaan pääsy oman hiekkalaatikon resursseihin. Sovelluksella on kuitenkin kyky pyytää pääsyä käyttäjän tietoihin, mutta vain jos käyttäjä tämän sallii. Näihin kuuluu esim kamera, sijainti, tallennustila jne. Pääsy tiedostoihin on vanhanaikainen lupa ja uudemmat sovellukset (TargetSDK<29) eivät voi saada pääsyä kaikkiin tiedostoihin vaan käyttäjä valitsee mitä tiedostoja annetaan. Eli ei, sovellukset eivät voi "vakoilla" käyttäjää ellei käyttäjä mene itse myöntämään sovellukselle lupia tehdä tämä.<br><br>IPC (Inter App Communication) - Sovellukset voivat keskustella profiilin sisällä yhteisellä sovinnolla ja jakaa tietoa keskenään. Esimerkiksi jos sovellus A sisältää pelkän Network luvan ja sovellus B pelkän tiedostot luvan mutta ei Network, voi sovellus B pyytää sovellus A:ta lähettämään tiedot haluamalleen osapuolelle. Ainoa tapa toistaiseksi estää tämä on käyttäjäprofiileilla sillä sovellukset kykenevät keskustelemaan ainoastaan samassa profiilissa olevien sovellusten kanssa.<br><br>Target SDK - Target SDK tarkoittaa mikä on korkein Android versio jolle sovellus on suuniteltu. Jokainen AOSP versio tuo suuria yksityisyys / turvallisuus parannuksia jonka vuoksi korkeampi target SDK yleensä tarkoittaa parempaa turvallisuutta, esimerkiksi SDK24 toi turvallisempia oletuslupia kun taas sovellukset joiden TargetSDK on 28 tai yli saa heidän oman turvallisuus tason MultiLevelSecurityssä jota vahvistaa SElinux.<br><br>GrapheneOS ei toistaiseksi sisällä omaa "sovelluskauppaa" joten käyttäjien on itse tämä tehtävä. F-Droid on yleinen vaihtoehto mutta useimmat sovellukset täällä ovat erittäin vanhanaikaisia ja F-Droid toimii heikkona välikätenä. Toinen vaihtoehto on sovellusten asentaminen suoraan kehittäjältä esim heidän Github sivulta. Kolmas on Aurora Store mikä on PlayStore front-end mutta tämä vaatii pääsyä kaikkiin tiedostoihin, antaa vääriä versioita sovelluksista, ei ole TLS pinnausta. Googlen Playkauppa on paras vaihtoehto mikä on osa yhteensopivuuskerrosta.</div>
 
-<p4 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="muut"><a href="#muut"><br>Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></p4>
+<p4 style="font-size:175%;text-decoration: underline;" id="muut"><a href="#muut"><br>Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></p4>
 
 <div id="teksti"><br>GrapheneOS keskittyy täysin turvallisuus / yksityisyys parannuksiin itse käyttöjärjestelmässä, ei markkinointiin ja kolmannen osapuolen sovellusten ennalta asentamiseen kuten Signaalin. Useat muut kuten LineageOS ei mahdollista bootloaderin lukitsemista mikä kytkee verified-bootin pois mikä on iso osa Androidin turvallisuusmallia. Käyttää <a href="https://github.com/LineageOS/hudson/blob/master/lineage-build-targets">user-debug buildseja</a> oletuksena joka lisää hyökkäyspintaa, <a href="https://github.com/LineageOS/android_system_sepolicy/search?q=userdebug&type=code">heikentää SElinux sääntöjä</a>, ei anna minkäänlaista <a href="https://source.android.com/security/verifiedboot/verified-boot#rollback-protection">roll-back suojaa</a> ja jopa antaa käyttäjän itse alentaa version eikä kuljeta laiteohjelmisto päivityksiä.<br><br>Toinen yleinen käyttöjärjestelmä on CalyxOS joka säilyttää Androidin turvallisuusmallin mutta ei paranna sitä. Sisältää myös MicroGn mikä osittain rikkoo Androidin turvallisuusmallin. Myöskin keskittyy enemmän markkinointiin ja kolmannen osapuolen sovellusten ennalta-asentamiseen.</div>
 
-<p5 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="palomuuri"><a href="#palomuuri"><br>Tarjoaako GrapheneOS palomuurin?</a></p5>
+<p5 style="font-size:175%;text-decoration: underline;" id="palomuuri"><a href="#palomuuri"><br>Tarjoaako GrapheneOS palomuurin?</a></p5>
 
 <div id="teksti"><br>Kyllä, GrapheneOS perii vahvasti integroidun palomuurin Android Open Source Projectilta, jota käytetään implementoidakseen useita turvallisuusmallin osioita ja muita ominaisuuksia. GrapheneOS teki muutoksia tähän mutta nämä on nyt oletuksia joten muutokset poistettiin.<br><br>GrapheneOS lisää user-facing Network lupa kytkimen joka tarjoaa robustin tavan evätä molemmat suorat ja ei suorat yhteydet internettiin sovellukselta. Se on rakennettu Androidin Ei User-Facing INTERNET luvasta joten Android sovellusten ekosysteemi on jo kokonaan adoptoinut idean.</div>
 
-<p6 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="leike"><a href="#leike"><br>Onko sovelluksilla pääsy leikepöytään?</a></p6>
+<p6 style="font-size:175%;text-decoration: underline;" id="leike"><a href="#leike"><br>Onko sovelluksilla pääsy leikepöytään?</a></p6>
 
 <div id="teksti"><br>Android10 myötä, ainoastaan konfiguroidulla näppäimistöllä ja sillä hetkellä auki oleva sovellus saa pääsyn leikepöytään. Sovellukset jotka ovat auki taustalla eivät saa tähän pääsyä. GrapheneOS ennen rajoitti sovellusten pääsyä leikepöytään taustalla mutta tästä tuli oletus joten se poistettiin.</div>
 
-<p7 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="fsp"><a href="#fsp"><br>Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></p7>
+<p7 style="font-size:175%;text-decoration: underline;" id="fsp"><a href="#fsp"><br>Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></p7>
 
 <div id="teksti"><br>Ei. Tämä olisi vaarallista ja tarpeetonta. TitanM käsittelee brute-force hyökkäykset paljon kehittyneemmin kuin vain avainten poistaminen. TitanM siru itsessään on äärettömän pieni (Noin riisin kokoinen) ja on luonteeltaan erittäin vaikea kohde. TitanM on myös integroitu laitteen salaus prosessiin ja säilöö tokenssit joista luodaan avaimet salauksen purkuun eikä se vapauta näitä ennen kuin oikea salsana on syötetty. Tarkoittaen että yritykset päästä laitteeseen on tehtävä juuri sen TitanM sirun kautta. Brute-force hyökkäyksen aikana TitanM rankaisee hyökkääjää pidentämällä aikaa ennen uutta yritystä. Ensimmäisen viiden yrityksen jälkeen TitanM sammuttaa pääsyn tokensseihin 30 sekunniksi ja sammuttaa sormenjälki lukijan. Tämän jälkeen TitanM progressiivisesti pidentää aikaa kunnes uuden yrityksen aika on yksi päivä. Vaikka käyttöjärjestelmä olisi hyökkääjän hallussa, niin ei ajastinta voi ohittaa sillä TitanM sisältää oman kellon josta OS ei pidä mitään kontrollia. Tämä ei suojaa jos laitteen salasana on jotain helppoa kuten 12345 tai lemmikin nimi mutta tarjoaa lähes murtamattoman suojan vain 6 lukuisella PIN koodilla. On myös hyvä huomioida että GrapheneOS sallii maksimissaan 64 merkkisten salasanojen käytön jos kokee että tarvitsee entistä vahvemman suojan. </div>
 
-<p8 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="nsa"><a href="#nsa"><br>GrapheneOS VS NSA / FBI jne</a></p8>
+<p8 style="font-size:175%;text-decoration: underline;" id="nsa"><a href="#nsa"><br>GrapheneOS VS NSA / FBI jne</a></p8>
 
 <div id="teksti"><br>On hyvä ymmärtää että kun puhutaan vastustajista joilla on täysi kontrolli laitteistosta ja rajoittamaton määrä resursseja, ei kyse ole siitä että voiko nämä murtaa salauksen vai ei vaan kysymys on kuinka paljon he ovat valmiita käyttämään resursseja, kidnappaamaan, kuulustelemaan, kiduttamaan ja tappamaan saadakseen haluamansa. GrapheneOS uhkamalli on suojella muistinkorruptio bugeilta, exploiteilta ja parantaa sovellusten turvallisuutta. Valtion tasoiset vastustajat ovat tämän ulkopuolella. 64 merkkisten salasanojen käyttäminen auttaa asiaa mutta kyseisillä vastustajilla on muitakin keinoja saada haluamasa kuin vain brute-force hyökkäys.</div>
 
-<p9 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="verkkoyhteys"><a href="#verkkoyhteys"><br>Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></p9>
+<p9 style="font-size:175%;text-decoration: underline;" id="verkkoyhteys"><a href="#verkkoyhteys"><br>Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></p9>
 
 <div id="teksti"><br>Sovellukset eivät voi monitoroida verkkoyhteyksiä ellei niistä ole tehty aktiivista VPN palvelua käyttäjän toimesta. Sovellukset eivät voi normaalisti saada pääsyä verkkotilastoihin ja eivät voi suoraan pyytää pääsyä niihin.</div>
 
-<p10 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="yhteydet"><a href="#yhteydet"><br>Mitä yhteyksiä GrapheneOS tekee?</a></p10>
+<p10 style="font-size:175%;text-decoration: underline;" id="yhteydet"><a href="#yhteydet"><br>Mitä yhteyksiä GrapheneOS tekee?</a></p10>
 
 <div id="teksti"><br>GrapheneOS tekee yhteyksiä ulkomaailmaan testatakseen yhteyksiä, havaitsemaan captive portaaleja ja ladatakseen päivityksiä. Tunnistettavia tietoja ei lähetetä. GrapheneOS ei sisällä analytiikkaa. Tarkat yhteydet löytyy <a href="https://grapheneos.org/faq#default-connections">tästä</a>  </div>
 
-<p11 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="apple"><a href="#apple"><br>GrapheneOS VS iOS<br></a></p11>
+<p11 style="font-size:175%;text-decoration: underline;" id="apple"><a href="#apple"><br>GrapheneOS VS iOS<br></a></p11>
 
-<div id="teksti">Huomaa että kun puhun "Android / AOSP" niin tarkoitan Androidia Pixel laitteilla ainoastaan, muut pimeät Android forkit jota esim Samsung ja Huawei tekee eivät kuulu tähän.<br><br>Laitteisto ja laiteohjelmisto - Useimmat turvallisuusominaisuudet ovat hyvin vahvasti yhdistetty fyysiseen laitteistoon käyttöjärjestelmän sijan. Nexus5X ja 6P alkoivat parantaa tätä Googlen puhelin sarjassa mutta he eivät edenneet pitkälle. Pixel puhelimet ovat tuoneet isoja parannuksia ja jokainen sukupolvi tuo entistä parempia ominaisuuksia. Pixelien TitanM on helposti verrattavissa iPhonen SEPiin. Toisaalta Pixelien muut osat laitteistosta on vajaita verraten uusimpaan iPhoneen, esim luottaisin Appleen enemmän vetäen kunnollisen IOMMU konfiguraation kuin Qualcomm, Pixel6 saattaa kyllä muuntaa tämän sillä Google tekee oman SoCin.<br><br>Pixelit joissa AOSP vs iOS - AOSP on edennyt turvallisuudessa ja yksityisyydessä erittäin paljon viime aikoina, Pixel5 ohejelmisto on hyvinkin verrattavissa uusimpiin iPhoneihin, ja se saavuttaa iPhonea vauhdilla laitteisto tasolla myös. iOS tarjoaa paljon paremman yksityisyyden sovelluksilta kuin Androidin ja heidän palvelut on parempia kuin playpalvelut, mutta useat asiat playpalveluista voi kytkeä pois päältä kuten analytiikan.<br><br>Pixel jossa GrapheneOS vs iOS - GrapheneOS aloittaa AOSPstä ilman playpelveluiden ja muiden Googlen tavaroiden lisäämistä, tämä on jo yksityisyyden kannalta voitto. GrapheneOS myös parantaa sovellusten hiekkalaatikkoa ja sisältää erittäin robustin lupahallinnan ja lisääkin 2 uutta lupaa rajoittaakseen sovelluksia entisestään. Muuten turvallisuudessa on hyvä ja huonoja puolia, jompikumpi tekee tietyt asiat paremmin ja toinen toiset. On mahdotonta antaa yksi selvä mustavalkoinen vastaus kun aihe on paljon monimutkaisempi kuin se.</div>
+<div id="teksti"><br>Huomaa että kun puhun "Android / AOSP" niin tarkoitan Androidia Pixel laitteilla ainoastaan, muut pimeät Android forkit jota esim Samsung ja Huawei tekee eivät kuulu tähän.<br><br>Laitteisto ja laiteohjelmisto - Useimmat turvallisuusominaisuudet ovat hyvin vahvasti yhdistetty fyysiseen laitteistoon käyttöjärjestelmän sijan. Nexus5X ja 6P alkoivat parantaa tätä Googlen puhelin sarjassa mutta he eivät edenneet pitkälle. Pixel puhelimet ovat tuoneet isoja parannuksia ja jokainen sukupolvi tuo entistä parempia ominaisuuksia. Pixelien TitanM on helposti verrattavissa iPhonen SEPiin. Toisaalta Pixelien muut osat laitteistosta on vajaita verraten uusimpaan iPhoneen, esim luottaisin Appleen enemmän vetäen kunnollisen IOMMU konfiguraation kuin Qualcomm, Pixel6 saattaa kyllä muuntaa tämän sillä Google tekee oman SoCin.<br><br>Pixelit joissa AOSP vs iOS - AOSP on edennyt turvallisuudessa ja yksityisyydessä erittäin paljon viime aikoina, Pixel5 ohejelmisto on hyvinkin verrattavissa uusimpiin iPhoneihin, ja se saavuttaa iPhonea vauhdilla laitteisto tasolla myös. iOS tarjoaa paljon paremman yksityisyyden sovelluksilta kuin Androidin ja heidän palvelut on parempia kuin playpalvelut, mutta useat asiat playpalveluista voi kytkeä pois päältä kuten analytiikan.<br><br>Pixel jossa GrapheneOS vs iOS - GrapheneOS aloittaa AOSPstä ilman playpelveluiden ja muiden Googlen tavaroiden lisäämistä, tämä on jo yksityisyyden kannalta voitto. GrapheneOS myös parantaa sovellusten hiekkalaatikkoa ja sisältää erittäin robustin lupahallinnan ja lisääkin 2 uutta lupaa rajoittaakseen sovelluksia entisestään. Muuten turvallisuudessa on hyvä ja huonoja puolia, jompikumpi tekee tietyt asiat paremmin ja toinen toiset. On mahdotonta antaa yksi selvä mustavalkoinen vastaus kun aihe on paljon monimutkaisempi kuin se.</div>
 
 </body>
 </html>
