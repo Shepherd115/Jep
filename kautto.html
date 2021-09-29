@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
 <head>
-<meta charset="UTF-8">
-<title>Käyttö | GrapheneOS Tieto</title>
-
+  <meta charset="UTF-8">
+  <title>Käyttö | GrapheneOS Tieto</title>
+  <meta name="description" content="Suomenkielistä tietoa GrapheneOS käytöstä"/>
 </head>
 <style>
 #teksti {
   font-size:125%;
-  font-family:Verdana, Tahoma, sans-serif;
+  font-family: Roboto, Verdana, Tahoma, sans-serif;
 }
+
+a {
+    color: #1565c0;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #6a1b9a;
+}
+
+a:hover {
+    background-color: #0e0f0f;
+    text-decoration: underline;
+}
+
+#jep {
+  font-size:175%;
+  font-family:Roboto, verdana, tahoma;
+  dext-decoration:underline;
+}
+
 #ul {
   list-style-type: none;
   margin: 0;
@@ -21,6 +42,7 @@
 
 #li {
   float: left;
+  border-right:1px solid #bbb;
 }
 
 #lia {
@@ -31,40 +53,44 @@
   text-decoration: none;
 }
 
+li a:hover {
+  background-color: #111;
+}
+
 .active {
   background-color: grey;
 }
 
 body {
-  background-color:black;
-  margin:75px;
+  background-color:#0e0f0f;
+  margin-right:100px;
+  margin-left:100px;
   color:white;
+  font-family:Roboto, sans-serif, verdana;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: black;
-        color: white;
-   }
+p1 a, p1 a:visited, p2 a, p2 a:visited, p3 a, p3 a:visited, p4 a, p4 a:visited, p5 a, p5 a:visited, p6 a, p6 a:visited, p7 a, p7 a:visited, p8 a, p8 a:visited, p9 a, p9 a:visited, p10 a, p10 a:visited, p11 a, p11 a:visited {
+    color: white;
 }
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: white;
-        color: black;
-    }
+
+@media only screen and (min-width: 1200px) {
+  body {
+    margin-left:225px;
+    margin-right:225px;
+  }
 }
 
 </style>
 <body>
 
-<ul id="ul">
+<ul style="font-size:200%" id="ul">
   <li id="li"><a id="lia" href="index.html">Home</a></li>
   <li id="li"><a id="lia" href="features.html">Ominaisuudet</a></li>
   <li id="li"><a id="lia" class="active" href="kautto.html">Käyttö</a></li>
   <li id="li"><a id="lia" href="kysymys.html">Q&A</a></li>
 </ul>
 
-<ul style="font-size:125%;" class="headers">
+<ul style="font-size:125%;border-left:5px solid;border-radius:10px;" class="headers">
   <li><a href="#paivitukset">Päivitykset</a></li>
   <li><a href="#exec">Exec Spawning</a></li>
   <li><a href="#usb">USB yhteydet</a></li>
@@ -78,9 +104,7 @@ body {
   <li><a href="#pankki">Pankki sovellukset</a></li>
 </ul>
 
-<h1 style="text-align:center;font-family:verdana, Tahoma;">Käyttö</h1>
-
-<p1 style="font-size:175%;font-family:verdana;text-deocration:underline;" id="paivitukset"><a href="#paivitukset"><br>Päivitykset</a></p1>
+<p1 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none" id="paivitukset"><a href="#paivitukset">Päivitykset</a></p1>
 
 <div id="teksti"><br>GrapheneOS tarkistaa päivitykset joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. Se jatkuu siitä mihin se jäi joten ei tarvitse pelätä sen keskeyttämistä, samanlailla päivityksen asentamisen keskeytys ei ole riski sillä päivitykset asennetaan toissijaiseen GrapheneOS:sään josta tulee aktiivinen vasta kun päivitys on asennettu kunnolla. Tämän jälkeen laite on käynnistettävä uudelleen uuteen GrapheneOS versioon. Jos tämä epäonnistuu se perääntyy käyttämään vanhempaa versiota ja yrittää ladata / asentaa päivityksen uudestaan.
 Päivittäjä käyttää delta (incremental) päivityksiä ladatakseen ainoastaan muutokset koko käyttöjärjestelmän lataamisen sijan.
@@ -89,71 +113,41 @@ Päivityspalvelin ei ole luotettu osapuoli sillä päivitykset signeerataan ja v
 GrapheneOS ei kykene rakentamaan, signeeraamaan ja kuljettamaan haitallista päivitystä tietyn käyttäjän laitteelle esim IMEIn tai sarjanumeron jne perusteella. Päivityspalvelin päätyy ainoastaan tietämään laitteen IP osoitteen sekä nykyisen GrapheneOS version ja version jonka laite yrittää hakea. Päivitykset voidaan tarvittaessa asentaa erillisen tietokoneen avulla jos ei pysty yhdistämään laitetta internettiin.
 </div>
 
-<p2 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="exec"><a href="#exec"><br>Exec Spawning</a></p2>
+<p2 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="exec"><a href="#exec"><br>Exec Spawning</a></p2>
 <div id="teksti"><br>GrapheneOS luo uudet prosessit execin kautta sovellusten aukaisuun yleisen zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta hitaamman sovellusten aukaisu ajan sekä korkeamman muistin käytön hinnalla. Se lisää noin 100ms sovellusten aukaisuun ja on ainoastaan huomattava laitteilla joissa on heikko CPU ja pienempi tallennustila.
 Tyypillisessä zygote mallissa mallisovellusprosessi luodaan käynnistyksen aikana ja jokainen sovellus syntyy sen kloonina. Tämä johtaa siihen että kaikki sovellukset jakavat saman muisti sisällön ja järjestyksen mikä osittain rikkoo sovellusten hiekkalaatikon tarkoituksen. Zygote malli heikentää useita vahvistuksia joiden tarkoitus on satunnaistaa muistisisältö ja järjestys kuten Address Space Layout Randomization (ASLR), kasojen sekä pinojen canary arvot, randomisoidut pinojen järjestykset jne.
 </div>
 
-<p3 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="usb"><a href="#usb"><br>USB yhteydet</a></p3>
-<div id="teksti"><br>GrapheneOS oletuksena hylkää USB yhteydet kun laite on lukittu. Avattu laite on silti yhdistettävissä USB kaapelin avulla. GrapheneOS myös lisää vaihtoehdon kokonaan evätä kaikki USB pyynnöt.
-GrapheneOS myös lisää vaihtoehdon kokonaan evätä USB yhteydet.</div>
+<p3 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="usb"><a href="#usb"><br>USB yhteydet</a></p3>
+<div id="teksti"><br>GrapheneOS oletuksena hylkää USB yhteydet kun laite on lukittu. Avattu laite on silti yhdistettävissä USB kaapelin avulla. GrapheneOS myös lisää vaihtoehdon kokonaan evätä kaikki USB pyynnöt.</div>
 
-<p5 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="bug"><a href="#bug"><br>Turvallisuusominaisuuksien paljastamat bugit</a></p5>
+<p4 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="bug"><a href="#bug"><br>Turvallisuusominaisuuksien paljastamat bugit</a></p4>
 <div id="teksti"><br>GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa suojausta muistin korruptio ongelmia vastaan. Jotkut ominaisuuksista on suuniteltu suoraan nappaamaan muistin korruptio bugi joko tarkistuksella tai muistin suojauksella ja abortoimaan sovellus ettei sitä voitaisiin hyväksikäyttää. Muut ominaisuudet lieventävät ongelmaa ei niin suoraa kuten nollaamalla muistialueen välittömästi vapautuksen jälkeen, eristetyillä muistialueilla, pinon randomisoinnilla jne. Bugit jotka saattavat aiheutua näistä ei ole GrapheneOSsän aiheuttamia vaan jo olemassa olevia bugeja jotka paljastuvat vahvistusten vuoksi.
 Samanlailla jotkut ominaisuudet voivat pienentää sovelluksen pääsyä tiettyihin resursseihin ja sovellus voi kaatua. Jotkut näistä ovat aina käytössä ilman käyttäjän interaktiota kun taas esimerkiksi Sensors ja Network lupa on käyttäjän hallinnassa. Sovellukset eivät välttämättä kestä näiden oikeuksien pois ottamista.</div>
 
-<p6 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="selain"><a href="#selain"><br>Selain</a></p6>
-<div id="teksti"><br>GrapheneOS sisältää Vanadium sub-projektin tarjoten turvallisuus / yksityisyys painotteisen chromium forkin. Se on molemmat käytettävä selain sekä laitteen webview jota muut selaimet ja sovellukset käyttävät.
+<p5 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="selain"><a href="#selain"><br>Selain</a></p5>
+<div id="teksti"><br>GrapheneOS sisältää Vanadium sivu-projektin tarjoten turvallisuus / yksityisyys painotteisen chromium forkin. Se on molemmat käytettävä selain sekä laitteen webview jota muut selaimet ja sovellukset käyttävät.
 Vanadium on suunniteltu käytettäväksi ainoastaan Graphene käyttöjärjestelmälle eikä tuplaa turvallisuus ominaisuuksia kuten hardened_malloccia.
 Chromium pohjaiset selaimet tarjoavat vahvimman hiekkalaatikko implementaation. Se on huomattavasti vaikeampaa paeta hiekkalaatikosta ja se tarjoaa paljon enemmän kuin vain muurin ettei itse käyttöjärjestelmää infektoida. Site-isolation pakottaa turvallisuus muurit jokaisen sivuston ympärille asettaen jokaisen sivuston heidän omaan eristettyyn hiekkalaatikkoon. Mobiililaitteilla muistin vähäisyyden vuoksi site-isolationilla on eri tiloja, Vanadium käyttää Strict-Site-Isolationia kaikilla tuetuilla laitteilla täsmäten chromiumia pöytäkoneilla. Selaimet ilman site-isolationia ovat erittäin alttiita hyökkäyksiä kuten Spectre:ä vastaan.
-Chromiumilla on kohtalaiset exploittien mitigointi tekniikat, toisinkuin muilla. Vanadium huomattavasti parantaa chromiumin turvallisuutta entisestään, esimerkiksi se vahvistaa hiekkalaatikon muureja patceillä kuten
+Chromiumilla on kohtalaiset exploittien mitigointi tekniikat, toisinkuin muilla. <a href="https://github.com/GrapheneOS/Vanadium/tree/11/patches">Vanadium myös huomattavasti parantaa chromiumin turvallisuutta entisestään</a>
 </div>
 
-<ul style="font-size:130%;">
-  <li>enable-strict-site-isolation-by-default-on-Android.patch</li>
-  <li>enable-split-cache-by-default.patch</li>
-  <li>enable-partitioning-connections-by-default.patch</li>
-  <li>disable-third-party-cookies-by-default.patch</li>
-</ul>
-
-<div id="teksti"><br>Sekä puhdasta turvallisuutta patcheillä kuten</div>
-
-<ul style="font-size:130%;">
-  <li>JIT-less-toggle.patch</li>
-  <li>use-64-bit-WebView-processes.patch</li>
-  <li>switch-to-fstack-protector-strong.patch</li>
-  <li>most-private-WebRTC-IP-handling-policy-by-default.patch</li>
-  <li>mark-non-secure-origins-as-dangerous.patch</li>
-</ul>
-
-<div id="teksti"><br>Vanadium on keskittynyt turvallisuuteen, ei yksityisyyteen. Vanadium kuitenkin lisää useita patchejä parantamaan käyttäjien yksityisyyttä. On myös hyvä huomioida että Vanadiumin WebGL / Audio / Canvas sormenjäljet täsmäävät chrome selaimen sormenjälkiä stock-androidilla joissa on sama SoC. Lisäksi on käytössä useita pätchejä auttamaan asiaa kuten</div>
-
-<ul style="font-size:130%;">
-  <li>disable-sensors-access-by-default.patch</li>
-  <li>enable-user-agent-freeze-by-default.patch</li>
-  <li>enable-dubious-Do-Not-Track-feature-by-default.patch</li>
-  <li>stub-out-the-battery-status-API.patch</li>
-  <li>disable-component-updater-pings-by-default.patch</li>
-  <li>set-default-search-engine-to-DuckDuckGo.patch</li>
-  <li>disable-mobile-identity-consistency-by-default.patch</li>
-</ul>
-
-<p7 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="auditor"><a href="#auditor"><br>Auditor</a></p7>
+<p6 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="auditor"><a href="#auditor"><br>Auditor</a></p6>
 <div id="teksti"><br>Verified-boot todentaa ja vahvistaa laiteohjelmiston ja käyttöjärjestelmän laitteiston RoTista (Root Of Trust). Ja koska GrapheneOS tukee kokonaista verified-boottia niin imaget ovat kokonaan vahvistettuja. On kuitenkin mahdollista että tietokone jolla asennus suoritettiin on ollut vaarantunut johtaen haitallisen julkisen avaimen ja imagen asennukseen. Tälläisen hyökkäyksen havaitsemiseen voi käyttää ennalta asennettua Auditor sovellusta joka vahvistaa käyttöjärjestelmän autenttisuuden ja koskemattomuuden toisen Android laitteen avulla. Lisää Auditorista <a href="https://attestation.app/about">Tästä</a></div>
 
-<p8 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="yhteen"><a href="#yhteen"><br>Yhteensopivuuskerros</a></p8>
+<p7 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="yhteen"><a href="#yhteen"><br>Yhteensopivuuskerros</a></p7>
 <div id="teksti"><br>Useat Android sovellukset vaativat Googlen playpalveluita toimintaan. Android sovellusten yhteensopivuus on tärkeä osa projektia joten on kehitetty turvallinen, yksityinen ja robusti tapa hyödyntää playpalveluita. GrapheneOS antaa mahdollisuuden asentaa playkaupan ja playpalvelut normaaleina sandboxattuina sovelluksina ilman erityisiä oikeuksia haluttuun profiiliin eikä käyttöjärjestelmä itse käytä näitä mihinkään. Nämä eivät saa heidän yleisiä oikeuksia ja SElinux poikkeuksia.</div>
 
-<p9 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="lte"><a href="#lte"><br>LTE-only</a></p9>
+<p8 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="lte"><a href="#lte"><br>LTE-only</a></p8>
 <div id="teksti"><br>On mahdollista kytkeä 2G / 3G kokonaan pois päältä LTE-only kytkimellä. Tämän tarkoitus on pienentää hyökkäyspintaa poistamalla nämä vanhat teknologiat. Sen tarkoitus EI OLE saada puhelinoperaattorista jotain mihin voisi luottaa vaan sen ainoa tarkoitus on hyökkäyspinnan pienentäminen. Normaalit puhelut eivät toimi LTE-only tilassa.</div>
 
-<p10 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="wifi"><a href="#wifi"><br>Wi-Fi yksityisyys</a></p10>
+<p9 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="wifi"><a href="#wifi"><br>Wi-Fi yksityisyys</a></p9>
 <div id="teksti"><br>GrapheneOS Wi-Fi on erittäin yksityisyys-ystävällinen ja periaatteessa anonyymi kunhan sovellukset eivät vuoda tunnisteita verkkoon. Verkot ei voi tunnistaa että laitteella on GrapheneOS.<br>MAC randomisointi on aina käytössä kun Wi-Fi verkkoja skannataan. Pixel puhelimissa on laiteohjelmisto tuki joka antaa näille huomattavasti paremman MAC osoitteen randomisoinnin joka menee yli yleisen naiivin implementaation. Monilla muilla laitteilla laite vuotaa esimerkiksi packet-sequence-numberin ja tunnisteita probe-requestissa<br>Wi-Fi ja bluetooth skannaus sijainnin parantamiseksi on poissa käytöstä oletuksena.</div>
 
-<p11 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="kamera"><a href="#kamera"><br>Kamera</a></p11>
+<p10 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="kamera"><a href="#kamera"><br>Kamera</a></p10>
 <div id="teksti"><br>Kamera sovellus joka käyttöjärjestelmässä tulee mukana on AOSPn kamerasovellus joka on erittäin minimaalinen eikä kykene käyttämään Pixel puhelimien laitteistoa kunnolla. Oma kamera sovellus on työn alla mutta tilapäisesti Open Camera on hieman edistyneempi mutta ei kykene täysin hyödyntämään laitteistoa. Google kamera on asennettavissa profiiliin jossa on yhteensopivuuskerros. Tämä kykenee kokonaan hyödyntämään Pixelien laitteistoa. </div>
 
-<p12 style="font-size:175%;font-family:verdana;text-decoration: underline;" id="pankki"><a href="#pankki"><br>Pankki sovellukset</a></p12>
+<p11 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="pankki"><a href="#pankki"><br>Pankki sovellukset</a></p11>
 <div id="teksti"><br>Pankki sovellukset ovat erittäin hankalia sovelluksia sillä näillä usein on heikkoja yrityksiä estää reverse-engineering yritykset. GrapheneOS sisältää "disable native code debugging" kytkimen parantamaan sovellusten sandboxia entisestään mutta tämä voi häiritä pankki sovelluksia kun he yrittävät rakentaa muureja koodin tarkkailun estämiseksi johtaen kyseisten sovellusten toimimattomuuteen.</div>
 
 </body>
