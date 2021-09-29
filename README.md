@@ -22,8 +22,12 @@
 <div style="font-size:125%;">1.04</div>
 <p>-Lisätty: Q&A osioon "Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?"<br>-Lisätty: Q&A osioon "Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)"<br>-Lisätty: Q&A osioon "GrapheneOS VS NSA / FBI jne"<br>-Lisätty: Q&A osioon "GrapheneOS VS iOS"<br>-Lisätty: Q&A osioon "Onko sovelluksilla pääsy leikepöytään?"<br>-Lisätty: Q&A osioon "Tarjoaako GrapheneOS palomuurin?"<br>-Navigointipalkki pysyy paikoillaan<br>-Navigointipalkin kokoa suurennettu<br>
 -Pieniä parannuksia otsikoiden ulkonäköön<br>-"Mihin sovellukset kykenevät?" osioon lisätty tietoa kuten IPC<br>-Suuria parannuksia "Ominaisuudet" sivuun kuten paranneltuja käännöksiä ja selkeämpää tekstiä<br>-Tummateema nappula poistettu ja korjattu havaitsemaan lukijan laitteella oleva teema ja täsmäävän sitä<br>
--Korjattu paljon kirjoitusvirheitä<br>-Muutosloki linkki muutettu napiksi<br>-Q&A ja Käyttö sivuilla on sivun "sisältö" osio jonka avulla voi navigoida haluttuun kohtaan</p>
+-Korjattu paljon kirjoitusvirheitä<br>-Muutosloki linkki muutettu napiksi<br>-Q&A ja Käyttö sivuilla on sivun "sisältö" osio jonka avulla voi navigoida haluttuun kohtaan
+ </p>
 
-  
+<div style="font-size:125%;">1.05</div>  
+<p>-Taustaväriä hieman muutettu<br>-Vaihtoehto käyttää vaaleaa teemaa poistettu<br>-Parannuksia fonttien ulkonäköön<br>-Navigointipalkkiin pieniä muutoksia kuten rajoja, suurempi tekstin koko ja kohdat hohkuvat kun vie hiiren niiden kohalle<br>-Tekstien koko mukautuu näytön mukaisesti<br>
+-Muutosloki nappula siirretty alas<br>-Muutoksia sivun sisällä oleviin navigointimenuihin kuten paremmat värit, näkyvyys ja selkeys<br></p>                            
+                                                                                                                       
   </body>
   </html>
