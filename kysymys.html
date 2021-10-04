@@ -43,7 +43,7 @@ a:hover {
   display: block;
   color: white;
   text-align: center;
-  padding: 10px 25px;
+  padding: 15px 25px;
   text-decoration: none;
 }
 
@@ -100,6 +100,7 @@ p1 a, p1 a:visited, p2 a, p2 a:visited, p3 a, p3 a:visited, p4 a, p4 a:visited, 
   <li><a href="#palomuuri">Tarjoaako GrapheneOS palomuurin?</a></li>
   <li><a href="#leike">Onko sovelluksilla pääsy leikepöytään?</a></li>
   <li><a href="#fsp">Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></li>
+  <li><a href="#bundle">Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></li>
   <li><a href="#nsa">GrapheneOS VS NSA / FBI jne</a></li>
   <li><a href="#verkkoyhteys">Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></li>
   <li><a href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></li>
@@ -147,6 +148,10 @@ GrapheneOS myös lisää LTE-only vaihtoehdon joka kytkee 2g/3g/5g yhteyden koko
 <p7 style="font-size:175%;text-decoration: underline;" id="fsp"><a href="#fsp"><br>Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></p7>
 
 <div id="teksti"><br>Ei. Tämä olisi vaarallista ja tarpeetonta. TitanM käsittelee brute-force hyökkäykset paljon kehittyneemmin kuin vain avainten poistaminen. TitanM siru itsessään on äärettömän pieni (Noin riisin kokoinen) ja on luonteeltaan erittäin vaikea kohde. TitanM on myös integroitu laitteen salaus prosessiin ja säilöö tokenssit joista luodaan avaimet salauksen purkuun eikä se vapauta näitä ennen kuin oikea salsana on syötetty. Tarkoittaen että yritykset päästä laitteeseen on tehtävä juuri sen TitanM sirun kautta. Brute-force hyökkäyksen aikana TitanM rankaisee hyökkääjää pidentämällä aikaa ennen uutta yritystä. Ensimmäisen viiden yrityksen jälkeen TitanM sammuttaa pääsyn tokensseihin 30 sekunniksi ja sammuttaa sormenjälki lukijan. Tämän jälkeen TitanM progressiivisesti pidentää aikaa kunnes uuden yrityksen aika on yksi päivä. Vaikka käyttöjärjestelmä olisi hyökkääjän hallussa, niin ei ajastinta voi ohittaa sillä TitanM sisältää oman kellon josta OS ei pidä mitään kontrollia. Tämä ei suojaa jos laitteen salasana on jotain helppoa kuten 12345 tai lemmikin nimi mutta tarjoaa lähes murtamattoman suojan vain 6 lukuisella PIN koodilla. On myös hyvä huomioida että GrapheneOS sallii maksimissaan 64 merkkisten salasanojen käytön jos kokee että tarvitsee entistä vahvemman suojan. </div>
+
+<p8 style="font-size:175%;text-decoration: underline;" id="bundle"><a href="#bundle"><br>Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></p8>
+
+<div id="teksti"><br>Sielä on haittoja sovellusten ennalta-asentamiseen ja vain muutamia etuja. Sen sijan että GrapheneOS ennalta-asentaisi kasan sovelluksia, on loogisempaa käyttäjän itse asentaa haluamansa sovellukset F-Droidin, Aurora Storen tai Play kaupan kautta. GrapheneOS suunnittelee omaa first-party sovellusten päivitys järjestelmää ja "sovelluskauppaa" joka on robustimpi ja turvallisempi kuin muut vaihtoehdot. Sovellusten ennalta asentaminen lisäisi myös hyökkäyspintaa, ellei käyttäjät kytke näitä pois päältä. Sovellusten ennalta-asentaminen olisi myös kamala kumota sillä sovelluksen poistaminen käyttöjärjestelmästä johtaisi käyttäjien tietojen tuhoutumiseen.<br><br>GrapheneOS keskittyy oleellisten turvallisuus / yksityisyy parannusten tekemiseen ja satunnaisten sovellusten ennalta-asentaminen on yleensä tämän ulkopuolella ja sitä vastaan.</div>
 
 <p8 style="font-size:175%;text-decoration: underline;" id="nsa"><a href="#nsa"><br>GrapheneOS VS NSA / FBI jne</a></p8>
 
