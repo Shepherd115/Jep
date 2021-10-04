@@ -49,7 +49,7 @@ a:hover {
   display: block;
   color: white;
   text-align: center;
-  padding: 10px 25px;
+  padding: 15px 25px;
   text-decoration: none;
 }
 
@@ -111,6 +111,7 @@ p1 a, p1 a:visited, p2 a, p2 a:visited, p3 a, p3 a:visited, p4 a, p4 a:visited, 
   <li><a href="#wifi">Wi-Fi yksityisyys</a></li>
   <li><a href="#kamera">Kamera</a></li>
   <li><a href="#pankki">Pankki sovellukset</a></li>
+  <li><a href="#profiili">Käyttäjäprofiilit</a></li>
 </ul>
 
 <p1 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none" id="paivitukset"><a href="#paivitukset">Päivitykset</a></p1>
@@ -158,6 +159,10 @@ Chromiumilla on kohtalaiset exploittien mitigointi tekniikat, toisinkuin muilla.
 
 <p11 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="pankki"><a href="#pankki"><br>Pankki sovellukset</a></p11>
 <div id="teksti"><br>Pankki sovellukset ovat erittäin hankalia sovelluksia sillä näillä usein on heikkoja yrityksiä estää reverse-engineering yritykset. GrapheneOS sisältää "disable native code debugging" kytkimen parantamaan sovellusten sandboxia entisestään mutta tämä voi häiritä pankki sovelluksia kun he yrittävät rakentaa muureja koodin tarkkailun estämiseksi johtaen kyseisten sovellusten toimimattomuuteen.</div>
+
+<p12 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="profiili"><a href="#profiili"><br>Käyttäjäprofiilit</a></p12>
+<div id="teksti"><br>Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Käyttäjäprofiilit eivät tuplaa käyttöjärjestelmän komponentteja kuten hardened_malloccia tai sandboxia joten käyttäjäprofiilit eivät suojele esimerkiksi sandboxin ohituksilta, etu useiden käyttäjäprofiilien pyörittämiseen on mahdollisuus asettaa haitalliset sovellukset omaan eristettyyn tilaansa jossa ei ole sensitiivistä tietoa,
+esimerkiksi jos sovellus tarvitsee kaikkien tiedostojen ylläpito luvan, voi tämän asettaa omaan käyttäjäprofiiliin jossa ei ole tiedostoja.  GrapheneOS myös lisää kyvyn lopettaa käyttökerta joka tuhoaa profiilin salausavaimet ja asettaa profiilin takaisin lepoon.</div>
 
 </body>
 </html>
