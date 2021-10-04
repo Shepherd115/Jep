@@ -32,6 +32,8 @@
 
 <div style="font-size:125%;">1.06</div>
 <p>-Lisätty: Q&A osioon "Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?"<br>-Lisätty: Käyttö osioon "Käyttäjäprofiilit"<br>-Useita bugi korjauksia</p>                            
+<div style="font-size:125%;">1.06.1</div>   
+<p>-Korjattu 1.06 aiheuttamat bugit</p>                            
                             
   </body>
   </html>
