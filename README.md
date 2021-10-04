@@ -28,6 +28,10 @@
 <div style="font-size:125%;">1.05</div>  
 <p>-Taustaväriä hieman muutettu<br>-Vaihtoehto käyttää vaaleaa teemaa poistettu<br>-Parannuksia fonttien ulkonäköön<br>-Navigointipalkkiin pieniä muutoksia kuten rajoja, suurempi tekstin koko ja kohdat hohkuvat kun vie hiiren niiden kohalle<br>-Tekstien koko mukautuu näytön mukaisesti<br>
 -Muutosloki nappula siirretty alas<br>-Muutoksia sivun sisällä oleviin navigointimenuihin kuten paremmat värit, näkyvyys ja selkeys<br></p>                            
-                                                                                                                       
+
+
+<div style="font-size:125%;">1.06</div>
+<p>-Lisätty: Q&A osioon "Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?"<br>-Lisätty: Käyttö osioon "Käyttäjäprofiilit"<br>-Useita bugi korjauksia</p>                            
+                            
   </body>
   </html>
