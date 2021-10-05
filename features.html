@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html 
+  lang="fi";
+  height: -webkit-fill-available;
+>
 <head>
   <title>Ominaisuudet | GrapheneOS Tieto</title>
   <meta charset="UTF-8">
@@ -42,7 +45,7 @@ li a:hover {
 }
 
 body {
-  background-color:#0e0f0f;
+  background-color:#121212;
   margin-right:100px;
   margin-left:100px;
   color:#e2e4e1;
@@ -94,7 +97,7 @@ a:hover {
 <br>GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä. Se aloittaa vahvasta <a href="https://source.android.com/security">Android Open Source Projectin (AOSP)</a> turvallisuumallista ja varoo tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS säilyttää kaikki Androidin tarjoamat turvallisuus ominaisuudet ja kyvyn lukita bootloader asennuksen jälkeen antaen täyden verified-bootin. GrapheneOS keskittyy oleelliseen markkinoinnin sijan, se ei ota tyypillistä käytäntöä asettaa satunnaisia parannuksia ja ominaisuuksia vain koska ne näyttävät hyvältä. Se on erittäin tekninen projekti rakentaen turvallisuutta ja yksityisyyttä itse käyttöjärjestelmään.
 </div>
 
-<div id="teksti"><br>Muut omiaisuudet jotka GrapheneOS lisää, katso linkit yksityiskohtiin, tämä on vain yhteenveto!: </div>
+<div id="teksti"><br>Omiaisuudet jotka GrapheneOS lisää, katso linkit yksityiskohtiin, tämä on vain yhteenveto!: </div>
 
 <ul style="font-size:130%;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
@@ -139,7 +142,7 @@ a:hover {
   <li>Auditor sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
   <li>PDF lukija, simppeli, sandboxattu, ei tarvitse lupia</li>
   <li>Salatut varmuuskopiot seedvault-backup sovelluksen avulla</li>
-  <li>Turvallinen sovellusten laukasu malli (Exec)</li>
+  <li>Turvallinen sovellusten laukaisu malli <a href="https://justmelol2.github.io/Jep/kautto.html#exec">(Exec)</a></li>
   <li>Kyky evätä haluamiltaan sovelluksilta internet lupa estäen suorat ja ei suorat yhteydet sovellukselta. Localhost on myös suojattu tämän avulla. Toisinkuin palomuuri tyylinen asettelu, Network kytkin estää sovellusta käyttämästä internettiä käyttöjärjestelmän tarjoamien ohjelmointirajapintojen (API) avulla joten sovellukset ei voi esimerkiksi käyttää IPCtä rajoitusten ohittamiseen</li>
   <li>Kyky evätä haluamiltaan sovelluksilta Sensors pääsy mikä estää sovellusta käyttämästä laitesensoreita (kiihtyvyysanturi, gyroskooppi, kompassi, barometri, lämpömittari jne)</li>
   <li>Kellon päivittäminen omien GrapheneOS palvelimien kautta</li>
