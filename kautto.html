@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html 
+  lang="fi";
+  height: -webkit-fill-available;
+>
 <head>
   <meta charset="UTF-8">
   <title>Käyttö | GrapheneOS Tieto</title>
@@ -62,7 +65,7 @@ li a:hover {
 }
 
 body {
-  background-color:#0e0f0f;
+  background-color:#121212;
   margin-right:100px;
   margin-left:100px;
   color:#e2e4e1;
@@ -116,31 +119,26 @@ p1 a, p1 a:visited, p2 a, p2 a:visited, p3 a, p3 a:visited, p4 a, p4 a:visited, 
 
 <p1 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none" id="paivitukset"><a href="#paivitukset">Päivitykset</a></p1>
 
-<div id="teksti"><br>GrapheneOS tarkistaa päivitykset joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. Se jatkuu siitä mihin se jäi joten ei tarvitse pelätä sen keskeyttämistä, samanlailla päivityksen asentamisen keskeytys ei ole riski sillä päivitykset asennetaan toissijaiseen GrapheneOS:sään josta tulee aktiivinen vasta kun päivitys on asennettu kunnolla. Tämän jälkeen laite on käynnistettävä uudelleen uuteen GrapheneOS versioon. Jos tämä epäonnistuu se perääntyy käyttämään vanhempaa versiota ja yrittää ladata / asentaa päivityksen uudestaan.
-Päivittäjä käyttää delta (incremental) päivityksiä ladatakseen ainoastaan muutokset koko käyttöjärjestelmän lataamisen sijan.
-Päivittäjä toimii vaikka laite olisi lukittu tai BFU tilassa.
-Päivityspalvelin ei ole luotettu osapuoli sillä päivitykset signeerataan ja vahvistetaan ja alennukset aiempaan versioon estetään paikallisesti. Päivitys protokolla ei lähetä tunnisteita päivityspalvelimelle ja voidaan helposti vetää VPN / Tor palvelun kautta.
-GrapheneOS ei kykene rakentamaan, signeeraamaan ja kuljettamaan haitallista päivitystä tietyn käyttäjän laitteelle esim IMEIn tai sarjanumeron jne perusteella. Päivityspalvelin päätyy ainoastaan tietämään laitteen IP osoitteen sekä nykyisen GrapheneOS version ja version jonka laite yrittää hakea. Päivitykset voidaan tarvittaessa asentaa erillisen tietokoneen avulla jos ei pysty yhdistämään laitetta internettiin.
-</div>
+<div id="teksti"><br>GrapheneOS tarkistaa päivitysten saatavuuden joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. Se jatkaa siitä mihin se jäi joten latauksen keskeyttäminen ei ole riski, eikä ole asennuksenkaan keskeyttäminen sillä päivitykset asennetaan nykyisen rinnalle josta tulee aktiivinen vasta kun asennus on suoritettu kokonaan loppuun. Kun päivitys on suoritettu, on laite käynnistettävä uudelleen uuteen GrapheneOS versioon, jos tämä epäonnistuu niin GrapheneOS perääntyy käyttämään aiempaa versiota ja yrittää ladata ja asentaa päivityksen uudelleen. Päivittäjä käyttää inkrementaalisia päivityksiä ladatakseen ainoastaan muutokset koko käyttöjärjestelmän sijan ja toimii vaikka laite olisi lukittu tai BFU tilassa sillä se on suuniteltu toimimaan ennen laitteen salauksen purkamista.<br><br>Päivityspalvelin ei ole luotettu osapuoli sillä päivitykset signeerataan ja vahvistetaan sekä alennukset estetään paikallisesti. Päivitys protokolla ei lähetä tunnistettavia tietoja ja toimii hyvin VPN / Tor yhteyden kautta. GrapheneOS ei kykene rakentamaan, signeeraamaan ja kuljettamaan haitallista päivitystä tietylle käyttäjälle esimerkiksi IMEIn tai sarjanumeron perusteella. Päivityspalvelin ainoastaan päätyy tietämään laitteen IP osoitteen ja version jota se yrittää hakea.</div>
 
 <p2 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="exec"><a href="#exec"><br>Exec Spawning</a></p2>
-<div id="teksti"><br>GrapheneOS luo uudet prosessit execin kautta sovellusten aukaisuun yleisen zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta hitaamman sovellusten aukaisu ajan sekä korkeamman muistin käytön hinnalla. Se lisää noin 100ms sovellusten aukaisuun ja on ainoastaan huomattava laitteilla joissa on heikko CPU ja pienempi tallennustila.
-Tyypillisessä zygote mallissa mallisovellusprosessi luodaan käynnistyksen aikana ja jokainen sovellus syntyy sen kloonina. Tämä johtaa siihen että kaikki sovellukset jakavat saman muisti sisällön ja järjestyksen mikä osittain rikkoo sovellusten hiekkalaatikon tarkoituksen. Zygote malli heikentää useita vahvistuksia joiden tarkoitus on satunnaistaa muistisisältö ja järjestys kuten Address Space Layout Randomization (ASLR), kasojen sekä pinojen canary arvot, randomisoidut pinojen järjestykset jne.
-</div>
+<div id="teksti"><br>GrapheneOS luo uudet prosessit excecin kautta sovelluksia avatessa yleisen Zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta pidemmän sovellusten aukaisu ja korkeamman muistinkäytön hinnalla. Se ei vaikuta suorituskykyyn pidemmän aukaisuajan lisäksi. Se lisää noin 100ms sovellusten aukaisuun jaa on ainoastaan huomattava vanhoilla laitteilla joissa on heikompi CPU ja pienmpi tallennustila.<br><br>Yleisessä Zygote mallissa mallisovellus prosessi luodaan käynnistyksen yhteydessä ja jokainen sovellus aukaistaan sen kloonina, toisinkuin Execissä jossa jokaiselle sovellukselle luodaan kokonaan oma malli. Tämä tarkoittaa että Zygotessa jokaisella sovelluksella on sama alku muistisisältö ja järjestys, mukaanlukien tiedot jotka kuuluisi olla randomisoitu jokaisella prosessilla. Se säästää aikaa uudelleen käyttämällä samaa mallisovellus prosessia jokaiselle sovellukselle.<br><br>Zygote malli heikentää / rampauttaa useita turvallisuus ominaisuuksia sillä jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä ei muutu ennen laitteen uudelleenkäynnistystä. Zygoten mallisvoellus prosessia myös käytetään globaalisti profiilien välillä joten se antaa tilapäisen sarjan tunnisteita näiden välillä.</div>
 
 <p3 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="usb"><a href="#usb"><br>USB yhteydet</a></p3>
-<div id="teksti"><br>GrapheneOS oletuksena hylkää USB yhteydet kun laite on lukittu. Avattu laite on silti yhdistettävissä USB kaapelin avulla. GrapheneOS myös lisää vaihtoehdon kokonaan evätä kaikki USB pyynnöt.</div>
+<div id="teksti"><br>GrapheneOS oletuksena hylkää uudet USB pyynnöt kun näyttö on lukittu, tämän voi kuitenkin vaihtaa asetuksista ja GrapheneOS lisää kolme vaihtoehtoa:</div>
 
-<p4 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="bug"><a href="#bug"><br>Turvallisuusominaisuuksien paljastamat bugit</a></p4>
+<ul style="font-size:135%;">
+  <li>Hylkää USB pyynnöt</li>
+  <li>Salli USB pyynnöt kun laite on avattu (oletus)</li>
+  <li>Salli USB pyynnöt (Kuten stock-androidilla)</li>
+</ul>
+
+<p4 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="bug"><a href="#bug">Turvallisuusominaisuuksien paljastamat bugit</a></p4>
 <div id="teksti"><br>GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa suojausta muistin korruptio ongelmia vastaan. Jotkut ominaisuuksista on suuniteltu suoraan nappaamaan muistin korruptio bugi joko tarkistuksella tai muistin suojauksella ja abortoimaan sovellus ettei sitä voitaisiin hyväksikäyttää. Muut ominaisuudet lieventävät ongelmaa ei niin suoraa kuten nollaamalla muistialueen välittömästi vapautuksen jälkeen, eristetyillä muistialueilla, pinon randomisoinnilla jne. Bugit jotka saattavat aiheutua näistä ei ole GrapheneOSsän aiheuttamia vaan jo olemassa olevia bugeja jotka paljastuvat vahvistusten vuoksi.
-Samanlailla jotkut ominaisuudet voivat pienentää sovelluksen pääsyä tiettyihin resursseihin ja sovellus voi kaatua. Jotkut näistä ovat aina käytössä ilman käyttäjän interaktiota kun taas esimerkiksi Sensors ja Network lupa on käyttäjän hallinnassa. Sovellukset eivät välttämättä kestä näiden oikeuksien pois ottamista.</div>
+<br><br>Samanlailla jotkut ominaisuudet voivat pienentää sovelluksen pääsyä tiettyihin resursseihin ja sovellus voi kaatua. Jotkut näistä ovat aina käytössä ilman käyttäjän interaktiota kun taas esimerkiksi Sensors ja Network lupa on käyttäjän hallinnassa. Sovellukset eivät välttämättä kestä näiden oikeuksien pois ottamista.</div>
 
-<p5 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="selain"><a href="#selain"><br>Selain</a></p5>
-<div id="teksti"><br>GrapheneOS sisältää Vanadium sivu-projektin tarjoten turvallisuus / yksityisyys painotteisen chromium forkin. Se on molemmat käytettävä selain sekä laitteen webview jota muut selaimet ja sovellukset käyttävät.
-Vanadium on suunniteltu käytettäväksi ainoastaan Graphene käyttöjärjestelmälle eikä tuplaa turvallisuus ominaisuuksia kuten hardened_malloccia.
-Chromium pohjaiset selaimet tarjoavat vahvimman hiekkalaatikko implementaation. Se on huomattavasti vaikeampaa paeta hiekkalaatikosta ja se tarjoaa paljon enemmän kuin vain muurin ettei itse käyttöjärjestelmää infektoida. Site-isolation pakottaa turvallisuus muurit jokaisen sivuston ympärille asettaen jokaisen sivuston heidän omaan eristettyyn hiekkalaatikkoon. Mobiililaitteilla muistin vähäisyyden vuoksi site-isolationilla on eri tiloja, Vanadium käyttää Strict-Site-Isolationia kaikilla tuetuilla laitteilla täsmäten chromiumia pöytäkoneilla. Selaimet ilman site-isolationia ovat erittäin alttiita hyökkäyksiä kuten Spectre:ä vastaan.
-Chromiumilla on kohtalaiset exploittien mitigointi tekniikat, toisinkuin muilla. <a href="https://github.com/GrapheneOS/Vanadium/tree/11/patches">Vanadium myös huomattavasti parantaa chromiumin turvallisuutta entisestään</a>
-</div>
+<p5 style="font-size:175%;font-family: Roboto,verdana,tahoma;text-decoration:none;" id="selain"><a href="#selain"><br>Selain</a></p5>
+<div id="teksti"><br>GrapheneOS sisältää sivuprojektin Vanadium joka tarjoaa yksityisyys ja turvallisuus vahvistetun chromium selaimen. Vanadium on molemmat user-facing selain sekä järjestelmän WebView jota muut sovellukset ja selaimet käyttävät sisällön näyttämiseen. Vanadium on osa käyttöjärjestelmää joten se ei tuplaa käyttöjärjestelmän ominaisuuksia kuten hardened_malloccia vaan kykenee hyödyntämään tätä ja muita käyttöjärjestelmän komponentteja. Chromium pohjaiset selaimet kuten Vanadium tarjoaa vahvimman sandbox implementaation, se on paljon vaikeampaa paeta sandboxista ja se tarjoaa paljon enemmän kuin vain muurin loppu käyttöjärjestelmän ja selaimen välille. Site-isolation pakottaa turvallisuus muurin jokaisen sivuston ympärille asettaen jokaisen sivun eristettyyn sandboxiin. Selaimet ilman site-isolation ominaisuutta ovat erittäin alttiita hyökkäyksille kuten Spectre. Mobiililaitteilla muistin vähäisyyden vuoksi site-isolation sisältää eri vaihtoehtoja ja Vanadium käyttää strict-site-isolation täsmäten chromiumia pöytäkoneilla.<br><br> Chromiumilla on kohtalaiset exploittien mitigointi tekniikat toisinkuin muilla, tämä on paranneltua Vanadiumissa ottaen käyttöön useita muitakin tekniikoita kuten niitä jotka on kehitetty up-streamissa mutta ei vielä yleensä otettu käyttöön suortituskyvyn, koodin koon tai muistinkäytön vuoksi. Se esimerkiksi ottaa käyttöön type-based-CFIn, käyttää vahvempaa SSP konfiguraatiota ja <a href="https://github.com/GrapheneOS/Vanadium/tree/11/patches">paljon muuta.</a><br><br>Vanadium ei sisällä kykyä asentaa selaimeen lisäosia sillä useimmat näistä on pelkkää teatteri esitystä ilman selvää uhkamallia ja usein vähentää yksityisyyttä saamalla käyttäjän erottumaan joukosta. Enumerating Badness ei ole viisas yritys parantaa yksityisyyttä, samanlailla kuin AntiVirus sovellukset ei ole viisas yritys parantaa turvallisuutta.<br><br> On hyvä välttää Gecko pohjaisia selaimia kuten Firefoxia sillä ne ovat huomattavasti heikompia ja lisää jättimäisiä määriä hyökkäyspintaa, Gecko ei myöskään sisällä Web-View implementaatiota joten sitä on käytettävä Vanadiumin Web-Viewin rinnalla joka tarkottaisi hyökkäyspinnan tuplaamista sillä nyt olisi kaksi selain moottoria yhden sijan. Firefox myös toimii yhtensä prosessina eikä käytä site-isolation ominaisuutta tai CFI:tä ja <a href="https://madaidans-insecurities.github.io/firefox-chromium.html">paljon muuta.</a></div>
 
 <p6 style="font-size:175%;font-family:Roboto,verdana,tahoma;text-decoration:none;" id="auditor"><a href="#auditor"><br>Auditor</a></p6>
 <div id="teksti"><br>Verified-boot todentaa ja vahvistaa laiteohjelmiston ja käyttöjärjestelmän laitteiston RoTista (Root Of Trust). Ja koska GrapheneOS tukee kokonaista verified-boottia niin imaget ovat kokonaan vahvistettuja. On kuitenkin mahdollista että tietokone jolla asennus suoritettiin on ollut vaarantunut johtaen haitallisen julkisen avaimen ja imagen asennukseen. Tälläisen hyökkäyksen havaitsemiseen voi käyttää ennalta asennettua Auditor sovellusta joka vahvistaa käyttöjärjestelmän autenttisuuden ja koskemattomuuden toisen Android laitteen avulla. Lisää Auditorista <a href="https://attestation.app/about">Tästä</a></div>
