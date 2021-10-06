@@ -86,12 +86,12 @@ li a:hover {
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
   #lia {
   font-size:105%;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
   body {
     margin-left:90px;
     margin-right:90px;
