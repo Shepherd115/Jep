@@ -4,8 +4,8 @@ body {
   font-family: Roboto, sans-serif;
   background-color: #121212;
   color: #e2e4e1;
-  margin-right:200px;
-  margin-left:200px;
+  margin-right:100px;
+  margin-left:100px;
 }
 
 html {
@@ -72,16 +72,3 @@ li a:hover {
   background-color: grey;
 }
 
-@media only screen and (min-width: 1200px) {
-  #lia {
-  font-size:75%;
-}
-
-@media only screen and (min-width: 1200px) {
-  body {
-    margin-left:350px;
-    margin-right:350px;
-    font-size:80%;
-    color:#e2e4e1;
-  }
-}
