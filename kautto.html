@@ -8,7 +8,7 @@
 <body>
 
 <ul style="font-size:200%;" id="ul">
-  <li style="float:right" id="li"><a id="lia" href="index.html">Home</a></li>
+  <li id="li"><a id="lia" href="index.html">Home</a></li>
   <li id="li"><a id="lia" href="features.html">Ominaisuudet</a></li>
   <li id="li"><a id="lia" class="active" href="kautto.html">Käyttö</a></li>
   <li id="li"><a id="lia" href="kysymys.html">Q&A</a></li>
@@ -20,6 +20,7 @@
   <li><a href="#paivitukset">Päivitykset</a></li>
   <li><a href="#exec">Exec Spawning</a></li>
   <li><a href="#usb">USB yhteydet</a></li>
+  <li><a href="#salaus">Laitteen salaus</a></li>
   <li><a href="#bug">Turvallisuusominaisuuksien paljastamat bugit</a></li>
   <li><a href="#selain">Selain</a></li>
   <li><a href="#auditor">Auditor</a></li>
@@ -43,6 +44,15 @@
   <li>Hylkää USB pyynnöt</li>
   <li>Salli USB pyynnöt kun laite on avattu (oletus)</li>
   <li>Salli USB pyynnöt (Kuten stock-androidilla)</li>
+</ul>
+
+<p1 id="salaus"><a href="#salaus">Laitteen salaus</a></p1>
+<div id="teksti"><br>Pixel puhelimien TitanM käsittelee PIN-koodit ja salasanat, Kun oikea laitteen salasana syötetään, TitanM laskee ja vapauttaa tokenin laitteelle jota tämä voi käyttää luodakseen avaimen. Jokainen tiedosto salataan algoritmilla AES-256-XTS ja metatiedot algoritmilla AES-256-HEH ja jokaisella käyttäjäprofiililla on myös omat salausavaimet.<br><br>
+Android 7 myötä tuli file-based salaus joka on vieläkin käytössä, File-based salauksella on muutamia tärkeitä etuja full-disk salaukseen verrattuna kuten</div>
+<ul style="font-size:135%;">
+  <li>Mahdollistaa <a href="file:///C:/Users/A/Documents/Website/kautto.html#profiili">käyttäjäprofiilien</a> tekemisen turvallisemmaksi sillä kun käyttäjä kirjautuu ulos salausavaimet voidaan tuhota muistista. Tämä ei ole vaihtoehto full-disk salauksessa sillä se on enemmänkin all-or-nothing</li>
+  <li>Kyky päivittyä vaikka laitetta ei olisi avattu</li>
+  <li>Kyky ottaa kuvia lukitusnäytöltä ilman laitteen salauksen avaamista</li>
 </ul>
 
 <p1 id="bug"><a href="#bug">Turvallisuusominaisuuksien paljastamat bugit</a></p1>
