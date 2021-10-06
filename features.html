@@ -1,87 +1,10 @@
 <!DOCTYPE html>
-<html 
-  lang="fi";
-  height: -webkit-fill-available;
->
-<head>
-  <title>Ominaisuudet | GrapheneOS Tieto</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="Suomenkielistä tietoa GrapheneOS ominaisuuksista"/>
-</head>
-<style>
-#teksti {
-  font-size:125%;
-  font-family:Roboto, Verdana, Tahoma, sans-serif;
-}
-
-#ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  top: 0;
-}
-
-#li {
-  float: left;
-  border-right:1px solid #bbb;
-}
-
-#lia {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 15px 25px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
-.active {
-  background-color: grey;
-}
-
-body {
-  background-color:#121212;
-  margin-right:100px;
-  margin-left:100px;
-  color:#e2e4e1;
-  font-family:Roboto, sans-serif, verdana;
-  font-size:80%;
-}
-
-@media only screen and (min-width: 1200px) {
-  body {
-    margin-left:350px;
-    margin-right:350px;
-    font-size:80%;
-    color:#e2e4e1;
-  }
-}
-
-a {
-    color: white;
-    text-decoration: underline;
-}
-
-a:visited {
-    color: white;
-}
-
-a:hover {
-    background-color: #0e0f0f;
-}
-
-@media only screen and (min-width: 1200px) {
-  #lia {
-  font-size:75%;
-}
-
-</style>
-
+<html lang="fi"
+  <head>
+    <link href="main.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>GrapheneOS Tieto</title>
+  </head>
 <body>
 
 <ul style="font-size:250%;" id="ul">
@@ -91,7 +14,7 @@ a:hover {
   <li id="li"><a id="lia" href="kysymys.html">Q&A</a></li>
 </ul>
 
-<h1 style="text-align:center;font-family:verdana;">Ominaisuudet</h1>
+<h1>Ominaisuudet</h1>
 
 <div id="teksti"><br>Tämä ei sisällä ominaisuuksia jotka ovat tulleet osaksi näitä infrastruktuuri projekteja mihin GrapheneOS nojautuu (AOSP, LLVM, OpenBSD) tämä myöski on VAIN ominaisuudet jota GrapheneOS lisää jo valmiiseen AOSPn turvallisuusmalliin. AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> säännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">hiekkalaatikon</a><br>
 <br>GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä. Se aloittaa vahvasta <a href="https://source.android.com/security">Android Open Source Projectin (AOSP)</a> turvallisuumallista ja varoo tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS säilyttää kaikki Androidin tarjoamat turvallisuus ominaisuudet ja kyvyn lukita bootloader asennuksen jälkeen antaen täyden verified-bootin. GrapheneOS keskittyy oleelliseen markkinoinnin sijan, se ei ota tyypillistä käytäntöä asettaa satunnaisia parannuksia ja ominaisuuksia vain koska ne näyttävät hyvältä. Se on erittäin tekninen projekti rakentaen turvallisuutta ja yksityisyyttä itse käyttöjärjestelmään.
@@ -110,7 +33,6 @@ a:hover {
     <li>Korkean entropian satunnaisen kokoiset vartija alueet suurien varausten ympärillä</li>
     <li>Canary-arvoja lisätään pienempiin varauksiin</li>
   </ul>
-
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
   <li>Vahvistettu / Hardened sovellusten hiekkalaatikko / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
@@ -160,3 +82,4 @@ a:hover {
 
 </body>
 </html>
+
