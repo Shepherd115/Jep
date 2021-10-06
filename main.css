@@ -1,0 +1,67 @@
+html {
+    height: -webkit-fill-available;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min height: -webkit-fill-available;
+  font-family: Roboto, sans-serif;
+  background-color: #121212;
+  color: #e2e4e1;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    background-color: #0e0f0f;
+}
+
+h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
+    color: white;
+}
+
+#teksti {
+  font-size:125%;
+  font-family: Roboto, verdana;
+}
+#ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  top: 0;
+}
+
+#li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+#lia {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: grey;
+}
