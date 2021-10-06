@@ -6,6 +6,7 @@ body {
   color: #e2e4e1;
   margin-right:100px;
   margin-left:100px;
+  font-size:10vw;
 }
 
 html {
@@ -64,6 +65,8 @@ p1 {
   text-decoration: none;
 }
 
+
+
 li a:hover {
   background-color: #111;
 }
@@ -82,20 +85,6 @@ li a:hover {
     margin-left:350px;
     margin-right:350px;
     font-size:80%;
-    color:#e2e4e1;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  #lia {
-  font-size:105%;
-}
-
-@media only screen and (max-width: 600px) {
-  body {
-    margin-left:90px;
-    margin-right:90px;
-    font-size:75%;
     color:#e2e4e1;
   }
 }
