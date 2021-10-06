@@ -1,4 +1,5 @@
 body {
+  min-height: 100vh;
   min height: -webkit-fill-available;
   font-family: Roboto, sans-serif;
   background-color: #121212;
@@ -10,21 +11,6 @@ body {
 html {
     height: -webkit-fill-available;
 }
-
-@media only screen and (min-width: 1200px) {
-  #lia {
-  font-size:75%;
-}
-
-@media only screen and (min-width: 1200px) {
-  body {
-    margin-left:350px;
-    margin-right:350px;
-    font-size:80%;
-    color:#e2e4e1;
-  }
-}
-
 
 a {
     color: white;
@@ -84,4 +70,18 @@ li a:hover {
 
 .active {
   background-color: grey;
+}
+
+@media only screen and (min-width: 1200px) {
+  #lia {
+  font-size:75%;
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    margin-left:350px;
+    margin-right:350px;
+    font-size:80%;
+    color:#e2e4e1;
+  }
 }
