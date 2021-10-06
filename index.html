@@ -1,88 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi"
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="/main.css"/>
+    <link href="main.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>GrapheneOS Tieto</title>
   </head>
-
 <body>
-  
-  <style>
-
-a {
-    color: white;
-    text-decoration: underline;
-}
-
-a:visited {
-    color: white;
-}
-
-a:hover {
-    background-color: #0e0f0f;
-}
-
-#ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  top: 0;
-}
-
-#li {
-  float: left;
-  border-right:1px solid #bbb;
-}
-
-#lia {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 15px 25px;
-  text-decoration: none;
-}
-
-.active {
-  background-color: grey;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
-body {
-  background-color:#121212;
-  margin-right:100px;
-  margin-left:100px;
-  color:#e2e4e1;
-  font-family:Roboto, sans-serif, verdana;
-  font-size:80%;
-  min-height: -webkit-fill-available;
-}
-
-@media only screen and (min-width: 1200px) {
-  body {
-    margin-left:350px;
-    margin-right:350px;
-    font-size:80%;
-    color:#e2e4e1;
-  }
-}
-
-#teksti {
-  font-size:125%;
-  font-family:Verdana, Tahoma, sans-serif;
-}
-
-@media only screen and (min-width: 1200px) {
-  #lia {
-  font-size:75%;
-}
-
-</style>
 
 <ul style="font-size:250%;" id="ul">
   <li id="li"><a id="lia" class="active" href="index.html">Home</a></li>
@@ -91,18 +14,18 @@ body {
   <li id="li"><a id="lia"  href="kysymys.html">Q&A</a></li>
 </ul>
 
-<h1 style="text-align:center;font-family:verdana;text-decoration:underline;">GrapheneOS</h1>
+<h1>GrapheneOS</h1>
 
 <div id="teksti";>GrapheneOS on turvallisuuteen ja yksityisyyteen keskittynyt mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella jota kehitetään voittoa tavoittelemattomana ja <a href="https://github.com/GrapheneOS">avoimenlähdekoodin projektina.</a> Se keskittyy turvallisuusteknologioiden kehittämiseen ja käyttöön kuten huomattaviin parannuksiin sandboxeihin, exploittien mitigointiin ja turvallisempaan muistinhallintaan.
 GrapheneOS parantaa käyttöjärjestelmän turvallisuutta pohjasta ylöspäin. Se ottaa käyttöön teknologioita lieventääkseen yleisiä exploitteja sekä tekee niiden suorittamisesta huomattavasti vaikeampaa. Se parantaa itse käyttöjärjestelmän turvallisuutta sekä sovelluksien jotka siinä ovat. <a href="https://source.android.com/security/app-sandbox">Sovellusten sandbox</a> ja muut muurit ovat vahvistettuja. GrapheneOS yrittää välttää vaikuttamista käyttäjäkokemukseen. Parhaassa tilanteessa ominaisuudet voi aina olla käytössä ilman käyttäjän toimia. Tämä ei ole aina mahdollista ja GrapheneOS lisää useita kytkimiä kuten Internet ja Sensors luvan, rajoitukset kun laite on lukittu, automaattinen uudelleenkäynnistys ja muuta
 <br><br>GrapheneOS myös kehittää useita sovelluksia ja palveluita kuten Vanadium selaimen joka on vahvistettu Chromium forkki ja WebView, minimaalisen turvallisuus painotteisen PDF lukijan, Auditor sovelluksen ja Seedvault varmuuskopiointi sovelluksen.</div>
 
-<h2 style="text-align:center;font-size:115%;font-family:verdana;text-decoration:underline;">Historia</h2>
+<h1>Historia</h1>
 
 <div id="teksti";>Daniel Micay perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei viellä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää. Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
 </div>
 
-<h3 style="text-align:center;font-size:120%;font-family:Verdana;text-decoration:underline;">Googlen Playpalvelut</h3>
+<h1>Googlen Playpalvelut</h1>
 
 <div id="teksti">Niinkuin AOSP, GrapheneOS ei sisällä Googlen sovelluksia tai palveluita. Ne ei ikinä tule olemaan ennalta asennettuja perus käyttöjärjestelmään. Useat sovellukset vaativat kuitenkin näitä toimintaan, joten 18. Heinäkuuta 2021 GrapheneOS julkaisi aikaisen prototyypin yhteensopivuuskerrokselle. Tämä mahdollistaa Googlen playpalveluiden ja kaupan asentamisen sandboxattuna sovelluksena haluttuun profiiliin. Nämä ei saa erityisiä oikeuksia ja itse OS ei käytä näitä mihinkään. Ne ovat täysin sandboxattuja sovelluksia niinkuin kaikki muutkin. GrapheneOS vain lisää fallback koodia opettaen näille miten toimia ilman erityisiä oikeuksia ja SElinux poikkeuksia joita nämä usein vaatii. Nämä voi asentaa haluttuun profiiliin jolloin ainoastaan tässä profiilissa olevat sovellukset voivat käyttää näitä. Sillä sovellukset voivat kommunikoida yhteisellä päätöksellä profiilin siällä mutta ei sen ulkona.</div>
 
@@ -111,7 +34,6 @@ GrapheneOS parantaa käyttöjärjestelmän turvallisuutta pohjasta ylöspäin. S
 </a>
 
 <br><br><br><br><br>
-
 
 </body>
 </html>
