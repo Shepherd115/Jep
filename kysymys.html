@@ -8,7 +8,7 @@
 <body>
 
 <ul style="font-size:200%;" id="ul">
-  <li style="float:right" id="li"><a id="lia" href="index.html">Home</a></li>
+  <li id="li"><a id="lia" href="index.html">Home</a></li>
   <li id="li"><a id="lia" href="features.html">Ominaisuudet</a></li>
   <li id="li"><a id="lia" href="kautto.html">Käyttö</a></li>
   <li id="li"><a id="lia" class="active" href="kysymys.html">Q&A</a></li>
@@ -25,10 +25,9 @@
   <li><a href="#leike">Onko sovelluksilla pääsy leikepöytään?</a></li>
   <li><a href="#fsp">Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></li>
   <li><a href="#bundle">Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></li>
-  <li><a href="#nsa">GrapheneOS VS NSA / FBI jne</a></li>
   <li><a href="#verkkoyhteys">Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></li>
   <li><a href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></li>
-  <li><a href="#apple">GrapheneOS VS iOS</a></li>
+  <li><a href="#root">Onko GrapheneOS roottausta?</a></li>
 </ul>
 
 <p1 id="laite-tuki"><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></p1>
@@ -68,17 +67,14 @@ GrapheneOS myös lisää LTE-only vaihtoehdon joka kytkee 2g/3g/5g yhteyden koko
 <p1 id="bundle"><a href="#bundle"><br>Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></p1>
 <div id="teksti"><br>Sielä on haittoja sovellusten ennalta-asentamiseen ja vain muutamia etuja. Sen sijan että GrapheneOS ennalta-asentaisi kasan sovelluksia, on loogisempaa käyttäjän itse asentaa haluamansa sovellukset F-Droidin, Aurora Storen tai Play kaupan kautta. GrapheneOS suunnittelee omaa first-party sovellusten päivitys järjestelmää ja "sovelluskauppaa" joka on robustimpi ja turvallisempi kuin muut vaihtoehdot. Sovellusten ennalta asentaminen lisäisi myös hyökkäyspintaa, ellei käyttäjät kytke näitä pois päältä. Sovellusten ennalta-asentaminen olisi myös kamala kumota sillä sovelluksen poistaminen käyttöjärjestelmästä johtaisi käyttäjien tietojen tuhoutumiseen.<br><br>GrapheneOS keskittyy oleellisten turvallisuus / yksityisyy parannusten tekemiseen ja satunnaisten sovellusten ennalta-asentaminen on yleensä tämän ulkopuolella ja sitä vastaan.</div>
 
-<p1 id="nsa"><a href="#nsa"><br>GrapheneOS VS NSA / FBI jne</a></p1>
-<div id="teksti"><br>On hyvä ymmärtää että kun puhutaan vastustajista joilla on täysi kontrolli laitteistosta ja rajoittamaton määrä resursseja, ei kyse ole siitä että voiko nämä murtaa salauksen vai ei vaan kysymys on kuinka paljon he ovat valmiita käyttämään resursseja, kidnappaamaan, kuulustelemaan, kiduttamaan ja tappamaan saadakseen haluamansa. GrapheneOS uhkamalli on suojella muistinkorruptio bugeilta, exploiteilta ja parantaa sovellusten turvallisuutta. Valtion tasoiset vastustajat ovat tämän ulkopuolella. 64 merkkisten salasanojen käyttäminen auttaa asiaa mutta kyseisillä vastustajilla on muitakin keinoja saada haluamasa kuin vain brute-force hyökkäys.</div>
-
 <p1 id="verkkoyhteys"><a href="#verkkoyhteys"><br>Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></p1>
 <div id="teksti"><br>Sovellukset eivät voi monitoroida verkkoyhteyksiä ellei niistä ole tehty aktiivista VPN palvelua käyttäjän toimesta. Sovellukset eivät voi normaalisti saada pääsyä verkkotilastoihin ja eivät voi suoraan pyytää pääsyä niihin.</div>
 
 <p1 id="yhteydet"><a href="#yhteydet"><br>Mitä yhteyksiä GrapheneOS tekee?</a></p1>
 <div id="teksti"><br>GrapheneOS tekee yhteyksiä ulkomaailmaan testatakseen yhteyksiä, havaitsemaan captive portaaleja ja ladatakseen päivityksiä. Tunnistettavia tietoja ei lähetetä. GrapheneOS ei sisällä analytiikkaa. Tarkat yhteydet löytyy <a href="https://grapheneos.org/faq#default-connections">tästä</a>  </div>
 
-<p1 id="apple"><a href="#apple"><br>GrapheneOS VS iOS<br></a></p1>
-<div id="teksti"><br>Huomaa että kun puhun "Android / AOSP" niin tarkoitan Androidia Pixel laitteilla ainoastaan, muut pimeät Android forkit jota esim Samsung ja Huawei tekee eivät kuulu tähän.<br><br>Laitteisto ja laiteohjelmisto - Useimmat turvallisuusominaisuudet ovat hyvin vahvasti yhdistetty fyysiseen laitteistoon käyttöjärjestelmän sijan. Nexus5X ja 6P alkoivat parantaa tätä Googlen puhelin sarjassa mutta he eivät edenneet pitkälle. Pixel puhelimet ovat tuoneet isoja parannuksia ja jokainen sukupolvi tuo entistä parempia ominaisuuksia. Pixelien TitanM on helposti verrattavissa iPhonen SEPiin. Toisaalta Pixelien muut osat laitteistosta on vajaita verraten uusimpaan iPhoneen, esim luottaisin Appleen enemmän vetäen kunnollisen IOMMU konfiguraation kuin Qualcomm, Pixel6 saattaa kyllä muuntaa tämän sillä Google tekee oman SoCin.<br><br>Pixelit joissa AOSP vs iOS - AOSP on edennyt turvallisuudessa ja yksityisyydessä erittäin paljon viime aikoina, Pixel5 ohejelmisto on hyvinkin verrattavissa uusimpiin iPhoneihin, ja se saavuttaa iPhonea vauhdilla laitteisto tasolla myös. iOS tarjoaa paljon paremman yksityisyyden sovelluksilta kuin Androidin ja heidän palvelut on parempia kuin playpalvelut, mutta useat asiat playpalveluista voi kytkeä pois päältä kuten analytiikan.<br><br>Pixel jossa GrapheneOS vs iOS - GrapheneOS aloittaa AOSPstä ilman playpelveluiden ja muiden Googlen tavaroiden lisäämistä, tämä on jo yksityisyyden kannalta voitto. GrapheneOS myös parantaa sovellusten hiekkalaatikkoa ja sisältää erittäin robustin lupahallinnan ja lisääkin 2 uutta lupaa rajoittaakseen sovelluksia entisestään. Muuten turvallisuudessa on hyvä ja huonoja puolia, jompikumpi tekee tietyt asiat paremmin ja toinen toiset. On mahdotonta antaa yksi selvä mustavalkoinen vastaus kun aihe on paljon monimutkaisempi kuin se.</div>
+<p1 id="root"><a href="#root"><br>Onko GrapheneOS roottausta?</a></p1>
+<div id="teksti"><br>Ei, GrapheneOS on suuniteltu minimoimaan oikeudet ja hyökkäyspinta ja roottaaminen olisi tämän vastakohta. Androidin arkkitehtuuri on suuniteltu minimaalisten lupien ympärille. Oletuksena kuudella prosessilla on lupa suoriutua roottina ja silloinkin nämä on hyvin rajattuja SElinuxin vuoksi ja kokonaan rajoittamatonta roottia ei ole olemassa Androidissa. Vaikka antaisi vain tietyille sovelluksille root pääsyn voi hyökkääjä käyttää esimerkiksi clickjacking tekniikkaa tai hyväksikäyttää root oikeutettua sovellusta. Verified-boot havaitsisi muutokset ja kumoaisi nämä palauttaakseen laitteen tilaan jossa se läpäisee signatuuri tarkastuksen, tämä tarkottaisi että roottaaminen myös vaatisi verified-bootin jättämistä kokonaan pois mikä osittain tuhoaa Androidin turvallisuusmallin.</div>
 
 <br><br><br><br><br>
 
