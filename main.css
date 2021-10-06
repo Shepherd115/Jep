@@ -72,3 +72,30 @@ li a:hover {
   background-color: grey;
 }
 
+@media only screen and (min-width: 1200px) {
+  #lia {
+  font-size:75%;
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    margin-left:350px;
+    margin-right:350px;
+    font-size:80%;
+    color:#e2e4e1;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #lia {
+  font-size:105%;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    margin-left:90px;
+    margin-right:90px;
+    font-size:75%;
+    color:#e2e4e1;
+  }
+}
