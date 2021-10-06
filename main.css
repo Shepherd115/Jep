@@ -1,11 +1,10 @@
 body {
-  min-height: 100vh;
   min height: -webkit-fill-available;
   font-family: Roboto, sans-serif;
   background-color: #121212;
   color: #e2e4e1;
-  margin-right:100px;
-  margin-left:100px;
+  margin-right:200px;
+  margin-left:200px;
 }
 
 html {
