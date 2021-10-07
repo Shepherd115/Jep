@@ -25,7 +25,13 @@
 <ul style="font-size:130%;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
   <ul>
-    <li>Out-Of-Line meatiedot sekä suojaus korruptoitumiselta estäen yleiset hyväksikäytöt</li>
+    <li>Out-Of-Line metatiedot sekä suojaus korruptoitumiselta estäen yleiset hyväksikäytöt</li>
+      <ul>
+        <li>Allocatorin tilan osoitetila on kokonaan varattu ja sitä ei koskaan käytetä varauksille tai millekkään muulle</li>
+        <li>Tila globaaleissa muuttujissa on kokonaan read-only alustamisen jälkeen</li>
+        <li>Allocatorin tila on omassa alueessaan korkean entropian vartija alueiden ympäröimänä</li>
+        <li>Suojaus MPKn kautta</li>
+      </ul>
     <li>Erilliset muistialueet metatiedoille, suurille varauksille sekä pienille eikä osoitetilaa koskaan uudelleenkäytetä muilla alueilla kuin heidän omallaan</li>
     <li>Virheellisten vapautusten determistinen havaitseminen</li>
     <li>Alustus vapautuksen yhteydessä sekä kirjoitus-vapautuksen-jälkeen havaitseminen tarkistamalla että muisti on silti vapautettu ennen kuin se annetaan käyttöön uudelleen</li>
