@@ -24,12 +24,12 @@
   <li><a href="#bug">Turvallisuusominaisuuksien paljastamat bugit</a></li>
   <li><a href="#selain">Selain</a></li>
   <li><a href="#auditor">Auditor</a></li>
+  <li><a href="#profiili">Käyttäjäprofiilit</a></li>
   <li><a href="#yhteen">Yhteensopivuskerros</a></li>
   <li><a href="#lte">LTE-only</a></li>
   <li><a href="#wifi">Wi-Fi yksityisyys</a></li>
   <li><a href="#kamera">Kamera</a></li>
   <li><a href="#pankki">Pankki sovellukset</a></li>
-  <li><a href="#profiili">Käyttäjäprofiilit</a></li>
 </ul>
 
 <p1 id="paivitukset"><a href="#paivitukset">Päivitykset</a></p1>
@@ -65,6 +65,10 @@ Android 7 myötä tuli file-based salaus joka on vieläkin käytössä, File-bas
 <p1 id="auditor"><a href="#auditor"><br>Auditor</a></p1>
 <div id="teksti"><br>Verified-boot todentaa ja vahvistaa laiteohjelmiston ja käyttöjärjestelmän laitteiston RoTista (Root Of Trust). Ja koska GrapheneOS tukee kokonaista verified-boottia niin imaget ovat kokonaan vahvistettuja. On kuitenkin mahdollista että tietokone jolla asennus suoritettiin on ollut vaarantunut johtaen haitallisen julkisen avaimen ja imagen asennukseen. Tälläisen hyökkäyksen havaitsemiseen voi käyttää ennalta asennettua Auditor sovellusta joka vahvistaa käyttöjärjestelmän autenttisuuden ja koskemattomuuden toisen Android laitteen avulla. Lisää Auditorista <a href="https://attestation.app/about">Tästä</a></div>
 
+<p1 id="profiili"><a href="#profiili"><br>Käyttäjäprofiilit</a></p1>
+<div id="teksti"><br>Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Käyttäjäprofiilit eivät tuplaa käyttöjärjestelmän komponentteja kuten hardened_malloccia tai sandboxia joten käyttäjäprofiilit eivät suojele esimerkiksi sandboxin ohituksilta, etu useiden käyttäjäprofiilien pyörittämiseen on mahdollisuus asettaa haitalliset sovellukset omaan eristettyyn tilaansa jossa ei ole sensitiivistä tietoa,
+esimerkiksi jos sovellus tarvitsee kaikkien tiedostojen ylläpito luvan, voi tämän asettaa omaan käyttäjäprofiiliin jossa ei ole tiedostoja.  GrapheneOS myös lisää kyvyn lopettaa käyttökerta joka tuhoaa profiilin salausavaimet ja asettaa profiilin takaisin lepoon.</div>
+
 <p1 id="yhteen"><a href="#yhteen"><br>Yhteensopivuuskerros</a></p1>
 <div id="teksti"><br>Useat Android sovellukset vaativat Googlen playpalveluita toimintaan. Android sovellusten yhteensopivuus on tärkeä osa projektia joten on kehitetty turvallinen, yksityinen ja robusti tapa hyödyntää playpalveluita. GrapheneOS antaa mahdollisuuden asentaa playkaupan ja playpalvelut normaaleina sandboxattuina sovelluksina ilman erityisiä oikeuksia haluttuun profiiliin eikä käyttöjärjestelmä itse käytä näitä mihinkään. Nämä eivät saa heidän yleisiä oikeuksia ja SElinux poikkeuksia.</div>
 
@@ -79,10 +83,6 @@ Android 7 myötä tuli file-based salaus joka on vieläkin käytössä, File-bas
 
 <p1 id="pankki"><a href="#pankki"><br>Pankki sovellukset</a></p1>
 <div id="teksti"><br>Pankki sovellukset ovat erittäin hankalia sovelluksia sillä näillä usein on heikkoja yrityksiä estää reverse-engineering yritykset. GrapheneOS sisältää "disable native code debugging" kytkimen parantamaan sovellusten sandboxia entisestään mutta tämä voi häiritä pankki sovelluksia kun he yrittävät rakentaa muureja koodin tarkkailun estämiseksi johtaen kyseisten sovellusten toimimattomuuteen.</div>
-
-<p1 id="profiili"><a href="#profiili"><br>Käyttäjäprofiilit</a></p1>
-<div id="teksti"><br>Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Käyttäjäprofiilit eivät tuplaa käyttöjärjestelmän komponentteja kuten hardened_malloccia tai sandboxia joten käyttäjäprofiilit eivät suojele esimerkiksi sandboxin ohituksilta, etu useiden käyttäjäprofiilien pyörittämiseen on mahdollisuus asettaa haitalliset sovellukset omaan eristettyyn tilaansa jossa ei ole sensitiivistä tietoa,
-esimerkiksi jos sovellus tarvitsee kaikkien tiedostojen ylläpito luvan, voi tämän asettaa omaan käyttäjäprofiiliin jossa ei ole tiedostoja.  GrapheneOS myös lisää kyvyn lopettaa käyttökerta joka tuhoaa profiilin salausavaimet ja asettaa profiilin takaisin lepoon.</div>
 
 <br><br><br><br><br>
 
