@@ -7,8 +7,11 @@
 
 <h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Muutosloki</h1>
 
+<div style="font-size:125%">1.09</div>
+<p>-Etusivua sekä Ominaisuudet sivua paranneltu (Linkkejä ja loogisempi järjestys)<br>-Korjattu bugi jossa käyttö / Q&A sivun linkit oli aina alleviivattu</p>
+
 <div style="font-size:125%">1.08</div>
-<p>-Lisätty: Q&A osioon "Onko GrapheneOS roottausta?"<br>-Lisätty: Käyttö osioon "Laitteen salaus"<br>-Poistettu: "GrapheneOS VS iOS"<br>-Poistettu: "GrapheneOS vs NSA / FBI"<br>-Etusivun teksti lyhennetty ja ominaisuudet sivua paranneltu<br>-.css tiedosto luotu helpompaa muokkausta varten<br>-[Tuleva] Android12 muutokset</p>
+<p>-Lisätty: Q&A osioon "Onko GrapheneOS roottausta?"<br>-Lisätty: Käyttö osioon "Laitteen salaus"<br>-Poistettu: "GrapheneOS VS iOS"<br>-Poistettu: "GrapheneOS vs NSA / FBI"<br>-Etusivun teksti lyhennetty ja ominaisuudet sivua paranneltu<br>-.css tiedosto luotu helpompaa muokkausta varten<br>-Koko sivusto uudelleenkirjoitettu minimaalisemmin ja siistimmin<br>-[Tuleva] Android12 muutokset</p>
 
 <div style="font-size:125%;">1.07</div>
 <p>-Taustaväriä hieman muutettu<br>-Useita osioita uudelleenkirjoitettu<br>-Korjattu kirjoitusvirheitä<br>-(Mahdollisesti) parempi näkyvyys iPhonella</p>
