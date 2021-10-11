@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <title>GrapheneOS Tieto</title>
   </head>
+
+<style>
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    background-color: #0e0f0f;
+    text-decoration: underline;
+}
+</style>
 <body>
 
 <ul style="font-size:200%;" id="ul">
@@ -79,7 +90,7 @@ esimerkiksi jos sovellus tarvitsee kaikkien tiedostojen ylläpito luvan, voi tä
 <div id="teksti"><br>GrapheneOS Wi-Fi on erittäin yksityisyys-ystävällinen ja periaatteessa anonyymi kunhan sovellukset eivät vuoda tunnisteita verkkoon. Verkot ei voi tunnistaa että laitteella on GrapheneOS.<br>MAC randomisointi on aina käytössä kun Wi-Fi verkkoja skannataan. Pixel puhelimissa on laiteohjelmisto tuki joka antaa näille huomattavasti paremman MAC osoitteen randomisoinnin joka menee yli yleisen naiivin implementaation. Monilla muilla laitteilla laite vuotaa esimerkiksi packet-sequence-numberin ja tunnisteita probe-requestissa<br>Wi-Fi ja bluetooth skannaus sijainnin parantamiseksi on poissa käytöstä oletuksena.</div>
 
 <p1 id="kamera"><a href="#kamera"><br>Kamera</a></p1>
-<div id="teksti"><br>Kamera sovellus joka käyttöjärjestelmässä tulee mukana on AOSPn kamerasovellus joka on erittäin minimaalinen eikä kykene käyttämään Pixel puhelimien laitteistoa kunnolla. Oma kamera sovellus on työn alla mutta tilapäisesti Open Camera on hieman edistyneempi mutta ei kykene täysin hyödyntämään laitteistoa. Google kamera on asennettavissa profiiliin jossa on yhteensopivuuskerros. Tämä kykenee kokonaan hyödyntämään Pixelien laitteistoa. </div>
+<div id="teksti"><br>Kamera sovellus joka käyttöjärjestelmässä tulee mukana on AOSPn kamerasovellus joka on erittäin minimaalinen eikä kykene käyttämään Pixel puhelimien laitteistoa kunnolla. Oma kamera sovellus on työn alla mutta tilapäisesti Open Camera on hieman edistyneempi mutta ei kykene täysin hyödyntämään laitteistoa. Google kamera on asennettavissa profiiliin jossa on yhteensopivuuskerros. Tämä kykenee kokonaan hyödyntämään Pixelien laitteistoa.<br><br>Oma kamerasovellus on alpha kokeilussa tällä hetkellä.</div>
 
 <p1 id="pankki"><a href="#pankki"><br>Pankki sovellukset</a></p1>
 <div id="teksti"><br>Pankki sovellukset ovat erittäin hankalia sovelluksia sillä näillä usein on heikkoja yrityksiä estää reverse-engineering yritykset. GrapheneOS sisältää "disable native code debugging" kytkimen parantamaan sovellusten sandboxia entisestään mutta tämä voi häiritä pankki sovelluksia kun he yrittävät rakentaa muureja koodin tarkkailun estämiseksi johtaen kyseisten sovellusten toimimattomuuteen.</div>
