@@ -3,7 +3,8 @@
   <head>
     <link href="main.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>GrapheneOS Tieto</title>
+    <title>Kysymys | GrapheneOS Tieto</title>
+    <meta name="description" content="Suomalaista GrapheneOS tietoa"/>
   </head>
 <style>
 a {
@@ -38,25 +39,40 @@ a:hover {
   <li><a href="#verkkoyhteys">Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></li>
   <li><a href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></li>
   <li><a href="#root">Onko GrapheneOS roottausta?</a></li>
+  <li><a href="#perustus">Miten GrapheneOS perustettiin?</a></li>
 </ul>
 
 <p1 id="laite-tuki"><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></p1>
-<div id="teksti"><br>Laitteiden on tavattava tarkat ja tiukat kriteerit ennen kuin ne voidaan luokitella mahdollisiksi kohteiksi. Sillä jos laitteisto / laiteohjelmisto on huono, ei käyttöjärjestelmä voi tarjota korviketta. Laitteessa on oltava kyky asentaa erillisiä käyttöjärjestelmiä sekä tuki omille signeeraus avaimille antaen täyden verified-bootin. Useat Android OEM:mät epäonnistuu kunnollisen verified-bootin implementoinnissa. Laitteessa on myös oltava laitteistopohjaisia turvallisuusominaisuuksia kuten Hardware-Backed-Keystore, useita exploittien mitigointeja, sekä kunnollinen IOMMU eristämään esim radiot toisistaan. Toistaiseksi ainoat laitteet jotka tapaavat tarpeet ovat Googlen Pixel 4a, 4a5g, 5 ja 5a puhelimet. Vanhemmat Pixel laitteet eivät ole listassa sillä niiden tuki on loppunut sillä näiden OEM on lopettanut tuen. Pixel puhelimet on valittu seuraavista sysitä:
-</div>
-<ul style="font-size:125%;">
+<div id="teksti"><br>Laitteiden on tavattava tarkat ja tiukat kriteerit ennen kuin ne voidaan luokitella mahdollisiksi kohteiksi. Sillä jos laitteisto / laiteohjelmisto on huono, ei käyttöjärjestelmä voi tarjota korviketta. Laitteessa on oltava kyky asentaa erillisiä käyttöjärjestelmiä sekä tuki omille signeeraus avaimille antaen täyden verified-bootin. Useat Android OEM:mät epäonnistuu kunnollisen verified-bootin implementoinnissa. Laitteessa on myös oltava laitteistopohjaisia turvallisuusominaisuuksia kuten Hardware-Backed-Keystore, useita exploittien mitigointeja, sekä kunnollinen IOMMU eristämään esim radiot toisistaan. Toistaiseksi ainoat laitteet jotka tapaavat tarpeet ovat 
+
+<ul>
+  <li>Pixel 5 (redfin)</li>
+  <li>Pixel 4a (5G) (bramble)</li>
+  <li>Pixel 4a (sunfish)</li>
+  <li>Pixel 4 XL (coral)</li>
+  <li>Pixel 4 (flame)</li>
+  <li>Pixel 3a XL (bonito)</li>
+  <li>Pixel 3a (sargo)</li>
+  <li>Pixel 3 XL (crosshatch)</li>
+  <li>Pixel 3 (blueline)</li>
+</ul>
+
+Vanhemmat Pixel laitteet eivät ole listassa sillä niiden tuki on loppunut sillä näiden OEM on lopettanut tuen. Pixel puhelimet on valittu seuraavista sysitä:
+
+<ul>
   <li>Täysi verified boot ja tuki omille signeeraus avaimille</li>
   <li>TitanM siru, Pixelien HSM (Harware Security Module) moduli joka tarjoaa useita ominaisuuksia. Se voi turvallisesti varastoida krytpograafista materiaalia käyttäen Androidin StrongBox avainvarastoa. Se on myöskin integroitu verified-boot prosessiin ja TitanM sirun vahvuuden vuoksi on erittäin vaikea tätä ohittaa. Vaikka hyökkääjä pääsisi käsiksi TitanM laiteohjelmiston signeerausavaimiin, (Tai Google itse) he ei kykenisi asentamaan omaa haitallista laiteohjelmistoa <a ="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html">Insider-Attack-Resistancen</a> vuoksi joka estää laiteohjelmiston päivittämisen ennen kuin oikea näytön salasana on syötetty.</li>
   <li>Kunnolliset exoloittien mitigoinnit SoC:issa ja tiukka IOMMU eristämään komponentit. Qualcommin SoC jota käytetään Pixel puhelimissa ottaa käyttöön modernit exploittien mitigoinnit sekä robustin IOMMU:n</li>
   <li>Fine-grained, forward-edge kernelin CFI (Control Flow Integrity) ja ShadowCallStack - Pixelien kernelit kootaan muokkautettujen vahvistusten kera joihin kuuluu esimerkiksi CFI ja SCS</li>
   <li>Wifi yksityisyys - Pixelit käyttävät erilaista MAC osoitteen randomisointia kuin muut joka ei vuoda muitakaan tunnisteita MAC osoitteen lisäksi <a style="color:white;"href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">(Dokumentaatio)</a> </li>
-</ul>
+</ul> </div>
 
 <p1 id="verkot"><a href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></p1>
 <div id="teksti"><br>GrapheneOS aina olettaa että puhelinoperaattorit ovat vihollisia. Se jättää pois useita sovelluksia mitkä ovat AOSPssä jotka antavat puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myöskin päivittää kellon itse sen sijan että luottaisi että puhelinoperaattori tekisi tätä. Aika on nimittäin arvokasta jota voidaan hyväksi käyttää, tämän takia TitanM siru sisältää kokonaan oman kellon jota se itse määrää.
 Puhelin verkostot käyttävät erittäin epä-turvallisia teknologioita ja niillä on useita luotettavia osapuolia. Luotto on asia mitä ei pitäisi olla tietoturvassa, kenenkään ei pitäisi luottaa että palvelu tekee asiat oikein, on oltava kunnollinen ja robusti tapa joka välttää luottamista muuhun kuin osapuoleen kehen haluat ottaa yhteyttä. Luotettavin järjestelmä on järjestelmä johon ei tarvitse luottaa.
 <br><br>Kaikilla virallisesti tuetuilla laitteilla on tuki ottaa käyttöön lentokonetila mutta ottaa käyttöön wifi samaan aikaan. Tämä estää kaikki yhteydet puhelinoperaattoriin ja mahdollistaa laitteen käytön wifi-only laitteena. MAC osoitteen randomisointi on aina käytössä kun laite skannaa wifi verkkoja. Pixel puhelimissa on laiteohjelmistotuki MAC osoitteen randomisointiin mikä menee yli perus randomisoinnin 
 Useilla muilla laitteilla laite wifi skannaus vuotaa tunnisteita.
-GrapheneOS myös lisää LTE-only vaihtoehdon joka kytkee 2g/3g/5g yhteyden kokonaan pois ja käyttää pelkästään 4g:tä. Tämä on ainoastaan pinentämään hyökkäyspintaa poistamalla vanhentunutta koodia eikä pidä erehtyä että se on jotain mikä tekisi puhelinoperaattorista luotettavan. Perus puhelut eivät toimi kun LTE-only on käytössä.
+GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#lte">LTE-only</a> vaihtoehdon joka kytkee 2g/3g/5g yhteyden kokonaan pois ja käyttää pelkästään 4g:tä. Tämä on ainoastaan pinentämään hyökkäyspintaa poistamalla vanhentunutta koodia eikä pidä erehtyä että se on jotain mikä tekisi puhelinoperaattorista luotettavan. Perus puhelut eivät toimi kun LTE-only on käytössä.
 </div>
 
 <p1 id="sovellukset"><a href="#sovellukset"><br>Mihin sovellukset kykenevät</a></p1>
@@ -85,6 +101,10 @@ GrapheneOS myös lisää LTE-only vaihtoehdon joka kytkee 2g/3g/5g yhteyden koko
 
 <p1 id="root"><a href="#root"><br>Onko GrapheneOS roottausta?</a></p1>
 <div id="teksti"><br>Ei, GrapheneOS on suuniteltu minimoimaan oikeudet ja hyökkäyspinta ja roottaaminen olisi tämän vastakohta. Androidin arkkitehtuuri on suuniteltu minimaalisten lupien ympärille. Oletuksena kuudella prosessilla on lupa suoriutua roottina ja silloinkin nämä on hyvin rajattuja SElinuxin vuoksi ja kokonaan rajoittamatonta roottia ei ole olemassa Androidissa. Vaikka antaisi vain tietyille sovelluksille root pääsyn voi hyökkääjä käyttää esimerkiksi clickjacking tekniikkaa tai hyväksikäyttää root oikeutettua sovellusta. Verified-boot havaitsisi muutokset ja kumoaisi nämä palauttaakseen laitteen tilaan jossa se läpäisee signatuuri tarkastuksen, tämä tarkottaisi että roottaaminen myös vaatisi verified-bootin jättämistä kokonaan pois mikä osittain tuhoaa Androidin turvallisuusmallin.</div>
+
+<p1 id="perustus"><a href="#perustus"><br>Miten GrapheneOS perustettiin?</a></p1>
+<div id="teksti"><br>Daniel Micay perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei viellä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää.<br><br> Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
+</div>
 
 <br><br><br><br><br>
 
