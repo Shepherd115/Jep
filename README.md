@@ -8,7 +8,7 @@
 <h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Muutosloki</h1>
 
 <div id="1.1"><a href="#1.1">1.1</a></div>
-<p>-Historia osuus siirretty etusivulta Q&A sivulle<br>-URL Preview<br>-Muutosloki linkki muutettu version numeroksi joka on linkki muutoslokiin<br>-Korjattu kirjoitusvirheitä sekä päivitetty täsmäämään uusinta GrapheneOS sivustoa<br>-Lisätty: Etusivulle "GrapheneOS asennus"</p>
+<p>-"mihin sovellukset kykenevät" jaettu kahteen osaan<br>-Historia osuus siirretty etusivulta Q&A sivulle<br>-URL Preview<br>-Muutosloki linkki muutettu version numeroksi joka on linkki muutoslokiin<br>-Korjattu kirjoitusvirheitä sekä päivitetty täsmäämään uusinta GrapheneOS sivustoa<br>-Lisätty: Etusivulle "GrapheneOS asennus"</p>
 
 <div id="1.09"><a href="#1.09">1.09</a></div>
 <p>-Etusivua sekä Ominaisuudet sivua paranneltu (Linkkejä ja loogisempi järjestys)<br>-Korjattu bugi jossa käyttö / Q&A sivun linkit oli alleviivattu</p>
