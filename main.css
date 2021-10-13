@@ -17,6 +17,11 @@ a {
     text-decoration: underline;
 }
 
+code {
+    background-color: #grey;
+    font-family: "Roboto Mono", monospace;
+}
+
 h1, h2, h3, h4, h5, h6, h7, h8, h9 {
   text-align:center;
   text-decoration:underline;
