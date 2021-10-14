@@ -22,7 +22,7 @@
 <ul style="font-size:130%;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
    <ul>
-    <li>Metatiedot ovat kokonaan out-of-line sekä suojaus korruptoitumiselta</li>
+    <li>Metatiedot ovat kokonaan eristetty sekä suojaus korruptoitumiselta</li>
       <ul>
        <li>Allocator_staten osoiteavaruus on kokonaan varattu alustamisen aikana eikä koskaan käytetty varauksille tai muulle</li>
        <li>Globaaleissa muuttujissa oleva tila on kokonaan read-only alustamisen jälkeen</li>
@@ -53,7 +53,7 @@
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
 <br>
   <li>Tarkemmat laitteistotiedot asetuksissa</li>
-  <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">laitetunnistimiin</a></li>
+  <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tunnistin">laitetunnistimiin</a></li>
   <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
   <li>Vaihtoehto kytkeä ptrace pois päältä hyökkäyspinnan pienentämiseksi</li>
   <li>Pieniä parannuksia laitteen <a href="https://shepherd115.github.io/Jep/kautto.html#salaus">salaukseen</a></li>
@@ -73,6 +73,7 @@
   <li>Kellon päivittäminen omien GrapheneOS palvelimien kautta</li>
   <li>Kunnollinen tuki poistaakseen puhelinoperaattorin kyvyn vaihtaa laitteen kellonaikaa eikä vain olla näyttämättä heidän tarjoamaa aikaa</li>
   <li>Vahvistettu / Hardened signeeraus infrastruktuuri</li>
+  <li>Googleplaypalvelu <a href="https://shepherd115.github.io/Jep/kautto.html#yhteen">yhteensopivuuskerros</a></li>
   <li>Tuki 64 merkkiselle laitteen salasanalle</li>
   <li>Vaivattomat käyttöjärjestelmän päivitykset mitkä pysyvät poissa tieltä sekä tuki mennä aiempaan versioon jos päivitys epäonnistuu</li>
   <li>Vaatii laitteen avausta ennen kuin sensitiiviä ominaisuuksia quick-tilesseissä voi käyttää (Wifi, lentokonetila, GPS, NFC jne)</li>
@@ -87,4 +88,3 @@
 
 </body>
 </html>
-
