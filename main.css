@@ -40,11 +40,11 @@ h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, 
 }
 
 img {
-    height: 1.4rem;
-    width: 1.7rem;
+    height: 3.5rem;
+    width: 3.5rem;
     filter: invert(100);
     vertical-align: middle;
-    margin-right: 0.4rem;
+    margin-right: 0.3rem;
 }
 
 p1 {
@@ -73,7 +73,7 @@ p1 {
   display: block;
   color: white;
   text-align: center;
-  padding: 15px 25px;
+  padding: 19px 23px;
   text-decoration: none;
 }
 
