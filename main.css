@@ -73,7 +73,7 @@ p1 {
   display: block;
   color: white;
   text-align: center;
-  padding: 32px 30px;
+  padding: 28px 28px;
   text-decoration: none;
 }
 
@@ -87,7 +87,7 @@ li a:hover {
 
 @media only screen and (min-width: 1200px) {
   #lia {
-  font-size:55%;
+  font-size:65%;
 }
 
 @media only screen and (min-width: 1200px) {
