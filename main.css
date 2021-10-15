@@ -11,9 +11,8 @@ body {
 html {
     height: -webkit-fill-available;
 }
-
 a {
-    color: white;
+    color:white;
     text-decoration: underline;
 }
 
@@ -40,8 +39,8 @@ h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, 
 }
 
 img {
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 3.2rem;
+    width: 2.5rem;
     filter: invert(100);
     vertical-align: middle;
     margin-right: 0.3rem;
@@ -73,8 +72,10 @@ p1 {
   display: block;
   color: white;
   text-align: center;
-  padding: 28px 28px;
+  padding: 20px 28px;
   text-decoration: none;
+  height: 3.2rem;
+  width: 5.5rem;
 }
 
 li a:hover {
