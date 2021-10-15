@@ -39,6 +39,14 @@ h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, 
     color: white;
 }
 
+img {
+    height: 1.4rem;
+    width: 1.7rem;
+    filter: invert(100);
+    vertical-align: middle;
+    margin-right: 0.4rem;
+}
+
 p1 {
   font-size:175%;
 }
