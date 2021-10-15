@@ -7,7 +7,7 @@
 
 <h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Muutosloki</h1>
 
-<div id="1.2"><a href="#1.2">1.2</a></div>
+<div id="1.11"><a href="#1.11">1.11</a></div>
 <p>-Lisätty GrapheneOS Twitter linkki etusivulle<br>-Lisätty URL preview kuva sekä GrapheneOS logo etusivulle. Lupa saatu kehittäjiltä<br>-Selkeämmät otsikot<br>-Pääsivulle "GrapheneOS versio" ja linkki tämän muutoslokiin</p>
 
 <div id="1.1"><a href="#1.1">1.1</a></div>
