@@ -6,20 +6,10 @@
     <title>Kysymys | GrapheneOS Tieto</title>
     <meta name="description" content="Suomalaista GrapheneOS tietoa"/>
   </head>
-<style>
-a {
-    color: white;
-    text-decoration: none;
-}
-a:hover {
-    background-color: #0e0f0f;
-    text-decoration: underline;
-}
-</style>
 <body>
 
 <nav id="site-menu">
-<ul>
+<ul style="font-size:150%";>
 <li><a href="index.html"><img src="mask-icon.svg" alt=""/>GrapheneOS</a></li>
 <li><a href="features.html">Ominaisuudet</a></li>
 <li><a href="kautto.html">Käyttö</a></li>
@@ -30,22 +20,22 @@ a:hover {
 <h1 style="text-align:center;font-family:verdana;">Q&A</h1>
 
 <ul style="font-size:145%;border-left:5px solid;border-radius:10px;" class="headers">
-  <li><a style="color:#1565c0"; href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></li>
-  <li><a style="color:#1565c0"; href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></li>
-  <li><a style="color:#1565c0"; href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></li>
-  <li><a style="color:#1565c0"; href="#laite-tunnistin">Onko sovelluksilla pääsy laitetunnisteisiin?</a></li>
-  <li><a style="color:#1565c0"; href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></li>
-  <li><a style="color:#1565c0"; href="#palomuuri">Tarjoaako GrapheneOS palomuurin?</a></li>
-  <li><a style="color:#1565c0"; href="#leike">Onko sovelluksilla pääsy leikepöytään?</a></li>
-  <li><a style="color:#1565c0"; href="#fsp">Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></li>
-  <li><a style="color:#1565c0"; href="#bundle">Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></li>
-  <li><a style="color:#1565c0"; href="#verkkoyhteys">Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></li>
-  <li><a style="color:#1565c0"; href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></li>
-  <li><a style="color:#1565c0"; href="#root">Onko GrapheneOS roottausta?</a></li>
-  <li><a style="color:#1565c0"; href="#perustus">Miten GrapheneOS perustettiin?</a></li>
+  <li><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></li>
+  <li><a href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></li>
+  <li><a href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></li>
+  <li><a href="#laite-tunnistin">Onko sovelluksilla pääsy laitetunnisteisiin?</a></li>
+  <li><a href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></li>
+  <li><a href="#palomuuri">Tarjoaako GrapheneOS palomuurin?</a></li>
+  <li><a href="#leike">Onko sovelluksilla pääsy leikepöytään?</a></li>
+  <li><a href="#fsp">Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></li>
+  <li><a href="#bundle">Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></li>
+  <li><a href="#verkkoyhteys">Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></li>
+  <li><a href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></li>
+  <li><a href="#root">Onko GrapheneOS roottausta?</a></li>
+  <li><a href="#perustus">Miten GrapheneOS perustettiin?</a></li>
 </ul>
 
-<p1 id="laite-tuki"><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></p1>
+<p1 id="laite-tuki"><a style="color:white;" href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></p1>
 <div id="teksti"><br>Laitteiden on tavattava tarkat ja tiukat kriteerit ennen kuin ne voidaan luokitella mahdollisiksi kohteiksi. Sillä jos laitteisto / laiteohjelmisto on huono, ei käyttöjärjestelmä voi tarjota korviketta. Laitteessa on oltava kyky asentaa erillisiä käyttöjärjestelmiä sekä tuki omille signeeraus avaimille antaen täyden verified-bootin. Useat Android OEM:mät epäonnistuu kunnollisen verified-bootin implementoinnissa. Laitteessa on myös oltava laitteistopohjaisia turvallisuusominaisuuksia kuten Hardware-Backed-Keystore, useita exploittien mitigointeja, sekä kunnollinen IOMMU eristämään esim radiot toisistaan. Toistaiseksi ainoat laitteet jotka tapaavat tarpeet ovat 
 
 <ul>
@@ -71,7 +61,7 @@ Vanhemmat Pixel laitteet eivät ole listassa sillä niiden tuki on loppunut sill
   <li>Wifi yksityisyys - Pixelit käyttävät erilaista MAC osoitteen randomisointia kuin muut joka ei vuoda muitakaan tunnisteita MAC osoitteen lisäksi <a style="text-decoration:underline"; href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">(Dokumentaatio)</a> </li>
 </ul> </div>
 
-<p1 id="verkot"><a href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></p1>
+<p1 id="verkot"><a style="color:white;" href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></p1>
 <div id="teksti"><br>GrapheneOS aina olettaa että puhelinoperaattorit ovat vihollisia. Se jättää pois useita sovelluksia mitkä ovat AOSPssä jotka antavat puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myöskin päivittää kellon itse sen sijan että luottaisi että puhelinoperaattori tekisi tätä. Aika on nimittäin arvokasta jota voidaan hyväksi käyttää, tämän takia TitanM siru sisältää kokonaan oman kellon jota se itse määrää.
 Puhelin verkostot käyttävät erittäin epä-turvallisia teknologioita ja niillä on useita luotettavia osapuolia. Luotto on asia mitä ei pitäisi olla tietoturvassa, kenenkään ei pitäisi luottaa että palvelu tekee asiat oikein, on oltava kunnollinen ja robusti tapa joka välttää luottamista muuhun kuin osapuoleen kehen haluat ottaa yhteyttä. Luotettavin järjestelmä on järjestelmä johon ei tarvitse luottaa.
 <br><br>Kaikilla virallisesti tuetuilla laitteilla on tuki ottaa käyttöön lentokonetila mutta ottaa käyttöön wifi samaan aikaan. Tämä estää kaikki yhteydet puhelinoperaattoriin ja mahdollistaa laitteen käytön wifi-only laitteena. MAC osoitteen randomisointi on aina käytössä kun laite skannaa wifi verkkoja. Pixel puhelimissa on laiteohjelmistotuki MAC osoitteen randomisointiin mikä menee yli perus randomisoinnin 
@@ -79,37 +69,37 @@ Useilla muilla laitteilla laite wifi skannaus vuotaa tunnisteita.
 GrapheneOS myös lisää <a style="text-decoration:underline"; href="https://shepherd115.github.io/Jep/kautto.html#lte">LTE-only</a> vaihtoehdon joka kytkee 2g/3g/5g yhteyden kokonaan pois ja käyttää pelkästään 4g:tä. Tämä on ainoastaan pinentämään hyökkäyspintaa poistamalla vanhentunutta koodia eikä pidä erehtyä että se on jotain mikä tekisi puhelinoperaattorista luotettavan. Perus puhelut eivät toimi kun LTE-only on käytössä.
 </div>
 
-<p1 id="sovellukset"><a href="#sovellukset"><br>Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></p1>
+<p1 id="sovellukset"><a style="color:white;" href="#sovellukset"><br>Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></p1>
 <div id="teksti"><br>Androidilla, sovellukset ovat sandboxattuja aina. Sovelluksilta on tiukasti estetty kyky päästä muiden sovellusten tai käyttäjän tietoihin, oli sovellus avoimen tai suljetun lähdekoodin niin sillä ei ole mitään merkitystä. GrapheneOS laukaisee jokaisen prosessin omana prosessinaan <a style="text-decoration:underline"; href="https://shepherd115.github.io/Jep/kautto.html#exec">Execin</a> avulla malliprosessin kopioimisen sijan, tämä estää sovelluksia pääsemästä muiden muistisisältöön / järjestykseen. Sovellukset ei kykene tekemään mitään sandboxin ulkopuolella oletuksena ellei käyttäjä anna erikseen tähän lupaa. Tämän vuoksi, jokainen sovellus elää omassa turvallisessa ympäristössään eristettynä muista ja saa ainoastaan pääsyn tietoihin joita käyttäjä tälle antaa esim lupien kautta. GrapheneOS myös huomattavasti parantaa sandboxin muureja ominaisuuksilla kuten tiukennetut SElinux säännöt, Exec spawning, täysi dex preopt käyttöjärjestelmän omille sovelluksille, poistamalla epämääräisiä ominaisuuksia kuten system_other ja paljon muutakin.<br><br>GrapheneOS sallii Inter-process communicationin (IPCn) sillä se on erittäin tärkeä osa käyttökelpoisuutta, mutta sovellukset voivat käyttää tätä toisten sovellusten kanssa kommunikoimiseen vain jos molempien sovellusten kehittäjät ovat koodatessaan sallineet sovellusten välisen yhteistyön. IPC mahdollistaa tiedonvälityksen tällein sovellusten välillä sandboxin ulkopuolelle jonka vuoksi <a style="text-decoration:underline"; href="https://shepherd115.github.io/Jep/kautto.html#profiili">käyttäjäprofiilien</a> hyödyntäminen on erittäin suositeltavaa sillä Android estää IPCn profiilien välillä.</div>
 
-<p1 id="laite-tunnistin"><a href="#laite-tunnistin"><br>Onko sovelluksilla pääsy laitetunnisteisiin?</a></p1>
+<p1 id="laite-tunnistin"><a style="color:white;" href="#laite-tunnistin"><br>Onko sovelluksilla pääsy laitetunnisteisiin?</a></p1>
 <div id="teksti"><br>Android 10 myötä, sovellukset eivät voi saada pääsyä muuttumattomiin laitetietoihin kuten sarjanumeroon, MAC osoitteeseen, IMEI/MEIDiin, SIM kortin sarjanumeroon jne. Ainoastaan tietyt käyttöjärjestelmän komponentit joilla on <code>READ_PRIVILEGED_PHONE_STATE</code> white-listattu saa pääsyn näihin. Sovellukset jotka kohdentamat Android 10 käyttöjärjestelmää saa <code>SecurityException</code> virheen ja vanhemmat tyhjän arvon yhteensopivuuden vuoksi. Siitä syystä että näistä tuli oletuksia Andridissa, GrapheneOS ei enään tee rajoituksia tällä alueella. Sovellukset voivat kuitenkin määrittää mikä laitemalli on käytössä, esimerkiksi Pixel5.<br><br>Entä ei-laitteisto pojaiset tunnistimet - Sovellukset voivat havaita että tämä on GrapheneOS turvallisuus / yksityisyys vahvistusten vuoksi. Sovelluksilla on pääsy globaaleihin laite-asetuksiin kuten tietoon onko tumma-teema käytössä, aikavyöhyke ja IP osoite. GrapheneOS aikoo tulevaisuudessa lisätä rajoituksia tälle alueelle ellei näistä tule oletuksia Androidissa. Sovellukset voivat luoda oman 128 bittisen tai suuremman satunnaisen arvon ja käyttää sitä tunnisteena, sovellukset voi myös luoda tietoja heidän omassa kansiossaan ja käyttää tätä tunnisteena ilman lupaa. Uudemmat sovellukset (TargetSDK yli 29) ei pysty säilyttämään tätä sovelluksen poistuttua mutta vanhemmat pystyy. <code>ANDROID_ID</code> on 64 bittinen satunnainen arvo joka muodostuu sovelluksen signeeraus avaimesta ja profiilista, 64 bitin koko tarkoittaa ettei se ole kovin hyödyllinen tunniste sillä sen pieni arvo.</div>
 
-<p1 id="muut"><a href="#muut"><br>Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></p1>
-<div id="teksti"><br>GrapheneOS keskittyy täysin turvallisuus / yksityisyys parannuksiin itse käyttöjärjestelmässä, ei markkinointiin ja kolmannen osapuolen sovellusten ennalta asentamiseen kuten Signaalin. Useat muut kuten LineageOS ei mahdollista bootloaderin lukitsemista mikä kytkee verified-bootin pois mikä on iso osa Androidin turvallisuusmallia. Käyttää <a style="text-decoration:underline"; href="https://github.com/LineageOS/hudson/blob/master/lineage-build-targets">user-debug buildseja</a> oletuksena joka lisää hyökkäyspintaa, <a style="text-decoration:underline"; href="https://github.com/LineageOS/android_system_sepolicy/search?q=userdebug&type=code">heikentää SElinux sääntöjä</a>, ei anna minkäänlaista <a style="text-decoration:underline"; href="https://source.android.com/security/verifiedboot/verified-boot#rollback-protection">roll-back suojaa</a> ja jopa antaa käyttäjän itse alentaa version eikä kuljeta laiteohjelmisto päivityksiä.</div>
+<p1 id="muut"><a style="color:white;" href="#muut"><br>Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></p1>
+<div id="teksti"><br>GrapheneOS keskittyy täysin turvallisuus / yksityisyys parannuksiin itse käyttöjärjestelmässä, ei markkinointiin ja kolmannen osapuolen sovellusten ennalta asentamiseen kuten Signaalin. Useat muut kuten LineageOS ei mahdollista bootloaderin lukitsemista mikä kytkee verified-bootin pois mikä on iso osa Androidin turvallisuusmallia. Käyttää <a href="https://github.com/LineageOS/hudson/blob/master/lineage-build-targets">user-debug buildseja</a> oletuksena joka lisää hyökkäyspintaa, <a href="https://github.com/LineageOS/android_system_sepolicy/search?q=userdebug&type=code">heikentää SElinux sääntöjä</a>, ei anna minkäänlaista <a href="https://source.android.com/security/verifiedboot/verified-boot#rollback-protection">roll-back suojaa</a> ja jopa antaa käyttäjän itse alentaa version eikä kuljeta laiteohjelmisto päivityksiä.</div>
 
-<p1 id="palomuuri"><a href="#palomuuri"><br>Tarjoaako GrapheneOS palomuurin?</a></p1>
+<p1 id="palomuuri"><a style="color:white;" href="#palomuuri"><br>Tarjoaako GrapheneOS palomuurin?</a></p1>
 <div id="teksti"><br>Kyllä, GrapheneOS perii vahvasti integroidun palomuurin Android Open Source Projectilta, jota käytetään implementoidakseen useita turvallisuusmallin osioita ja muita ominaisuuksia. GrapheneOS teki muutoksia tähän mutta nämä on nyt oletuksia joten muutokset poistettiin.<br><br>GrapheneOS lisää user-facing Network lupa kytkimen joka tarjoaa robustin tavan evätä molemmat suorat ja ei suorat yhteydet internettiin sovellukselta. Se on rakennettu Androidin Ei User-Facing INTERNET luvasta joten Android sovellusten ekosysteemi on jo kokonaan adoptoinut idean.</div>
 
-<p1 id="leike"><a href="#leike"><br>Onko sovelluksilla pääsy leikepöytään?</a></p1>
+<p1 id="leike"><a style="color:white;" href="#leike"><br>Onko sovelluksilla pääsy leikepöytään?</a></p1>
 <div id="teksti"><br>Android10 myötä, ainoastaan konfiguroidulla näppäimistöllä ja sillä hetkellä auki oleva sovellus saa pääsyn leikepöytään. Sovellukset jotka ovat auki taustalla eivät saa tähän pääsyä. GrapheneOS ennen rajoitti sovellusten pääsyä leikepöytään taustalla mutta tästä tuli oletus joten se poistettiin.</div>
 
-<p1 id="fsp"><a href="#fsp"><br>Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></p1>
+<p1 id="fsp"><a style="color:white;" href="#fsp"><br>Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></p1>
 <div id="teksti"><br>Ei. Tämä olisi vaarallista ja tarpeetonta. TitanM käsittelee brute-force hyökkäykset paljon kehittyneemmin kuin vain avainten poistaminen. TitanM siru itsessään on äärettömän pieni (Noin riisin kokoinen) ja on luonteeltaan erittäin vaikea kohde. TitanM on myös integroitu laitteen salaus prosessiin ja säilöö tokenssit joista luodaan avaimet salauksen purkuun eikä se vapauta näitä ennen kuin oikea salsana on syötetty. Tarkoittaen että yritykset päästä laitteeseen on tehtävä juuri sen TitanM sirun kautta. Brute-force hyökkäyksen aikana TitanM rankaisee hyökkääjää pidentämällä aikaa ennen uutta yritystä. Ensimmäisen viiden yrityksen jälkeen TitanM sammuttaa pääsyn tokensseihin 30 sekunniksi ja sammuttaa sormenjälki lukijan. Tämän jälkeen TitanM progressiivisesti pidentää aikaa kunnes uuden yrityksen aika on yksi päivä. Vaikka käyttöjärjestelmä olisi hyökkääjän hallussa, niin ei ajastinta voi ohittaa sillä TitanM sisältää oman kellon josta OS ei pidä mitään kontrollia. Tämä ei suojaa jos laitteen salasana on jotain helppoa kuten 12345 tai lemmikin nimi mutta tarjoaa lähes murtamattoman suojan vain 6 lukuisella PIN koodilla. On myös hyvä huomioida että GrapheneOS sallii maksimissaan 64 merkkisten salasanojen käytön jos kokee että tarvitsee entistä vahvemman suojan. </div>
 
-<p1 id="bundle"><a href="#bundle"><br>Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></p1>
+<p1 id="bundle"><a style="color:white;" href="#bundle"><br>Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></p1>
 <div id="teksti"><br>Sielä on haittoja sovellusten ennalta-asentamiseen ja vain muutamia etuja. Sen sijan että GrapheneOS ennalta-asentaisi kasan sovelluksia, on loogisempaa käyttäjän itse asentaa haluamansa sovellukset F-Droidin, Aurora Storen tai Play kaupan kautta. GrapheneOS suunnittelee omaa first-party sovellusten päivitys järjestelmää ja "sovelluskauppaa" joka on robustimpi ja turvallisempi kuin muut vaihtoehdot. Sovellusten ennalta asentaminen lisäisi myös hyökkäyspintaa, ellei käyttäjät kytke näitä pois päältä. Sovellusten ennalta-asentaminen olisi myös kamala kumota sillä sovelluksen poistaminen käyttöjärjestelmästä johtaisi käyttäjien tietojen tuhoutumiseen.<br><br>GrapheneOS keskittyy oleellisten turvallisuus / yksityisyy parannusten tekemiseen ja satunnaisten sovellusten ennalta-asentaminen on yleensä tämän ulkopuolella ja sitä vastaan.</div>
 
-<p1 id="verkkoyhteys"><a href="#verkkoyhteys"><br>Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></p1>
+<p1 id="verkkoyhteys"><a style="color:white;" style="color:white;" href="#verkkoyhteys"><br>Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></p1>
 <div id="teksti"><br>Sovellukset eivät voi monitoroida verkkoyhteyksiä ellei niistä ole tehty aktiivista VPN palvelua käyttäjän toimesta. Sovellukset eivät voi normaalisti saada pääsyä verkkotilastoihin ja eivät voi suoraan pyytää pääsyä niihin.</div>
 
-<p1 id="yhteydet"><a href="#yhteydet"><br>Mitä yhteyksiä GrapheneOS tekee?</a></p1>
-<div id="teksti"><br>GrapheneOS tekee yhteyksiä ulkomaailmaan testatakseen yhteyksiä, havaitsemaan captive portaaleja ja ladatakseen päivityksiä. Tunnistettavia tietoja ei lähetetä. GrapheneOS ei sisällä analytiikkaa. Tarkat yhteydet löytyy <a style="text-decoration:underline"; href="https://grapheneos.org/faq#default-connections">tästä</a>  </div>
+<p1 id="yhteydet"><a style="color:white;" href="#yhteydet"><br>Mitä yhteyksiä GrapheneOS tekee?</a></p1>
+<div id="teksti"><br>GrapheneOS tekee yhteyksiä ulkomaailmaan testatakseen yhteyksiä, havaitsemaan captive portaaleja ja ladatakseen päivityksiä. Tunnistettavia tietoja ei lähetetä. GrapheneOS ei sisällä analytiikkaa. Tarkat yhteydet löytyy <a href="https://grapheneos.org/faq#default-connections">tästä</a></div>
 
-<p1 id="root"><a href="#root"><br>Onko GrapheneOS roottausta?</a></p1>
+<p1 id="root"><a style="color:white;" href="#root"><br>Onko GrapheneOS roottausta?</a></p1>
 <div id="teksti"><br>Ei, GrapheneOS on suuniteltu minimoimaan oikeudet ja hyökkäyspinta ja roottaaminen olisi tämän vastakohta. Androidin arkkitehtuuri on suuniteltu minimaalisten lupien ympärille. Oletuksena kuudella prosessilla on lupa suoriutua roottina ja silloinkin nämä on hyvin rajattuja SElinuxin vuoksi ja kokonaan rajoittamatonta roottia ei ole olemassa Androidissa. Vaikka antaisi vain tietyille sovelluksille root pääsyn voi hyökkääjä käyttää esimerkiksi clickjacking tekniikkaa tai hyväksikäyttää root oikeutettua sovellusta. Verified-boot havaitsisi muutokset ja kumoaisi nämä palauttaakseen laitteen tilaan jossa se läpäisee signatuuri tarkastuksen, tämä tarkottaisi että roottaaminen myös vaatisi verified-bootin jättämistä kokonaan pois mikä osittain tuhoaa Androidin turvallisuusmallin.</div>
 
-<p1 id="perustus"><a href="#perustus"><br>Miten GrapheneOS perustettiin?</a></p1>
+<p1 id="perustus"><a style="color:white;" href="#perustus"><br>Miten GrapheneOS perustettiin?</a></p1>
 <div id="teksti"><br>Daniel Micay perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei viellä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää.<br><br> Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
 </div>
 
