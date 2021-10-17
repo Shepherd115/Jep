@@ -4,16 +4,20 @@ body {
   font-family: Roboto, sans-serif;
   background-color: #121212;
   color: #e2e4e1;
-  margin-right:100px;
-  margin-left:100px;
+  margin-right:130px;
+  margin-left:130px;
 }
 
 html {
     height: -webkit-fill-available;
 }
 a {
-    color:white;
-    text-decoration: underline;
+    color:#1565c0;
+    text-decoration:none;
+}
+
+a:visited {
+    color: #6a1b9a;
 }
 
 code {
@@ -26,17 +30,20 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9 {
   text-decoration:underline;
 }
 
-a:visited {
-    color: white;
-}
-
 a:hover {
     background-color: #0e0f0f;
+    text-decoration:underline;
 }
 
 h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
     color: white;
 }
+
+p1 {
+    color:white;
+    text-decoration:none;
+}
+
 #site-menu ul {
     display: flex;
     flex-wrap: nowrap;
@@ -46,7 +53,7 @@ h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, 
 }
 
 #site-menu {
-    background-color: #212121; /* grey900 */
+    background-color: #212121;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
     white-space: nowrap;
 }
@@ -91,7 +98,6 @@ h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, 
 p1 {
   font-size:175%;
 }
-
 #teksti {
   font-size:125%;
   font-family: Roboto, verdana;
@@ -99,11 +105,6 @@ p1 {
 
 li a:hover {
   background-color: #111;
-}
-
-@media only screen and (min-width: 1200px) {
-  #lia {
-  font-size:140%;
 }
 
 @media only screen and (min-width: 1200px) {
