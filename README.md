@@ -8,7 +8,7 @@
 <h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Muutosloki</h1>
 
 <div id="1.11"><a href="#1.11">1.11</a></div>
-<p>-Kysymys ja Q&A osioiden otsikot listassa merkitty sinisellä<br>-Lisätty GrapheneOS Twitter linkki etusivulle<br>-Lisätty URL preview kuva sekä GrapheneOS logo etusivulle. Lupa saatu kehittäjiltä<br>-Selkeämmät otsikot<br>-Pääsivulle "GrapheneOS versio" ja linkki tämän muutoslokiin</p>
+<p>-Navigointipalkkia muutettu<br>-Lisätty GrapheneOS Twitter linkki etusivulle<br>-Lisätty URL preview kuva sekä GrapheneOS logo etusivulle. Lupa saatu kehittäjiltä<br>-Selkeämmät otsikot<br>-Pääsivulle "GrapheneOS versio" ja linkki tämän muutoslokiin</p>
 
 <div id="1.1"><a href="#1.1">1.1</a></div>
 <p>-"mihin sovellukset kykenevät" jaettu kahteen osaan<br>-Historia osuus siirretty etusivulta Q&A sivulle<br>-URL Preview<br>-Muutosloki linkki muutettu version numeroksi joka on linkki muutoslokiin<br>-Korjattu kirjoitusvirheitä sekä päivitetty täsmäämään uusinta GrapheneOS sivustoa<br>-Lisätty: Etusivulle "GrapheneOS asennus"</p>
