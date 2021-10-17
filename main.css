@@ -37,13 +37,55 @@ a:hover {
 h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
     color: white;
 }
+#site-menu ul {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0;
+    padding: 0;
+}
 
-img {
-    height: 3.2rem;
-    width: 2.5rem;
+#site-menu {
+    background-color: #212121; /* grey900 */
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+#site-menu ul li {
+    list-style-type: none;
+    display: flex;
+}
+
+#site-menu ul li:hover {
+    background-color: #424242;
+}
+
+#site-menu ul li a {
+    color: #fff;
+    display: flex;
+    text-decoration: none;
+    padding: 1em;
+    align-items: center;
+}
+
+#site-menu ul li a:visited {
+    color: #fff;
+}
+
+#site-menu ul li[aria-current] a {
+    color: #64b5f6;
+}
+
+#site-menu img {
+    height: 1.8rem;
+    width: 1.8rem;
     filter: invert(100);
     vertical-align: middle;
-    margin-right: 0.3rem;
+    margin-right: 0.5rem;
+}
+
+#site-menu ul li[aria-current] img {
+    filter: invert(60%) sepia(24%) saturate(997%) hue-rotate(168deg) brightness(107%) contrast(93%);
 }
 
 p1 {
@@ -54,36 +96,9 @@ p1 {
   font-size:125%;
   font-family: Roboto, verdana;
 }
-#ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  top: 0;
-}
-
-#li {
-  float: left;
-  border-right:1px solid #bbb;
-}
-
-#lia {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 20px 30px;
-  text-decoration: none;
-  height: 3.2rem;
-  width: 7.8rem;
-}
 
 li a:hover {
   background-color: #111;
-}
-
-.active {
-  background-color: grey;
 }
 
 @media only screen and (min-width: 1200px) {
