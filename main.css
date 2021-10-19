@@ -44,22 +44,17 @@ p1 {
     text-decoration:none;
 }
 
-#ajan {
-  border: 4px solid #e2e4e1;
-  font-size:150%;
-  text-align:center;
-  margin-right:130px;
-  margin-left:130px;
-  padding-bottom:20px;
-  padding-top:20px;
-}
-
 #site-menu ul {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     margin: 0;
     padding: 0;
+}
+
+#ajan {
+  font-size:150%;
+  text-align:center;
 }
 
 #site-menu {
