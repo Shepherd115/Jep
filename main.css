@@ -113,6 +113,32 @@ li a:hover {
   background-color: #111;
 }
 
+footer {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    max-width: 800px;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+footer a, footer a:visited {
+    color: #616161; /* grey500 */
+}
+
+#sosiaali {
+    margin-top: 2em;
+    padding: 0;
+    list-style-type: none;
+    font-size:150%;
+}
+
+#sosiaali li {
+    display: inline;
+    padding: 0 0.5em;
+}
+
 @media only screen and (min-width: 1200px) {
   body {
     margin-left:350px;
