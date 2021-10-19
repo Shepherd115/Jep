@@ -54,8 +54,10 @@ p1 {
 
 #ajan {
   font-size:150%;
-  text-align:center;
+  text-align:left;
+  list-style-type:square;
 }
+
 
 #site-menu {
     background-color: #212121;
@@ -99,6 +101,13 @@ p1 {
 
 #site-menu ul li[aria-current] img {
     filter: invert(60%) sepia(24%) saturate(997%) hue-rotate(168deg) brightness(107%) contrast(93%);
+}
+
+#snow {
+  margin: auto;
+  width: 100%;
+  border: 3px solid #e2e4e1;
+  padding: 10px;
 }
 
 p1 {
