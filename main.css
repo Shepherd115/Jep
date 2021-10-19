@@ -45,11 +45,14 @@ p1 {
 }
 
 #ajan {
-  width: 700px;
+  width: 600px;
   border: 4px solid #e2e4e1;
-  padding: 25px;
-  margin: 20px; 
+  padding-right: 95px;
+  padding-left: 95px;
+  padding-top:25px;
+  padding-bottom:25px;
   font-size:150%;
+  text-align:center;
 }
 
 #site-menu ul {
