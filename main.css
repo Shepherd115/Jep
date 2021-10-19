@@ -44,6 +44,14 @@ p1 {
     text-decoration:none;
 }
 
+#ajan {
+  width: 700px;
+  border: 4px solid #e2e4e1;
+  padding: 25px;
+  margin: 20px; 
+  font-size:150%;
+}
+
 #site-menu ul {
     display: flex;
     flex-wrap: nowrap;
@@ -73,6 +81,7 @@ p1 {
     text-decoration: none;
     padding: 1em;
     align-items: center;
+    font-size:150%;
 }
 
 #site-menu ul li a:visited {
