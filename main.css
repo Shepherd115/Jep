@@ -4,8 +4,8 @@ body {
     min-height: 100vh;
     min-height: -webkit-fill-available; /* replace with stretch when standardized */
     font-family: Roboto, sans-serif;
-    background-color: #fafafa; /* grey50 */
-    color: rgba(0, 0, 0, 0.87); /* 87% black */
+    background-color: #121212;
+    color: #e2e4e1;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
