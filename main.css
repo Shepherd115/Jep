@@ -23,6 +23,17 @@ a:visited {
     color: #6a1b9a;
 }
 
+main {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    max-width: 832px;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
 code {
     background-color: #grey;
     font-family: "Roboto Mono", monospace;
