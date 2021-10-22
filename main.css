@@ -4,9 +4,8 @@ body {
   font-family: Roboto, sans-serif;
   background-color: #121212;
   color: #e2e4e1;
-  margin-right:50px;
-  margin-left:50px;
-  font-size:90%;
+  margin: 0;
+  padding: 0;
 }
 
 html {
