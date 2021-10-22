@@ -2,7 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    min-height: -webkit-fill-available; /* replace with stretch when standardized */
+    min-height: -webkit-fill-available;
     font-family: Roboto, sans-serif;
     background-color: #121212;
     color: #e2e4e1;
@@ -111,10 +111,6 @@ p1 {
   padding: 0px;
 }
 
-p1 {
-  font-size:175%;
-}
-
 li a:hover {
   background-color: #111;
 }
@@ -137,7 +133,6 @@ footer a, footer a:visited {
     margin-top: 2em;
     padding: 0;
     list-style-type: none;
-    font-size:150%;
 }
 
 #sosiaali li {
