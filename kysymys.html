@@ -3,7 +3,7 @@
 <head>
     <link href="main.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Kysymykset | GrapheneOS Tieto</title>
+    <title>Q&A | GrapheneOS Tieto</title>
     <meta name="description" content="GrapheneOS on turvallisuus / yksityisyys vahvistettu mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella"/>
     <meta name="keywords" content="tietoturva, turvallisuus, yksityisyys, hakkerointi, grapheneos, daniel, micay, fsecure, antivirus, vpn, proxy">
     <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
@@ -28,9 +28,12 @@
 </ul>
 </nav>
 
-<h1 style="text-align:center;font-family:verdana;">Q&A</h1>
+<main id="q&a">
+<h1><a href="#q&a"></a></h1>
 
-<ul style="font-size:145%;border-left:5px solid;border-radius:1px;" class="headers">
+<nav id="sisältö">
+<h2><a href="#sisältö">Sisältö</a></h1>
+<ul style="border-left:5px solid;border-radius:1px;">
   <li><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></li>
   <li><a href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></li>
   <li><a href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></li>
@@ -46,6 +49,10 @@
   <li><a href="#perustus">Miten GrapheneOS perustettiin?</a></li>
   <li><a href="#tarkoitus">Mikä on tämän sivuston tarkoitus?</a></li>
 </ul>
+</nav>
+
+<section id="q&a">
+<h2><a href="#q&a">Q&A</a></h2>
 
 <p1 id="laite-tuki"><a style="color:white;" href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></p1>
 <div id="teksti"><br>Laitteiden on tavattava tarkat ja tiukat kriteerit ennen kuin ne voidaan luokitella mahdollisiksi kohteiksi. Sillä jos laitteisto / laiteohjelmisto on huono, ei käyttöjärjestelmä voi tarjota korviketta. Laitteessa on oltava kyky asentaa erillisiä käyttöjärjestelmiä sekä tuki omille signeeraus avaimille antaen täyden verified-bootin. Useat Android OEM:mät epäonnistuu kunnollisen verified-bootin implementoinnissa. Laitteessa on myös oltava laitteistopohjaisia turvallisuusominaisuuksia kuten Hardware-Backed-Keystore, useita exploittien mitigointeja, sekä kunnollinen IOMMU eristämään esim radiot toisistaan. Toistaiseksi ainoat laitteet jotka tapaavat tarpeet ovat 
@@ -117,8 +124,8 @@ GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#
 
 <p1 id="tarkoitus"><a style="color:white;" href="#tarkoitus"><br>Mikä on tämän sivuston tarkoitus?</a></p1>
 <div id="teksti"><br>Tämän sivuston tarkoitus on antaa selkeää suomenkielistä tietoa GrapheneOS projektista aktiivisesti seuraten muutoksia käyttöjärjestelmässä sekä dokumentaatiossa ja muokaten tätä sivustoa näiden mukaisesti. Huollan sivua yksin pienillä resursseilla joten käytössä on Github Pages ainakin toistaiseksi. Sivustolla ei ole käytössä yhtään javascriptiä joten sivustoa on mahdollista käyttää selaimella jossa Javascript on kytketty pois. Sivustolla ei myöskään ole Google Analyticsiä tai muuta vastaavaa. Sivuston lähdekoodiin pääsee <a href="https://github.com/Shepherd115/Jep">Tästä</a></div>
-
-<br><br><br>
+</section>
+</main>
 
 <footer>
 <ul id="sosiaali">
@@ -127,8 +134,6 @@ GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#
 <li><a href="https://twitter.com/GrapheneOS">GrapheneOS Twitter</a></li><br>
 </ul>
 </footer>
-
-<br><br><br>
 
 </body>
 </html>
