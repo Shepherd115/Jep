@@ -28,11 +28,14 @@
 </ul>
 </nav>
 
-<h1>Ominaisuudet</h1>
+<main id="ominaisuudet">
+<h1><a href="#ominaisuudet">Ominaisuuksien Yhteenveto</a></h1>
 
-<div id="teksti">GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä. Se aloittaa vahvasta Android Open Source Projectin (AOSP) turvallisuusmallista ja välttää tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS keskittyy oleelliseen markkinoinnin sijan, se ei ota tyypillistä käytäntöä asettaa satunnaisia parannuksia ja ominaisuuksia vain koska ne näyttävät hyvältä. Se on erittäin tekninen projekti rakentaen turvallisuutta ja yksityisyyttä itse käyttöjärjestelmään.<br><br>Tämä on yhteenveto ominaisuuksista mitä GrapheneOS lisää Androidiin (AOSP) - AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> säännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">sandboxin</a><br></div>
+<p>GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä. Se aloittaa vahvasta Android Open Source Projectin (AOSP) turvallisuusmallista ja välttää tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS keskittyy oleelliseen markkinoinnin sijan, se ei ota tyypillistä käytäntöä asettaa satunnaisia parannuksia ja ominaisuuksia vain koska ne näyttävät hyvältä. Se on erittäin tekninen projekti rakentaen turvallisuutta ja yksityisyyttä itse käyttöjärjestelmään.<br><br>Tämä on yhteenveto ominaisuuksista mitä GrapheneOS lisää Androidiin (AOSP) - AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> säännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">sandboxin</a></p>
 
-<ul style="font-size:130%;">
+<section id="grapheneos">
+<h2><a href="#grapheneos">GrapheneOS</a></h2>
+<ul>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
    <ul>
     <li>Metatiedot ovat kokonaan eristetty sekä suojaus korruptoitumiselta</li>
@@ -96,18 +99,4 @@
   <li>Eng:Prevention of dynamic native code execution in-memory or via the filesystem for the base OS without going via the package manager, etc.</li>
   <li>Eng:Filesystem access hardening</li>
 </ul>
-
-<br><br><br>
-
-<footer>
-<ul id="sosiaali">
-<li><a href="https://github.com/Shepherd115/Jep#1.11">Sivun muutosloki</a></li><br>
-<li><a href="https://github.com/GrapheneOS">GrapheneOS Github</a></li><br>
-<li><a href="https://twitter.com/GrapheneOS">GrapheneOS Twitter</a></li><br>
-</ul>
-</footer>
-
-<br><br><br>
-
-</body>
-</html>
+</section>
