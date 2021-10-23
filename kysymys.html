@@ -2,8 +2,8 @@
 <html lang="fi"
 <head>
     <link href="main.css" rel="stylesheet">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8">
     <title>Q&A | GrapheneOS Tieto</title>
     <meta name="description" content="GrapheneOS on turvallisuus / yksityisyys vahvistettu mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella"/>
     <meta name="keywords" content="tietoturva, turvallisuus, yksityisyys, hakkerointi, grapheneos, daniel, micay, fsecure, antivirus, vpn, proxy">
@@ -36,7 +36,7 @@
 <h2><a href="#sisältö">Sisältö</a></h1>
 <ul style="border-left:5px solid;border-radius:1px;">
   <li><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></li>
-  <li><a href="#android">Mitä Android 12 toi?</a></li>
+  <li><a href="#android">Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?</a></li>
   <li><a href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></li>
   <li><a href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></li>
   <li><a href="#laite-tunnistin">Onko sovelluksilla pääsy laitetunnisteisiin?</a></li>
@@ -82,35 +82,8 @@ Vanhemmat Pixel laitteet eivät ole listassa sillä niiden tuki on loppunut sill
   <li>Wifi yksityisyys - Pixelit käyttävät erilaista MAC osoitteen randomisointia kuin muut joka ei vuoda muitakaan tunnisteita MAC osoitteen lisäksi <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">(Dokumentaatio)</a> </li>
 </ul> </div>
 
-<p1 id="android"><a style="color:white;" href="#android">Mitä Android 12 toi?</a></p1>
-<div ud="teksti"><br>Niinkuin muutkin isot Android päivitykset, tämäkin toi suuria parannuksia yksityisyyteen ja turvallisuuteen joka on myös mahdollistanut joidenkin GrapheneOS ominaisuuksien jättämistä pois sillä ne ovat nyt itse Androidissa. Sielä on myös paljon under-the-hood muutoksia kuten Rustin adoptointi ja AndroidRuntimen vahvistuksia. Lista on toistaiseksi Englanniksi sillä se odottaa käännöksiä</div>
-<ul>
-<li>Supported devices allow users to enable or disable microphone and camera access for all apps with a single toggle option.</li>
-<li>Status bar icons are now displayed whenever an app accesses the microphone or camera.</li>
-<li>Permission info from the package manager is now filtered based on package visibility.</li>
-<li>Android 12 removes many BouncyCastle implementations of cryptographic algorithms that were previously deprecated.</li>
-<li>Users are now notified when an app accesses clipboard data from a different app.</li>
-<li>Apps can no longer invoke an intent that closes a system dialog.</li>
-<li>Android 12 prevents apps from consuming touch events where an overlay obscures the app in an unsafe way.</li>
-<li>When an app requests precise location permissions, users can now opt to grant only approximate location permissions instead.</li>
-<li>Apps now must explicitly specify which cookies are allowed to work across different websites.</li>
-<li>The system now limits the refresh rate of data from certain motion sensors and position sensors.</li>
-<li>Apps are now placed in a hibernation state if the user doesn't interact with them for a few months.</li>
-<li>Apps must now declare attribution tags in the manifest to use them for data access auditing.</li>
-<li>ADB backups now exclude app data by default.</li>
-<li>Apps must now explicitly declare whether their components that use intent filters are allowed to be launched by other apps.</li>
-<li>Apps must now specify the mutability of each PendingIntent object that they create.</li>
-<li>Android 12 introduces a debugging feature that detects unsafe intent launches.</li>
-<li>Android 12 introduces a new system settings screen that shows access history for location, camera, and microphone data.</li>
-<li>Android 12 introduces new permissions that let apps scan for nearby Bluetooth devices without requesting location permissions.</li>
-<li>Apps can now query how the system organizes platform-defined permissions into permission groups.</li>
-<li>Android 12 introduces a new permission that allows apps to hide overlay windows that are drawn by other apps.</li>
-<li>Devices and apps can now grant signature permissions to other apps without having to sign them at the time of device manufacture.</li>
-<li>Starting in Android 12, any app that targets Android 12 or higher can verify device properties that are in an attestation certificate.</li>
-<li>Apps can now require authentication whenever specific notification actions are invoked on a locked device.</li>
-<li>Android 12 introduces new APIs to retrieve localized, user-readable button labels, prompts, and setting names for biometric authentication.</li>
-<li>On supported Pixel devices, Android 12 runs phishing detection on messages received in popular messaging apps.</li>
-</ul>
+<p1 id="android"><a style="color:white;" href="#android">Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?</a></p1>
+<div ud="teksti"><br>Niinkuin muutkin isot Android päivitykset, tämäkin toi suuria parannuksia yksityisyyteen ja turvallisuuteen joka on myös mahdollistanut joidenkin GrapheneOS ominaisuuksien jättämistä pois sillä ne ovat nyt itse Androidissa. Sielä on myös paljon under-the-hood muutoksia kuten Rustin adoptointi ja AndroidRuntimen vahvistuksia. Lista muunnoksista löytyy <a href="https://developer.android.com/about/versions/12/summary">Tästä</a></div>
 
 <p1 id="verkot"><a style="color:white;" href="#verkot"><br>Mitä GrapheneOS tekee puhelinverkoille?</a></p1>
 <div><br>GrapheneOS aina olettaa että puhelinoperaattorit ovat vihollisia. Se jättää pois useita sovelluksia mitkä ovat AOSPssä jotka antavat puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myöskin päivittää kellon itse sen sijan että luottaisi että puhelinoperaattori tekisi tätä. Aika on nimittäin arvokasta jota voidaan hyväksi käyttää, tämän takia TitanM siru sisältää kokonaan oman kellon jota se itse määrää.
