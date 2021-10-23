@@ -2,6 +2,7 @@
 <html lang="fi"
 <head>
     <link href="main.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="UTF-8">
     <title>Käyttö | GrapheneOS Tieto</title>
     <meta name="description" content="GrapheneOS on turvallisuus / yksityisyys vahvistettu mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella"/>
@@ -28,9 +29,12 @@
 </ul>
 </nav>
 
-<h1>Käyttö</h1>
+<main id="kautto">
+<h1><a href="#kautto"></a></h1>
 
-<ul style="font-size:150%;border-left:5px solid;border-radius:1px;" class="headers">
+<nav id="sisältö">
+<h2><a href="#sisältö">Sisältö</a></h2>
+<ul style="border-left:5px solid;border-radius:1px;">
   <li><a href="#paivitukset">Päivitykset</a></li>
   <li><a href="#exec">Exec Spawning</a></li>
   <li><a href="#usb">USB yhteydet</a></li>
@@ -45,6 +49,10 @@
   <li><a href="#kamera">Kamera</a></li>
   <li><a href="#pankki">Pankki sovellukset</a></li>
 </ul>
+</nav>
+
+<section id="käyttö">
+<h2><a href="#käyttö">Käyttö</a></h2>
 
 <p1  id="paivitukset"><a style="color:white;" href="#paivitukset">Päivitykset</a></p1>
 <div id="teksti"><br>GrapheneOS tarkistaa päivitysten saatavuuden joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. Se jatkaa siitä mihin se jäi joten latauksen keskeyttäminen ei ole riski, eikä ole asennuksenkaan keskeyttäminen sillä päivitykset asennetaan nykyisen rinnalle josta tulee aktiivinen vasta kun asennus on suoritettu kokonaan loppuun. Kun päivitys on suoritettu, on laite käynnistettävä uudelleen uuteen GrapheneOS versioon, jos tämä epäonnistuu niin GrapheneOS perääntyy käyttämään aiempaa versiota ja yrittää ladata ja asentaa päivityksen uudelleen. Päivittäjä käyttää inkrementaalisia päivityksiä ladatakseen ainoastaan muutokset koko käyttöjärjestelmän sijan ja toimii vaikka laite olisi lukittu tai BFU tilassa sillä se on suuniteltu toimimaan ennen laitteen salauksen purkamista.<br><br>Päivityspalvelin ei ole luotettu osapuoli sillä päivitykset signeerataan ja vahvistetaan sekä alennukset estetään paikallisesti. Päivitys protokolla ei lähetä tunnistettavia tietoja ja toimii hyvin VPN / Tor yhteyden kautta. GrapheneOS ei kykene rakentamaan, signeeraamaan ja kuljettamaan haitallista päivitystä tietylle käyttäjälle esimerkiksi IMEIn tai sarjanumeron perusteella. Päivityspalvelin ainoastaan päätyy tietämään laitteen IP osoitteen ja version jota se yrittää hakea.</div>
@@ -54,7 +62,7 @@
 
 <p1 id="usb"><a style="color:white;" href="#usb"><br>USB yhteydet</a></p1>
 <div id="teksti"><br>GrapheneOS oletuksena hylkää uudet USB pyynnöt kun näyttö on lukittu, tämän voi kuitenkin vaihtaa asetuksista ja GrapheneOS lisää kolme vaihtoehtoa:</div>
-<ul style="font-size:135%;">
+<ul>
   <li>Hylkää USB pyynnöt</li>
   <li>Salli USB pyynnöt kun laite on avattu (oletus)</li>
   <li>Salli USB pyynnöt (Kuten stock-androidilla)</li>
@@ -63,7 +71,7 @@
 <p1 id="salaus"><a style="color:white;" href="#salaus">Laitteen salaus</a></p1>
 <div id="teksti"><br>Pixel puhelimien TitanM käsittelee PIN-koodit ja salasanat, Kun oikea laitteen salasana syötetään, TitanM laskee ja vapauttaa tokenin laitteelle jota tämä voi käyttää luodakseen avaimen. Jokainen tiedosto salataan algoritmilla AES-256-XTS ja metatiedot algoritmilla AES-256-HEH ja jokaisella käyttäjäprofiililla on myös omat salausavaimet.<br><br>
 Android 7 myötä tuli file-based salaus joka on vieläkin käytössä, File-based salauksella on muutamia tärkeitä etuja full-disk salaukseen verrattuna kuten</div>
-<ul style="font-size:135%;">
+<ul>
   <li>Mahdollistaa <a href="https://shepherd115.github.io/Jep/kautto.html#profiili">käyttäjäprofiilien</a> tekemisen turvallisemmaksi sillä kun käyttäjä kirjautuu ulos salausavaimet voidaan tuhota muistista. Tämä ei ole vaihtoehto full-disk salauksessa sillä se on enemmänkin all-or-nothing</li>
   <li>Kyky päivittyä vaikka laitetta ei olisi avattu</li>
   <li>Kyky ottaa kuvia lukitusnäytöltä ilman laitteen salauksen avaamista</li>
@@ -96,9 +104,8 @@ Android 7 myötä tuli file-based salaus joka on vieläkin käytössä, File-bas
 
 <p1 id="pankki"><a style="color:white;" href="#pankki"><br>Pankki sovellukset</a></p1>
 <div id="teksti"><br>Pankki sovellukset ovat erittäin hankalia sovelluksia sillä näillä usein on heikkoja yrityksiä estää reverse-engineering yritykset. GrapheneOS sisältää "disable native code debugging" kytkimen parantamaan sovellusten sandboxia entisestään mutta tämä voi häiritä pankki sovelluksia kun he yrittävät rakentaa muureja koodin tarkkailun estämiseksi johtaen kyseisten sovellusten toimimattomuuteen.</div>
-
-<br><br><br>
-
+</section>
+</main>
 <footer>
 <ul id="sosiaali">
 <li><a href="https://github.com/Shepherd115/Jep#1.11">Sivun muutosloki</a></li><br>
@@ -106,8 +113,6 @@ Android 7 myötä tuli file-based salaus joka on vieläkin käytössä, File-bas
 <li><a href="https://twitter.com/GrapheneOS">GrapheneOS Twitter</a></li><br>
 </ul>
 </footer>
-
-<br><br><br>
 
 </body>
 </html>
