@@ -8,12 +8,13 @@ body {
     color: #e2e4e1;
     background-image: url("moih683.jpg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: 400px 600px;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
 }
+
 
 html {
     height: -webkit-fill-available;
@@ -24,7 +25,7 @@ a {
 }
 
 a:visited {
-    color: #6a1b9a;
+    color: #90caf9;
 }
 
 main {
@@ -155,10 +156,3 @@ footer a, footer a:visited {
     padding: 0 0.5em;
 }
 }
-@media only screen and (min-width: 1200px) {
-  body {
-    margin-left:350px;
-    margin-right:350px;
-    font-size:80%;
-    color:#e2e4e1;
-  }
