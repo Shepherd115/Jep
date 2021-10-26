@@ -8,7 +8,7 @@
 <h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Muutosloki</h1>
  
  <div id="1.12"><a href="#1.12">1.12</a></div>
- <p>-Lisätty: "Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?" Q&A osioon<br>-Sivustolla taustakuva<br>-Kokonaan uusi layout ja parempi näkyvyys KAIKILLA laitteilla ja selaimilla</p>
+ <p>-Etusivu ja Ominaisuudet sivu uudelleenkirjoitettu<br>-Lisätty: "Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?" Q&A osioon<br>-Sivustolla taustakuva<br>-Kokonaan uusi layout ja parempi näkyvyys KAIKILLA laitteilla ja selaimilla</p>
 
 <div id="1.11"><a href="#1.11">1.11</a></div>
 <p>-Lisätty: "Mikä on tämän sivuston tarkoitus? Q&A osioon<br>-Lisätty "Ajankohtaista" osio etusivulle<br>-Navigointipalkkia muutettu<br>-Lisätty GrapheneOS Twitter linkki etusivulle<br>-Lisätty URL preview kuva sekä GrapheneOS logo etusivulle. Lupa saatu kehittäjiltä<br>-Selkeämmät otsikot<br>-Pääsivulle "GrapheneOS versio" ja linkki tämän muutoslokiin</p>
