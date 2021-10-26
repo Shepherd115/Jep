@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://shepherd115.github.io/Jep/index.html</loc>
+        <loc>http://shepherd115.github.io/Jep/index.html</loc>
         <priority>0.5</priority>
     </url>
 </urlset>
