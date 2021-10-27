@@ -12,7 +12,7 @@
     <meta property="og:image:height" content="512"/
     <meta property="og:image:alt" content="GrapheneOS logo"/>
     <meta property="og:site_name" content="GrapheneOS"/>
-    <link rel="canonical" href="site:https://shepherd115.github.io/Jep/"/>
+    <link rel="canonical" href="https://shepherd115.github.io/Jep/kysymys.html"/>
     <link rel="icon" href="/favicon.ico"/>
     <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
     <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
@@ -106,7 +106,7 @@ GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#
 <div id="teksti"><br>Kyllä, GrapheneOS perii vahvasti integroidun palomuurin Android Open Source Projectilta, jota käytetään implementoidakseen useita turvallisuusmallin osioita ja muita ominaisuuksia. GrapheneOS teki muutoksia tähän mutta nämä on nyt oletuksia joten muutokset poistettiin.<br><br>GrapheneOS lisää user-facing Network lupa kytkimen joka tarjoaa robustin tavan evätä molemmat suorat ja ei suorat yhteydet internettiin sovellukselta. Se on rakennettu Androidin Ei User-Facing INTERNET luvasta joten Android sovellusten ekosysteemi on jo kokonaan adoptoinut idean.</div>
 
 <p1 id="leike"><a style="color:white;" href="#leike"><br>Onko sovelluksilla pääsy leikepöytään?</a></p1>
-<div id="teksti"><br>Android10 myötä, ainoastaan konfiguroidulla näppäimistöllä ja sillä hetkellä auki oleva sovellus saa pääsyn leikepöytään. Sovellukset jotka ovat auki taustalla eivät saa tähän pääsyä. GrapheneOS ennen rajoitti sovellusten pääsyä leikepöytään taustalla mutta tästä tuli oletus joten se poistettiin.</div>
+<div id="teksti"><br>Android10 myötä, ainoastaan konfiguroidulla näppäimistöllä ja sillä hetkellä auki oleva sovellus saa pääsyn leikepöytään. Sovellukset jotka ovat auki taustalla eivät saa tähän pääsyä. GrapheneOS ennen rajoitti sovellusten pääsyä leikepöytään taustalla mutta tästä tuli oletus joten se poistettiin.<br>Android 12 lisää myös ilmoituksen kun sovellus käyttää leikepöytää.</div>
 
 <p1 id="fsp"><a style="color:white;" href="#fsp"><br>Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></p1>
 <div id="teksti"><br>Ei. Tämä olisi vaarallista ja tarpeetonta. TitanM käsittelee brute-force hyökkäykset paljon kehittyneemmin kuin vain avainten poistaminen. TitanM siru itsessään on äärettömän pieni (Noin riisin kokoinen) ja on luonteeltaan erittäin vaikea kohde. TitanM on myös integroitu laitteen salaus prosessiin ja säilöö tokenssit joista luodaan avaimet salauksen purkuun eikä se vapauta näitä ennen kuin oikea salsana on syötetty. Tarkoittaen että yritykset päästä laitteeseen on tehtävä juuri sen TitanM sirun kautta. Brute-force hyökkäyksen aikana TitanM rankaisee hyökkääjää pidentämällä aikaa ennen uutta yritystä. Ensimmäisen viiden yrityksen jälkeen TitanM sammuttaa pääsyn tokensseihin 30 sekunniksi ja sammuttaa sormenjälki lukijan. Tämän jälkeen TitanM progressiivisesti pidentää aikaa kunnes uuden yrityksen aika on yksi päivä. Vaikka käyttöjärjestelmä olisi hyökkääjän hallussa, niin ei ajastinta voi ohittaa sillä TitanM sisältää oman kellon josta OS ei pidä mitään kontrollia. Tämä ei suojaa jos laitteen salasana on jotain helppoa kuten 12345 tai lemmikin nimi mutta tarjoaa lähes murtamattoman suojan vain 6 lukuisella PIN koodilla. On myös hyvä huomioida että GrapheneOS sallii maksimissaan 64 merkkisten salasanojen käytön jos kokee että tarvitsee entistä vahvemman suojan. </div>
