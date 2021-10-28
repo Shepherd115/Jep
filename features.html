@@ -38,43 +38,24 @@
 
 <p>Tämä sivu sisältää yhteenvedon ominaisuuksista jolla GrapheneOS eroaa AOSPstä. Se ei dokumentoi useita historiallisia ominaisuuksia jotka ei ole käytössä enään syystä tai toisesta. Useimmat ominaisuudet on saatu projekteihin joihin GrapheneOS tukeutuu kuten AOSP, Linux ja LLVM.</p>
 
-<p>On myös hyvä huomioida että GrapheneOS käyttää Androidia tällä hetkellä pohjanaan ja AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> säännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">sandboxin.</a> Android 12 myös toi <a href="https://shepherd115.github.io/Jep/kysymys.html#android">suuria parannuksia</a></p>
+<p>On myös hyvä huomioida että GrapheneOS käyttää Androidia tällä hetkellä pohjanaan ja AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> säännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">sandboxin.</a> Android 12 myös toi <a href="https://shepherd115.github.io/Jep/kysymys.html#android">suuria parannuksia.</a></p>
 
-<section id="grapheneos">
-<h2><a href="#grapheneos">GrapheneOS</a></h2>
-<ul>
+<section id="komponentit">
+<h2><a href="#komponentit">Suuret komponentit</a></h2>
+<p style="text-align:center;">Vain yhteenveto joten katso linkit yksityiskohtiin</p>
+<ul style="border-left:7px solid;border-radius:1px;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
-   <ul>
-    <li>Metatiedot ovat kokonaan eristetty sekä suojaus korruptoitumiselta</li>
-      <ul>
-       <li>Allocator_staten osoiteavaruus on kokonaan varattu alustamisen aikana eikä koskaan käytetty varauksille tai muulle</li>
-       <li>Globaaleissa muuttujissa oleva tila on kokonaan read-only alustamisen jälkeen</li>
-       <li>Allocator_state sijaitsee omassa alueessaan korkean entropian satunnaisten kokoisten vartija-alueiden ympäröimänä</li>
-      </ul>
-    <li>Virheellisten varausten determistinen havaitseminen</li>
-    <li>Eristetyt alueet pienille varauksille</li>
-    <li>Hienojakoinen randomisointi muistialueissa</li>
-    <li>Pienet varaukset alustetaan vapautuksen yhteydessä</li>
-    <li>Viivästetty vapautus FIFOn ja randomisoinnin kautta</li>
-    <li>Suuret varaukset tuhotaan vapautuksen yhteydessä ja niiden memory_map pidetään karanteenissa havaitsemaan use-after-free ilmiötä</li>
-    <li>Satunnaisia canary arvoja asetetaan pieniin ja suurin varauksiin havaitsemaan muistin yli/alivuoto tilanteita</li>
-   </ul>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
-  <li>Vahvistettu / <a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Hardened sovellusten hiekkalaatikko</a> / sandbox</li>
+  <li>Vahvistettu / <a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
-  <li>Vahvistettu / Hardened app-runtime</li>
+  <li>Vahvistettu / Hardened app runtime (ART)</li>
   <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (compiler toolchain)</li>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/device_google_sunfish-kernel">Hardened kernel</a></li>
-    <ul>
-      <li>Tuki dynaamisesti ladattaville kernel moduleille on poistettu käytöstä ja minimaalinen sarja moduleja laitteelle on rakennettu kerneliin huomattavasti parantamaan Control Flow Integrityn (CFI) rakeisuutta ja pienentämään hyökkäyspintaa</li>
-      <li>4 tasoiset sivutaulukot on käytössä arm64 järjestelmillä antamaan huomattavasti suurempi osoiteavaruus (48 bittiä 39 sijan) sekä korkeamman entropian Address Space Layout Randomization (33 bittiä 24 sijan)</li>
-      <li>Satunnaisia canary arvoja asetetaan kernelin kasaan</li>
-      <li>Muisti pyyhitään heti kun se on vapautettu</li>
-      <li>Mahdollisuus kytkeä ptrace pois päältä</li>
-    </ul>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> joka on vahvistettu forkki chromium selaimesta sekä laitteen webviewin tarjoaja</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
-<br>
+</ul>
+<h2>Muut Ominaisuudet</h2>
+<ul style="border-left:4px solid;border-radius:1px;">
   <li>Tarkemmat laitteistotiedot asetuksissa</li>
   <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tunnistin">laitetunnistimiin</a></li>
   <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
