@@ -46,7 +46,7 @@
 <ul style="border-left:7px solid;border-radius:1px;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
-  <li>Vahvistettu / <a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
+  <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
   <li>Vahvistettu / Hardened app runtime (ART)</li>
   <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (compiler toolchain)</li>
@@ -70,6 +70,9 @@
   <li>Parannellut ipv6 yksityisyys osoitteet estäen seurantaa verkkojen välillä</li>
   <li><a href="https://github.com/GrapheneOS/PdfViewer#readme">PDF lukija</a>, simppeli, sandboxattu, ei tarvitse lupia</li>
   <li>Salatut varmuuskopiot seedvault-backup sovelluksen avulla</li>
+  <li>Moderni mikrofoni/kamera indikaattori UX myös sijainnille</li>
+  <li>Tiukempi implementaatio vaihtoehtoisesta sormenjälki avaamisesta jossa ainoastaan 5 yritystä sallitaan 20 sijan ennen pysyvää lukitsemista</li>
+  <li>Paranneltu verified-boot paremmilla turvallisuusominaisuuksilla ja pienennetyllä hyökkäyspinnalla</a>
   <li>Turvallinen sovellusten laukaisu malli <a href="https://shepherd115.github.io/Jep/kautto.html#exec">(Exec)</a></li>
   <li>Kyky evätä haluamiltaan sovelluksilta internet lupa estäen suorat ja ei suorat yhteydet sovellukselta. Localhost on myös suojattu tämän avulla. Toisinkuin palomuuri tyylinen asettelu, Network kytkin estää sovellusta käyttämästä internettiä käyttöjärjestelmän tarjoamien ohjelmointirajapintojen (API) avulla joten sovellukset ei voi esimerkiksi käyttää IPCtä rajoitusten ohittamiseen</li>
   <li>Kyky evätä haluamiltaan sovelluksilta Sensors pääsy mikä estää sovellusta käyttämästä laitesensoreita (kiihtyvyysanturi, gyroskooppi, kompassi, barometri, lämpömittari jne)</li>
@@ -85,6 +88,7 @@
   <li>Eng: Fixes for multiple serious vulnerabilities not yet fixed upstream due to a flexible release cycle / process prioritizing security</li>
   <li>Eng:Prevention of dynamic native code execution in-memory or via the filesystem for the base OS without going via the package manager, etc.</li>
   <li>Eng:Filesystem access hardening</li>
+  <li>Eng:Support for using the fingerprint scanner only for authentication in apps and unlocking hardware keystore keys by toggling off support for unlocking.</li>
 </ul>
 </section>
 </main>
