@@ -41,7 +41,7 @@
 <p>On myös hyvä huomioida että GrapheneOS käyttää Androidia tällä hetkellä pohjanaan ja AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> säännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">sandboxin.</a> Android 12 myös toi <a href="https://shepherd115.github.io/Jep/kysymys.html#android">suuria parannuksia.</a></p>
 
 <section id="komponentit">
-<h2><a href="#komponentit">Suuret komponentit</a></h2>
+<h1><a href="#komponentit">Suuret komponentit</a></h1>
 <p style="text-align:center;">Vain yhteenveto joten katso linkit yksityiskohtiin</p>
 <ul style="border-left:7px solid;border-radius:1px;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
@@ -54,7 +54,7 @@
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> joka on vahvistettu forkki chromium selaimesta sekä laitteen webviewin tarjoaja</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
 </ul>
-<h2>Muut Ominaisuudet</h2>
+<h1>Muut Ominaisuudet</h1>
 <ul style="border-left:4px solid;border-radius:1px;">
   <li>Tarkemmat laitteistotiedot asetuksissa</li>
   <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tunnistin">laitetunnistimiin</a></li>
@@ -72,13 +72,15 @@
   <li>Salatut varmuuskopiot seedvault-backup sovelluksen avulla</li>
   <li>Moderni mikrofoni/kamera indikaattori UX myös sijainnille</li>
   <li>Tiukempi implementaatio vaihtoehtoisesta sormenjälki avaamisesta jossa ainoastaan 5 yritystä sallitaan 20 sijan ennen pysyvää lukitsemista</li>
-  <li>Paranneltu verified-boot paremmilla turvallisuusominaisuuksilla ja pienennetyllä hyökkäyspinnalla</a>
+  <li>Paranneltu verified-boot paremmilla turvallisuusominaisuuksilla ja pienennetyllä hyökkäyspinnalla (kokonainen dex preopt käyttöjärjestelmän sovelluksille, SElinux vahvistuksia, useiden hyödyttömien ominaisuuksien poistamista kuten system_other odex, exec spawning ja paljon muutakin)</li>
   <li>Turvallinen sovellusten laukaisu malli <a href="https://shepherd115.github.io/Jep/kautto.html#exec">(Exec)</a></li>
-  <li>Kyky evätä haluamiltaan sovelluksilta internet lupa estäen suorat ja ei suorat yhteydet sovellukselta. Localhost on myös suojattu tämän avulla. Toisinkuin palomuuri tyylinen asettelu, Network kytkin estää sovellusta käyttämästä internettiä käyttöjärjestelmän tarjoamien ohjelmointirajapintojen (API) avulla joten sovellukset ei voi esimerkiksi käyttää IPCtä rajoitusten ohittamiseen</li>
+  <li>Network lupakytkin estämään molemmat suorat ja ei suorat pääsyt verkkoihin. Localhost on myös suojattu tämän avulla mikä on tärkeää estämään sovelluksia kommunikoimasta käyttäjäprofiilien välillä. Toisinkuin palomuuri tyylinen asettelu, Network lupakytkin estää sovelluksia käyttämästä verkkoja käyttöjärjestelmän APIen kautta tai muiden sovellusten kunhan ne ovat merkitty oikein</li>
+  <li>INTERNET lupa jota käytetään Network lupakytminen perustana on vahvistettu ja kunnollinen tuki mahdollistaen estämisen/sallimisen per-profiili kohtaisesti</li>
   <li>Kyky evätä haluamiltaan sovelluksilta Sensors pääsy mikä estää sovellusta käyttämästä laitesensoreita (kiihtyvyysanturi, gyroskooppi, kompassi, barometri, lämpömittari jne)</li>
   <li>Kellon päivittäminen omien GrapheneOS palvelimien kautta</li>
   <li>Kunnollinen tuki poistaakseen puhelinoperaattorin kyvyn vaihtaa laitteen kellonaikaa eikä vain olla näyttämättä heidän tarjoamaa aikaa</li>
   <li>Vahvistettu / Hardened signeeraus infrastruktuuri</li>
+  <li>Pieniä muutoksia oletuksiin jotka suosivat yksityisyyttä käytännöllisyyden yli kuten sensitiivinen tieto on piilotettu lukitusnäytöltä, salasanoja ei näytetä hetkellisesti niitä kirjoittaessa jne</li>
   <li>Googleplaypalvelu <a href="https://shepherd115.github.io/Jep/kautto.html#yhteen">yhteensopivuuskerros</a></li>
   <li>Tuki 64 merkkiselle laitteen salasanalle</li>
   <li>Vaivattomat käyttöjärjestelmän <a href="https://shepherd115.github.io/Jep/kautto.html#paivitukset">päivitykset</a> mitkä pysyvät poissa tieltä sekä tuki mennä aiempaan versioon jos päivitys epäonnistuu</li>
