@@ -37,8 +37,6 @@
 <ul style="border-left:5px solid;border-radius:1px;">
   <li><a href="#paivitukset">Päivitykset</a></li>
   <li><a href="#exec">Exec Spawning</a></li>
-  <li><a href="#usb">USB yhteydet</a></li>
-  <li><a href="#salaus">Laitteen salaus</a></li>
   <li><a href="#bug">Turvallisuusominaisuuksien paljastamat bugit</a></li>
   <li><a href="#selain">Selain</a></li>
   <li><a href="#auditor">Auditor</a></li>
@@ -48,6 +46,8 @@
   <li><a href="#wifi">Wi-Fi yksityisyys</a></li>
   <li><a href="#kamera">Kamera</a></li>
   <li><a href="#pankki">Pankki sovellukset</a></li>
+  <li><a href="#usb">USB yhteydet</a></li>
+  <li><a href="#salaus">Laitteen salaus</a></li>
 </ul>
 </nav>
 
@@ -59,17 +59,6 @@
 
 <h2 id="exec"><a style="color:white;" href="#exec">Exec Spawning</a></h2>
 <div id="teksti">GrapheneOS luo uudet prosessit excecin kautta sovelluksia avatessa yleisen Zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta pidemmän sovellusten aukaisu ja korkeamman muistinkäytön hinnalla. Se ei vaikuta suorituskykyyn pidemmän aukaisuajan lisäksi. Se lisää noin 100ms sovellusten aukaisuun jaa on ainoastaan huomattava vanhoilla laitteilla joissa on heikompi CPU ja pienmpi tallennustila.<br><br>Yleisessä Zygote mallissa mallisovellus prosessi luodaan käynnistyksen yhteydessä ja jokainen sovellus aukaistaan sen kloonina, toisinkuin Execissä jossa jokaiselle sovellukselle luodaan kokonaan oma malli. Tämä tarkoittaa että Zygotessa jokaisella sovelluksella on sama alku muistisisältö ja järjestys, mukaanlukien tiedot jotka kuuluisi olla randomisoitu jokaisella prosessilla. Se säästää aikaa uudelleen käyttämällä samaa mallisovellus prosessia jokaiselle sovellukselle.<br><br>Zygote malli heikentää / rampauttaa useita turvallisuus ominaisuuksia sillä jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä ei muutu ennen laitteen uudelleenkäynnistystä. Zygoten mallisvoellus prosessia myös käytetään globaalisti profiilien välillä joten se antaa tilapäisen sarjan tunnisteita näiden välillä.</div>
-
-<h2 id="usb"><a style="color:white;" href="#usb">USB yhteydet</a></h2>
-<div id="teksti">GrapheneOS oletuksena hylkää uudet USB pyynnöt kun näyttö on lukittu, tämän voi kuitenkin vaihtaa asetuksista ja GrapheneOS lisää kolme vaihtoehtoa:</div>
-<ul>
-  <li>Hylkää USB pyynnöt</li>
-  <li>Salli USB pyynnöt kun laite on avattu (oletus)</li>
-  <li>Salli USB pyynnöt (Kuten stock-androidilla)</li>
-</ul>
-
-<h2 id="salaus"><a style="color:white;" href="#salaus">Laitteen salaus</a></h2>
-<div id="teksti">Odottaa käännöksiä.</div>
 
 <h2 id="bug"><a style="color:white;" href="#bug">Turvallisuusominaisuuksien paljastamat bugit</a></h2>
 <div id="teksti">GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa muistisuojausta. Jotkut näistä on suunniteltu suoraan nappaamaan bugi ja abortoimaan prosessi kun taas toiset ei niin suoraan, kuten alustamalla muistialue heti vapautuksen jälkeen, eristetyillä muistialueilla, viivästetyillä vapautuksilla <a href="https://shepherd115.github.io/Jep/features.html">jne</a>. Tämä voi aiheuttaa joidenkin sovellusten kaatumista ja toimimattomuutta mutta ei aiheuta ongelmia hyvin rakennetuilla sovelluksilla. GrapheneOS ei aiheuta näitä bugeja vaan bugit ovat jo olemassaolevia jotka vain paljasuvat vahvistusten vuoksi.<br><br>Samanlailla jotkut yksityisyys / turvallisuus parannukset rajoittavat sovelluksen pääsyä tiettyihin resursseihin joka voi johtaa kaatumiseen. Monet näistä on aina käytössä under-the-hood kun taas esimerkiksi Sensors ja Network lupa on käyttäjän hallittavissa.</div>
@@ -98,6 +87,18 @@
 <h2 id="pankki"><a style="color:white;" href="#pankki">Pankki sovellukset</a></h2>
 <div id="teksti">Pankkisovellukset ovat erityisen hankala sarja sovelluksia vaihtoehtoisissa käyttöjärjestelmissä. Jotkut näistä toimivat ilman mitään ongelmia kun taas jotkut vaativat <a href="file:///C:/Users/A/Documents/Website/kautto.html#yhteen">Yhteensopivuuskerroksen</a> olemassaolon. Valitettavasti sielä on muitakin monimutkaisempia ongelmia joita ei yleensä kohdata muilla sovelluksilla.<br><br>Monilla näillä sovelluksilla on omat julmat anti-reverse-engneering taktiikat yrittäen piilottaa koodinsa ja APIt turvallisuustuktijoilta. GrapheneOS sallii käyttäjien kytkeä native-code debuggauksen parantaakseen sovellusten sandboxia mutta tämä voi haitata kyseisiä sovelluksia lisäämästä esteitä koodin tarkkailun eteen.<br><br>Pankki / rahaan liittyvät sovellukset käyttävät yhä useammin Googlen SafetyNet vahvistusta varmistaakseen käyttäjärjestelmän autenttisuuden. 
 GrapheneOS läpäisee normaalin <code>basicIntegrity</code> tarkistuksen mutta ei ole Googlen sertifioima joten epäonnistuu <code>ctsProfileMatch</code> tarkistuksen joka voi johtaa sovelluksen toimimattomuuteen ja viestiin kuten "Laitteesi ei läpäissyt tietotuvatarkastustamme".</div>
+
+<h2 id="usb"><a style="color:white;" href="#usb">USB yhteydet</a></h2>
+<div id="teksti">GrapheneOS oletuksena hylkää uudet USB pyynnöt kun näyttö on lukittu, tämän voi kuitenkin vaihtaa asetuksista ja GrapheneOS lisää kolme vaihtoehtoa:</div>
+<ul>
+  <li>Hylkää USB pyynnöt</li>
+  <li>Salli USB pyynnöt kun laite on avattu (oletus)</li>
+  <li>Salli USB pyynnöt (Kuten stock-androidilla)</li>
+</ul>
+
+<h2 id="salaus"><a style="color:white;" href="#salaus">Laitteen salaus</a></h2>
+<div id="teksti">Odottaa käännöksiä.</div>
+
 </section>
 </main>
 
