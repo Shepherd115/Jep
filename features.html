@@ -49,8 +49,17 @@
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
   <li>Vahvistettu / Hardened app runtime (ART)</li>
-  <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (compiler toolchain)</li>
+  <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (Compiler)</li>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/device_google_sunfish-kernel">Hardened kernel</a></li>
+<ul>
+<li>Tuki dynaamisesti ladattaville kernelmoduleille on kytketty pois ja ainoastaan tietty sarja moduleja laitteelle on rakennettu kerneliin parantamaan <a href="https://source.android.com/devices/tech/debug/cfi">CFItä</a> ja pienentämään hyökkäyspintaa</li>
+<li>4-level sivupöydät on otettu käyttöön antamaan huomattavasti suuremman entropian osoiteavaruuden (48 bittiä 39 sijan) ja huomattavasti suuremman entropian ASLR (33 bittiä 24 sijan)</li>
+<li>Satunnaisia canaryarvoja asetetaan kernelin kekoon estämään yli ja alivuototilanteita</li>
+<li>Muisti pyyhitään heti kun se on vapautettu molemmissa alemman tason kernel page varaajassa ja korkeamman tason keon varaajassa</li>
+<li>Kernel pinon varaukset nollataan</li>
+<li>Hyökkäyspinnan pienennys mahdollistamalla tiettyjen ominaisuuksien kytkemisen pois (perf, ptrace)</li>
+<li>Useita upstream vahvistuksia käytössä</li>
+</ul>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> joka on vahvistettu forkki chromium selaimesta sekä laitteen webviewin tarjoaja</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
 </ul>
