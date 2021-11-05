@@ -45,6 +45,22 @@
 <p style="text-align:center;">Vain yhteenveto joten katso linkit yksityiskohtiin</p>
 <ul style="border-left:7px solid;border-radius:1px;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
+<ul>
+<li>Metatiedot ovat kokonaan eristettyjä sekä suojaus korruptoitumiselta</li>
+<ul>
+<li>Mallocin tila on kokonaan varattu alustamisen aikana eikä koskaan käytetty millekkään muille</li>
+<li>Globaaleissa muuttujissa oleva tila on kokonaan read-only alustamisen jälkeen sekä osoittajat osoittavat eristettyyn allocator tilaan joten kirjaston osoitteen vuotaminen ei paljastaisi kirjoitettavan tilan osoitetta</li>
+<li>Allocatorin tila sijaitsee omassa alueessaan korkean entropian vartija-alueiden ympäröimänä</li>
+<li>Suojaus MPKn kautta (Memory Protection Keys) x86_64 suoritinarkkitehtuurilla (Oletuksena ei käytössä)</li>
+</ul>
+<li>Virhellisten varausten determistinen havaitseminen</li>
+<li>Zero-on-free sekä write-after-free havaitseminen tarkistamalla että muisti on silti nollattu ennen sen uudelleenkäyttämistä</li>
+<li>Viivästetty osoittilan uudelleenkäyttö FIFOn ja randomisoinnin avulla</li>
+<li>Hienojakoinen randomisointi</li>
+<li>Aggressiiviset järjestystarkastukset</li>
+<li>Muistisuojatut vartija-alueet varausten ympärillä</li>
+<li>Satunnaisia canary-arvoja</li>
+</ul>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
