@@ -43,7 +43,7 @@
 <section id="komponentit">
 <h1><a href="#komponentit">Suuret komponentit</a></h1>
 <p style="text-align:center;">Vain yhteenveto joten katso linkit yksityiskohtiin</p>
-<ul style="border-left:7px solid;border-radius:1px;">
+<ul style="border:7px solid;background-color:#141415;color:white;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
 <ul>
 <li>Metatiedot ovat kokonaan eristettyjä sekä suojaus korruptoitumiselta</li>
@@ -58,8 +58,9 @@
 <li>Viivästetty osoittilan uudelleenkäyttö FIFOn ja randomisoinnin avulla</li>
 <li>Hienojakoinen randomisointi</li>
 <li>Aggressiiviset järjestystarkastukset</li>
-<li>Muistisuojatut vartija-alueet varausten ympärillä</li>
-<li>Satunnaisia canary-arvoja</li>
+<li>Muistisuojatut vartija-alueet yli 16k kokoisten varausten ympärillä sekä vartija-alueiden kokojen randomisointi (128k ja korkeampi)</li>
+<li>Alle 16k kokoisiset varaukset saavat vartija-alueen jokaisen slabsin väliin joka sisältää varauksia</li>
+<li>Satunnaisia canary-arvoja lisätään pieniin varauksiin havaitsemaan ja estämään muistinylivuoto tilanteita ja muita kasan vioittumisia kun canary arvo tarkistetaan (Pääosin vapautuksen yhteydessä)</li>
 </ul>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
@@ -86,7 +87,7 @@
   <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
   <li>Vaihtoehto kytkeä ptrace pois päältä hyökkäyspinnan pienentämiseksi</li>
   <li>Pieniä parannuksia laitteen <a href="https://shepherd115.github.io/Jep/kautto.html#salaus">salaukseen</a></li>
-  <li>Tuki kirjautua ulos profiileista ilman laitteen uudelleenkäynnistämistä. Tämä tuhoaa <a href="https://shepherd115.github.io/Jep/kautto.html#profiili">profiilin</a> salausavaimet ja asettaa profiilin takaisin lepoon</li>
+  <li>Tuki kirjautua ulos profiileista ilman laitteen uudelleenkäynnistämistä. Tämä pyyhkii <a href="https://shepherd115.github.io/Jep/kautto.html#profiili">profiilin</a> salausavaimet muistista ja asettaa profiilin takaisin lepoon</li>
   <li>Vaihtoehto asettaa laite käynnistymään uudelleen haluaman ajan jälkeen asettaen laitteen BFU (Before First Unlock) tilaan</li>
   <li>Vaihtoehto sekoittaa PIN näppäimistön numeroiden järjestys</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#lte">LTE-only</a> vaihtoehto poistaen jättimäisiä määriä vanhentunutta koodia pienentäen hyökkäyspintaa</li>
@@ -97,14 +98,14 @@
   <li>Salatut varmuuskopiot seedvault-backup sovelluksen avulla</li>
   <li>Moderni mikrofoni/kamera indikaattori UX myös sijainnille</li>
   <li>Tiukempi implementaatio vaihtoehtoisesta sormenjälki avaamisesta jossa ainoastaan 5 yritystä sallitaan 20 sijan ennen pysyvää lukitsemista</li>
-  <li>Paranneltu verified-boot paremmilla turvallisuusominaisuuksilla ja pienennetyllä hyökkäyspinnalla (kokonainen dex preopt käyttöjärjestelmän sovelluksille, SElinux vahvistuksia, useiden hyödyttömien ominaisuuksien poistamista kuten system_other odex, exec spawning ja paljon muutakin)</li>
+  <li>Paranneltu verified-boot paremmilla turvallisuusominaisuuksilla ja pienennetyllä hyökkäyspinnalla (kokonainen dex preopt käyttöjärjestelmän sovelluksille, SElinux vahvistuksia, useiden hyödyttömien ominaisuuksien poistamista kuten system_other odex ja paljon muutakin)</li>
   <li>Turvallinen sovellusten laukaisu malli <a href="https://shepherd115.github.io/Jep/kautto.html#exec">(Exec)</a></li>
   <li>Network lupakytkin estämään molemmat suorat ja ei suorat pääsyt verkkoihin. Localhost on myös suojattu tämän avulla mikä on tärkeää estämään sovelluksia kommunikoimasta käyttäjäprofiilien välillä. Toisinkuin palomuuri tyylinen asettelu, Network lupakytkin estää sovelluksia käyttämästä verkkoja käyttöjärjestelmän APIen kautta tai muiden sovellusten kunhan ne ovat merkitty oikein</li>
   <li>INTERNET lupa jota käytetään Network lupakytminen perustana on vahvistettu ja kunnollinen tuki mahdollistaen estämisen/sallimisen per-profiili kohtaisesti</li>
   <li>Kyky evätä haluamiltaan sovelluksilta Sensors pääsy mikä estää sovellusta käyttämästä laitesensoreita (kiihtyvyysanturi, gyroskooppi, kompassi, barometri, lämpömittari jne)</li>
   <li>Kellon päivittäminen omien GrapheneOS palvelimien kautta</li>
   <li>Kunnollinen tuki poistaakseen puhelinoperaattorin kyvyn vaihtaa laitteen kellonaikaa eikä vain olla näyttämättä heidän tarjoamaa aikaa</li>
-  <li>Vahvistettu / Hardened signeeraus infrastruktuuri</li>
+  <li>Vahvistettu / <a href="https://shepherd115.github.io/Jep/kautto.html#paivitukset">Hardened signeeraus infrastruktuuri</a></li>
   <li>Pieniä muutoksia oletuksiin jotka suosivat yksityisyyttä käytännöllisyyden yli kuten sensitiivinen tieto on piilotettu lukitusnäytöltä, salasanoja ei näytetä hetkellisesti niitä kirjoittaessa jne</li>
   <li>Googleplaypalvelu <a href="https://shepherd115.github.io/Jep/kautto.html#yhteen">yhteensopivuuskerros</a></li>
   <li>Tuki 64 merkkiselle laitteen salasanalle</li>
