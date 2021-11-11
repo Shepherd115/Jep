@@ -63,6 +63,7 @@ p1 {
 #site-menu ul {
     display: flex;
     flex-wrap: nowrap;
+    overflow-x: auto;
     margin: 0;
     padding: 0;
 }
