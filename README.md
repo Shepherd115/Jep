@@ -7,6 +7,9 @@
 
 <h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Muutosloki</h1>
  
+ <div id="1.13">a href="#1.13">1.13</a></div>
+ <p>-Navigointipalkkia muutettu</p>
+ 
  <div id="1.12"><a href="#1.12">1.12</a></div>
  <p>-Etusivu ja Ominaisuudet sivu uudelleenkirjoitettu<br>-Lisätty: "Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?" Q&A osioon<br>-Sivustolla taustakuva<br>-Kokonaan uusi layout ja parempi näkyvyys KAIKILLA laitteilla ja selaimilla</p>
 
