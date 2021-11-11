@@ -90,6 +90,7 @@ p1 {
     padding: 1em;
     align-items: center;
     font-size:100%;
+    color:white;
 }
 
 #site-menu ul li a:visited {
