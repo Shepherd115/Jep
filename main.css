@@ -154,7 +154,7 @@ footer a, footer a:visited {
   left: 0;
   background-color: #e93a48;
   transform-origin: middle;
-  transition: transform 0.65s ease-out;
+  transition: transform 0.1s ease-out;
 }
 
 .hover-underline-animation:hover:after {
