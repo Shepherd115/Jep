@@ -7,7 +7,7 @@
 
 <h1 style="text-align:center;color:white;font-family:verdana, Tahoma;">Muutosloki</h1>
  
- <div id="1.13">a href="#1.13">1.13</a></div>
+ <div id="1.13"><a href="#1.13">1.13</a></div>
  <p>-Navigointipalkkia muutettu</p>
  
  <div id="1.12"><a href="#1.12">1.12</a></div>
