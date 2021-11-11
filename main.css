@@ -1,3 +1,4 @@
+
 body {
     display: flex;
     flex-direction: column;
@@ -73,6 +74,10 @@ p1 {
   list-style-type:square;
 }
 
+#site-menu ul li[aria-current] img {
+  
+}
+
 
 #site-menu {
     white-space: nowrap;
@@ -91,6 +96,7 @@ p1 {
     align-items: center;
     font-size:100%;
     color:white;
+font-weight: bold;
 }
 
 #site-menu ul li a:visited {
@@ -98,12 +104,12 @@ p1 {
 }
 
 #site-menu ul li[aria-current] a {
-    color: red;
+    color: #e93a48;
 }
 
-#site-menu img {
-    height: 1.8rem;
-    width: 1.8rem;
+#kuvah {
+    height: 2rem;
+    width: 2rem;
     filter: invert(100);
     vertical-align: middle;
     margin-right: 0.5rem;
@@ -147,12 +153,12 @@ footer a, footer a:visited {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: red;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  background-color: #e93a48;
+  transform-origin: middle;
+  transition: transform 0.65s ease-out;
 }
 
 .hover-underline-animation:hover:after {
   transform: scaleX(1);
-  transform-origin: bottom left;
+  transform-origin: upper left;
 }
