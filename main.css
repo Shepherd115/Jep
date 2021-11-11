@@ -63,7 +63,6 @@ p1 {
 #site-menu ul {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
     margin: 0;
     padding: 0;
 }
@@ -72,11 +71,6 @@ p1 {
   text-align:left;
   list-style-type:square;
 }
-
-#site-menu ul li[aria-current] img {
-  
-}
-
 
 #site-menu {
     white-space: nowrap;
