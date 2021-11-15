@@ -146,26 +146,3 @@ footer a, footer a:visited {
     display: inline;
     padding: 0 0.5em;
 }
-
-.hover-underline-animation {
-  display: inline-block;
-  position: relative;
-}
-
-.hover-underline-animation:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #e93a48;
-  transform-origin: middle;
-  transition: transform 0.1s ease-out;
-}
-
-.hover-underline-animation:hover:after {
-  transform: scaleX(1);
-  transform-origin: upper left;
-}
