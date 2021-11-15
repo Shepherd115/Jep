@@ -64,16 +64,13 @@ p1 {
     display: flex;
     flex-wrap: nowrap;
     margin: 0;
+    overflow-x: auto;
     padding: 0;
 }
 
 #ajan {
   text-align:left;
   list-style-type:square;
-}
-
-#site-menu ul li[aria-current] img {
-  
 }
 
 
@@ -91,7 +88,7 @@ p1 {
     text-decoration: none;
     padding: 1em;
     align-items: center;
-    font-size:85%;
+    font-size:100%;
     color:white;
     font-weight: bold;
 }
@@ -101,17 +98,20 @@ p1 {
 }
 
 #site-menu ul li[aria-current] {
-    border-bottom: 1px solid #e93a48;
+  border-left: 1px solid #e93a48;
+  border-right: 1px solid #e93a48;
 }
 
 #site-menu ul li[aria-current] a {
     color: #e93a48;
-    font-size:90%;
+    font-size:110%;
 }
 
 #site-menu ul li a:hover {
   color:#e93a48;
-      font-size:90%;
+  font-size:110%;
+  border-left: 1px solid #e93a48;
+  border-right: 1px solid #e93a48;
 }
 
 #kuvah {
@@ -145,27 +145,4 @@ footer a, footer a:visited {
 #sosiaali li {
     display: inline;
     padding: 0 0.5em;
-}
-
-.hover-underline-animation {
-  display: inline-block;
-  position: relative;
-}
-
-.hover-underline-animation:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #e93a48;
-  transform-origin: middle;
-  transition: transform 0.1s ease-out;
-}
-
-.hover-underline-animation:hover:after {
-  transform: scaleX(1);
-  transform-origin: upper left;
 }
