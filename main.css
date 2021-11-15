@@ -106,11 +106,12 @@ p1 {
 
 #site-menu ul li[aria-current] a {
     color: #e93a48;
+    font-size:110%;
 }
 
 #site-menu ul li a:hover {
   color:#e93a48;
-      font-size:105%;
+      font-size:110%;
 }
 
 #kuvah {
