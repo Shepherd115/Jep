@@ -32,19 +32,27 @@
 <main id="ominaisuudet">
 <h1><a href="#ominaisuudet">Ominaisuudet<img id="kuvah" src="mask-icon.svg"></a></h1>
 
-<p>GrapheneOS on yksityinen ja turvallinen käyttöjärjestelmä hyvällä toimivuudella. Se aloittaa vahvasta AndroidOpenSourceProjectin (AOSP) turvallisuusmallista ja varoo tämän rikkomista tai hyökkäyspinnan lisäämistä. GrapheneOS tekee huomattavia parannuksia molempiin yksityisyyteen sekä turvallisuuteen useiden tarkasti suuniteltujen ominaisuuksien avulla jotka on tarkoitettu toimimaan realistisia uhkia vastaan. Projekti välittää erittäin paljon toimivuudesta ja sovellusten yhteensopivuudesta joten ne otetaan huomioon kaikissa ominaisuuksissa.</p>
+<p>GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä sekä toimivuudella.
+Se aloittaa AOSPn <a href="https://arxiv.org/abs/1904.05572">vahvasta</a> turvallisuusmallista ja huolehtii ettei se satuta tätä tai lisää
+hyökkäyspintaa. GrapheneOS sisältää kattavan lajitelman tarkasti suunniteltuja komponentteja jotka toimivat harmoniassa 
+parantaen muistisuojausta, sulkemaan kokonaisia exploitti luokkia sekä tekee useiden hyökkäysten suorittamisesta huomattavasti vaikeampaa. 
+Projekti välittää erittäin paljon toimivuudesta, sekä sovellusten yhteensopivuudesta joten ne otetaan huomioon kaikissa ominaisuuksissa.</p>
 
-<p>GrapheneOS keskittyy oleelliseen markkinoinnin sijan. Se ei ota tyypillistä käytäntöä asettaa satunnaisia ominaisuuksia toivoen että vastustaja ei tiedä niistä. Se on erittäin tekninen projekti rakentaen yksityisyyttä ja turvallisuutta itse käyttöjärjestelmään hyödyttömien ominaisuuksien sijan.</p>
+<p>GrapheneOS on keskittynyt oleelliseen markkinoinnin sijan. Se ei ota tyypillistä käytäntöä asettaa satunnaisia epäturvallisia
+ominaisuuksia toivoen että hyökkääjä ei tiedä niistä. Se on erittäin tekninen projekti rakentaen yksityisyyttä ja turvallisuutta 
+itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sovelluksien sijan.</p>
 
-<p>Tämä sivu sisältää yhteenvedon ominaisuuksista jolla GrapheneOS eroaa AOSPstä. Se ei dokumentoi useita historiallisia ominaisuuksia jotka ei ole käytössä enään syystä tai toisesta. Useimmat ominaisuudet on saatu projekteihin joihin GrapheneOS tukeutuu kuten AOSP, Linux ja LLVM.</p>
-
-<p>On myös hyvä huomioida että GrapheneOS käyttää Androidia tällä hetkellä pohjanaan ja AOSP on jo valmiiksi <a href="https://arxiv.org/abs/1904.05572">erittäin turvallinen</a> kuten sisältää koko systeemiä koskevat <a href="https://source.android.com/security/selinux">SElinux</a> säännöt, <a href="https://source.android.com/security/verifiedboot">verified-bootin</a>, muistiturvallisten ohjelmointikielien käytön, (Java / Kotlin) <a href="https://source.android.com/devices/tech/debug/cfi">CFI</a>, <a href="https://source.android.com/devices/tech/debug/shadow-call-stack">SCS</a> ja kunnollisen sovellusten <a href="https://source.android.com/security/app-sandbox">sandboxin.</a> Android 12 myös toi <a href="https://shepherd115.github.io/Jep/kysymys.html#android">suuria parannuksia.</a></p>
+<p>Tämä lista sisältää yhteenvedon ominaisuuksista joilla GrapheneOS eroaa AOSPstä. Se ei dokumentoi useita historiallisia ominaisuuksia jotka
+ei ole enää käytössä syystä tai toisesta. Useimmat ominaisuudet on saatu infrastruktuuri projekteihin joihin GrapheneOS nojautuu(AOSP, Linux, LLVM).</p>
 
 <section id="komponentit">
 <h1><a href="#komponentit">Suuret komponentit</a></h1>
 <p style="text-align:center;">Vain yhteenveto joten katso linkit yksityiskohtiin</p>
-<ul style="border-left:4px solid;border-radius:1px;">
+<ul style="border-left:4px solid red;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
+joka kohottaa modernit laitteistonkyvyt tarjoamaan huomattavaa suojaa yleisiä tietoturvareikiä vastaan (Kasan muistikorruptiot)
+ja on siirrettävissä muihinkin Linux pohjaisiin käyttöjärjestelmään ja onkin adoptoitu muiden turvallisuus painotteisten käyttöjärjestelmien toimesta
+kuten Whonixin.</li>
 <ul>
 <li>Metatiedot ovat kokonaan eristettyjä sekä suojaus korruptoitumiselta</li>
 <ul>
@@ -62,7 +70,7 @@
 <li>Alle 16k kokoisiset varaukset saavat vartija-alueen jokaisen slabsin väliin joka sisältää varauksia</li>
 <li>Satunnaisia canary-arvoja lisätään pieniin varauksiin havaitsemaan ja estämään muistinylivuoto tilanteita ja muita kasan vioittumisia kun canary arvo tarkistetaan (Pääosin vapautuksen yhteydessä)</li>
 </ul>
-  <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa</li>
+  <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa ja tarjoaa suojaa muistinkorruptio ongelmia vastaan.</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
   <li>Vahvistettu / Hardened app runtime (ART)</li>
@@ -81,7 +89,7 @@
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
 </ul>
 <h1>Muut Ominaisuudet</h1>
-<ul style="border-left:4px solid;border-radius:1px;">
+<ul style="border-left:4px solid red;">
   <li>Tarkemmat laitteistotiedot asetuksissa</li>
   <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tunnistin">laitetunnistimiin</a></li>
   <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
