@@ -44,6 +44,14 @@ h1 {
   text-align:center;
 }
 
+#ajan-kohtaista {
+  border-left:5px solid red;
+  padding:10px;
+  margin:5px;
+  text-align:left;
+  font-weight: bold;
+}
+
 
 a:hover {
     background-color: #0e0f0f;
@@ -96,6 +104,11 @@ p1 {
     color: #fff;
 }
 
+#lahteet {
+  float:left;
+  list-style-type:none;
+}
+
 #site-menu ul li[aria-current] {
   border-left: 1px solid #e93a48;
   border-right: 1px solid #e93a48;
@@ -103,12 +116,12 @@ p1 {
 
 #site-menu ul li[aria-current] a {
     color: #e93a48;
-    font-size:110%;
+    font-size:115%;
 }
 
 #site-menu ul li a:hover {
   color:#e93a48;
-  font-size:110%;
+  font-size:115%;
   border-left: 1px solid #e93a48;
   border-right: 1px solid #e93a48;
 }
@@ -133,6 +146,13 @@ footer {
 
 footer a, footer a:visited {
     color: #616161;
+}
+
+#varoitus img {
+  height: 1.8rem;
+  width: 1.8rem;
+  vertical-align:middle;
+  margin-right: 0.5rem;
 }
 
 #sosiaali {
