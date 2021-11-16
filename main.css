@@ -4,12 +4,8 @@ body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
     font-family: Roboto, sans-serif;
-    background-color: black;
+    background-color: #121212;
     color: #e2e4e1;
-    background-image: url("moih683.jpg");
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 400px 600px;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
