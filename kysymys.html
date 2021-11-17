@@ -50,6 +50,7 @@
 
 <h2>Sovellukset</h2>
 <ul style="border-left:5px solid red;">
+  <li><a href="#mista">Mistä GrapheneOS käyttäjät saavat sovelluksia?</a></li>
   <li><a href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></li>
   <li><a href="#laite-tunnistin">Onko sovelluksilla pääsy laitetunnisteisiin?</a></li>
   <li><a href="#leike">Onko sovelluksilla pääsy leikepöytään?</a></li>
@@ -182,6 +183,28 @@ muistiin joka on jaettu ajuri implementaation toimesta. Baseband kaikilla tuetui
 Wi-Fin ja Bluetoothin omina sandboxattuina prosesseina.</p>
 
 <h3 style="border-bottom: 3px solid #e93a48;text-align:center;font-size:150%;">Sovellukset</h3>
+
+<h2 id="mista"><a style="color:white;" href="#mista">Mistä GrapheneOS käyttäjät saavat sovelluksia?</a></h2>
+<p>AJANKOHTAISTA - GrapheneOS kehittää omaa sovellusarkistoa joka tulee tarjoamaan robustimman ja turvallisemman vaihtoehdon kuin muut.</p>
+
+<p>GrapheneOS ei sisällä toistaiseksi omaa "sovelluskauppaa" joten käyttäjien on itse hankittava nämä muista lähteistä ja ymmärrettävä tämän riskit.
+yleisimmin käytetyt sovelluskaupat ovat F-Droid, Aurora Store, <a href="https://shepherd115.github.io/Jep/kautto.html#yhteen">yhteensopivuuskerroksen</a> 
+Google Playkauppa, kehittäjän sivulta tai GitHubista. Mikään näistä ei ole täydelinen mutta jotkut ovat parempia kuin toiset.</p>
+<ul>
+<li>F-Droid - Useimmat sovellukset jota F-Droid jakaa ovat F-Droidin kehittäjien signeeraamia joiden avaimet pidetään verkossa. Tarkoittaen että F-Droid
+kehittäjät tai hyökkääjä kuka ottaa F-Droidin infrastruktuurista hallun kykenee kuljettamaan haitallisia sovelluksia käyttäjille. F-Droid sovellus on myös
+erittäin epävakaa ja vanha (TargetSDK 26) eikä sitä huolleta enään. Säälittävän heikko infrastruktuuri onkin syy miksei jotkin kehittäjät halua laittaa 
+sovelluksiaan sinne, kuten Signal.</li><br>
+<li>Google Playkauppa - Toisinkuin F-Droid, Googlen Playkaupassa signeeraus avaimet ovat aina kehittäjien hallinnassa ja itse Google tai hyökkääjä kuka 
+ottaisi infrastruktuurin haltuun ei kykenisi kuljettamaan haitallisia sovelluksia. Google Playkauppa on myös hyvin huollettu ja vakaa (TargetSDK31).</li><br>
+<li>Aurora Store - Tämä on Google Playkauppa Frontend jonka ideana on tarjota "anonyymi" tapa saada Googlen Playpasta sovelluksia. Aurora Store ei kierrä
+vaatimusta kirjautua Playkauppaan, jos valitsee "anonyymin" niin käyttää dummy käyttäjää, samanlaisen minkä voisi tehdä itse oikeaan Playkauppaan.
+Aurora Store myös vaatii vanhentuneen luvan kaikkiin tiedostoihin toimiakseen, ei käytä TLS pinnausta ja on vain turha välikäsi johtaen useampaan luotettuun
+henkilöön.</li><br>
+<li>Kehittäjän sivu / Github - APKn saaminen suoraan kehittäjältä on toistaiseksi paras vaihtoehto Googlen Playkaupan jälkeen. Se ei vaadi kolmannenosapuolen
+sovellusta ja sovellus signeerataan kehittäjän toimesta. Näiden päivittäminen voi kumminkin olla ongelma ja manuaalisesti uuden APKn hakeminen joka kerta voi
+olla raskasta. Jotkit sovellukset kuitenkin sisältää ominaisuuden päivittyä itsestään.</li><br>
+</ul>
 
 <h2 id="sovellukset"><a style="color:white;" href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></h2>
 <div id="teksti">Androidilla, sovellukset ovat sandboxattuja aina. Sovelluksilta on tiukasti estetty kyky päästä muiden sovellusten tai käyttäjän tietoihin, oli sovellus avoimen tai suljetun lähdekoodin niin sillä ei ole mitään merkitystä. GrapheneOS laukaisee jokaisen prosessin omana prosessinaan <a href="https://shepherd115.github.io/Jep/kautto.html#exec">Execin</a> avulla malliprosessin kopioimisen sijan, tämä estää sovelluksia pääsemästä muiden muistisisältöön / järjestykseen. Sovellukset ei kykene tekemään mitään sandboxin ulkopuolella oletuksena ellei käyttäjä anna erikseen tähän lupaa. Tämän vuoksi, jokainen sovellus elää omassa turvallisessa ympäristössään eristettynä muista ja saa ainoastaan pääsyn tietoihin joita käyttäjä tälle antaa esim lupien kautta. GrapheneOS myös huomattavasti parantaa sandboxin muureja ominaisuuksilla kuten tiukennetut SElinux säännöt, Exec spawning, täysi dex preopt käyttöjärjestelmän omille sovelluksille, poistamalla epämääräisiä ominaisuuksia kuten system_other ja paljon muutakin.<br><br>GrapheneOS sallii Inter-process communicationin (IPCn) sillä se on erittäin tärkeä osa käyttökelpoisuutta, mutta sovellukset voivat käyttää tätä toisten sovellusten kanssa kommunikoimiseen vain jos molempien sovellusten kehittäjät ovat koodatessaan sallineet sovellusten välisen yhteistyön. IPC mahdollistaa tiedonvälityksen tällein sovellusten välillä sandboxin ulkopuolelle jonka vuoksi <a href="https://shepherd115.github.io/Jep/kautto.html#profiili">käyttäjäprofiilien</a> hyödyntäminen on erittäin suositeltavaa sillä Android estää IPCn profiilien välillä.</div>
