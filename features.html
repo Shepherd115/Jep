@@ -91,7 +91,7 @@ kuten Whonixin.</li>
 </ul>
 <h1>Muut Ominaisuudet</h1>
 <ul style="border-left:4px solid red;">
-  <li>Tarkemmat laitteistotiedot asetuksissa</li>
+  <li>Tarkemmat laitteisto ja ohjelmistotiedot asetuksissa</li>
   <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tunnistin">laitetunnistimiin</a></li>
   <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
   <li>Vaihtoehto kytkeä ptrace pois päältä hyökkäyspinnan pienentämiseksi</li>
@@ -113,20 +113,21 @@ kuten Whonixin.</li>
   <li>INTERNET lupa jota käytetään Network lupakytminen perustana on vahvistettu ja kunnollinen tuki mahdollistaen estämisen/sallimisen per-profiili kohtaisesti</li>
   <li>Kyky evätä haluamiltaan sovelluksilta Sensors pääsy mikä estää sovellusta käyttämästä laitesensoreita (kiihtyvyysanturi, gyroskooppi, kompassi, barometri, lämpömittari jne)</li>
   <li>Kellon päivittäminen omien GrapheneOS palvelimien kautta</li>
+  <li>Tuki käyttää sormenjälki lukijaa ainoastaan todentamaan henkilöllisyys sovelluksille ja avaamaan laitteiston avainvarasto</li>
   <li>Oma uusi ja moderni kamerasovellus</li>
-  <li>Kunnollinen tuki poistaakseen puhelinoperaattorin kyvyn vaihtaa laitteen kellonaikaa eikä vain olla näyttämättä heidän tarjoamaa aikaa</li>
+  <li>Verkoston kellonajan päivittäminen omien palvelimien kautta estääkseen hyökkääjää muuntamasta kellonaikaa ja tätä kautta käyttämään hyökkäyksiä jotka perustuu sertifikaattien ohittamiseen / avainten vanhenemiseen jne
+  <li>Tuki kytkeä puhelinverkoston kyky muuntaa kellonaikaa pois</li>
   <li>Vahvistettu / <a href="https://shepherd115.github.io/Jep/kautto.html#paivitukset">Hardened signeeraus infrastruktuuri</a></li>
   <li>Pieniä muutoksia oletuksiin jotka suosivat yksityisyyttä käytännöllisyyden yli kuten sensitiivinen tieto on piilotettu lukitusnäytöltä, salasanoja ei näytetä hetkellisesti niitä kirjoittaessa jne</li>
   <li>Googleplaypalvelu <a href="https://shepherd115.github.io/Jep/kautto.html#yhteen">yhteensopivuuskerros</a></li>
   <li>Tuki 64 merkkiselle laitteen salasanalle</li>
+  <li>Pieniä tiedostojärjestelmän vahvistuksia</li>
+  <li>Korjattu useita vakavia tietoturvaongelmia joustavan päivitysinfrastruktuurin ansiosta</li>
   <li>Vaivattomat käyttöjärjestelmän <a href="https://shepherd115.github.io/Jep/kautto.html#paivitukset">päivitykset</a> mitkä pysyvät poissa tieltä sekä tuki mennä aiempaan versioon jos päivitys epäonnistuu</li>
   <li>Vaatii laitteen avausta ennen kuin sensitiiviä ominaisuuksia quick-tilesseissä voi käyttää (Wifi, lentokonetila, GPS, NFC jne)</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#bundle">Minimaalinen määrä ennalta asennettuja sovelluksia / palveluita</a></li>
   <li>Ei Googlen palveluita (GooglePlayPalvelut) tai sovelluksia integroitu itse käyttöjärjestelmään</li>
-  <li>Eng: Fixes for multiple serious vulnerabilities not yet fixed upstream due to a flexible release cycle / process prioritizing security</li>
-  <li>Eng:Prevention of dynamic native code execution in-memory or via the filesystem for the base OS without going via the package manager, etc.</li>
-  <li>Eng:Filesystem access hardening</li>
-  <li>Eng:Support for using the fingerprint scanner only for authentication in apps and unlocking hardware keystore keys by toggling off support for unlocking.</li>
+  <li>Dynaamisen natiivin koodin estäminen muistissa tai tiedostojärjestelmän kautta perus käyttöjärjestelmälle ilman että menee paketinhallinnan kautta</li>
 </ul>
 </section>
 </main>
