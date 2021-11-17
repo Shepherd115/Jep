@@ -58,6 +58,14 @@ h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, 
     color: white;
 }
 
+  display: none;
+}
+    
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
+
 p1 {
     color:white;
     text-decoration:none;
@@ -91,7 +99,7 @@ p1 {
     text-decoration: none;
     padding: 1em;
     align-items: center;
-    font-size:100%;
+    font-size:90%;
     color:white;
     font-weight: bold;
 }
@@ -112,12 +120,12 @@ p1 {
 
 #site-menu ul li[aria-current] a {
     color: #e93a48;
-    font-size:115%;
+    font-size:100%;
 }
 
 #site-menu ul li a:hover {
   color:#e93a48;
-  font-size:115%;
+  font-size:100%;
   border-left: 1px solid #e93a48;
   border-right: 1px solid #e93a48;
 }
