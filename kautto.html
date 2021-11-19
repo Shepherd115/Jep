@@ -40,7 +40,6 @@
 <ul style="border-left:5px solid red;">
   <li><a href="#paivitukset">Päivitykset</a></li>
   <li><a href="#exec">Exec Spawning</a></li>
-  <li><a href="#bug">Turvallisuusominaisuuksien paljastamat bugit</a></li>
   <li><a href="#road">GrapheneOS Roadmap</a></li>
   <li><a href="#selain">Selain</a></li>
   <li><a href="#auditor">Auditor</a></li>
@@ -49,9 +48,9 @@
   <li><a href="#lte">LTE-only</a></li>
   <li><a href="#wifi">Wi-Fi yksityisyys</a></li>
   <li><a href="#kamera">Kamera</a></li>
-  <li><a href="#pankki">Pankki sovellukset</a></li>
   <li><a href="#usb">USB yhteydet</a></li>
   <li><a href="#salaus">Laitteen salaus</a></li>
+  <li><a href="#bugi">Sovellusten yhteensopivuus ongelmat</a></li>
 </ul>
 </nav>
 
@@ -71,10 +70,10 @@ ainoastaan päätyy tietämään laitteen IP osoitteen ja version jota se yritt�
 päivityspalvelin ei luota sokeasti palvelimiin + TLS yhteyteen. Siellä on useita signatuuri tarkastus sekä downgrade_protection kerroksia 
 ja OTA päivitykset voi tarvittaessa jopa kytkeä pois päältä ja sideloadata nämä recoveryn kautta.</p>
 <ul>
-<li>Päivityspaketti on signeerattu ja vahvistettu downgrade_protectionin lisäksi update_clientin tai recoveryn toimesta</li>
-<li>Päivitys payload on signeerattu ja vahvistettu downgrade_protectionin lisäksi update_enginen kautta ja sisältää myös lähteiden hash arvot</li>
-<li>Laiteohjelmisto ja OS imaget on myös signeerattu ja vahvistettu downgrade_protectionin lisäksi <a href="https://source.android.com/security/verifiedboot/">verified-bootin</a> avulla</li>
-<li>GrapheneOS sisältää <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovelluksen tarjoamaan viimeisen puolustuskerroksen</li>
+<li>Päivityspaketti on signeerattu ja vahvistettu downgrade_protectionin lisäksi update_clientin tai recoveryn toimesta</li><br>
+<li>Päivitys payload on signeerattu ja vahvistettu downgrade_protectionin lisäksi update_enginen kautta ja sisältää myös lähteiden hash arvot</li><br>
+<li>Laiteohjelmisto ja OS imaget on myös signeerattu ja vahvistettu downgrade_protectionin lisäksi <a href="https://source.android.com/security/verifiedboot/">verified-bootin</a> avulla</li><br>
+<li>GrapheneOS sisältää <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovelluksen tarjoamaan viimeisen puolustuslinjan</li>
 </ul>
 
 <h2 id="exec"><a style="color:white;" href="#exec">Exec Spawning</a></h2>
@@ -89,15 +88,6 @@ mallisovellus prosessia jokaiselle sovellukselle.<br><br>Zygote malli heikentä�
 sillä jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä ei muutu ennen laitteen uudelleenkäynnistystä. Zygoten 
 mallisovellus prosessia myös käytetään globaalisti profiilien välillä joten se antaa tilapäisen sarjan tunnisteita näiden välillä.</p>
 
-<h2 id="bug"><a style="color:white;" href="#bug">Turvallisuusominaisuuksien paljastamat bugit</a></h2>
-<p>GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa muistisuojausta. Jotkut näistä on suunniteltu suoraan 
-nappaamaan bugi ja abortoimaan prosessi kun taas toiset ei niin suoraan, kuten alustamalla muistialue heti vapautuksen jälkeen, 
-eristetyillä muistialueilla, viivästetyillä vapautuksilla <a href="https://shepherd115.github.io/Jep/features.html">jne</a>. 
-Tämä voi aiheuttaa joidenkin sovellusten kaatumista ja toimimattomuutta mutta ei aiheuta ongelmia hyvin rakennetuilla sovelluksilla. 
-GrapheneOS ei aiheuta näitä bugeja vaan bugit ovat jo olemassa olevia jotka vain paljastuvat vahvistusten vuoksi.</p>
-
-<p>Samanlailla jotkut yksityisyys / turvallisuus parannukset rajoittavat sovelluksen pääsyä tiettyihin resursseihin joka voi johtaa 
-kaatumiseen. Monet näistä on aina käytössä under-the-hood kun taas esimerkiksi Sensors ja Network lupa on käyttäjän hallittavissa.</p>
 
 <h2 id="road"><a style="color:white;" href="#road">GrapheneOS Roadmap</a></h2>
 <p>Saadakseen idean lyhyen tähtäimen tavoitteista, katso <a href="https://github.com/GrapheneOS/os-issue-tracker/issues">OS-issue-tracker.</a> 
@@ -208,10 +198,6 @@ vaikeampaa poistamalla jättimäisiä määriä hyökkäyspintaa.</p>
 <h2 id="kamera"><a style="color:white;" href="#kamera">Kamera</a></h2>
 <div id="teksti">GrapheneOS sisältää oman uuden modernin kamerasovelluksen joka pohjautuu Androidin <a href="https://developer.android.com/training/camerax">CameraX</a> kirjaastoon. Tämä on kokonaan korvannut AOSPn mallikamerasovelluksen.</div>
 
-<h2 id="pankki"><a style="color:white;" href="#pankki">Pankki sovellukset</a></h2>
-<div id="teksti">Pankkisovellukset ovat erityisen hankala sarja sovelluksia vaihtoehtoisissa käyttöjärjestelmissä. Jotkut näistä toimivat ilman mitään ongelmia kun taas jotkut vaativat <a href="file:///C:/Users/A/Documents/Website/kautto.html#yhteen">Yhteensopivuuskerroksen</a> olemassaolon. Valitettavasti siellä on muitakin monimutkaisempia ongelmia joita ei yleensä kohdata muilla sovelluksilla.<br><br>Monilla näillä sovelluksilla on omat julmat anti-reverse-engneering taktiikat yrittäen piilottaa koodinsa ja APIt turvallisuustuktijoilta. GrapheneOS sallii käyttäjien kytkeä native-code debuggauksen parantaakseen sovellusten sandboxia mutta tämä voi haitata kyseisiä sovelluksia lisäämästä esteitä koodin tarkkailun eteen.<br><br>Pankki / rahaan liittyvät sovellukset käyttävät yhä useammin Googlen SafetyNet vahvistusta varmistaakseen käyttäjärjestelmän autenttisuuden. 
-GrapheneOS läpäisee normaalin <code>basicIntegrity</code> tarkistuksen mutta ei ole Googlen sertifioima joten epäonnistuu <code>ctsProfileMatch</code> tarkistuksen joka voi johtaa sovelluksen toimimattomuuteen ja viestiin kuten "Laitteesi ei läpäissyt tietoturvatarkastustamme".</div>
-
 <h2 id="usb"><a style="color:white;" href="#usb">USB yhteydet</a></h2>
 <div id="teksti">GrapheneOS oletuksena hylkää uudet USB pyynnöt kun näyttö on lukittu, tämän voi kuitenkin vaihtaa asetuksista ja GrapheneOS lisää kolme vaihtoehtoa:</div>
 <ul>
@@ -236,6 +222,34 @@ Tämän vuoksi omistajaprofiili on ensin avattava ennen kuin muita profiileja vo
 Tätä ei voi tehdä omistajaprofiilille ilman laitteen uudelleenkäynnistämistä sillä se säilöö koko systeemiä koskevia tietoja.
 Tiedostot ovat salattu AES-256-TXT algoritmilla ja tiedostojen nimet algoritmilla AES-256-CTS. Uniikki avain muodostetaan käyttäen HKDF-SHA512 algoritmia
 profiilikohtaisista salausavaimista tai globaalista salausavaimesta.</p>
+
+<h2 id="bugi"><a style="color:white;" href="#bugi">Sovellusten yhteensopivuus ongelmat</a></h2>
+<p>GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa suojaa muistinkorruptoitumis ongelmia vastaan. Jotkut näistä ominaisuuksista
+on suunniteltu suoraan nappaamaan muistinkorruptio bugi joko tarkastuksella tai muistisuojauksella ja abortoimaan prosessi ettei sitä kyetä hyväksikäyttämään.
+Jotkut ominaisuuksista mitigoi ongelmia hieman vähemmän suorasti kuten nollaamalla tiedot vapautuksen yhteydessä, eristetyillä muistialueilla, kasan randomisoinnilla,
+canary arvoilla, vartija-alueilla, viivästetyllä osoitetilan uudelleenkäytöllä <a href="https://shepherd115.github.io/Jep/features.html#komponentit">jne</a>.
+GrapheneOS ei aiheuta näitä bugeja vaan ne ovat jo olemassa olevia bugeja jotka paljastuu vahvistusten vuoksi. Ominaisuuksien tarkoitus on estää exploitteja,
+ei löytää bugeja mutta ne toimivat myös siinä.</p>
+
+<p>Samanlailla, jotkut muut yksityisyys ja turvallisuus parannukset vähentävät sovelluksien pääsyä tiettyihin resursseihin ja voi aiheuttaa toimimattomuutta.
+Useimmat näistä on oletuksena aina käytössä mutta jotkut ovat käyttäjän hallinnassa kuten Sensors ja Network lupa sekä kyky kytkeä natiivin koodin debuggaus
+pois parantaakseen sovellustan sandboxia. Sovellukset eivät ehkä kykene käsittelemään näiden oikeuksien pois ottoa. Varsinkin pankki sovellukset yleensä
+vaativat natiivin koodin debuggausta luodakseen muureja ettei heidän koodia pystyisi tarkastelemaan.</p>
+
+<p>Jotkut sovellukset, yleensä sairaala / rahaan liittyvät myös käyttävät yhä enemmän Googlen SafetyNet vahvistus palvelua todentamaan käyttöjärjestelmän
+autenttisuus. GrapheneOS läpäisee normaalin <code>basicIntegrity</code> tarkistuksen mutta ei ole Googlen sertifioima joten epäonnistuu
+<code>ctsProfileMatch</code> tarkistuksen joka voi johtaa sovelluksen toimimattomuuteen ja viestiin kuten
+"Laitteesi ei läpäissyt tietoturvatarkastustamme".</p>
+
+<p><a href="https://developer.android.com/training/articles/security-key-attestation">Laitteisto pohjainen 
+käyttöjärjestelmän vahvistus</a> ominaisuus on osa AOSP:tä ja täysin tuettu GrapheneOS toimesta. SafetyNet vahvistus käyttää sitä
+vahvistaakseen että laitteessa on Googlen sertifioima käyttöjärjestelmä. On kuitenkin mahdollista sovelluskehittäjien käyttää sitä suoraan sallimaan
+muutkin täysin signeeratut käyttöjärjestelmät jossa on Verified-Boot ja täsmäävä turvallisuusmalli. GrapheneOS sisältää 
+<a href="https://grapheneos.org/articles/attestation-compatibility-guide">yksityiskohtaisen oppaan</a>
+sovelluskehittäjille miten laitteiston vahvistus APIta voi käyttää sallimaan Graphenen. Laitteiston vahvistus APIn käyttäminen suoraan antaa paljon
+varmemman todennuksen kuin SafetyNet joten näillä sovelluksilla ei ole mitään hävittävää jos he alkaisi käyttämään kehittyneempää APIta joka ei vaadi Googlen Playpalveluita tai palvelimia
+ja tukemaan käyttöjärjestelmää joka ei pelkästään pidä Androidin turvallisuusmallia, vaan huomattavasti myös vahvistaa sitä.</p>
+
 
 </section>
 </main>
