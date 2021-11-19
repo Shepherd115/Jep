@@ -164,6 +164,11 @@ Tulokset syötetään laitteiston avainvarastoon ja niitä käytetään avainten
 sovelluksen TOFU malli perusvahvistuksella joka on yhdistetty tiedettyyn rootti sertifikaattiin. Viimeisin avaimenvahvistus versio tarjoaa signeeratut tulokset Verified-Bootin tilasta,
 Verified-Boot hash arvosta sekä hash arvo kaikista tiedoista jotka Verified-Boot on suojannut.</p>
 
+<p>Sitä ei voi ohittaa muokkaamalla tai peukaloimalla käyttöjärjestelmää sillä se saa signeerattuja laitetietoja laitteen turvallisuusmodulilta (TitanM Pixeleissä) tai 
+TEE:ltä kuten Verified bootin tilan, käyttöjärjestelmä variaation sekä OS version. Vahvistus on paljon merkityksellisempi ensimmäisen yhdistämisen jälkeen sillä se luottaa 
+<a href="https://en.wikipedia.org/wiki/Trust_on_first_use">TOFU</a> malliin. Tämän vuoksi onkin tärkeää käyttää Auditoria ja pinnata avaimet heti käyttöjärjestelmän 
+asentamisen jälkeen, mieluiten jo ennen kun laitetta yhdistää mihinkään verkkoon.</p>
+
 <h2 id="profiili"><a style="color:white;" href="#profiili">Käyttäjäprofiilit</a></h2>
 <div id="teksti">Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Etu erillisen käyttäjäprofiilin käyttämisessä normaalissa käytössä on kyky asettaa tämä lepoon ja tuhota tämän salausavaimet kun profiilia ei käytetä. Tämä ei ole mahdollista omistaja profiilissa ilman laitteen uudelleenkäynnistämistä sillä omistajaprofiili säilöö koko systeemiä koskevia prosesseja.<br><br>Käyttäjäprofiileja voi myös hyödyntää tilanteessa jossa sovellus vaatii pääsyä yksityisiin tietoihin (esim. pääsy kaikkiin tiedostoihin) tai / ja jos IPC on huolenaihe. Näiden asettaminen käyttäjäprofiiliin jossa ei ole sensitiivistä tietoa voi olla hyvä idea yksityisyyden kannalta sillä sovellukset eivät voi keskustella profiilien välillä ja profiilin tyhjyys takaa että vaikka sovellus vaatisi tietoa esim yhteystietoihin, ei profiilissa olisi yhteystietoja vietäväksi.</div>
 
