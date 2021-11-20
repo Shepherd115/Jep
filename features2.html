@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fi"
+<head>
+    <link href="main.css" rel="stylesheet">
+    <link rel="alternate" hreflang="fi" href="http://shepherd115.github.io/Jep/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8">
+    <meta name="author" content="Shepherd">
+    <title>GrapheneOS - Turvallinen ja yksityinen mobiilikäyttöjärjestelmä</title>
+    <meta name="description" content="GrapheneOS - Turvallinen & Yksityinen OS Android sovellusten yhteensopivuudella"/>
+    <meta name="keywords" content="tietoturva, turvallisuus, yksityisyys, hakkerointi, grapheneos, daniel, micay, antivirus, 
+    vpn, proxy, tietoturva, tietosuoja, mikko hyppönen, turvallinen puhelin, yksityinen puhelin, miten yksityisyys, miten turvallisuus, yksityinen käyttöjärjestelmä,
+    turvallinen käyttöjärjestelmä, snowden, edward, edward snowden, turvallisuus puhelin, turvallinen os, tksityinen os, puhelin käyttöjärjestelmä, anonyymi puhelin">
+    <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+    <meta property="og:image:width" content="512"/>
+    <meta property="og:image:height" content="512"/
+    <meta property="og:image:alt" content="GrapheneOS logo"/>
+    <meta property="og:site_name" content="GrapheneOS"/>
+    <link rel="canonical" href="https://shepherd115.github.io/Jep/index.html"/>
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="icon" sizes="any" type="image/svg+xml" href="favicon.svg"/>
+    <link rel="mask-icon" href="mask-icon.svg" color="#1a1a1a"/>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+</head>
+<body>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+
+<nav id="site-menu">
+<ul>
+<li class="hover-underline-animation" aria-current="page"><a href="index.html">GrapheneOS</a></li>
+<li class="hover-underline-animation"><a href="features.html">Ominaisuudet</a></li>
+<li class="hover-underline-animation"><a href="kautto.html">Käyttö</a></li>
+<li class="hover-underline-animation"><a href="kysymys.html">Q&A</a></li>
+</ul>
+</nav>
+<main>
+
+<h1>Ominaisuudet</h1>
+
+<div class="row">
+  <div class="column side">
+<ul style="list-style-type:none;border-left:5px solid grey;">
+<li>Tuki dynaamisesti ladattaville kernelmoduleille on kytketty pois ja ainoastaan tietty sarja moduleja laitteelle on rakennettu kerneliin parantamaan <a href="https://source.android.com/devices/tech/debug/cfi">CFItä</a> ja pienentämään hyökkäyspintaa</li><br>
+<li>4 tasoiset sivutaulukot on otettu käyttöön antamaan huomattavasti suuremman entropian osoiteavaruuden (48 bittiä 39 sijan) ja huomattavasti suuremman entropian ASLR (33 bittiä 24 sijan)</li><br>
+<li>Satunnaisia canaryarvoja asetetaan kernelin kekoon estämään yli ja alivuototilanteita</li><br>
+  </div>
+  
+  <div class="column middle">
+    <p style="color:white;background-color:grey;font-weight: bold;font-size:150%;background-image: url('mask-icon.svg');background-repeat: no-repeat;background-position: top;border: 2px solid grey;padding-top:110px;padding-bottom:110px;border-radius: 9px;text-align:center;">Vahvistettu kernel</p>
+  </div>
+
+<div class="row">
+<div class="column side">
+<ul style="list-style-type:none;border-right:5px solid grey;">
+<li>Muisti pyyhitään heti kun se on vapautettu molemmissa alemman tason kernel page varaajassa ja korkeamman tason keon varaajassa</li><br>
+<li>Kernel pinon varaukset nollataan</li><br>
+<li>Hyökkäyspinnan pienennys mahdollistamalla tiettyjen ominaisuuksien kytkemisen pois (perf, ptrace)</li><br>
+<li>Useita upstream vahvistuksia käytössä</li><br>
+</ul>
+
+</main>
+
+<footer>
+<ul id="sosiaali">
+<li><a href="https://github.com/GrapheneOS">GrapheneOS Github</a></li><br>
+</ul>
+</footer>
+
+</body>
+</html>
