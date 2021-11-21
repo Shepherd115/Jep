@@ -21,51 +21,17 @@
     <link rel="icon" sizes="any" type="image/svg+xml" href="favicon.svg"/>
     <link rel="mask-icon" href="mask-icon.svg" color="#1a1a1a"/>
     <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
-</head>
-<body>
+
 <style>
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-}
-
-/* Style the header */
-.header {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Create three equal columns that floats next to each other */
+/* Create two equal columns that floats next to each other */
 .column {
   float: left;
-  width: 33.33%;
-  padding: 15px;
+  width: 50%;
+  padding: 10px;
 }
 
 /* Clear floats after the columns */
@@ -74,16 +40,9 @@ body {
   display: table;
   clear: both;
 }
-    
-    @media screen and (max-width:600px) {
-  .column {
-    width: 100%;
-  }
-}
-
-
 </style>
-
+</head>
+<body>
 <nav id="site-menu">
 <ul>
 <li class="hover-underline-animation" aria-current="page"><a href="index.html">GrapheneOS</a></li>
@@ -92,38 +51,101 @@ body {
 <li class="hover-underline-animation"><a href="kysymys.html">Q&A</a></li>
 </ul>
 </nav>
-<main>
 
-<h1>Ominaisuudet</h1>
+<body>
 
-<div class="row">
-  <div class="column side">
-<ul style="list-style-type:none;border-left:5px solid grey;">
-<li>Tuki dynaamisesti ladattaville kernelmoduleille on kytketty pois ja ainoastaan tietty sarja moduleja laitteelle on rakennettu kerneliin parantamaan <a href="https://source.android.com/devices/tech/debug/cfi">CFItä</a> ja pienentämään hyökkäyspintaa</li><br>
-<li>4 tasoiset sivutaulukot on otettu käyttöön antamaan huomattavasti suuremman entropian osoiteavaruuden (48 bittiä 39 sijan) ja huomattavasti suuremman entropian ASLR (33 bittiä 24 sijan)</li><br>
-<li>Satunnaisia canaryarvoja asetetaan kernelin kekoon estämään yli ja alivuototilanteita</li><br>
-  </div>
-  
-  <div class="column middle">
-    <p style="color:white;background-color:grey;font-weight: bold;font-size:150%;background-image: url('mask-icon.svg');background-repeat: no-repeat;background-position: top;border: 2px solid grey;padding-top:110px;padding-bottom:110px;border-radius: 9px;text-align:center;">Vahvistettu kernel</p>
-  </div>
+    <h2 style="text-align:center;font-size:220%;"><strong>Ominaisuudet</strong></h2>
 
 <div class="row">
-<div class="column side">
-<ul style="list-style-type:none;border-right:5px solid grey;">
-<li>Muisti pyyhitään heti kun se on vapautettu molemmissa alemman tason kernel page varaajassa ja korkeamman tason keon varaajassa</li><br>
-<li>Kernel pinon varaukset nollataan</li><br>
-<li>Hyökkäyspinnan pienennys mahdollistamalla tiettyjen ominaisuuksien kytkemisen pois (perf, ptrace)</li><br>
-<li>Useita upstream vahvistuksia käytössä</li><br>
+  <div class="column">
+    <p style="font-size:200%;background-image: url('mask-icon.SVG');background-position: center;background-repeat: no-repeat;background-size: cover;text-align:center;border:5px solid white;padding-top:250px;padding-bottom:250px;margin-right:190px;margin-left:190px;border-radius: 15px;"><strong>GrapheneOS</strong></p>
+<ul style="text-align:center;list-style-type:none;">
+<li>TitanM</li>
+<li>Eristetty baseband</li>
+<li>
 </ul>
-
-</main>
-
-<footer>
-<ul id="sosiaali">
-<li><a href="https://github.com/GrapheneOS">GrapheneOS Github</a></li><br>
+  </div>
+  <div class="column">
+    <ul>
+  <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
+joka kohottaa modernit laitteistonkyvyt tarjoamaan huomattavaa suojaa yleisiä tietoturvareikiä vastaan (Kasan muistikorruptiot)
+ja on siirrettävissä muihinkin Linux pohjaisiin käyttöjärjestelmään ja onkin adoptoitu muiden turvallisuus painotteisten käyttöjärjestelmien toimesta
+kuten Whonixin.</li>
+<ul>
+<li>Metatiedot ovat kokonaan eristettyjä sekä suojaus korruptoitumiselta</li>
+<ul>
+<li>allocator_staten osoiteavaruus on kokonaan varattu alustamisen aikana eikä sitä koskaan käytetä varauksille tai millekkään muulle</li>
+<li>Globaaleissa muuttujissa oleva tila on kokonaan read-only alustamisen jälkeen sekä osoittajat osoittavat eristettyyn allocator_stateen joten kirjaston osoitteen vuotaminen ei paljastaisi kirjoitettavan tilan osoitetta</li>
+<li>allocator_state sijaitsee omassa alueessaan korkean entropian vartija-alueiden ympäröimänä</li>
+<li>Suojaus MPKn kautta (Memory Protection Keys) x86_64 suoritinarkkitehtuurilla (Oletuksena ei käytössä)</li>
+<li>[TULEVA] Suojaus MTEn kautta ARMv8.5+ pohjalla</li>
 </ul>
-</footer>
+<li>Virhellisten varausten determistinen havaitseminen</li>
+<li>Zero-on-free sekä write-after-free havaitseminen tarkistamalla että muisti on silti nollattu ennen sen uudelleenkäyttämistä</li>
+<li>Viivästetty osoittilan uudelleenkäyttö FIFOn ja randomisoinnin avulla</li>
+<li>Hienojakoinen randomisointi</li>
+<li>Aggressiiviset järjestystarkastukset</li>
+<li>Muistisuojatut vartija-alueet yli 16k kokoisten varausten ympärillä sekä vartija-alueiden kokojen randomisointi (128k ja korkeampi)</li>
+<li>Alle 16k kokoisiset varaukset saavat vartija-alueen jokaisen slabsin väliin joka sisältää varauksia</li>
+<li>Satunnaisia canary-arvoja lisätään pieniin varauksiin havaitsemaan ja estämään muistinylivuoto tilanteita ja muita kasan vioittumisia kun canary arvo tarkistetaan (Pääosin vapautuksen yhteydessä)</li>
+</ul>
+  <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa ja tarjoaa suojaa muistinkorruptio ongelmia vastaan.</li>
+  <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
+  <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
+  <li>Vahvistettu / Hardened app runtime (ART)</li>
+  <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (Compiler)</li>
+  <li>Vahvistettu / <a href="https://github.com/GrapheneOS/device_google_sunfish-kernel">Hardened kernel</a></li>
+<ul>
+<li>Tuki dynaamisesti ladattaville kernelmoduleille on kytketty pois ja ainoastaan tietty sarja moduleja laitteelle on rakennettu kerneliin parantamaan <a href="https://source.android.com/devices/tech/debug/cfi">CFItä</a> ja pienentämään hyökkäyspintaa</li>
+<li>4 tasoiset sivutaulukot on otettu käyttöön antamaan huomattavasti suuremman entropian osoiteavaruuden (48 bittiä 39 sijan) ja huomattavasti suuremman entropian ASLR (33 bittiä 24 sijan)</li>
+<li>Satunnaisia canaryarvoja asetetaan kernelin kekoon estämään yli ja alivuototilanteita</li>
+<li>Muisti pyyhitään heti kun se on vapautettu molemmissa alemman tason kernel page varaajassa ja korkeamman tason keon varaajassa</li>
+<li>Kernel pinon varaukset nollataan</li>
+<li>Hyökkäyspinnan pienennys mahdollistamalla tiettyjen ominaisuuksien kytkemisen pois (perf, ptrace)</li>
+<li>Useita upstream vahvistuksia käytössä</li>
+</ul>
+  <li><a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> joka on vahvistettu forkki chromium selaimesta sekä laitteen webviewin tarjoaja</li>
+  <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
+  <li>Tarkemmat laitteisto ja ohjelmistotiedot asetuksissa</li>
+  <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tunnistin">laitetunnistimiin</a></li>
+  <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
+  <li>Vaihtoehto kytkeä ptrace pois päältä hyökkäyspinnan pienentämiseksi</li>
+  <li>Pieniä parannuksia laitteen <a href="https://shepherd115.github.io/Jep/kautto.html#salaus">salaukseen</a></li>
+  <li>Tuki kirjautua ulos profiileista ilman laitteen uudelleenkäynnistämistä. Tämä pyyhkii <a href="https://shepherd115.github.io/Jep/kautto.html#profiili">profiilin</a> salausavaimet muistista ja asettaa profiilin takaisin lepoon</li>
+  <li>Vaihtoehto asettaa laite käynnistymään uudelleen haluaman ajan jälkeen asettaen laitteen BFU (Before First Unlock) tilaan</li>
+  <li>Vaihtoehto sekoittaa PIN näppäimistön numeroiden järjestys</li>
+  <li><a href="https://shepherd115.github.io/Jep/kautto.html#lte">LTE-only</a> vaihtoehto poistaen jättimäisiä määriä vanhentunutta koodia pienentäen hyökkäyspintaa</li>
+  <li><a href="https://shepherd115.github.io/Jep/kautto.html#wifi">Satunnaistettu MAC osoite</a> joka kerta kun laite etsii wifi verkkoja (Käytössä oletuksena)</li>
+  <li>Kun satunnaistettu MAC osoite on käytössä DHCP tila pyyhitään joka kerta ettei verkko voi tunnistaa että laite on sama kuin viimeksi</li>
+  <li>Parannellut ipv6 yksityisyys osoitteet estäen seurantaa verkkojen välillä</li>
+  <li><a href="https://github.com/GrapheneOS/PdfViewer#readme">PDF lukija</a>, simppeli, sandboxattu, ei tarvitse lupia</li>
+  <li>Salatut varmuuskopiot seedvault-backup sovelluksen avulla</li>
+  <li>Moderni mikrofoni/kamera indikaattori UX myös sijainnille</li>
+  <li>Tiukempi implementaatio vaihtoehtoisesta sormenjälki avaamisesta jossa ainoastaan 5 yritystä sallitaan 20 sijan ennen pysyvää lukitsemista</li>
+  <li>Paranneltu verified-boot paremmilla turvallisuusominaisuuksilla ja pienennetyllä hyökkäyspinnalla (kokonainen dex preopt käyttöjärjestelmän sovelluksille, SElinux vahvistuksia, useiden hyödyttömien ominaisuuksien poistamista kuten system_other odex ja paljon muutakin)</li>
+  <li>Turvallinen sovellusten laukaisu malli <a href="https://shepherd115.github.io/Jep/kautto.html#exec">(Exec)</a></li>
+  <li>Network lupakytkin estämään molemmat suorat ja ei suorat pääsyt verkkoihin. Localhost on myös suojattu tämän avulla mikä on tärkeää estämään sovelluksia kommunikoimasta käyttäjäprofiilien välillä. Toisinkuin palomuuri tyylinen asettelu, Network lupakytkin estää sovelluksia käyttämästä verkkoja käyttöjärjestelmän APIen kautta tai muiden sovellusten kunhan ne ovat merkitty oikein</li>
+  <li>INTERNET lupa jota käytetään Network lupakytminen perustana on vahvistettu ja kunnollinen tuki mahdollistaen estämisen/sallimisen per-profiili kohtaisesti</li>
+  <li>Kyky evätä haluamiltaan sovelluksilta Sensors pääsy mikä estää sovellusta käyttämästä laitesensoreita (kiihtyvyysanturi, gyroskooppi, kompassi, barometri, lämpömittari jne)</li>
+  <li>Kellon päivittäminen omien GrapheneOS palvelimien kautta</li>
+  <li>Tuki käyttää sormenjälki lukijaa ainoastaan todentamaan henkilöllisyys sovelluksille ja avaamaan laitteiston avainvarasto</li>
+  <li>Oma uusi ja moderni kamerasovellus</li>
+  <li>Verkoston kellonajan päivittäminen omien palvelimien kautta estääkseen hyökkääjää muuntamasta kellonaikaa ja tätä kautta käyttämään hyökkäyksiä jotka perustuu sertifikaattien ohittamiseen / avainten vanhenemiseen jne
+  <li>Tuki kytkeä puhelinverkoston kyky muuntaa kellonaikaa pois</li>
+  <li>Vahvistettu / <a href="https://shepherd115.github.io/Jep/kautto.html#paivitukset">Hardened signeeraus infrastruktuuri</a></li>
+  <li>Pieniä muutoksia oletuksiin jotka suosivat yksityisyyttä käytännöllisyyden yli kuten sensitiivinen tieto on piilotettu lukitusnäytöltä, salasanoja ei näytetä hetkellisesti niitä kirjoittaessa jne</li>
+  <li>Googleplaypalvelu <a href="https://shepherd115.github.io/Jep/kautto.html#yhteen">yhteensopivuuskerros</a></li>
+  <li>Tuki 64 merkkiselle laitteen salasanalle</li>
+  <li>Pieniä tiedostojärjestelmän vahvistuksia</li>
+  <li>Korjattu useita vakavia tietoturvaongelmia joustavan päivitysinfrastruktuurin ansiosta</li>
+  <li>Vaivattomat käyttöjärjestelmän <a href="https://shepherd115.github.io/Jep/kautto.html#paivitukset">päivitykset</a> mitkä pysyvät poissa tieltä sekä tuki mennä aiempaan versioon jos päivitys epäonnistuu</li>
+  <li>Vaatii laitteen avausta ennen kuin sensitiiviä ominaisuuksia quick-tilesseissä voi käyttää (Wifi, lentokonetila, GPS, NFC jne)</li>
+  <li><a href="https://shepherd115.github.io/Jep/kysymys.html#bundle">Minimaalinen määrä ennalta asennettuja sovelluksia / palveluita</a></li>
+  <li>Ei Googlen palveluita (GooglePlayPalvelut) tai sovelluksia integroitu itse käyttöjärjestelmään</li>
+  <li>Dynaamisen natiivin koodin estäminen muistissa tai tiedostojärjestelmän kautta perus käyttöjärjestelmälle ilman että menee paketinhallinnan kautta</li>
+</ul>
+  </div>
+</div>
 
 </body>
 </html>
