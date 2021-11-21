@@ -5,9 +5,12 @@
     <link rel="alternate" hreflang="fi" href="http://shepherd115.github.io/Jep/index.html">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="UTF-8">
-    <title>Ominaisuudet | GrapheneOS Tieto</title>
-    <meta name="description" content="GrapheneOS on turvallisuus / yksityisyys vahvistettu mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella"/>
-    <meta name="keywords" content="tietoturva, turvallisuus, yksityisyys, hakkerointi, grapheneos, daniel, micay, fsecure, antivirus, vpn, proxy">
+    <meta name="author" content="Shepherd">
+    <title>GrapheneOS - Turvallinen ja yksityinen mobiilikäyttöjärjestelmä</title>
+    <meta name="description" content="GrapheneOS - Turvallinen & Yksityinen OS Android sovellusten yhteensopivuudella"/>
+    <meta name="keywords" content="tietoturva, turvallisuus, yksityisyys, hakkerointi, grapheneos, daniel, micay, antivirus, 
+    vpn, proxy, tietoturva, tietosuoja, mikko hyppönen, turvallinen puhelin, yksityinen puhelin, miten yksityisyys, miten turvallisuus, yksityinen käyttöjärjestelmä,
+    turvallinen käyttöjärjestelmä, snowden, edward, edward snowden, turvallisuus puhelin, turvallinen os, tksityinen os, puhelin käyttöjärjestelmä, anonyymi puhelin">
     <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
     <meta property="og:image:width" content="512"/>
     <meta property="og:image:height" content="512"/
@@ -20,7 +23,6 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 </head>
 <body>
-
 <nav id="site-menu">
 <ul>
 <li class="hover-underline-animation"><a href="index.html">GrapheneOS</a></li>
@@ -30,63 +32,32 @@
 </ul>
 </nav>
 
-<main id="ominaisuudet">
-<h1><a href="#ominaisuudet">Ominaisuudet<img id="kuvah" src="mask-icon.svg"></a></h1>
 
-<p>GrapheneOS on turvallinen ja yksityinen mobiilikäyttöjärjestelmä hyvällä käytettävyydellä sekä toimivuudella.
-Se aloittaa AOSPn <a href="https://arxiv.org/abs/1904.05572">vahvasta</a> turvallisuusmallista ja huolehtii ettei se satuta tätä tai lisää
-hyökkäyspintaa. GrapheneOS sisältää kattavan lajitelman tarkasti suunniteltuja komponentteja jotka toimivat harmoniassa 
-parantaen muistisuojausta, sulkemaan kokonaisia exploitti luokkia sekä tekee useiden hyökkäysten suorittamisesta huomattavasti vaikeampaa. 
-Projekti välittää erittäin paljon toimivuudesta, sekä sovellusten yhteensopivuudesta joten ne otetaan huomioon kaikissa ominaisuuksissa.</p>
-
-<p>GrapheneOS on keskittynyt oleelliseen markkinoinnin sijan. Se ei ota tyypillistä käytäntöä asettaa satunnaisia epäturvallisia
-ominaisuuksia toivoen että hyökkääjä ei tiedä niistä. Se on erittäin tekninen projekti rakentaen yksityisyyttä ja turvallisuutta 
-itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sovelluksien sijan.</p>
-
-<p>Tämä lista sisältää yhteenvedon ominaisuuksista joilla GrapheneOS eroaa AOSPstä. Se ei dokumentoi useita historiallisia ominaisuuksia jotka
-ei ole enää käytössä syystä tai toisesta. Useimmat ominaisuudet on saatu infrastruktuuri projekteihin joihin GrapheneOS nojautuu(AOSP, Linux, LLVM).</p>
-
-<section id="komponentit">
-<h1><a href="#komponentit">Suuret komponentit</a></h1>
-<p style="text-align:center;">Vain yhteenveto joten katso linkit yksityiskohtiin</p>
-<ul style="border-left:4px solid red;">
+<div class="row">
+  <div class="column left">
+<h2 style="text-align:center;font-size:190%;"><strong>Laitteisto</strong> (Pixel 5)</h2>
+<p style="color:black;background-color:grey;font-size:190%;background-image: url('mask-icon.svg');background-position: center;background-repeat: no-repeat;border-radius:19px;background-size: cover;text-align:center;border:3px solid grey;padding-top:250px;padding-bottom:250px;"><strong>GrapheneOS</strong></p>
+<ul style="text-align:center;">
+<li>Täysi <a href="https://source.android.com/security/verifiedboot/">Verified-Boot</a> ja tuki omille signeeraus avaimille - Takaa että kaikki suoritettu koodi tulee luotettavasta lähteestä</li><br>
+<li><a href="https://www.blog.google/products/pixel/titan-m-makes-pixel-3-our-most-secure-phone-yet/">Titan M</a> - Titan M on Pixel puhelimien HSM siru joka varastoi krytpograafisen materiaalin käyttäen StrongBox avainvarastoa. Myös integroitu Verified-Boot prosessiin sekä tarjoaa <a href="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html">insider-attack-resistancen</a></li><br>
+<li>Aiemmissa Pixeleissä kuin Pixel 6 on Qualcommin SoC joka implementoi modernit exploittien mitigointikyvyt sekä robustin IOMMUn eristämään fyysiset komponentit toisistaan</li><br>
+<li>Pixelien kernelit kootaan useiden vahvistusten kanssa johon kuuluu esimerkiksi CFI ja ShadowCallStack ja GrapheneOS parantaa näitä entisestään</li><br>
+<li>Kunnollinen MAC osoitteen randomisointi joka <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">ei vuoda tunnisteita</a></li><br>
+</ul>
+  </div>
+  <div class="column right">
+<h2 style="text-align:center;font-size:190%;"><strong>OS</strong></h2>
+<ul style="border-left:7px solid grey;">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
 joka kohottaa modernit laitteistonkyvyt tarjoamaan huomattavaa suojaa yleisiä tietoturvareikiä vastaan (Kasan muistikorruptiot)
 ja on siirrettävissä muihinkin Linux pohjaisiin käyttöjärjestelmään ja onkin adoptoitu muiden turvallisuus painotteisten käyttöjärjestelmien toimesta
 kuten Whonixin.</li>
-<ul>
-<li>Metatiedot ovat kokonaan eristettyjä sekä suojaus korruptoitumiselta</li>
-<ul>
-<li>allocator_staten osoiteavaruus on kokonaan varattu alustamisen aikana eikä sitä koskaan käytetä varauksille tai millekkään muulle</li>
-<li>Globaaleissa muuttujissa oleva tila on kokonaan read-only alustamisen jälkeen sekä osoittajat osoittavat eristettyyn allocator_stateen joten kirjaston osoitteen vuotaminen ei paljastaisi kirjoitettavan tilan osoitetta</li>
-<li>allocator_state sijaitsee omassa alueessaan korkean entropian vartija-alueiden ympäröimänä</li>
-<li>Suojaus MPKn kautta (Memory Protection Keys) x86_64 suoritinarkkitehtuurilla (Oletuksena ei käytössä)</li>
-<li>[TULEVA] Suojaus MTEn kautta ARMv8.5+ pohjalla</li>
-</ul>
-<li>Virhellisten varausten determistinen havaitseminen</li>
-<li>Zero-on-free sekä write-after-free havaitseminen tarkistamalla että muisti on silti nollattu ennen sen uudelleenkäyttämistä</li>
-<li>Viivästetty osoittilan uudelleenkäyttö FIFOn ja randomisoinnin avulla</li>
-<li>Hienojakoinen randomisointi</li>
-<li>Aggressiiviset järjestystarkastukset</li>
-<li>Muistisuojatut vartija-alueet yli 16k kokoisten varausten ympärillä sekä vartija-alueiden kokojen randomisointi (128k ja korkeampi)</li>
-<li>Alle 16k kokoisiset varaukset saavat vartija-alueen jokaisen slabsin väliin joka sisältää varauksia</li>
-<li>Satunnaisia canary-arvoja lisätään pieniin varauksiin havaitsemaan ja estämään muistinylivuoto tilanteita ja muita kasan vioittumisia kun canary arvo tarkistetaan (Pääosin vapautuksen yhteydessä)</li>
-</ul>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa ja tarjoaa suojaa muistinkorruptio ongelmia vastaan.</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
   <li>Vahvistettu / Hardened app runtime (ART)</li>
   <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (Compiler)</li>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/device_google_sunfish-kernel">Hardened kernel</a></li>
-<ul>
-<li>Tuki dynaamisesti ladattaville kernelmoduleille on kytketty pois ja ainoastaan tietty sarja moduleja laitteelle on rakennettu kerneliin parantamaan <a href="https://source.android.com/devices/tech/debug/cfi">CFItä</a> ja pienentämään hyökkäyspintaa</li>
-<li>4 tasoiset sivutaulukot on otettu käyttöön antamaan huomattavasti suuremman entropian osoiteavaruuden (48 bittiä 39 sijan) ja huomattavasti suuremman entropian ASLR (33 bittiä 24 sijan)</li>
-<li>Satunnaisia canaryarvoja asetetaan kernelin kekoon estämään yli ja alivuototilanteita</li>
-<li>Muisti pyyhitään heti kun se on vapautettu molemmissa alemman tason kernel page varaajassa ja korkeamman tason keon varaajassa</li>
-<li>Kernel pinon varaukset nollataan</li>
-<li>Hyökkäyspinnan pienennys mahdollistamalla tiettyjen ominaisuuksien kytkemisen pois (perf, ptrace)</li>
-<li>Useita upstream vahvistuksia käytössä</li>
-</ul>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> joka on vahvistettu forkki chromium selaimesta sekä laitteen webviewin tarjoaja</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
   <li>Tarkemmat laitteisto ja ohjelmistotiedot asetuksissa</li>
@@ -127,14 +98,11 @@ kuten Whonixin.</li>
   <li>Ei Googlen palveluita (GooglePlayPalvelut) tai sovelluksia integroitu itse käyttöjärjestelmään</li>
   <li>Dynaamisen natiivin koodin estäminen muistissa tai tiedostojärjestelmän kautta perus käyttöjärjestelmälle ilman että menee paketinhallinnan kautta</li>
 </ul>
-</section>
-</main>
-
+</div>
 <footer>
 <ul id="sosiaali">
 <li><a href="https://github.com/GrapheneOS">GrapheneOS Github</a></li><br>
 </ul>
 </footer>
-
 </body>
 </html>
