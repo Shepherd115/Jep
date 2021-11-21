@@ -20,6 +20,37 @@ a {
     text-decoration:none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
 main {
     margin-left: auto;
     margin-right: auto;
@@ -32,7 +63,7 @@ main {
 }
 
 code {
-    background-color: #grey;
+    background-color: black;
     font-family: "Roboto Mono", monospace;
 }
 
