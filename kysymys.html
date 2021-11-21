@@ -50,7 +50,7 @@
 </ul>
 
 <h2>Sovellukset</h2>
-<ul style="border-left:5px solid red;">
+<ul style="border-left:5px solid grey;">
   <li><a href="#mista">Mistä GrapheneOS käyttäjät saavat sovelluksia?</a></li>
   <li><a href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></li>
   <li><a href="#laite-tunnistin">Onko sovelluksilla pääsy laitetunnisteisiin?</a></li>
@@ -59,7 +59,7 @@
 </ul>
 
 <h2>Turvallisuus / Yksityisyys</h2>
-<ul style="border-left:5px solid red;">
+<ul style="border-left:5px solid grey;">
   <li><a href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></li>
   <li><a href="#palomuuri">Tarjoaako GrapheneOS palomuurin?</a></li>
   <li><a href="#android">Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?</a></li>
@@ -70,7 +70,7 @@
 </ul>
 
 <h2>Muut</h2>
-<ul style="border-left:5px solid red;">
+<ul style="border-left:5px solid grey;">
   <li><a href="#perustus">Miten GrapheneOS perustettiin?</a></li>
   <li><a href="#tarkoitus">Mikä on tämän sivuston tarkoitus?</a></li>
   <li><a href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></li>
@@ -80,7 +80,7 @@
 
 <section id="q&a">
 
-<h3 style="border-bottom: 3px solid #e93a48;text-align:center;font-size:150%;">Laitteisto</h3>
+<h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Laitteisto</h3>
 
 <h2 id="laite-tuki"><a style="color:white;" href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></h2>
 <p>Seuraavat laitteet ovat virallisesti käyttöön valmiita laitteita GrapheneOS tuen kanssa:</p>
@@ -183,7 +183,7 @@ jos täytyisi luetella kaikki poikkeudet.</p>
 muistiin joka on jaettu ajuri implementaation toimesta. Baseband kaikilla tuetuilla laitteilla joissa on Qualcommin SoC implementoi
 Wi-Fin ja Bluetoothin omina sandboxattuina prosesseina.</p>
 
-<h3 style="border-bottom: 3px solid #e93a48;text-align:center;font-size:150%;">Sovellukset</h3>
+<h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Sovellukset</h3>
 
 <h2 id="mista"><a style="color:white;" href="#mista">Mistä GrapheneOS käyttäjät saavat sovelluksia?</a></h2>
 <p>AJANKOHTAISTA - GrapheneOS kehittää omaa sovellusarkistoa joka tulee tarjoamaan robustimman ja turvallisemman vaihtoehdon kuin muut.</p>
@@ -219,7 +219,7 @@ olla raskasta. Jotkit sovellukset kuitenkin sisältää ominaisuuden päivittyä
 <h2 id="verkkoyhteys"><a style="color:white;" style="color:white;" href="#verkkoyhteys">Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></h2>
 <div id="teksti">Sovellukset eivät voi monitoroida verkkoyhteyksiä ellei niistä ole tehty aktiivista VPN palvelua käyttäjän toimesta. Sovellukset eivät voi normaalisti saada pääsyä verkkotilastoihin ja eivät voi suoraan pyytää pääsyä niihin.</div>
 
-<h3 style="border-bottom: 3px solid #e93a48;text-align:center;font-size:150%;">Turvallisuus / Yksityisyys</h3>
+<h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Turvallisuus / Yksityisyys</h3>
 
 <h2 id="yhteydet"><a style="color:white;" href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></h2>
 <div id="teksti">GrapheneOS tekee yhteyksiä ulkomaailmaan testatakseen yhteyksiä, havaitsemaan captive portaaleja ja ladatakseen päivityksiä. Tunnistettavia tietoja ei lähetetä. GrapheneOS ei sisällä analytiikkaa. Tarkat yhteydet löytyy <a href="https://grapheneos.org/faq#default-connections">tästä</a></div>
@@ -247,7 +247,7 @@ GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#
 <h2 id="root"><a style="color:white;" href="#root">Onko GrapheneOS roottausta?</a></h2>
 <div id="teksti">Ei, GrapheneOS on suunniteltu minimoimaan oikeudet ja hyökkäyspinta ja roottaaminen olisi tämän vastakohta. Androidin arkkitehtuuri on suuniteltu minimaalisten lupien ympärille. Oletuksena kuudella prosessilla on lupa suoriutua roottina ja silloinkin nämä on hyvin rajattuja SElinuxin vuoksi ja kokonaan rajoittamatonta roottia ei ole olemassa Androidissa. Vaikka antaisi vain tietyille sovelluksille root pääsyn voi hyökkääjä käyttää esimerkiksi clickjacking tekniikkaa tai hyväksikäyttää root oikeutettua sovellusta. Verified-boot havaitsisi muutokset ja kumoaisi nämä palauttaakseen laitteen tilaan jossa se läpäisee signatuuri tarkastuksen, tämä tarkoittaisi että roottaaminen myös vaatisi verified-bootin jättämistä kokonaan pois mikä osittain tuhoaa Androidin turvallisuusmallin.</div>
 
-<h3 style="border-bottom: 3px solid #e93a48;text-align:center;font-size:150%;">Muut</h3>
+<h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Muut</h3>
 
 <h2 id="perustus"><a style="color:white;" href="#perustus">Miten GrapheneOS perustettiin?</a></h2>
 <div id="teksti"><a href="https://twitter.com/DanielMicay">Daniel Micay</a> perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei vielä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää.<br><br> Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
