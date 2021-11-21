@@ -106,7 +106,7 @@ p1 {
     display: flex;
     flex-wrap: nowrap;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: auto;
     padding: 0;
     background-color: #252627;
 }
@@ -131,13 +131,13 @@ p1 {
     text-decoration: none;
     padding: 1em;
     align-items: center;
-    font-size:90%;
-    color:white;
+    font-size:100%;
+    color:grey;
     font-weight: bold;
 }
 
 #site-menu ul li a:visited {
-    color: #fff;
+    color: grey;
 }
 
 #lahteet {
@@ -146,20 +146,20 @@ p1 {
 }
 
 #site-menu ul li[aria-current] {
-  border-left: 1px solid #e93a48;
-  border-right: 1px solid #e93a48;
+  text-decoration:underline;
+  font-size:110%;
+  color:white;
 }
 
 #site-menu ul li[aria-current] a {
-    color: #e93a48;
-    font-size:100%;
+    color: white;
+    font-size:110%;
 }
 
 #site-menu ul li a:hover {
-  color:#e93a48;
-  font-size:100%;
-  border-left: 1px solid #e93a48;
-  border-right: 1px solid #e93a48;
+  font-size:110%;
+  color:white;
+  
 }
 
 #kuvah {
