@@ -24,12 +24,6 @@ a {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 600px) {
-  .column3 {
-    width: 100%;
-  }
-}
-
 .column3 {
   float: left;
   width: 33.33%;
@@ -217,4 +211,10 @@ footer a, footer a:visited {
 #sosiaali li {
     display: inline;
     padding: 0 0.5em;
+}
+
+@media screen and (max-width: 600px) {
+  .column3 {
+    width: 100%;
+  }
 }
