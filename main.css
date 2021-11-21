@@ -24,7 +24,6 @@ a {
   box-sizing: border-box;
 }
 
-/* Create two unequal columns that floats next to each other */
 .column {
   float: left;
   padding: 10px;
@@ -38,7 +37,6 @@ a {
   width: 75%;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
@@ -72,7 +70,7 @@ h1 {
 }
 
 #ajan-kohtaista {
-  border-left:5px solid red;
+  border-left:5px solid grey;
   padding:10px;
   margin:5px;
   text-align:left;
