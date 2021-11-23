@@ -35,10 +35,10 @@
 
 <div class="row">
   <div class="column left">
-<h2 style="text-align:center;font-size:190%;"><strong>Laitteisto</strong> (Pixel 5)</h2>
+<h2 style="text-align:center;font-size:190%;color:white;"><strong>Laitteisto</strong> (Pixel 5)</h2>
 <p style="color:black;background-color:grey;font-size:190%;background-image: url('mask-icon.svg');background-position: center;background-repeat: no-repeat;border-radius:19px;background-size: cover;text-align:center;border:3px solid grey;padding-top:280px;padding-bottom:280px;border:9px solid black;"><strong>GrapheneOS</strong></p>
-<ul style="text-align:left;border: 5px solid grey;border-radius:19px;background-color:black;">
-<br><li>Täysi <a href="https://source.android.com/security/verifiedboot/">Verified-Boot</a> ja tuki omille signeeraus avaimille - Takaa että kaikki suoritettu koodi tulee luotettavasta lähteestä</li><br>
+<ul id="reuna">
+<li>Täysi <a href="https://source.android.com/security/verifiedboot/">Verified-Boot</a> ja tuki omille signeeraus avaimille - Takaa että kaikki suoritettu koodi tulee luotettavasta lähteestä</li><br>
 <li><a href="https://www.blog.google/products/pixel/titan-m-makes-pixel-3-our-most-secure-phone-yet/">Titan M</a> - Titan M on Pixel puhelimien HSM siru joka varastoi krytpograafisen materiaalin käyttäen StrongBox avainvarastoa. Myös integroitu Verified-Boot prosessiin sekä tarjoaa <a href="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html">insider-attack-resistancen</a> joka estää Googlea tai hyökkääjää asentamasta haitallista laiteohjelmisto versiota</li><br>
 <li>Aiemmissa Pixeleissä kuin Pixel 6 on Qualcommin SoC joka implementoi modernit exploittien mitigointikyvyt sekä robustin IOMMUn eristämään fyysiset komponentit toisistaan</li><br>
 <li>Pixelien kernelit kootaan useiden vahvistusten kanssa johon kuuluu esimerkiksi CFI ja ShadowCallStack ja GrapheneOS parantaa näitä entisestään</li><br>
@@ -46,9 +46,9 @@
 </ul>
   </div>
   <div class="column right">
-<h2 style="text-align:center;"><strong>Käyttöjärjestelmä</strong></h2>
-<ul style="border:5px solid grey;border-radius:19px;background-color:black;">
-  <br><li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
+<h2 style="text-align:center;color:white;"><strong>Käyttöjärjestelmä</strong><img id="kuvah" src="mask-icon.svg"></h2>
+<ul id="reuna">
+  <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
  - Tämä on turvallisuus painotteinen yleiseen käyttöön tarkoitettu dynaaminen muistinvaraaja. Se tarjoaa huomattavia vahvistuksia muistinkorruptoitumis haavoittuvuuksia vastaan. 
 Hardened_mallocin <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">README.md</a> sisältää tarkan ja yksityiskohtaisen dokumentaation 
 turvallisuusominaisuuksista ja rakenteesta.</li>
