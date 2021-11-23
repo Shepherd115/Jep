@@ -52,10 +52,10 @@
 </ul>
 </nav>
 
-<section id="käyttö">
+<section id="reuna">
 
-<h2  id="paivitukset"><a style="color:white;" href="#paivitukset">Päivitykset</a></h2>
-<p id="reuna">GrapheneOS tarkistaa päivitysten saatavuuden joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. 
+<h2 id="paivitukset"><a style="color:white;" href="#paivitukset">Päivitykset</a></h2>
+<p>GrapheneOS tarkistaa päivitysten saatavuuden joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. 
 Se jatkaa siitä mihin se jäi joten latauksen keskeyttäminen ei ole riski, eikä ole asennuksenkaan keskeyttäminen sillä päivitykset asennetaan 
 nykyisen rinnalle josta tulee aktiivinen vasta kun asennus on suoritettu kokonaan loppuun. Kun päivitys on suoritettu, on laite käynnistettävä 
 uudelleen uuteen GrapheneOS versioon, jos tämä epäonnistuu niin GrapheneOS perääntyy käyttämään aiempaa versiota ja yrittää ladata ja asentaa 
@@ -67,15 +67,18 @@ signeeraamaan ja kuljettamaan haitallista päivitystä tietylle käyttäjälle e
 ainoastaan päätyy tietämään laitteen IP osoitteen ja version jota se yrittää hakea. GrapheneOS infrastruktuuri on suunniteltu niin että 
 päivityspalvelin ei luota sokeasti palvelimiin + TLS yhteyteen. Siellä on useita signatuuri tarkastus sekä downgrade_protection kerroksia 
 ja OTA päivitykset voi tarvittaessa jopa kytkeä pois päältä ja sideloadata nämä recoveryn kautta.</p>
-<ul id="reuna">
+<ul>
 <li>Päivityspaketti on signeerattu ja vahvistettu downgrade_protectionin lisäksi update_clientin tai recoveryn toimesta</li><br>
 <li>Päivitys payload on signeerattu ja vahvistettu downgrade_protectionin lisäksi update_enginen kautta ja sisältää myös lähteiden hash arvot</li><br>
 <li>Laiteohjelmisto ja OS imaget on myös signeerattu ja vahvistettu downgrade_protectionin lisäksi <a href="https://source.android.com/security/verifiedboot/">verified-bootin</a> avulla</li><br>
 <li>GrapheneOS sisältää <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovelluksen tarjoamaan viimeisen puolustuslinjan</li>
 </ul>
+</section>
+<br>
+<section id="reuna">
 
 <h2 id="exec"><a style="color:white;" href="#exec">Exec Spawning</a></h2>
-<p id="reuna">GrapheneOS luo uudet prosessit excecin kautta sovelluksia avatessa yleisen Zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta 
+<p>GrapheneOS luo uudet prosessit excecin kautta sovelluksia avatessa yleisen Zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta 
 pidemmän sovellusten aukaisu ja korkeamman muistinkäytön hinnalla. Se ei vaikuta suorituskykyyn pidemmän aukaisuajan lisäksi. Se 
 lisää noin 100ms sovellusten aukaisuun jaa on ainoastaan huomattava vanhoilla laitteilla joissa on heikompi CPU ja pienempi tallennustila.
 
@@ -85,10 +88,13 @@ järjestys, mukaan lukien tiedot jotka kuuluisi olla randomisoitu jokaisella pro
 mallisovellus prosessia jokaiselle sovellukselle.<br><br>Zygote malli heikentää / rampauttaa useita turvallisuus ominaisuuksia 
 sillä jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä ei muutu ennen laitteen uudelleenkäynnistystä. Zygoten 
 mallisovellus prosessia myös käytetään globaalisti profiilien välillä joten se antaa tilapäisen sarjan tunnisteita näiden välillä.</p>
+</section>
+<br>
+<section id="reuna">
 
 
 <h2 id="road"><a style="color:white;" href="#road">GrapheneOS Roadmap</a></h2>
-<p id="reuna">Saadakseen idean lyhyen tähtäimen tavoitteista, katso <a href="https://github.com/GrapheneOS/os-issue-tracker/issues">OS-issue-tracker.</a> 
+<p>Saadakseen idean lyhyen tähtäimen tavoitteista, katso <a href="https://github.com/GrapheneOS/os-issue-tracker/issues">OS-issue-tracker.</a> 
 Monet näistä ovat suuniteltuja parannuksia.
 
 <br><br>Pitkällä kantamalla, GrapheneOS aikoo olla enemmän kuin vain vahvistettu AOSP forkki. Tämän saavuttaminen vaatii pois siirtymistä 
@@ -99,9 +105,12 @@ nykyisiä turvallisuusmuureja. Linux tulisi pyörimään virtuaalikoneessa täss
 Vielä pidemmällä, Linux sandboxien sisällä voitaisiin korvata yhteensopivuuskerroksella kuten gVisorilla, joka pitäisi muuntaa arm64 
 muotoon ja antaa tälle uusi backend nykyisen KVM backendin lisäksi. Vielä pidemmälle, useiden vuosien päästä, Linux voisi kokonaan 
 haihtua pois.</p>
+</section>
+<br>
+<section id="reuna">
 
 <h2 id="selain"><a style="color:white;" href="#selain">Selain</a></h2>
-<p id="reuna">GrapheneOS sisältää Vanadium sivuprojektin joka tarjoaa yksityisyys ja turvallisuus parannellun Chromium forkin. Vanadium on molemmat user-facing selain
+<p>GrapheneOS sisältää Vanadium sivuprojektin joka tarjoaa yksityisyys ja turvallisuus parannellun Chromium forkin. Vanadium on molemmat user-facing selain
 sekä webview joka on järjestelmän selainmoottori jota lähes kaikki muut selaimet ja sovellukset käyttävät hakeakseen webistä sisältöä.
 
 <br><br>Vanadiumin käyttäminen on vahvasti suositeltavaa. Bromite on kohtalainen vaihtoehto ja onkin ainoa toinen suositeltu selain. Bromite tarjoaa integroidun
@@ -144,9 +153,12 @@ Gecko ei sisällä WebView implementaatiota joten sitä on käytettävä nykyise
 pitämistä joka tuplaisi hyökkäyspinnan. Firefox / Gecko myös rampauttaa ja ohittaa useita GrapheneOS vahvistuksia ja siitä puuttuu useita ominaisuuksia kuten
 tiukka seccomp-bpf filtteri, oma eristetty prosessi verkkotoiminnalle, CFI (Control Flow Integrity), CIG (Code Integrity Guard), vahvistettu
 JIT moottori ja <a href="https://madaidans-insecurities.github.io/firefox-chromium.html">paljon muuta</a>.</p>
+</section>
+<br>
+<section id="reuna">
 
 <h2 id="auditor"><a style="color:white;" href="#auditor">Auditor</a></h2>
-<p id="reuna">Auditor ja Verified-Boot toimii viimeisenä puolustuslinjana äärettömän harvinaisessa tapauksessa jossa kaikki muut linjat ovat murrettuja.
+<p>Auditor ja Verified-Boot toimii viimeisenä puolustuslinjana äärettömän harvinaisessa tapauksessa jossa kaikki muut linjat ovat murrettuja.
 Auditor sovellus käyttää laitteistopohjaisia turvallisuusominaisuuksia arvioidakseen laitteen identiteetin sekä käyttöjärjestelmän autenttisuuden ja 
 koskemattomuuden. Se varmistaa että laitteessa on alkuperäinen käyttöjärjestelmä ja että bootloader on lukittu eikä minkäänlaista käyttöjärjestelmän
 peukalointia ole tapahtunut. Alennus aiempaan versioon myös havaitaan.
@@ -166,12 +178,18 @@ Verified-Boot hash arvosta sekä hash arvo kaikista tiedoista jotka Verified-Boo
 TEE:ltä kuten Verified bootin tilan, käyttöjärjestelmä variaation sekä OS version. Vahvistus on paljon merkityksellisempi ensimmäisen yhdistämisen jälkeen sillä se luottaa 
 <a href="https://en.wikipedia.org/wiki/Trust_on_first_use">TOFU</a> malliin. Tämän vuoksi onkin tärkeää käyttää Auditoria ja pinnata avaimet heti käyttöjärjestelmän 
 asentamisen jälkeen, mieluiten jo ennen kun laitetta yhdistää mihinkään verkkoon.</p>
+</section>
+<br>
+<section id="reuna">
 
 <h2 id="profiili"><a style="color:white;" href="#profiili">Käyttäjäprofiilit</a></h2>
-<p id="reuna">Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Etu erillisen käyttäjäprofiilin käyttämisessä normaalissa käytössä on kyky asettaa tämä lepoon ja tuhota tämän salausavaimet kun profiilia ei käytetä. Tämä ei ole mahdollista omistaja profiilissa ilman laitteen uudelleenkäynnistämistä sillä omistajaprofiili säilöö koko systeemiä koskevia prosesseja.<br><br>Käyttäjäprofiileja voi myös hyödyntää tilanteessa jossa sovellus vaatii pääsyä yksityisiin tietoihin (esim. pääsy kaikkiin tiedostoihin) tai / ja jos IPC on huolenaihe. Näiden asettaminen käyttäjäprofiiliin jossa ei ole sensitiivistä tietoa voi olla hyvä idea yksityisyyden kannalta sillä sovellukset eivät voi keskustella profiilien välillä ja profiilin tyhjyys takaa että vaikka sovellus vaatisi tietoa esim yhteystietoihin, ei profiilissa olisi yhteystietoja vietäväksi.</p>
+<p>Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Etu erillisen käyttäjäprofiilin käyttämisessä normaalissa käytössä on kyky asettaa tämä lepoon ja tuhota tämän salausavaimet kun profiilia ei käytetä. Tämä ei ole mahdollista omistaja profiilissa ilman laitteen uudelleenkäynnistämistä sillä omistajaprofiili säilöö koko systeemiä koskevia prosesseja.<br><br>Käyttäjäprofiileja voi myös hyödyntää tilanteessa jossa sovellus vaatii pääsyä yksityisiin tietoihin (esim. pääsy kaikkiin tiedostoihin) tai / ja jos IPC on huolenaihe. Näiden asettaminen käyttäjäprofiiliin jossa ei ole sensitiivistä tietoa voi olla hyvä idea yksityisyyden kannalta sillä sovellukset eivät voi keskustella profiilien välillä ja profiilin tyhjyys takaa että vaikka sovellus vaatisi tietoa esim yhteystietoihin, ei profiilissa olisi yhteystietoja vietäväksi.</p>
+</section>
+<br>
+<<section id="reuna">
 
 <h2 id="yhteen"><a style="color:white;" href="#yhteen">Yhteensopivuuskerros</a></h2>
-<p id="reuna">GrapheneOS sisältää yhteensopivuuskerroksen joka tarjoaa vaihtoehdon asentaa ja käyttää virallisia Playpalveluita ja playkauppaa
+<p>GrapheneOS sisältää yhteensopivuuskerroksen joka tarjoaa vaihtoehdon asentaa ja käyttää virallisia Playpalveluita ja playkauppaa
 normaalissa sovellus <a href="https://source.android.com/security/app-sandbox">sandboxissa.</a> Playpalvelut eivät saa minkäänlaisia
 erityisiä oikeuksia tai kykyjä eikä ohita sovellus sandboxia niin kuin stock-Androidilla jossa he saavat suuret hallitsevat oikeudet
 johon mikään muu sovellus ei kykene. Näiden sijan, GrapheneOS yhteensopivuuskerros sisältää fall-back koodia opettaen näille miten toimia
@@ -183,9 +201,12 @@ ja ainoastaan sovellukset samassa käyttäjäprofiilissa voi käyttää niitä j
 sovellusten kohdalla, se ei saa pääsyä käyttäjän tietoihin ellei se kysy tähän lupaa ja käyttäjä mene itse antamaan näitä sille.
 Sovellukset samassa käyttäjäprofiilissa voi keskustella yhdessä yhteisellä päätöksellä ja tämä pätee myös Playpalveluihin.
 Perustoiminnot ja APIt ovat lähdes kokonaan tuettuja ja yhteensopivuuskerros myös tarjoaa dynaamiset moduulit esimerkiksi karttojen toimintaan.</p>
+</section>
+<br>
+<section id="reuna">
 
 <h2 id="lte"><a style="color:white;" href="#lte">LTE-only</a></h2>
-<p id="reuna">Tapauksessa jossa on luotettava LTE yhteys, voi hyökkäyspintaa vähentää poistamalla 2G, 3G ja 5G yhteydet asetuksista LTE-Only kytkimellä.
+<p>Tapauksessa jossa on luotettava LTE yhteys, voi hyökkäyspintaa vähentää poistamalla 2G, 3G ja 5G yhteydet asetuksista LTE-Only kytkimellä.
 Perinteiset puhelut toimivat ainoastaan LTE-Only tilassa jos on liittymä jossa on VoLTE tai VoWi-Fi tuki. Tämä toimii useinten liittymien kanssa
 mutta jotkut esimerkiksi Amerikkalaiset liittymät ei, sillä GrapheneOS ei sisällä heidän sovelluksiaan.
 
@@ -193,12 +214,18 @@ mutta jotkut esimerkiksi Amerikkalaiset liittymät ei, sillä GrapheneOS ei sis�
 hyökkäysten suorittamiselle. Se ei ole korvike päästä-päähän oleville puheluille ja viesteille tai edes TLS salaukselle. LTE tarjoaa perus
 salauksen / todennuksen mutta se on itse verkostolle. LTE-Only kytkimen ainoa tarkoitus on tehdä etäältä suoritettavien hyökkäysten suorittamisesta
 vaikeampaa poistamalla jättimäisiä määriä hyökkäyspintaa.</p>
+</section>
+<br>
+<section id="reuna">
 
 <h2 id="wifi"><a style="color:white;" href="#wifi">Wi-Fi yksityisyys</a></h2>
-<p id="reuna">GrapheneOS Wi-Fi on erittäin yksityisyys-ystävällinen ja periaatteessa anonyymi kunhan sovellukset eivät vuoda tunnisteita verkkoon. Verkot ei voi tunnistaa että laitteella on GrapheneOS.<br>MAC randomisointi on aina käytössä kun Wi-Fi verkkoja skannataan. Pixel puhelimissa on laiteohjelmisto tuki joka antaa näille <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">huomattavasti paremman MAC osoitteen randomisoinnin</a> joka menee yli yleisen naiivin implementaation. Monilla muilla laitteilla laite vuotaa esimerkiksi packet-sequence-numberin ja tunnisteita probe-requestissa<br>Wi-Fi ja bluetooth skannaus sijainnin parantamiseksi on poissa käytöstä oletuksena.</p>
+<p>GrapheneOS Wi-Fi on erittäin yksityisyys-ystävällinen ja periaatteessa anonyymi kunhan sovellukset eivät vuoda tunnisteita verkkoon. Verkot ei voi tunnistaa että laitteella on GrapheneOS.<br>MAC randomisointi on aina käytössä kun Wi-Fi verkkoja skannataan. Pixel puhelimissa on laiteohjelmisto tuki joka antaa näille <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">huomattavasti paremman MAC osoitteen randomisoinnin</a> joka menee yli yleisen naiivin implementaation. Monilla muilla laitteilla laite vuotaa esimerkiksi packet-sequence-numberin ja tunnisteita probe-requestissa<br>Wi-Fi ja bluetooth skannaus sijainnin parantamiseksi on poissa käytöstä oletuksena.</p>
+</section>
+<br>
+<section id="reuna">
 
 <h2 id="salaus"><a style="color:white;" href="#salaus">Laitteen salaus</a></h2>
-<p id="reuna">Levysalaus on implementoitu filesystem pohjaisella salauksella metatietojen salauksen lisäksi. Kaikki tiedot, tiedostojen nimet ja muut
+<p>Levysalaus on implementoitu filesystem pohjaisella salauksella metatietojen salauksen lisäksi. Kaikki tiedot, tiedostojen nimet ja muut
 metatiedot ovat aina varastoitu salattuina. Se on implementoitu Linux kernelin toimesta osana ext4 / f2fs implementaatiota block-based salauskerroksen
 sijan. Etu filesystem pohjaisessa salauksessa on kyky käyttää hienojakoisia salausavaimia sen sijan että olisi yksi globaali avain joka
 pysyy aina muistissa kun laite on käynnistetty. Levysalaus avaimet on satunnaisesti generoitu korkealaatuisella CSPRNG algoritmilla
@@ -213,9 +240,12 @@ Tämän vuoksi omistajaprofiili on ensin avattava ennen kuin muita profiileja vo
 Tätä ei voi tehdä omistajaprofiilille ilman laitteen uudelleenkäynnistämistä sillä se säilöö koko systeemiä koskevia tietoja.
 Tiedostot ovat salattu AES-256-TXT algoritmilla ja tiedostojen nimet algoritmilla AES-256-CTS. Uniikki avain muodostetaan käyttäen HKDF-SHA512 algoritmia
 profiilikohtaisista salausavaimista tai globaalista salausavaimesta.</p>
+</section>
+<br>
+<section id="reuna">
 
 <h2 id="bugi"><a style="color:white;" href="#bugi">Sovellusten yhteensopivuus ongelmat</a></h2>
-<p id="reuna">GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa suojaa muistinkorruptoitumis ongelmia vastaan. Jotkut näistä ominaisuuksista
+<p>GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa suojaa muistinkorruptoitumis ongelmia vastaan. Jotkut näistä ominaisuuksista
 on suunniteltu suoraan nappaamaan muistinkorruptio bugi joko tarkastuksella tai muistisuojauksella ja abortoimaan prosessi ettei sitä kyetä hyväksikäyttämään.
 Jotkut ominaisuuksista mitigoi ongelmia hieman vähemmän suorasti kuten nollaamalla tiedot vapautuksen yhteydessä, eristetyillä muistialueilla, kasan randomisoinnilla,
 canary arvoilla, vartija-alueilla, viivästetyllä osoitetilan uudelleenkäytöllä <a href="https://shepherd115.github.io/Jep/features.html#komponentit">jne</a>.
@@ -240,6 +270,7 @@ muutkin täysin signeeratut käyttöjärjestelmät jossa on Verified-Boot ja tä
 sovelluskehittäjille miten laitteiston vahvistus APIta voi käyttää sallimaan Graphenen. Laitteiston vahvistus APIn käyttäminen suoraan antaa paljon
 varmemman todennuksen kuin SafetyNet joten näillä sovelluksilla ei ole mitään hävittävää jos he alkaisi käyttämään kehittyneempää APIta joka ei vaadi Googlen Playpalveluita tai palvelimia
 ja tukemaan käyttöjärjestelmää joka ei pelkästään pidä Androidin turvallisuusmallia, vaan huomattavasti myös vahvistaa sitä.</p>
+</section>
 
 </main>
 
