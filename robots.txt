@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://shepherd115.github.io/Jep/sitemap.xml
