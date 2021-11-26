@@ -11,40 +11,6 @@ body {
     overflow-y: scroll;
 }
 
-footer img {
-    width: 60px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-footer {
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1em;
-    max-width: 800px;
-    overflow-wrap: break-word;
-    text-align: center;
-}
-
-footer a, footer a:visited {
-    color: #616161; /* grey500 */
-}
-
-#social {
-    margin-top: 2em;
-    padding: 0;
-    list-style-type: none;
-}
-
-#social li {
-    display: inline;
-    padding: 0 0.5em;
-}
-
-
 html {
     height: -webkit-fill-available;
 }
@@ -212,6 +178,14 @@ p1 {
     margin-right: 0.5rem;
 }
 
+footer img {
+    width: 60px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 footer {
     margin-top: auto;
     margin-left: auto;
@@ -223,23 +197,16 @@ footer {
 }
 
 footer a, footer a:visited {
-    color: #616161;
+    color: #616161; /* grey500 */
 }
 
-#varoitus img {
-  height: 1.8rem;
-  width: 1.8rem;
-  vertical-align:middle;
-  margin-right: 0.5rem;
-}
-
-#sosiaali {
+#social {
     margin-top: 2em;
     padding: 0;
     list-style-type: none;
 }
 
-#sosiaali li {
+#social li {
     display: inline;
     padding: 0 0.5em;
 }
