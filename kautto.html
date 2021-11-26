@@ -40,6 +40,7 @@
 <ul style="border-left:10px solid grey;">
   <li><a href="#paivitukset">Päivitykset</a></li>
   <li><a href="#exec">Exec Spawning</a></li>
+  <li><a href="#user">Kehittyneet turvallisuus asetukset</a></li>
   <li><a href="#road">GrapheneOS Roadmap</a></li>
   <li><a href="#selain">Selain</a></li>
   <li><a href="#auditor">Auditor</a></li>
@@ -90,9 +91,50 @@ sillä jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä
 mallisovellus prosessia myös käytetään globaalisti profiilien välillä joten se antaa tilapäisen sarjan tunnisteita näiden välillä.</p>
 </section>
 <br>
+
 <section id="reuna">
+<h2 id="user"><a style="color:white;" href="#user">Kehittyneet turvallisuus asetukset</a></h2>
+<p>GrapheneOS turvallisuus ja yksityisyys ominaisuudet ei aseta käyttäjälle raskaita valintoja ja näin sen pitääkin olla. Yksi tavoitteista onkin
+toimia taustalla automaattisesti käyttäjää häiritsemättä. Tämän seurauksen oletus yhteydet, ja useimmat komponentit on tarkasti ja varovaisesti
+suunniteltu aina käyttämään turvallisimpia oletuksia eikä anna käyttäjän alentaa näitä standardeja. On kuitenkin lukuisia ominaisuuksia jotka olisivat
+erittäin hyviä turvallisuudelle ja yksityisyydelle mutta ei käytössä oletuksena niiden tuoman epäkäytännöllisyyden vuoksi. Käyttäjä voi itse näistä
+valita mitä hän haluaa ottaa käyttöön ja kykenee poistamaan käytöstä milloin tahansa.</p>
+
+<ul>
+<li>USB laitteiden rajoitukset - GrapheneOS lisää kolme vaihtoehtoa tällä alueella
+<ul>
+<li>Salli kaikki USB yhteydet</li>
+<li>Salli USB yhteydet vain kun laite on avattu</li>
+<li>Estä kaikki USB yhteydet</li>
+</ul>
+<li>Auto Reboot - Mahdollisuus asettaa laite käynnistymään uudelleen tietyn ajan jälkeen kun laitetta ei ole käytetty. Tämä pyyhkii jokaisen <a href="https://shepherd115.github.io/Jep/kautto.html#profiili">käyttäjäprofiilin</a>
+salausavaimet ja asettaa laitteen kokonaan takaisin BFU tilaan.</li>
+<li>Laitteen Salasana - Käyttäjä on itse vastuussa laitteen salasanasta, PIN koodista tai sormenjäljistä. Kuviolla avaaminen on poistettu käytöstä sen pienen entropian vuoksi. On
+suositeltavaa käyttää vähintään 6 merkkistä PIN koodia mutta on myös mahdollista asettaa max 64 merkkinen salasana.</li>
+<li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> - Käyttöjärjestelmän autenttisuuden ja koskemattomuuden vahvistaminen Autitor sovelluksella on käyttäjän hallinnassa.</li>
+<li><a href="https://shepherd115.github.io/Jep/kautto.html#lte">LTE Only</a> - On mahdollista kytkeä 2G / 3G / 5G yhteydet kokonaan pois päältä hyökkäyspinnan pienentämiseksi. Tämä kuitenkin poistaa perus puhelut käytöstä ellei liittymässä ole
+Vo-LTE (Voice Over LTE) tukea.</li>
+<li>Lentokonetila - Lentokone tila katkaisee kaikki <a href="https://shepherd115.github.io/Jep/kysymys.html#verkot">yhteydet puhelinoperaattoriin</a>. Wi-Fi ja muut radiot ovat fyysisesti eristettyjä toisistaan joten on mahdollista kuitenkin asettaa Wi-Fi päälle
+lentokonetilassa. Perus puhelut, puhelinoperaattorin verkko ja SMS viestit ei käytössä jos lentokonetila on päällä.</li>
+<li><a href="https://grapheneos.org/install/cli">CLI Asennus</a> - On vahvasti suositeltavaa käyttää <a href="https://grapheneos.org/install/web">Web-Installer</a> metodia GrapheneOS asennukseen. On kuitenkin mahdollistaa välttää GrapheneOS palvelimiin luottamista CLI asennuksella.
+Voi mahdollisesti johtaa laitteen hajoamiseen jos ohjeita ei noudata tarkasti.</li>
+<li>Wi-Fi ja Bluetooth Auto Timeout - On mahdollista asettaa Wifi ja Bluetooth sammumaan itsekseen jos näitä ei käytetä valittuun aikaan.</li>
+<li>Connectivity Checks - Oletuksena GrapheneOS käyttää GrapheneOS palvelimia tähän. On kuitenkin mahdollistaa vaihtaa tämä Googleen sulattautuakseen joukkoon biljoonien Android laitteiden joukkoon.
+On myös mahdollista kytekä tämä kokonaan pois päältä.</li>
+<li>Globaalit Kamera/Mikrofoni/Sijainti - Sovelluksilla ei ole pääsyä mihinkään näistä ellei käyttäjä ole erikseen myöntänyt näitä sille. On kuitenkin mahdollista kokonaan kytkeä
+kamera, mikrofoni ja sijainti pois päältä.</li>
+<li>Disable Native Code Debugging - GrapheneOS lisää tämän kyvyn parantaakseen sovellusten sandboxia. Tämä voi kuitenkin aiheuttaa joidenkin <a href="https://shepherd115.github.io/Jep/kautto.html#bugi">sovellusten toimiattomuutta</a>.</li>
+<li>Scramble PIN - On mahdollista sekoittaa PIN näppäimistön numeroiden järjestys vaikeuttaakseen fyysisiä <a href="https://en.wikipedia.org/wiki/Shoulder_surfing_%28computer_security%29">Shoulder-Surfing</a> hyökkäysten suorittamista.</li>
+<li>SIM kortin PIN koodi - On käyttäjän vastuulla asettaa SIM kortin PIN koodi ja ymmärtää SIM kortille yhteystietojen varastoimisen riskit.</li>
+<li>VPN / TOR - Vaikka ei luodinkestävä, luotettavan VPN palvelun tai TOR verkon käyttäminen voi estää puhelinoperaattoria seuraamasta liikennettä.</li>
+<li>Javascript - Voi olla hyvä kytkeä javascript pois käytöstä tämän sisältämien vaarojen vuoksi. Tämä kuitenkin tuhoaa useimpien sivustojen käytettävyyden joten Vanadium sisältää kompromissin
+jossa javascriptiä ei kasata natiiviksi koodiksi (JIT-less).</li> 
+</ul>
+</section>
+<br>
 
 
+<section id="reuna">
 <h2 id="road"><a style="color:white;" href="#road">GrapheneOS Roadmap</a></h2>
 <p>Saadakseen idean lyhyen tähtäimen tavoitteista, katso <a href="https://github.com/GrapheneOS/os-issue-tracker/issues">OS-issue-tracker.</a> 
 Monet näistä ovat suuniteltuja parannuksia.
