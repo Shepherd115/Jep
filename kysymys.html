@@ -233,7 +233,30 @@ olla raskasta. Jotkit sovellukset kuitenkin sisältää ominaisuuden päivittyä
 <section id="reuna">
 
 <h2 id="sovellukset"><a style="color:white;" href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></h2>
-<div id="teksti">Androidilla, sovellukset ovat sandboxattuja aina. Sovelluksilta on tiukasti estetty kyky päästä muiden sovellusten tai käyttäjän tietoihin, oli sovellus avoimen tai suljetun lähdekoodin niin sillä ei ole mitään merkitystä. GrapheneOS laukaisee jokaisen prosessin omana prosessinaan <a href="https://shepherd115.github.io/Jep/kautto.html#exec">Execin</a> avulla malliprosessin kopioimisen sijan, tämä estää sovelluksia pääsemästä muiden muistisisältöön / järjestykseen. Sovellukset ei kykene tekemään mitään sandboxin ulkopuolella oletuksena ellei käyttäjä anna erikseen tähän lupaa. Tämän vuoksi, jokainen sovellus elää omassa turvallisessa ympäristössään eristettynä muista ja saa ainoastaan pääsyn tietoihin joita käyttäjä tälle antaa esim lupien kautta. GrapheneOS myös huomattavasti parantaa sandboxin muureja ominaisuuksilla kuten tiukennetut SElinux säännöt, Exec spawning, täysi dex preopt käyttöjärjestelmän omille sovelluksille, poistamalla epämääräisiä ominaisuuksia kuten system_other ja paljon muutakin.<br><br>GrapheneOS sallii Inter-process communicationin (IPCn) sillä se on erittäin tärkeä osa käyttökelpoisuutta, mutta sovellukset voivat käyttää tätä toisten sovellusten kanssa kommunikoimiseen vain jos molempien sovellusten kehittäjät ovat koodatessaan sallineet sovellusten välisen yhteistyön. IPC mahdollistaa tiedonvälityksen tällein sovellusten välillä sandboxin ulkopuolelle jonka vuoksi <a href="https://shepherd115.github.io/Jep/kautto.html#profiili">käyttäjäprofiilien</a> hyödyntäminen on erittäin suositeltavaa sillä Android estää IPCn profiilien välillä.</div>
+<p>Android käyttää Linuxin user-based suojausmekanismia tunnistaakseen ja eristääkseen sovellusten resursseja. Tämä eristää sovellukset toisistaan ja suojelee tiedostoja
+ja järjestelmää haitallisilta sovelluksilta. Tehdäkseen tämän, Android asettaa jokaiselle sovellukselle oman tunnisteen (UID) ja suorittaa tämän omana prosessinaan.
+Android käyttää tätä tunnistetta asettaakseen kernel tasoisen sovellus hiekkalaatikon (sandbox). Kernel vahvistaa turvallisuuden sovellusten ja järjestelmän välillä
+prosessi tasoisesti Linuxin ominaisuuksien avulla kuten käyttäjä ja ryhmä tunnisteilla jonka jokainen sovellus saa. Oletuksena, sovelluksella on pääsy vain ja ainoastaan
+oman hiekkalaatikon resursseihin. Sovellukset eivät kykene "vakoilemaan" käyttäjää, ellei käyttäjä ole erikseen myöntänyt tähän lupaa kuten sallimalla kameran käytön.</p>
+
+<p>Sillä sovellus-sandbox on kernelissä, tämän turvallisuusominaisuudet ulottuvat kaikkeen joka on kernelin yläpuolella, kuten käyttöjärjestelmän standardikirjastoihin, sovellusten kehyksiin,
+sovellusten runtimeen ja jokaiseen käyttäjän asentamaan sovellukseen jne jonka vuoksi sovellus sandboxin vahvistaminen parantaa huomattavasti koko käyttöjärjestelmän turvallisuutta.
+Yleisesti, paetakseen sovellus sandboxista, hyökkääjän on murrettava Linux kernelin turvallisuus. Joten kernelin vahvistaminen myös vahvistaa koko käyttöjärjestelmää. GrapheneOS
+vahvistaa näitä molempia kuten selitetty <a href="https://shepherd115.github.io/Jep/features.html">Ominaisuudet</a> sivulla.</p>
+
+<p>Sovellus-sandbox tukeutuu vahvasti muihin ominaisuuksiin ja näiden kykyihin. Näitä ominaisuuksia on lisätty Androidiin ajanmyötä. Osittainen lista näistä on
+tässä:</p>
+
+<ul>
+<li>Android 5 myötä, SElinux toi Mandatory-Access-Contorl (MAC) säännöt luomaan muurit järjestelmän ja sovellusten välille. Kaikki kolmannenosapuolen
+sovellukset kuitenkin toimivat samassa SElinux kontekstissa joka oli ongelma. Android 6 myöhemmin vahvisti tätä.</li>
+<li>Android 8 myötä, kaikki sovellukset pakotettiin toimimaan seccomp-bpf filterin kanssa joka rajoitti syscalsseja joita sovellukset pystyivät
+käyttämään, johtaen vahvempaan sovellus/kernel muuriin.</li>
+<li>Android 9 myötä, kaikki normaalit sovellukset joiden TargetSDK oli 28 tai korkeampi, piti käyttää yksilöllisiä SElinux sandboxeja,
+tarjoten MAC säännöt sovellus kohtaisesti.</li>
+<li>Android 10 myötä, sovelluksilla oli vain rajoitettu pääsy enään tiedostojärjestelmään eikä suoraa pääsyä polkuihin
+kuten /sdcard/DCIM.</li>
+</ul>
 </section>
 <br>
 <section id="reuna">
