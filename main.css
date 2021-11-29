@@ -1,3 +1,4 @@
+/* Perus pohja ja ulkönäkö määrittely alkaa */
 body {
     display: flex;
     flex-direction: column;
@@ -14,25 +15,44 @@ body {
 html {
     height: -webkit-fill-available;
 }
-a {
-    color:#1565c0;
-    text-decoration:none;
-}
 
-* {
-  box-sizing: border-box;
+main {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    max-width: 832px;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
 }
+/* Perus pohja ja ulkonäkö määrittely loppuu */
 
-.column {
-  float: left;
-  padding: 10px;
+/* Ominaisuudet sivun kuvan muokkaus alkaa */
+#omina {
+  color:black;
+  background-color:grey;
+  font-size:190%;
+  background-image: url('mask-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius:19px;background-size: cover;
+  text-align:center;
+  border:3px solid grey;
+  padding-top:280px;
+  padding-bottom:280px;
+  border:9px solid black;
+  font-weight: bold;
 }
+/* Ominaisuudet sivun kuvan muokkaus loppuu */
 
+
+/* Tekstilaatikoiden ominaisuuksien määrittely alkaa */
 #reuna {
-  border: 5px solid grey;
-  border-radius:19px;
-  background-color:black;
-  margin-left: auto;
+    border: 5px solid grey;
+    border-radius:19px;
+    background-color:black;
+    margin-left: auto;
     margin-right: auto;
     padding: 1em;
     max-width: 832px;
@@ -44,6 +64,17 @@ a {
 
 #reuna a:hover {
   background-color:black;
+}
+
+* {
+  box-sizing: border-box;
+}
+/* Tekstilaatikoiden ominaisuuksien määrittely loppuu */
+
+/* Etu ja ominaisuus sivujen järjestys määrittely alkaa */
+.column {
+  float: left;
+  padding: 10px;
 }
 
 .left {
@@ -65,16 +96,12 @@ a {
     width: 100%;
   }
 }
+/* Etu ja ominaisuus sivujen järjestys määrittely loppuu */
 
-main {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1em;
-    max-width: 832px;
-    min-width: 0;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
+/* Väri poikkeuksien luettelo alkaa */
+a {
+    color:#1565c0;
+    text-decoration:none;
 }
 
 code {
@@ -84,16 +111,8 @@ code {
 
 h1 {
   text-align:center;
+  color:white;
 }
-
-#ajan-kohtaista {
-  border-left:5px solid grey;
-  padding:10px;
-  margin:5px;
-  text-align:left;
-  font-weight: bold;
-}
-
 
 a:hover {
     background-color: #252627;
@@ -108,8 +127,18 @@ p1 {
     color:white;
     text-decoration:none;
 }
+/* Väripoikkeuksien luettelo loppuu */
 
-#site-menu ul {
+/* Ajankohtaiset osion määrittely alkaa */
+#ajan-kohtaista {
+  text-align:left;
+  font-weight: bold;
+  border-left:5px solid grey;
+}
+/* Ajankohtaiset osion määrittely loppuu */
+
+/* Navigointipalkin määrittely alkaa */
+#navigointi ul {
     display: flex;
     flex-wrap: nowrap;
     margin: 0;
@@ -118,22 +147,16 @@ p1 {
     background-color: #252627;
 }
 
-#ajan {
-  text-align:left;
-  list-style-type:square;
-}
-
-
-#site-menu {
+#navigointi {
     white-space: nowrap;
 }
 
-#site-menu ul li {
+#navigointi ul li {
     list-style-type: none;
     display: flex;
 }
 
-#site-menu ul li a {
+#navigointi ul li a {
     display: flex;
     text-decoration: none;
     padding: 1em;
@@ -143,41 +166,28 @@ p1 {
     font-weight: bold;
 }
 
-#site-menu ul li a:visited {
+#navigointi ul li a:visited {
     color: grey;
 }
 
-#lahteet {
-  float:left;
-  list-style-type:none;
-}
-
-#site-menu ul li[aria-current] {
-  text-decoration:underline;
+#navigointi ul li[aria-current] {
   font-size:110%;
   color:white;
   background-color:#252627;
 }
 
-#site-menu ul li[aria-current] a {
+#navigointi ul li[aria-current] a {
     color: white;
     font-size:110%;
 }
 
-#site-menu ul li a:hover {
+#navigointi ul li a:hover {
   font-size:110%;
   color:white;
-  
 }
+/* Navigointipalkin määrittely loppuu */
 
-#kuvah {
-    height: 2rem;
-    width: 2rem;
-    filter: invert(100);
-    vertical-align: middle;
-    margin-right: 0.5rem;
-}
-
+/* Sivuston footerin määrittely alkaa */
 footer img {
     width: 60px;
     height: auto;
@@ -210,3 +220,14 @@ footer a, footer a:visited {
     display: inline;
     padding: 0 0.5em;
 }
+/* Sivuston footer määrittely loppuu */
+
+/* GrapheneOS logon muokkaus alkaa */
+#kuvah {
+    height: 2rem;
+    width: 2rem;
+    filter: invert(100);
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+/* GrapheneOS logon muokkaus loppuu */
