@@ -66,8 +66,8 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened bionic-c</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa ja tarjoaa suojaa muistin korruptoitumishaavoittuvuuksia vastaan.</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
-  <li>Vahvistettu / Hardened app runtime (ART)</li>
-  <li>Vahvistettu / Hardened ohjelmointikielen kääntäjä (Compiler)</li>
+  <li>Vahvistettu / Hardened app runtime</li>
+  <li>Vahvistettu / Hardened compiler</li>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/device_google_sunfish-kernel">Hardened kernel</a></li>
 <ul>
 <li>Tuki dynaamisesti ladattaville kernel moduleille on kytketty pois ja ainoastaan minimaalinen sarja moduleita on rakennettu</li>
@@ -80,6 +80,8 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> joka on vahvistettu forkki chromium selaimesta sekä laitteen webviewin tarjoaja</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
   <li>Tarkemmat laitteisto ja ohjelmistotiedot asetuksissa</li>
+  <li>Dynaamisen koodin suorittaminen estetty perus käyttöjärjestelmän sisällä</li>
+  <li>Kaikki sovellukset asennetaan AOT compilerilla JIT:n sijan. Parantaa turvallisuutta suorituskyvyn hinnalla</li>
   <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tunnistin">laitetunnistimiin</a></li>
   <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
   <li>Vaihtoehto kytkeä ptrace pois päältä hyökkäyspinnan pienentämiseksi</li>
@@ -115,7 +117,6 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
   <li>Vaatii laitteen avausta ennen kuin sensitiiviä ominaisuuksia quick-tilesseissä voi käyttää (Wifi, lentokonetila, GPS, NFC jne)</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#bundle">Minimaalinen määrä ennalta asennettuja sovelluksia / palveluita</a></li>
   <li>Ei Googlen palveluita (GooglePlayPalvelut) tai sovelluksia integroitu itse käyttöjärjestelmään</li>
-  <li>Dynaamisen natiivin koodin estäminen muistissa tai tiedostojärjestelmän kautta perus käyttöjärjestelmälle ilman että menee paketinhallinnan kautta</li>
 </ul>
 </div>
 
