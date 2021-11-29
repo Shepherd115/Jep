@@ -8,9 +8,6 @@
     <meta name="author" content="Shepherd">
     <title>GrapheneOS - Turvallinen ja yksityinen mobiilikäyttöjärjestelmä</title>
     <meta name="description" content="GrapheneOS - Turvallinen & Yksityinen OS Android sovellusten yhteensopivuudella"/>
-    <meta name="keywords" content="tietoturva, turvallisuus, yksityisyys, hakkerointi, grapheneos, daniel, micay, antivirus, 
-    vpn, proxy, tietoturva, tietosuoja, mikko hyppönen, turvallinen puhelin, yksityinen puhelin, miten yksityisyys, miten turvallisuus, yksityinen käyttöjärjestelmä,
-    turvallinen käyttöjärjestelmä, snowden, edward, edward snowden, turvallisuus puhelin, turvallinen os, tksityinen os, puhelin käyttöjärjestelmä, anonyymi puhelin">
     <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
     <meta property="og:image:width" content="512"/>
     <meta property="og:image:height" content="512"/
@@ -22,9 +19,10 @@
     <link rel="mask-icon" href="mask-icon.svg" color="#1a1a1a"/>
     <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 </head>
+
 <body>
 
-<nav id="site-menu">
+<nav id="navigointi">
 <ul>
 <li aria-current="page"><a href="index.html">GrapheneOS</a></li>
 <li><a href="features.html">Ominaisuudet</a></li>
@@ -35,39 +33,44 @@
 
 <div class="row">
 <div class="column left">
-<h1 style="color:white;">Suomalaista GrapheneOS Tietoa</h1>
-<h2 style="text-align:center;"><img id="kuvah" src="mask-icon.svg"></h2>
-<p id="reuna">GrapheneOS on turvallisuus ja yksityisyys vahvistettu mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella
-jota kehitetään voittoa tavoittelemattomana ja <a href="https://github.com/GrapheneOS">avoimen lähdekoodin</a> projektina. 
-Se keskittyy turvallisuus ja yksityisyys teknologioiden kehittämiseen ja käyttöön kuten <a href="https://shepherd115.github.io/Jep/features.html#komponentit">huomattaviin parannuksiin</a> sandboxeihin,
-exploittien mitigointikykyihin sekä käyttöoikeusmalliin.
+<h1>Suomalaista GrapheneOS Tietoa</h1>
+<h1><img id="kuvah" src="mask-icon.svg"></h1>
 
-<br><br>GrapheneOS parantaa käyttöjärjestelmän turvallisuutta ja yksityisyyttä pohjasta ylöspäin. Se ottaa käyttöön teknologioita lieventääkseen
+<section id="reuna">
+<p>GrapheneOS on turvallisuus ja yksityisyys vahvistettu mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella
+jota kehitetään voittoa tavoittelemattomana ja <a href="https://github.com/GrapheneOS">avoimen lähdekoodin</a> projektina. 
+Se keskittyy turvallisuus ja yksityisyys teknologioiden kehittämiseen ja käyttöön 
+kuten <a href="https://shepherd115.github.io/Jep/features.html#komponentit">huomattaviin parannuksiin</a> sandboxeihin,
+exploittien mitigointikykyihin sekä käyttöoikeusmalliin.</p>
+
+<p>GrapheneOS parantaa käyttöjärjestelmän turvallisuutta ja yksityisyyttä pohjasta ylöspäin. Se ottaa käyttöön teknologioita lieventääkseen
 kokonaisia exploitti luokkia ja tekee yleisten tietoturva reikien hyväksikäytöstä huomattavasti vaikeampaa. Se parantaa itse
 käyttöjärjestelmän turvallisuutta sekä sovelluksien jotka siinä on. Sovellusten sandbox ja muut muurit ovat vahvistettuja.
- GrapheneOS yrittää välttää käyttökokemukseen vaikuttamista turvallisuus ja yksityisyys ominaisuuksilla. Parhaassa tilanteessa, ominaisuudet
+GrapheneOS yrittää välttää käyttökokemukseen vaikuttamista turvallisuus ja yksityisyys ominaisuuksilla. Parhaassa tilanteessa, ominaisuudet
 voi aina olla käytössä ilman vaikutusta käyttökokemukseen ja ilman erityistä konfigurointia. Tämä ei kuitenkaan ole aina mahdollista, 
 ja GrapheneOS lisääkin useita kytkimiä ominaisuuksille kuten Network ja Sensors lupa, rajoitukset kun laite on lukittu (USB, kamera, quick-tiles jne)
-sekä muita monimutkaisempia user-facing ominaisuuksia joilla on niiden oma UX.
+sekä muita monimutkaisempia user-facing ominaisuuksia joilla on niiden oma UX.</p>
 
 <br><br>GrapheneOS kehittää myös useita turvallisuus ja yksityisyys keskittyneitä sovelluksia ja palveluita. <a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> on vahvistettu Chromium
 forkki joka tarjoaa user-facing selaimen sekä toimii käyttöjärjestelmän WebViewin tarjoajana. GrapheneOS myös sisältää oman turvallisuus painotteisen 
 PDF lukijan, <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovelluksen tarkistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus, sekä erikseen kehitetty Seedvault
 backup sovellus salattujen varmuuskopioiden luomiseen.</p>
-
 </div>
+
 <div class="column right">
-<p id="reuna">GrapheneOS aloittaa AOSPn <a href="https://arxiv.org/abs/1904.05572">vahvasta</a> turvallisuusmallista ja huolehtii ettei se satuta tätä tai lisää
+<section id="reuna">
+
+<p>GrapheneOS aloittaa AOSPn <a href="https://arxiv.org/abs/1904.05572">vahvasta</a> turvallisuusmallista ja huolehtii ettei se satuta tätä tai lisää
 hyökkäyspintaa. GrapheneOS sisältää kattavan lajitelman tarkasti suunniteltuja komponentteja jotka toimivat harmoniassa 
 parantaen muistisuojausta, sulkemaan kokonaisia exploitti luokkia sekä tekee useiden hyökkäysten suorittamisesta huomattavasti vaikeampaa. 
-Projekti välittää erittäin paljon toimivuudesta, sekä sovellusten yhteensopivuudesta joten ne otetaan huomioon kaikissa ominaisuuksissa.
+Projekti välittää erittäin paljon toimivuudesta, sekä sovellusten yhteensopivuudesta joten ne otetaan huomioon kaikissa ominaisuuksissa.</p>
 
-<br><br>GrapheneOS on keskittynyt oleelliseen markkinoinnin sijan. Se ei ota tyypillistä käytäntöä asettaa satunnaisia epäturvallisia
+<p>GrapheneOS on keskittynyt oleelliseen markkinoinnin sijan. Se ei ota tyypillistä käytäntöä asettaa satunnaisia epäturvallisia
 ominaisuuksia toivoen että hyökkääjä ei tiedä niistä. Se on erittäin tekninen projekti rakentaen yksityisyyttä ja turvallisuutta 
 itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sovelluksien sijan.</p>
+</section>
 
-<h2 style="text-align:center;color:white;">Ajankohtaista<img id="kuvah" src="mask-icon.svg"></h2>
-
+<h1>Ajankohtaista<img id="kuvah" src="mask-icon.svg"></h1>
 <ul id="reuna">
 <p id="ajan-kohtaista">"Kehitämme aktiivisesti Pixel 6 ja Pixel 6 Pro tukea. Käytämme uutta lähestymistapaa android_prepare_vendorin sijan. Kun nämä ovat tuettuja, nämä tulee olemaan ainoat suositellut laitteet niiden 5 vuoden tuen vuoksi sekä huomattavasti paremman laitteiston"</p>
 <p id="ajan-kohtaista">Auditor <a href="https://github.com/GrapheneOS/Auditor/releases/tag/37">Versio 37</a> julkaistu</p>
@@ -76,7 +79,7 @@ itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sov
 <p id="ajan-kohtaista">GrapheneOS <a href="https://grapheneos.org/releases#2021112404">Versio 2021112404</a> julkaistu</p>
 </ul>
 
-<h2 style="text-align:center;color:white;">Sivuston sisältö<img id="kuvah" src="mask-icon.svg"></h2>
+<h1>Sivuston sisältö<img id="kuvah" src="mask-icon.svg"></h1>
 <p>
 <ul id="reuna">
   <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/features.html">Ominaisuudet</a> sivu sisältää yhteenvedon ominaisuuksista joita GrapheneOS lisää AOSPn päälle</p>
@@ -85,14 +88,15 @@ itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sov
 </ul>
 
 <h2 style="text-align:center;color:white;">GrapheneOS Asennus<img id="kuvah" src="mask-icon.svg"></h2>
-<p id="reuna">GrapheneOS ainoastaan tukee tiettyjä laitteita jotka tapaavat projektin standardit. Lista tuetuista laitteista 
+<section id="reuna">
+<p>GrapheneOS ainoastaan tukee tiettyjä laitteita jotka tapaavat projektin standardit. Lista tuetuista laitteista 
 löytyy <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tuki">Tästä</a>. On vahvasti suositeltua lukea 
 ohjeet ensin kertaalleen ja sitten käyttää <a href="https://grapheneos.org/install/web">WebUSB-installer</a> metodia 
 asentamiseen. <a href="https://grapheneos.org/install/cli">CLI</a> on myös vaihtoehto mutta sisältää riskinsä mahdollisten ihmisvirheiden vuoksi.</p>
 
-<h2 style="text-align:center;color:white;">Lähteet<img id="kuvah" src="mask-icon.svg"></h2>
+<h1>Lähteet<img id="kuvah" src="mask-icon.svg"></h1>
 
-<ul id="reuna" style="list-style-type:none;font-size:110%;">
+<ul>
 <li><a href="https://grapheneos.org">grapheneos</a></li>
 <li><a href="https://www.akc3n.org/">akc3n</a></li>
 <li><a href="https://madaidans-insecurities.github.io/index.html">Madaidans-insecurities</a></li>
@@ -113,6 +117,6 @@ asentamiseen. <a href="https://grapheneos.org/install/cli">CLI</a> on myös vaih
                 <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
             </ul>
         </footer>
-
+</section>
 </body>
 </html>
