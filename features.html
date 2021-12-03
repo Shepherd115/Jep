@@ -29,14 +29,20 @@
 <li class="hover-underline-animation"><a href="kysymys.html">Q&A</a></li>
 </ul>
 </nav>
+<main>
 
+<h1>Ominaisuudet<img id="kuvah" src="mask-icon.svg"></h1>
+<p>GrapheneOS aloittaa AOSPn <a href="https://arxiv.org/abs/1904.05572">vahvasta</a> turvallisuusmallista ja huolehtii ettei se satuta tätä tai lisää
+hyökkäyspintaa. GrapheneOS sisältää kattavan lajitelman tarkasti suunniteltuja komponentteja jotka toimivat harmoniassa 
+parantaen muistisuojausta, sulkemaan kokonaisia exploitti luokkia sekä tekee useiden hyökkäysten suorittamisesta huomattavasti vaikeampaa. 
+Projekti välittää erittäin paljon toimivuudesta, sekä sovellusten yhteensopivuudesta joten ne otetaan huomioon kaikissa ominaisuuksissa.</p>
 
-<div class="row">
-  <div class="column left">
+<p>GrapheneOS on keskittynyt oleelliseen markkinoinnin sijan. Se ei ota tyypillistä käytäntöä asettaa satunnaisia epäturvallisia
+ominaisuuksia toivoen että hyökkääjä ei tiedä niistä. Se on erittäin tekninen projekti rakentaen yksityisyyttä ja turvallisuutta 
+itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sovelluksien sijan.</p>
+
 <h1>Laitteisto (Pixel 5)</h1>
-<p id="omina">GrapheneOS</p>
 
-<section id="reuna">
 <ul>
 <li>Täysi <a href="https://source.android.com/security/verifiedboot/">Verified-Boot</a> ja tuki omille signeeraus avaimille - Takaa että kaikki suoritettu koodi tulee luotettavasta lähteestä</li><br>
 <li><a href="https://www.blog.google/products/pixel/titan-m-makes-pixel-3-our-most-secure-phone-yet/">Titan M</a> - Titan M on Pixel puhelimien HSM siru joka varastoi krytpograafisen materiaalin käyttäen StrongBox avainvarastoa. Myös integroitu Verified-Boot prosessiin sekä tarjoaa <a href="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html">insider-attack-resistancen</a> joka estää Googlea tai hyökkääjää asentamasta haitallista laiteohjelmisto versiota</li><br>
@@ -44,9 +50,7 @@
 <li>Pixelien kernelit kootaan useiden vahvistusten kanssa johon kuuluu esimerkiksi CFI ja ShadowCallStack ja GrapheneOS parantaa näitä entisestään</li><br>
 <li>Kunnollinen MAC osoitteen randomisointi joka <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">ei vuoda tunnisteita.</a> Usein OEM implementoi tämän huonosti joka päättyy silti MAC osoitteen vuotamiseen. On myös muita tunnisteita joita muut ei yleensä randomisoi kuten tiedot probe pyynnössä ja järjestysnumero</a></li><br>
 </ul>
-  </div>
-  <div class="column right">
-<section id="reuna">
+
 <h1>Käyttöjärjestelmä<img id="kuvah" src="mask-icon.svg"></h1>
 <ul>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
@@ -82,7 +86,7 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
   <li>Tarkemmat laitteisto ja ohjelmistotiedot asetuksissa</li>
   <li>Dynaamisen koodin suorittaminen estetty perus käyttöjärjestelmän sisällä</li>
-  <li>Kaikki sovellukset asennetaan AOT compilerilla JIT:n sijan. Parantaa turvallisuutta suorituskyvyn hinnalla</li>
+  <li>Kaikki sovellukset asennetaan AOT compilerilla JIT:n sijan. Parantaa turvallisuutta ja akunkestoa pidemmän sovellusten asentamisen hinnalla</li>
   <li>Eliminoi viimeisetkin kolot mistä sovellukset voisivat saada pääsyn <a href="https://shepherd115.github.io/Jep/kysymys.html#laite-tunnistin">laitetunnistimiin</a></li>
   <li>Huomattavasti pienennetty hyökkäyspinta poistamalla turhaa koodia, tekemällä useammasta ominaisuudesta vaihtoehtoisen sekä poistamalla vaihtoehtoisia ominaisuuksia oletuksena (NFC, Bluetooth, Wifi jne)</li>
   <li>Vaihtoehto kytkeä ptrace pois päältä hyökkäyspinnan pienentämiseksi</li>
