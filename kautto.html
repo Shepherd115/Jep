@@ -152,27 +152,26 @@ JIT moottori ja <a href="https://madaidans-insecurities.github.io/firefox-chromi
 
 
 <h2 id="auditor"><a href="#auditor">Auditor</a></h2>
-<p>Auditor ja Verified-Boot toimii viimeisenä puolustuslinjana äärettömän harvinaisessa tapauksessa jossa kaikki muut linjat ovat murrettuja.
-Auditor sovellus käyttää laitteistopohjaisia turvallisuusominaisuuksia arvioidakseen laitteen identiteetin sekä käyttöjärjestelmän autenttisuuden ja 
-koskemattomuuden. Se varmistaa että laitteessa on alkuperäinen käyttöjärjestelmä ja että bootloader on lukittu eikä minkäänlaista käyttöjärjestelmän
-peukalointia ole tapahtunut. Alennus aiempaan versioon myös havaitaan.
+<p>Auditor ja Verified-Boot toimii viimeisenä puolustuslinjana äärettömän harvinaisessa tapauksessa jossa kaikki muut linjat ovat murrettuja. 
+Auditor sovellus käyttää laitteistopohjaisia turvallisuusominaisuuksia arvioidakseen laitteen identiteetin sekä käyttöjärjestelmän 
+autenttisuuden ja koskemattomuuden. Se varmistaa että laitteessa on alkuperäinen käyttöjärjestelmä ja että bootloader on lukittu eikä 
+minkäänlaista käyttöjärjestelmän peukalointia ole tapahtunut. Alennus aiempaan versioon myös havaitaan.</p>
 
-<br><br>Auditor sovelluksen perustana toimii pysyvän avaimen luominen laitteiston avainvarastossa varmistaakseen laitteen identiteetti
-sekä tarjoamaan varmuus ettei käyttöjärjestelmää ole peukaloitu tai alennettu. Se suorittaa yhdistys prosessin vahvistettavan sekä
-vahvistaja laitteen välillä implementoidakseen Trust On First Use (TOFU) mallin
+<p>Auditor sovelluksen perustana toimii pysyvän avaimen luominen laitteiston avainvarastossa varmistaakseen laitteen identiteetti sekä 
+tarjoamaan varmuus ettei käyttöjärjestelmää ole peukaloitu tai alennettu. Se suorittaa yhdistys prosessin vahvistettavan (Auditee) sekä 
+vahvistaja (Auditor) laitteen välillä implementoidakseen Trust On First Use (TOFU) mallin</p>
 
-<br><br>Verified-Boot arvioi laiteohjelmiston ja koko käyttöjärjestelmän autenttisuuden ja koskemattomuuden laitteiston RoTista (Root Of Trust).
-Tulokset syötetään laitteiston avainvarastoon ja niitä käytetään avainten suojeluun.
+<p>Verified-Boot arvioi laiteohjelmiston ja koko käyttöjärjestelmän autenttisuuden ja koskemattomuuden. Se luo luottamisketjun joka aloittaa muuttumattomasta, read-only
+RoTista (Root-Of-Trust), menee bootloaderiin sekä boot osioon ja muihin vahvistettuihin osioihin kuten system ja vendor. Jokaisen käynnistyksen yhteydessä,
+jokainen vaihe vahvistaa seuraavan vaiheen autenttisuuden ja koskemattomuuden ennen ketjun jatkamista. Verified-Boot tulokset syötetään laitteiston avainvarastoon 
+ja niitä käytetään avainten suojeluun, sillä avainvarasto ei anna avaimia käytettäväksi jos käyttöjärjestelmä ei läpäise vahvistusta.</p>
 
-<br><br>Laitteiston avainvaraston <a href="https://source.android.com/security/keystore/attestation">avaimen vahvistus</a> ominaisuus tarjoaa suoran tuen tarkistamaan laitteen ominaisuudet sekä käynnistämään Auditor 
-sovelluksen TOFU malli perusvahvistuksella joka on yhdistetty tiedettyyn rootti sertifikaattiin. Viimeisin avaimenvahvistus versio tarjoaa signeeratut tulokset Verified-Bootin tilasta,
-Verified-Boot hash arvosta sekä hash arvo kaikista tiedoista jotka Verified-Boot on suojannut.
+<p>Auditor antaa haasteen, ja Auditee vastaa takaisin todistuksella joka sisältää vasta luodun laitteistopohjaisen avaimen sertifikaattiketjun, ja 
+tämä on signeerattu avaimella joka sijaitsee TitanM sirulla</p>
 
-<br><br>Sitä ei voi ohittaa muokkaamalla tai peukaloimalla käyttöjärjestelmää sillä se saa signeerattuja laitetietoja laitteen turvallisuusmodulilta (TitanM Pixeleissä) tai 
-TEE:ltä kuten Verified bootin tilan, käyttöjärjestelmä variaation sekä OS version. Vahvistus on paljon merkityksellisempi ensimmäisen yhdistämisen jälkeen sillä se luottaa 
-<a href="https://en.wikipedia.org/wiki/Trust_on_first_use">TOFU</a> malliin. Tämän vuoksi onkin tärkeää käyttää Auditoria ja pinnata avaimet heti käyttöjärjestelmän 
-asentamisen jälkeen, mieluiten jo ennen kun laitetta yhdistää mihinkään verkkoon.</p>
-
+<p>Laitteiston vahvistamat tiedot ovat signeerattu pinnattujen avainten avulla jotka sijaitsevat TitanM sirulla, se pinnaa nämä avaimet ensimmäisen vahvistuksen jälkeen jossa
+ensimmäinen vahvistus tukeutuu juurivarmenteeseen. Vahvistetut käyttöjärjestelmän tiedot on vahvistettu sen faktan vuoksi että laitteiston signeeraamat tiedot sisältää
+sovellus ID:n ja signatuurin jonka OS tuo ketjuttaakseen luoton käyttöjärjestelmän läpi (Joka on vahvistettu) sovellukseen</p>
 
 <h2 id="profiili"><a href="#profiili">Käyttäjäprofiilit</a></h2>
 <p>Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Etu erillisen käyttäjäprofiilin käyttämisessä normaalissa käytössä on kyky asettaa tämä lepoon ja tuhota tämän salausavaimet kun profiilia ei käytetä. Tämä ei ole mahdollista omistaja profiilissa ilman laitteen uudelleenkäynnistämistä sillä omistajaprofiili säilöö koko systeemiä koskevia prosesseja.<br><br>Käyttäjäprofiileja voi myös hyödyntää tilanteessa jossa sovellus vaatii pääsyä yksityisiin tietoihin (esim. pääsy kaikkiin tiedostoihin) tai / ja jos IPC on huolenaihe. Näiden asettaminen käyttäjäprofiiliin jossa ei ole sensitiivistä tietoa voi olla hyvä idea yksityisyyden kannalta sillä sovellukset eivät voi keskustella profiilien välillä ja profiilin tyhjyys takaa että vaikka sovellus vaatisi tietoa esim yhteystietoihin, ei profiilissa olisi yhteystietoja vietäväksi.</p>
