@@ -10,6 +10,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-y: scroll;
+    background-image: url("mask-icon.SVG");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 400px 600px;
 }
 
 html {
