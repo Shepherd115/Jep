@@ -51,8 +51,6 @@
 </ul>
 </nav>
 
-
-
 <h2 id="paivitukset"><a href="#paivitukset">Päivitykset</a></h2>
 <p>GrapheneOS tarkistaa päivitysten saatavuuden joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. 
 Se jatkaa siitä mihin se jäi joten latauksen keskeyttäminen ei ole riski, eikä ole asennuksenkaan keskeyttäminen sillä päivitykset asennetaan 
@@ -76,8 +74,6 @@ ja koskemattomuuden ennen kun ketjua jatketaan. Verified-Boot tarjoaa myös <a h
 joka varmistaa että järjestelmää ei alenneta aiempaan versioon. Teoreettisessa tilanteessa jossa kaikki muut linjat ovat 
 murrettuja, <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> kykenee havaitsemaan mahdollisen muutoksen ja varoittaa käyttäjää että 
 laite on korruptoitunut tai hyökkääjän vallan alla.</p>
-
-
 
 <h2 id="exec"><a href="#exec">Exec Spawning</a></h2>
 <p>GrapheneOS luo uudet prosessit excecin kautta sovelluksia avatessa yleisen Zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta 
@@ -103,7 +99,6 @@ nykyisiä turvallisuusmuureja. Linux tulisi pyörimään virtuaalikoneessa täss
 Vielä pidemmällä, Linux sandboxien sisällä voitaisiin korvata yhteensopivuuskerroksella kuten gVisorilla, joka pitäisi muuntaa arm64 
 muotoon ja antaa tälle uusi backend nykyisen KVM backendin lisäksi. Vielä pidemmälle, useiden vuosien päästä, Linux voisi kokonaan 
 haihtua pois.</p>
-
 
 <h2 id="selain"><a href="#selain">Selain</a></h2>
 <p>GrapheneOS sisältää Vanadium sivuprojektin joka tarjoaa yksityisyys ja turvallisuus parannellun Chromium forkin. Vanadium on molemmat user-facing selain
@@ -150,13 +145,46 @@ pitämistä joka tuplaisi hyökkäyspinnan. Firefox / Gecko myös rampauttaa ja 
 tiukka seccomp-bpf filtteri, oma eristetty prosessi verkkotoiminnalle, CFI (Control Flow Integrity), CIG (Code Integrity Guard), vahvistettu
 JIT moottori ja <a href="https://madaidans-insecurities.github.io/firefox-chromium.html">paljon muuta</a>.</p>
 
-
 <h2 id="auditor"><a href="#auditor">Auditor</a></h2>
-    <p>-</p>
+<p>Auditor ja <a href="https://source.android.com/security/verifiedboot">Verified-Boot</a> toimii viimeisenä puolustuslinjana. Verified-Boot varmistaa että
+kaikki suoritettu koodi tulee luotettavasta lähteestä, hyökkääjän tai korruptoitumisen sijan. Auditorin tarkoitus sen sijan on hankkia Verified-Boot tiedot
+luottamatta laitteen UI kerrokseen.
+
+<p>Verified-Boot luo luottamusketjun joka aloittaa muuttumattomasta RoTista (Root-Of-Trust), menee bootloaderiin sekä boot osioon ja muihinkin vahvistettuihin 
+osioihin kuten <code>system</code> ja <code>vendor</code>. Jokaisen käynnistyksen yhteydessä, jokainen vaihe vahvistaa seuraavan vaiheen autenttisuuden ja 
+koskemattomuuden ennen ketjun jatkamista.</p>
+
+<p>Auditing prosessi vaatii kaksi laitetta, Auditorin joka voi olla mikä vain Android laite jossa on vähintään Android 8 sekä Auditee eli vahvistettava laite
+jonka on oltava laite joka on julkaistu vähintään Android 8 kanssa. Jokainen laitemalli pitää myös olla erikseen integroitu sovellukseen. Lista
+tuetuista Auditee laitteista löytyy <a href="https://attestation.app/about#device-support">Tästä</a>.
+
+<p>Auditor sovellus luo pysyvän laitteistopohjaisen avaimen jota Verified-Boot suojelee, sillä avainvarasto ei anna avaimia käytettäväksi jos itse OS ei
+läpäise vahvistusta. Auditor signeeraa jokaisen vahvistuksen tällä pysyvällä avaimella. Ensimmäinen
+tarkastus sisältää avaimen sertifikaattiketjun jonka Auditor pinnaa. Jokaisessa seuraavassa tarkastuksessa, Auditee luo uuden tuoreen avaimen jossa on uusi
+todistehaaste ja lähettää tämän sertifikaattiketjun Auditorille. Auditor valvoo että batch avain ja tämän jälkeiset avaimet ovat samoja kuin 
+näillä tuoreilla avaimilla.</p>
+
+<p>Laitteet jossa on vähintään Android 9 voi vaihtoehtoisesti käyttää <a href="https://developer.android.com/training/articles/keystore#HardwareSecurityModule">StrongBox Keymaster</a> 
+implementaatiota jossa avaimet pidetään erillisellä sirulla (Hardware-security-module, esim TitanM Pixel puhelimissa) sen sijan että käytettäisiin TEE 
+ympäristöä pääprosessorilla. Seuraavat laitteet tarjoavat HSM sirun StrongBox tuella jota Auditor käyttää:</p>
+<ul>
+<li>Google Pixel 3</li>
+<li>Google Pixel 3 XL</li>
+<li>Google Pixel 3a</li>
+<li>Google Pixel 4</li>
+<li>Google Pixel 4 XL</li>
+<li>Google Pixel 4a</li>
+<li>Google Pixel 4a (5g)</li>
+<li>Google Pixel 5</li>
+<li>Google Pixel 5a</li>
+<li>Google Pixel 6</li>
+<li>Google Pixel 6 Pro</li>
+<li>Samsung Galaxy Note 10 (SM-N970U)</li>
+<li>Samsung Galaxy Note 10+ (SM-N975U)</li>
+</ul>
 
 <h2 id="profiili"><a href="#profiili">Käyttäjäprofiilit</a></h2>
 <p>Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Etu erillisen käyttäjäprofiilin käyttämisessä normaalissa käytössä on kyky asettaa tämä lepoon ja tuhota tämän salausavaimet kun profiilia ei käytetä. Tämä ei ole mahdollista omistaja profiilissa ilman laitteen uudelleenkäynnistämistä sillä omistajaprofiili säilöö koko systeemiä koskevia prosesseja.<br><br>Käyttäjäprofiileja voi myös hyödyntää tilanteessa jossa sovellus vaatii pääsyä yksityisiin tietoihin (esim. pääsy kaikkiin tiedostoihin) tai / ja jos IPC on huolenaihe. Näiden asettaminen käyttäjäprofiiliin jossa ei ole sensitiivistä tietoa voi olla hyvä idea yksityisyyden kannalta sillä sovellukset eivät voi keskustella profiilien välillä ja profiilin tyhjyys takaa että vaikka sovellus vaatisi tietoa esim yhteystietoihin, ei profiilissa olisi yhteystietoja vietäväksi.</p>
-
 
 <h2 id="yhteen"><a href="#yhteen">Yhteensopivuuskerros</a></h2>
 <p>GrapheneOS sisältää yhteensopivuuskerroksen joka tarjoaa vaihtoehdon asentaa ja käyttää virallisia Playpalveluita ja playkauppaa
@@ -170,23 +198,32 @@ mihinkään
 ja ainoastaan sovellukset samassa käyttäjäprofiilissa voi käyttää niitä ja niiden on erikseen haluttava käyttää niitä. Kuten kaikkien muidenkin
 sovellusten kohdalla, se ei saa pääsyä käyttäjän tietoihin ellei se kysy tähän lupaa ja käyttäjä mene itse antamaan näitä sille.
 Sovellukset samassa käyttäjäprofiilissa voi keskustella yhdessä yhteisellä päätöksellä ja tämä pätee myös Playpalveluihin.
-Perustoiminnot ja APIt ovat lähdes kokonaan tuettuja ja yhteensopivuuskerros myös tarjoaa dynaamiset moduulit esimerkiksi karttojen toimintaan.</p>
-
+Perustoiminnot ja APIt ovat lähes kokonaan tuettuja ja yhteensopivuuskerros myös tarjoaa dynaamiset moduulit esimerkiksi karttojen toimintaan.</p>
 
 <h2 id="lte"><a href="#lte">LTE-only</a></h2>
 <p>Tapauksessa jossa on luotettava LTE yhteys, voi hyökkäyspintaa vähentää poistamalla 2G, 3G ja 5G yhteydet asetuksista LTE-Only kytkimellä.
-Perinteiset puhelut toimivat ainoastaan LTE-Only tilassa jos on liittymä jossa on VoLTE tai VoWi-Fi tuki. Tämä toimii useinten liittymien kanssa
-mutta jotkut esimerkiksi Amerikkalaiset liittymät ei, sillä GrapheneOS ei sisällä heidän sovelluksiaan.
+Perinteiset puhelut toimivat ainoastaan LTE-Only tilassa jos on liittymä jossa on VoLTE tai VoWi-Fi tuki.</p>
 
-<br><br>Tämän ominaisuuden tarkoitus ei ole parantaa puheluiden ja SMS viestien luotettavuutta mutta voi jotenkuten nostaa tasoa joidenkin
+<p>Tämän ominaisuuden tarkoitus ei ole parantaa puheluiden ja SMS viestien luotettavuutta mutta voi jotenkuten nostaa tasoa joidenkin
 hyökkäysten suorittamiselle. Se ei ole korvike päästä-päähän oleville puheluille ja viesteille tai edes TLS salaukselle. LTE tarjoaa perus
 salauksen / todennuksen mutta se on itse verkostolle. LTE-Only kytkimen ainoa tarkoitus on tehdä etäältä suoritettavien hyökkäysten suorittamisesta
 vaikeampaa poistamalla jättimäisiä määriä hyökkäyspintaa.</p>
 
-
 <h2 id="wifi"><a href="#wifi">Wi-Fi yksityisyys</a></h2>
-<p>GrapheneOS Wi-Fi on erittäin yksityisyys-ystävällinen ja periaatteessa anonyymi kunhan sovellukset eivät vuoda tunnisteita verkkoon. Verkot ei voi tunnistaa että laitteella on GrapheneOS.<br>MAC randomisointi on aina käytössä kun Wi-Fi verkkoja skannataan. Pixel puhelimissa on laiteohjelmisto tuki joka antaa näille <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">huomattavasti paremman MAC osoitteen randomisoinnin</a> joka menee yli yleisen naiivin implementaation. Monilla muilla laitteilla laite vuotaa esimerkiksi packet-sequence-numberin ja tunnisteita probe-requestissa<br>Wi-Fi ja bluetooth skannaus sijainnin parantamiseksi on poissa käytöstä oletuksena.</p>
+<p>GrapheneOS Wi-Fi on erittäin yksityinen ja lähes anonyymi kunhan sovellukset eivät vuoda tunnisteita verkolle. GrapheneOS esittää verkolle olevansa Android
+eikä GrapheneOS, paitsi yhteyksien kannalta jota GrapheneOS tekee esimerkiksi hakeakseen päivityksiä GrapheneOS palvelimilta. Mutta nämäkin voidaan helposti
+pakottaa VPN tai TOR palvelun kautta.</p>
 
+<p>MAC osoite randomisointi on aina käytössä Wi-Fi verkkojen skannauksessa. Pixel puhelimissa on laiteohjelmistotuki joka 
+mahdollistaa <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">paremman MAC osoitteen randomisoinnin</a>.
+Monilla muilla laitteilla siellä on muitakin tunnisteita jota laite vuotaa kuten packet_sequence_number ja tähän liittyvät tiedot probe pyynnöissä.
+Wi-Fi ja Bluetooth skannaus sijainnin havaitsemisen parantamiseksi on oletuksena pois käytöstä.</p>
+
+<p>Pixelien stock OS käyttää tiettyä satunnaista MAC osoitetta jokaiselle verkolle. GrapheneOS säilyttää tämän vaihtoehdon mutta lisää uuden vaihtoehdon
+"Use per-network-randomized MAC" joka on myös käytössä oletuksena. Tämä luo aina uuden MAC osoitteen kun verkkoja etsitään. DHCP client ei lähetä hostnamea
+joten se ei rikoa MAC osoitteen randomisointia. Kun per-connection MAC osoite randomisointi on käytössä, DHCP clientin tila alustetaan aina ennen uudelleen
+yhdistämistä estääkseen havaitsemista että kyseessä on sama laite kuin viimeksi. GrapheneOS myös kytkee pois tuen käyttää stable link-local IPv6 osoitteita
+sillä nämä voi mahdollisesti toimia tunnisteina.</p>
 
 <h2 id="salaus"><a href="#salaus">Laitteen salaus</a></h2>
 <p>Levysalaus on implementoitu filesystem pohjaisella salauksella metatietojen salauksen lisäksi. Kaikki tiedot, tiedostojen nimet ja muut
