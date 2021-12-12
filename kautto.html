@@ -76,16 +76,17 @@ murrettuja, <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Audi
 laite on korruptoitunut tai hyökkääjän vallan alla.</p>
 
 <h2 id="exec"><a href="#exec">Exec Spawning</a></h2>
-<p>GrapheneOS luo uudet prosessit excecin kautta sovelluksia avatessa yleisen Zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta 
-pidemmän sovellusten aukaisu ja korkeamman muistinkäytön hinnalla. Se ei vaikuta suorituskykyyn pidemmän aukaisuajan lisäksi. Se 
-lisää noin 100ms sovellusten aukaisuun jaa on ainoastaan huomattava vanhoilla laitteilla joissa on heikompi CPU ja pienempi tallennustila.
+<p>GrapheneOS luo uudet prosessit execin kautta, yleisen zygote mallin sijan. Tämä parantaa yksityisyyttä ja turvallisuutta pidemmän sovellusten laukaisuajan 
+sekä korkeamman alku muistinkäytön hinnalla, se ei kuitenkaan vaikuta suorituskykyyn laukaisuajan jälkeen. Zygote mallissa, mallisovellusprosessi luodaan käynnistyksen
+yhteydessä ja jokainen sovellus luodaan sen kloonina. Tämä johtaa siihen että jokaisella sovelluksella on sama muistisisältö ja järjestys, se heikentää
+useita turvallisuusominaisuuksia kuten Address-space-Layout-Randomizationia (ASLR), keon canaryarvoja, pinon canaryarvoja jne. Se rampauttaa nämä sillä
+jokaisella sovelluksella on jokaisen muunkin sovelluksen arvot ja nämä arvot eivät muutu ennen uudelleenkäynnistystä. Tämä myös tarkoittaa että jos hyökkääjä
+suorittaa onnistuneesti brute-force hyökkäyksen esimerkiksi ASLR tekniikkaa vastaan, hän saa murrettua tämän kaikilta sovelluksilta. Useat turvallisuustutkijat
+kutsuvat tätä enemmänkin "Per boot ASLR" tekniikaksi sillä randomisointi tapahtuu vain kerran käynnistyksen yhteydessä.</p>
 
-<br><br>Yleisessä Zygote mallissa mallisovellus prosessi luodaan käynnistyksen yhteydessä ja jokainen sovellus aukaistaan sen kloonina, toisinkuin Execissä j
-ossa jokaiselle sovellukselle luodaan kokonaan oma malli. Tämä tarkoittaa että Zygotessa jokaisella sovelluksella on sama alku muistisisältö ja 
-järjestys, mukaan lukien tiedot jotka kuuluisi olla randomisoitu jokaisella prosessilla. Se säästää aikaa uudelleen käyttämällä samaa 
-mallisovellus prosessia jokaiselle sovellukselle.<br><br>Zygote malli heikentää / rampauttaa useita turvallisuus ominaisuuksia 
-sillä jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä ei muutu ennen laitteen uudelleenkäynnistystä. Zygoten 
-mallisovellus prosessia myös käytetään globaalisti profiilien välillä joten se antaa tilapäisen sarjan tunnisteita näiden välillä.</p>
+<p>Korjatakseen nämä ongelmat, GrapheneOS forkkaa mallisovellusprosessin ja execcaa tämän jossa sovellus saa omat randomisoidut arvot. Tämä valitettavasti
+johtaa korkeampaan alku muistinkäyttöön ja pidempään sovellusten laukaisuaikaan jonka vuoksi se ei olekkaan käytössä Androidissa vielä. Se lisää noin 100ms
+sovellusten laukaisuaikaan ja on ainoastaan huomattava vanhoilla laitteilla joissa on heikompi CPU ja pienempi tallennustila.</p>
 
 <h2 id="road"><a href="#road">GrapheneOS Roadmap</a></h2>
 <p>Saadakseen idean lyhyen tähtäimen tavoitteista, katso <a href="https://github.com/GrapheneOS/os-issue-tracker/issues">OS-issue-tracker.</a> 
