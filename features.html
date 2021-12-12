@@ -48,7 +48,7 @@ itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sov
 <li><a href="https://www.blog.google/products/pixel/titan-m-makes-pixel-3-our-most-secure-phone-yet/">Titan M</a> - Titan M on Pixel puhelimien HSM siru joka varastoi krytpograafisen materiaalin käyttäen StrongBox avainvarastoa. Myös integroitu Verified-Boot prosessiin sekä tarjoaa <a href="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html">insider-attack-resistancen</a> joka estää Googlea tai hyökkääjää asentamasta haitallista laiteohjelmisto versiota</li><br>
 <li>Aiemmissa Pixeleissä kuin Pixel 6 on Qualcommin SoC joka implementoi modernit exploittien mitigointikyvyt sekä robustin IOMMUn eristämään fyysiset komponentit toisistaan</li><br>
 <li>Pixelien kernelit kootaan useiden vahvistusten kanssa johon kuuluu esimerkiksi CFI ja ShadowCallStack ja GrapheneOS parantaa näitä entisestään</li><br>
-<li>Kunnollinen MAC osoitteen randomisointi joka <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">ei vuoda tunnisteita.</a> Usein OEM implementoi tämän huonosti joka päättyy silti MAC osoitteen vuotamiseen. On myös muita tunnisteita joita muut ei yleensä randomisoi kuten tiedot probe pyynnössä ja järjestysnumero</a></li><br>
+<li>Kunnollinen <a href="https://shepherd115.github.io/Jep/kautto.html#wifi">MAC osoitteen randomisointi</a></li>
 </ul>
 
 <h1>Käyttöjärjestelmä<img id="kuvah" src="mask-icon.svg"></h1>
@@ -97,7 +97,7 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#lte">LTE-only</a> vaihtoehto poistaen jättimäisiä määriä vanhentunutta koodia pienentäen hyökkäyspintaa</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#wifi">Satunnaistettu MAC osoite</a> joka kerta kun laite etsii wifi verkkoja (Käytössä oletuksena)</li>
   <li>Kun satunnaistettu MAC osoite on käytössä DHCP tila pyyhitään joka kerta ettei verkko voi tunnistaa että laite on sama kuin viimeksi</li>
-  <li>Parannellut ipv6 yksityisyys osoitteet estäen seurantaa verkkojen välillä</li>
+  <li>Parannellut <a href="https://shepherd115.github.io/Jep/kautto.html#wifi">ipv6 yksityisyys</a> osoitteet estäen seurantaa verkkojen välillä</li>
   <li><a href="https://github.com/GrapheneOS/PdfViewer#readme">PDF lukija</a>, simppeli, sandboxattu, ei tarvitse lupia</li>
   <li>Salatut varmuuskopiot seedvault-backup sovelluksen avulla</li>
   <li>Moderni mikrofoni/kamera indikaattori UX myös sijainnille</li>
@@ -109,7 +109,7 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
   <li>Kyky evätä haluamiltaan sovelluksilta Sensors pääsy mikä estää sovellusta käyttämästä laitesensoreita (kiihtyvyysanturi, gyroskooppi, kompassi, barometri, lämpömittari jne)</li>
   <li>Kellon päivittäminen omien GrapheneOS palvelimien kautta</li>
   <li>Tuki käyttää sormenjälki lukijaa ainoastaan todentamaan henkilöllisyys sovelluksille ja avaamaan laitteiston avainvarasto</li>
-  <li>Oma uusi ja moderni kamerasovellus</li>
+  <li>Oma moderni kamerasovellus</li>
   <li>Verkoston kellonajan päivittäminen omien palvelimien kautta estääkseen hyökkääjää muuntamasta kellonaikaa ja tätä kautta käyttämään hyökkäyksiä jotka perustuu sertifikaattien ohittamiseen / avainten vanhenemiseen jne
   <li>Tuki kytkeä puhelinverkoston kyky muuntaa kellonaikaa pois</li>
   <li>Vahvistettu / <a href="https://shepherd115.github.io/Jep/kautto.html#paivitukset">Hardened signeeraus infrastruktuuri</a></li>
@@ -134,6 +134,7 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
                 <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
             </ul>
         </footer>
+</main>
 </section>
 </body>
 </html>
