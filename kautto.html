@@ -164,25 +164,6 @@ tarkastus sisältää avaimen sertifikaattiketjun jonka Auditor pinnaa. Jokaises
 todistehaaste ja lähettää tämän sertifikaattiketjun Auditorille. Auditor valvoo että batch avain ja tämän jälkeiset avaimet ovat samoja kuin 
 näillä tuoreilla avaimilla.</p>
 
-<p>Laitteet jossa on vähintään Android 9 voi vaihtoehtoisesti käyttää <a href="https://developer.android.com/training/articles/keystore#HardwareSecurityModule">StrongBox Keymaster</a> 
-implementaatiota jossa avaimet pidetään erillisellä sirulla (Hardware-security-module, esim TitanM Pixel puhelimissa) sen sijan että käytettäisiin TEE 
-ympäristöä pääprosessorilla. Seuraavat laitteet tarjoavat HSM sirun StrongBox tuella jota Auditor käyttää:</p>
-<ul>
-<li>Google Pixel 3</li>
-<li>Google Pixel 3 XL</li>
-<li>Google Pixel 3a</li>
-<li>Google Pixel 4</li>
-<li>Google Pixel 4 XL</li>
-<li>Google Pixel 4a</li>
-<li>Google Pixel 4a (5g)</li>
-<li>Google Pixel 5</li>
-<li>Google Pixel 5a</li>
-<li>Google Pixel 6</li>
-<li>Google Pixel 6 Pro</li>
-<li>Samsung Galaxy Note 10 (SM-N970U)</li>
-<li>Samsung Galaxy Note 10+ (SM-N975U)</li>
-</ul>
-
 <h2 id="profiili"><a href="#profiili">Käyttäjäprofiilit</a></h2>
 <p>Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Etu erillisen käyttäjäprofiilin käyttämisessä normaalissa käytössä on kyky asettaa tämä lepoon ja tuhota tämän salausavaimet kun profiilia ei käytetä. Tämä ei ole mahdollista omistaja profiilissa ilman laitteen uudelleenkäynnistämistä sillä omistajaprofiili säilöö koko systeemiä koskevia prosesseja.<br><br>Käyttäjäprofiileja voi myös hyödyntää tilanteessa jossa sovellus vaatii pääsyä yksityisiin tietoihin (esim. pääsy kaikkiin tiedostoihin) tai / ja jos IPC on huolenaihe. Näiden asettaminen käyttäjäprofiiliin jossa ei ole sensitiivistä tietoa voi olla hyvä idea yksityisyyden kannalta sillä sovellukset eivät voi keskustella profiilien välillä ja profiilin tyhjyys takaa että vaikka sovellus vaatisi tietoa esim yhteystietoihin, ei profiilissa olisi yhteystietoja vietäväksi.</p>
 
