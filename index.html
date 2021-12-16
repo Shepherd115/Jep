@@ -32,27 +32,29 @@
 </nav>
 <main>
 
-
 <h1>Suomalaista GrapheneOS Tietoa<img id="kuvah" src="mask-icon.svg"></h1>
 
-<p>GrapheneOS on turvallisuus ja yksityisyys vahvistettu mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella
-jota kehitetään voittoa tavoittelemattomana ja <a href="https://github.com/GrapheneOS">avoimen lähdekoodin</a> projektina. 
-Se keskittyy turvallisuus ja yksityisyys teknologioiden kehittämiseen ja käyttöön 
-kuten <a href="https://shepherd115.github.io/Jep/features.html#komponentit">huomattaviin parannuksiin</a> sandboxeihin,
-exploittien mitigointikykyihin sekä käyttöoikeusmalliin.</p>
+<p>GrapheneOS on turvallisuus ja yksityisyys painotteinen mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella jota kehitetään voittoa
+tavoittelemattomana avoimen lähdekoodin projektina. Se keskittyy yksityisyys ja turvallisuus teknologioiden tutkimiseen ja kehitykseen kuten merkittäviin
+parannuksiin sandboxeihin, yleisten tietoturvareikien sulkemiseen sekä käyttöoikeus mallin vahvistamiseen. 
+Se <a href="https://shepherd115.github.io/Jep/kysymys.html#perustus">perustettiin</a> 2014 ja oli ennen tunnettu nimellä CopperheadOS.</p>
 
-<p>GrapheneOS parantaa käyttöjärjestelmän turvallisuutta ja yksityisyyttä pohjasta ylöspäin. Se ottaa käyttöön teknologioita lieventääkseen
-kokonaisia exploitti luokkia ja tekee yleisten tietoturva reikien hyväksikäytöstä huomattavasti vaikeampaa. Se parantaa itse
-käyttöjärjestelmän turvallisuutta sekä sovelluksien jotka siinä on. <a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Sovellus-sandbox</a> ja muut muurit ovat vahvistettuja.
-GrapheneOS yrittää välttää käyttökokemukseen vaikuttamista turvallisuus ja yksityisyys ominaisuuksilla. Parhaassa tilanteessa, ominaisuudet
-voi aina olla käytössä ilman vaikutusta käyttökokemukseen ja ilman erityistä konfigurointia. Tämä ei kuitenkaan ole aina mahdollista, 
-ja GrapheneOS lisääkin useita kytkimiä ominaisuuksille kuten Network ja Sensors lupa, rajoitukset kun laite on lukittu (USB, kamera, quick-tiles jne)
-sekä muita monimutkaisempia user-facing ominaisuuksia joilla on niiden oma UX.</p>
+<p>GrapheneOS parantaa käyttöjärjestelmän turvallisuutta ja yksityisyyttä pohjasta ylöspäin. Se ottaa käyttöön teknologioita sulkeakseen useita tietoturvareikiä
+sekä tekee yleisten hyökkäysten suorittamisesta merkittävästi vaikeampaa. Se parantaa itse käyttöjärjestelmän turvallisuutta sekä sovelluksien joita siinä on.
+<a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Sovellus-sandbox</a> ja muut muurit ovat vahvistettuja. GrapheneOS yrittää välttää
+käyttäjäkokemukseen vaikuttamista turvallisuus ja yksityisyys ominaisuuksillaan mutta tämä ei ole aina mahdollista, ja GrapheneOS lisääkin useita kytkimiä
+ominaisuuksille kuten Network lupa, Sensors lupa, rajoituksia kun laite on lukittu (USB, kamera, quick tiles) jne.</p>
 
-<p>GrapheneOS kehittää myös useita turvallisuus ja yksityisyys keskittyneitä sovelluksia ja palveluita. <a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> on vahvistettu Chromium
-forkki joka tarjoaa user-facing selaimen sekä toimii käyttöjärjestelmän WebViewin tarjoajana. GrapheneOS myös sisältää oman turvallisuus painotteisen 
-PDF lukijan, <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovelluksen tarkistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus, sekä erikseen kehitetty Seedvault
-backup sovellus salattujen varmuuskopioiden luomiseen.</p>
+<ul>
+  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/features.html">Ominaisuudet</a> sivu sisältää yhteenvedon ominaisuuksista joita GrapheneOS lisää AOSPn päälle</p>
+  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/kautto.html">Käyttö</a> sivu sisältää yleiseen käyttöön liittyviä asioita</p>
+  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/kysymys.html">Q&A</a> sivu sisältää yleisiä kysymyksiä ja vastauksia projektista</p>
+</ul>
+
+<p>GrapheneOS myös kehittää useita turvallisuus ja yksityisyys keskittyneitä sovelluksia ja palveluita. <a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> 
+on vahvistettu Chromium selain sekä laitteen WebViewin tarjoaja. GrapheneOS myös sisältää PDF lukijan, <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> 
+sovelluksen jonka tarkoitus on vahvistaa laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus, oma moderni kamerasovellus sekä Seedvault 
+salattujen varmuuskopioiden luomiseen.</p>
 
 <h1>Ajankohtaista<img id="kuvah" src="mask-icon.svg"></h1>
 
@@ -61,16 +63,10 @@ backup sovellus salattujen varmuuskopioiden luomiseen.</p>
 <p id="ajan-kohtaista">Auditor <a href="https://github.com/GrapheneOS/Auditor/releases/tag/37">Versio 37</a> julkaistu</p>
 <p id="ajan-kohtaista">GrapheneOS kamerasovellus <a href="https://github.com/GrapheneOS/Camera/releases/tag/7">Versio 7</a> julkaistu</p>
 <p id="ajan-kohtaista">GrapheneOS PDF lukija <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/7">Versio 7</a> julkaistu</p>
-<p id="ajan-kohtaista">GrapheneOS <a href="https://grapheneos.org/releases#2021121012">2021121012</a> julkaistu</p>
+<p id="ajan-kohtaista">GrapheneOS <a href="https://grapheneos.org/releases#2021121012">Versio 2021121012</a> julkaistu</p>
 </ul>
 
-<h1>Sivuston sisältö<img id="kuvah" src="mask-icon.svg"></h1>
-<p>
-<ul>
-  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/features.html">Ominaisuudet</a> sivu sisältää yhteenvedon ominaisuuksista joita GrapheneOS lisää AOSPn päälle</p>
-  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/kautto.html">Käyttö</a> sivu sisältää yleiseen käyttöön liittyviä asioita</p>
-  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/kysymys.html">Q&A</a> sivu sisältää yleisiä kysymyksiä ja vastauksia projektista</p>
-</ul>
+
 
 <h2 style="text-align:center;color:white;">GrapheneOS Asennus<img id="kuvah" src="mask-icon.svg"></h2>
 
