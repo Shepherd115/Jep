@@ -59,33 +59,6 @@ on vahvistettu Chromium selain sekä laitteen WebViewin tarjoaja. GrapheneOS my�
 sovelluksen jonka tarkoitus on vahvistaa laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus, oma moderni kamerasovellus sekä Seedvault 
 salattujen varmuuskopioiden luomiseen.</p>
 
-<h1>Ajankohtaista<img id="kuvah" src="mask-icon.svg"></h1>
-<section id="ajan-kohtaista">
-<ul>
-<li>Auditor <a href="https://github.com/GrapheneOS/Auditor/releases/tag/38">Versio 38</a> julkaistu</li>
-  <ul>
-    <li>add confirmation dialogs for clearing pairings (Auditee pairings, Auditor pairings, remote attestation)</li>
-        <li>add experimental attest key implementation (not enabled yet due to lack of hardware and AttestationServer support)</li>
-        <li>update dependencies</li>
-        <li>update expected Pixel 6 and Pixel 6 Pro keymaster/attestation version</li>
-        <li>avoid deleting fresh hardware attestation key when not using it</li>
-        <li>use highest deflate compression level for attestation certificate chain compression</li>
-  </ul>
-<br>
-<li>GrapheneOS <a href="https://grapheneos.org/releases#2021122018">Versio 2021122018</a> julkaistu</li>
-  <ul>
-    <li>initial production support for the Pixel 6 and Pixel 6 Pro</li>
-    <li>Auditor: update to version 38</li>
-    <li>erase both apdp partition slots as part of flashing factory images to wipe persistent debugging policy</li>
-    <li>erase both msadp partition slots as part of flashing factory images to wipe persistent debugging policy</li>
-    <li>enable BUG_ON_DATA_CORRUPTION since it was backported upstream</li>
-    <li>enable legacy Qualcomm PANIC_ON_DATA_CORRUPTION since it hasn't been fully phased out yet</li>
-    <li>Seedvault: temporarily revert change to restore requiring that the profile is unlocked for the hardware keystore key (uncovers an upstream bug)</li>
-  </ul>
-</ul>
-</section>
-
-
 <h2 style="text-align:center;color:white;">GrapheneOS Asennus<img id="kuvah" src="mask-icon.svg"></h2>
 
 <p>GrapheneOS ainoastaan tukee tiettyjä laitteita jotka tapaavat projektin standardit. Lista tuetuista laitteista 
@@ -105,6 +78,7 @@ asentamiseen. <a href="https://grapheneos.org/install/cli">CLI</a> on myös vaih
 <li><a href="https://hub.libranet.de/wiki/graphene-os/wiki/Home">GrapheneOS Wiki</a></li>
 <li><a href="https://arxiv.org/abs/1904.05572">Arxiv</a></li>
 <li><a href="https://security.googleblog.com">Google blog</a></li>
+<li><a href="https://privacyguides.org/android/">Privacyguide</a></li>
 </ul>
 </div>
         <footer>
