@@ -37,6 +37,10 @@
 <h2><a href="#sisältö">Sisältö</a></h2>
 <ul style="border-left:3px solid grey;">
   <li><a href="#paivitukset">Päivitykset</a></li>
+    <ul>
+      <li><a href="#update-asetukset">Päivitys asetukset</a></li>
+      <li><a href="#update-turvallisuus">Päivitys turvallisuus</a></li>
+    </ul>
   <li><a href="#exec">Exec Spawning</a></li>
   <li><a href="#user">Kehittyneet turvallisuus asetukset</a></li>
   <li><a href="#road">GrapheneOS Roadmap</a></li>
@@ -52,28 +56,40 @@
 </nav>
 
 <h2 id="paivitukset"><a href="#paivitukset">Päivitykset</a></h2>
-<p>GrapheneOS tarkistaa päivitysten saatavuuden joka neljäs tunti kun internet yhteys on saatavilla ja sitten lataa tämän taustalla. 
-Se jatkaa siitä mihin se jäi joten latauksen keskeyttäminen ei ole riski, eikä ole asennuksenkaan keskeyttäminen sillä päivitykset asennetaan 
-nykyisen rinnalle josta tulee aktiivinen vasta kun asennus on suoritettu kokonaan loppuun. Kun päivitys on suoritettu, on laite käynnistettävä 
-uudelleen uuteen GrapheneOS versioon, jos tämä epäonnistuu niin GrapheneOS perääntyy käyttämään aiempaa versiota ja yrittää ladata ja asentaa 
-päivityksen uudelleen. Päivittäjä käyttää inkrementaalisia päivityksiä ladatakseen ainoastaan muutokset koko käyttöjärjestelmän sijan ja 
-toimii vaikka laite olisi lukittu tai BFU tilassa sillä se on suunniteltu toimimaan ennen laitteen salauksen purkamista.</p>
+<p>GrapheneOS päivittäjä tarkistaa päivitykset joka neljäs tunti osoitteesta <code>https://releases.grapheneos.org/DEVICE-CHANNEL</code> kun internet yhteys 
+on saatavilla ja lataa tämän osoitteesta <code>https://releases.grapheneos.org/DEVICE-incremental-OLD_VERSION-NEW_VERSION.zip</code> ja asentaa tämän taustalla. 
+Se jatkaa siitä mihin se jäi jos lataus keskeytyy joten ei tarvitse huolehtia tästä. Asentamisen häiritseminen ei myöskään ole ongelma sillä päivitys 
+asennetaan nykyisen GrapheneOS version rinnalle ja siitä tulee aktiivinen vasta kun asennus on suoritettu. Kun päivitys on onnistunut, sinulle tulee ilmoitus 
+ja sinun täytyy käynnistää laite uudelleen uuteen GrapheneOS versioon. Jos uuden version käynnistys epäonnistuu niin perääntyy tämä käyttämään aiempaa 
+versiota ja yrittää ladata ja asentaa päivityksen uudestaan. Päivittäjä lataa ainoastaan muutokset koko käyttöjärjestelmän sijan ja toimii vaikka laite on 
+lukittu, sillä päivittäjä on suunniteltu toimimaan ilman laitteen salauksen purkua</p>
 
-<p>Päivitysprotokolla ei lähetä tunnistettavia tietoja ja toimii hyvin VPN / Tor yhteyden kautta. GrapheneOS ei kykene rakentamaan, 
-signeeraamaan ja kuljettamaan haitallista päivitystä tietylle käyttäjälle esimerkiksi IMEIn tai sarjanumeron perusteella. Päivityspalvelin 
-ainoastaan päätyy tietämään laitteen IP osoitteen ja version jota se yrittää hakea. GrapheneOS on suunniteltu niin että 
-järjestelmä ei luota sokeasti palvelimiin + TLS yhteyteen. Siellä on useita signatuuri tarkastus sekä downgrade_protection kerroksia 
-ja OTA päivitykset voi tarvittaessa jopa kytkeä pois päältä ja sideloadata nämä recoveryn kautta.</p>
+<h2 id="update-asetukset"><a href="#update-asetukset">Päivitys asetukset</a></h2>
+<p>Päivittäjän asetukset löytyvät Settings -> System -> Advenced -> Update settings.</p>
 
-<p>Päivityspaketit sisältää sisäisen signatuurin jonka <code>update_client</code> varmistaa (Tai recovery jos sideloadaa). Käyttöjärjestelmän alennukseen perustuvat
-hyökkäykset myös estetään. Sisäinen payload <code>update_enginelle</code> on myös signeerattu, tarjoten toisen signatuuri 
-vahvistus kerroksen ja alennus suojan. <a href="https://source.android.com/security/verifiedboot">Verified-Boot</a> toimii viimeisenä
-puolustuslinjana. Se luo täyden luottamusketjun joka aloittaa Root Of Trustin muuttumattomasta, suojatusta read-only avaimesta bootloaderiin, käynnistysosioihin, sekä muihin
-osioihin kuten <code>system</code> ja <code>vendor</code>. Jokaisen käynnistyksen yhteydessä, jokainen vaihe vahvistaa seuraavan vaiheen autenttisuuden 
-ja koskemattomuuden ennen kun ketjua jatketaan. Verified-Boot tarjoaa myös <a href="https://source.android.com/security/verifiedboot/verified-boot#rollback-protection">Rollback-Protection</a> ominaisuuden 
-joka varmistaa että järjestelmää ei alenneta aiempaan versioon. Teoreettisessa tilanteessa jossa kaikki muut linjat ovat 
-murrettuja, <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> kykenee havaitsemaan mahdollisen muutoksen ja varoittaa käyttäjää että 
-laite on korruptoitunut tai hyökkääjän vallan alla.</p>
+<p>"Check for updates" näppäin manuaalisesti aiheuttaa päivittäjän hakevan päivitystä heti kuin mahdollista. Se silti odottaa että alla olevat vaatimukset
+täyttyvät.</p>
+
+<p>"Release channel" voidaan vaihtaa oletuksesta Beta kanavaan jos haluaa auttaa testailun kanssa. Kaikki päivitykset menevät ensin Beta kanavan kautta
+ennen vakaaseen pääsyä.</p>
+
+<p>"Permitted networks" asetus kontrolloi mitä verkkoja päivityksen aikana voidaan käyttää. Oletuksena se käyttää mitä vain verkkoa.</p>
+
+<p>"Require battery above warning level" näppäin määrää suoritetaanko päivitys alhaisessakin virrantilassa. Oletus arvo on 15%.</p>
+
+<p>"Automatic reboot" tarkoittaa laitteen automaattista uudelleenkäynnistämistä kun päivitys on suoritettu loppuun ja laitetta ei ole käytetty hetkeen.</p>
+
+<h2 id="update-turvallisuus"><a href="#update-turvallisuus">Päivitys turvallisuus</a></h2>
+<p>GrapheneOS päivittäjä ei luota päivityspalvelimeen eikä päivittäjä lähetä mitään tunnistettavia tietoja ja toimii hyvin Tor / VPN yhteyden kautta.
+GrapheneOS ei kykene rakentamaan, signeeraamaan tai kuljettamaan haitallista päivitystä tietylle käyttäjälle tietojen kuten IMEIn tai sarjanumeron perusteella.
+Päivityspalvelin päätyy ainoastaan tietämään laitteen IP osoitteen, version jota se yrittää hakea ja version josta se yrittää hakea.</p>
+
+<p>Päivityspaketit sisältää signatuurin jonka <code>update_client</code> vahvistaa, tai Recovery. Sisäinen payload <code>update_enginelle</code> on myös 
+signeerattu joka tarjoaa toisen signatuuri tarkistus ja <code>downgrade_protection</code> kerroksen. <a href="https://source.android.com/security/verifiedboot">Verified-Boot</a> 
+ja <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> toimii viimeisinä puolustuslinjoina. Verified-Boot luo luottamusketjun joka 
+aloittaa read-only Root-Of-Trust tiedoista, menee bootloaderiin sekä boot osioihin sekä muihin vahvistettuihin osioihin kuten <code>system</code> 
+ja <code>vendor</code>. Jokaisen käynnistyksen yhteydessä, jokainen vaihe vahvistaa seuraavan vaiheen autenttisuuden ja koskemattomuuden ennen ketjun 
+jatkamista. Tämän lisäksi Verified-Boot tarjoaa rollback protection ominaisuuden joka varmistaa että laite päivitetään vain uudempaan versioon.</p>
 
 <h2 id="exec"><a href="#exec">Exec Spawning</a></h2>
 <p>GrapheneOS luo uudet prosessit <a href="https://github.com/GrapheneOS/platform_frameworks_base/commit/bcade0e783c6abcd8ac98fa62b8ac33d83bdb1ea">execin</a> kautta, 
