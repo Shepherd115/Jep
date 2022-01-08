@@ -42,7 +42,6 @@
       <li><a href="#update-turvallisuus">Päivitys turvallisuus</a></li>
     </ul>
   <li><a href="#exec">Exec Spawning</a></li>
-  <li><a href="#user">Kehittyneet turvallisuus asetukset</a></li>
   <li><a href="#road">GrapheneOS Roadmap</a></li>
   <li><a href="#selain">Selain</a></li>
   <li><a href="#auditor">Auditor</a></li>
@@ -56,8 +55,7 @@
 </nav>
 
 <h2 id="paivitukset"><a href="#paivitukset">Päivitykset</a></h2>
-<p>GrapheneOS päivittäjä tarkistaa päivitykset joka neljäs tunti osoitteesta <code>https://releases.grapheneos.org/DEVICE-CHANNEL</code> kun internet yhteys 
-on saatavilla ja lataa tämän osoitteesta <code>https://releases.grapheneos.org/DEVICE-incremental-OLD_VERSION-NEW_VERSION.zip</code> ja asentaa tämän taustalla. 
+<p>GrapheneOS päivittäjä tarkistaa päivitykset joka neljäs tunti kun internet yhteys on saatavilla ja lataa sekä asentaa tämän taustalla. 
 Se jatkaa siitä mihin se jäi jos lataus keskeytyy joten ei tarvitse huolehtia tästä. Asentamisen häiritseminen ei myöskään ole ongelma sillä päivitys 
 asennetaan nykyisen GrapheneOS version rinnalle ja siitä tulee aktiivinen vasta kun asennus on suoritettu. Kun päivitys on onnistunut, sinulle tulee ilmoitus 
 ja sinun täytyy käynnistää laite uudelleen uuteen GrapheneOS versioon. Jos uuden version käynnistys epäonnistuu niin perääntyy tämä käyttämään aiempaa 
@@ -133,7 +131,7 @@ käyttämällä omia heikkoja versioita näistä.
 
 <br><br>Chromium pohjaiset selaimet, kuten Vanadium ja Bromite tarjoaa vahvimman 
 sandbox (<a href="https://fi.wikipedia.org/wiki/Hiekkalaatikko_(tietotekniikka)">hiekkalaatikko</a>) implementaation muihin verrattuna. 
-Se on huomattavasti vaikeampaa paeta hiekkalaatikosta ja se antaa paljon enemmän kuin vain muurin selaimen ja käyttöjärjestelmän välille.
+Se on merkittävästi vaikeampaa paeta hiekkalaatikosta ja se antaa paljon enemmän kuin vain muurin selaimen ja käyttöjärjestelmän välille.
 site_isolation pakottaa turvallisuusmuurit jokaisen sivuston ympärille asettaen jokaisen sivuston omaan hiekkalaatikkoon. Site_isolation
 on äärettömän tärkeää vaikkei aktiivista hyökkäystä tapahtuisikaan <a href="https://en.wikipedia.org/wiki/Side-channel_attack">sivukanavahyökkäysten</a> 
 vuoksi. Selaimet ilman robustia site_isolation ominaisuutta ovat myös erittäin heikkoja hyökkäyksiä kuten <a href="https://fi.wikipedia.org/wiki/Spectre_(tietoturvahaavoittuvuus)">Spectreä</a> 
@@ -157,7 +155,7 @@ turvallisuutta.
 rajoitettu kykyihin jota Webview widget tukee. Esimerkiksi ne ei voi tarjota asetusta Sensors luvan säätämiseen sillä tämä on melko uusi GrapheneOS
 ominaisuus ja WebSettings API ei vielä tue sitä samanlailla kun se tukee esimerkiksi Javascriptiä, sijaintia, evästeitä jne.
 
-<br><br>On hyvä välttää Gecko pohjaisia selaimia, kuten Firefoxia sillä ne ovat huomattavasti heikompia hyökkäyksille ja lisää jättimäisiä määriä hyökkäyspintaa.
+<br><br>On hyvä välttää Gecko pohjaisia selaimia, kuten Firefoxia sillä ne ovat merkittävästi heikompia hyökkäyksille ja lisää jättimäisiä määriä hyökkäyspintaa.
 Gecko ei sisällä WebView implementaatiota joten sitä on käytettävä nykyisen Vanadium selainmoottorin rinnalla, tämä tarkottaisi kahden selainmoottorin
 pitämistä joka tuplaisi hyökkäyspinnan. Firefox / Gecko myös rampauttaa ja ohittaa useita GrapheneOS vahvistuksia ja siitä puuttuu useita ominaisuuksia kuten
 tiukka seccomp-bpf filtteri, oma eristetty prosessi verkkotoiminnalle, CFI (Control Flow Integrity), CIG (Code Integrity Guard), vahvistettu
@@ -183,7 +181,24 @@ todistehaaste ja lähettää tämän sertifikaattiketjun Auditorille. Auditor va
 näillä tuoreilla avaimilla.</p>
 
 <h2 id="profiili"><a href="#profiili">Käyttäjäprofiilit</a></h2>
-<p>Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi erillisen laitteen. Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. Etu erillisen käyttäjäprofiilin käyttämisessä normaalissa käytössä on kyky asettaa tämä lepoon ja tuhota tämän salausavaimet kun profiilia ei käytetä. Tämä ei ole mahdollista omistaja profiilissa ilman laitteen uudelleenkäynnistämistä sillä omistajaprofiili säilöö koko systeemiä koskevia prosesseja.<br><br>Käyttäjäprofiileja voi myös hyödyntää tilanteessa jossa sovellus vaatii pääsyä yksityisiin tietoihin (esim. pääsy kaikkiin tiedostoihin) tai / ja jos IPC on huolenaihe. Näiden asettaminen käyttäjäprofiiliin jossa ei ole sensitiivistä tietoa voi olla hyvä idea yksityisyyden kannalta sillä sovellukset eivät voi keskustella profiilien välillä ja profiilin tyhjyys takaa että vaikka sovellus vaatisi tietoa esim yhteystietoihin, ei profiilissa olisi yhteystietoja vietäväksi.</p>
+<p>AOSP lisäsi mahdollisuuden käyttää useita käyttäjäprofiileja Android 5 myötä. Käyttäjäprofiileja voi luoda sijainnista Settings -> System -> Multiple Users.
+Käyttäjäprofiilit lisää mahdollisuuden omistaa useita vahvasti eristettyjä ympäristöjä mikä on monilla tavoin sama kuin omistaisi useita erillisiä laitteita. 
+Jokaisella käyttäjäprofiililla on omat salausavaimet, sovellukset, yhteystiedot, tiedostot, asetukset, leikepöytä ja näppäimistö. GrapheneOS myös lisää 
+kyvyn lopettaa käyttökerran joka kokonaan tuhoaa tämän salausavaimet ja asettaa käyttäjäprofiilin takaisin lepoon. Tätä ei voi tehdä omistajaprofiilille
+sillä se säilöö koko systeemiä koskevia tietoja.</p>
+
+<p>Toissijaisen käyttäjäprofiilin käyttäminen arkikäytössä mahdollistaa laitteen käytön ilman tietojen salauksen purkamista. Se myös mahdollistaa
+käyttäjäprofiilin asettamisen takaisin lepoon ilman laitteen uudelleenkäynnistämistä. Vaikka käyttäisi samaa salasanaa / PIN koodia useissa käyttäjäprofiileissa,
+jokainen käyttäjäprofiili tulisi saamaan uniikin avaimen salaus avaimen ja käyttöjärjestelmän valloitus ei vuotaisi salasanaa.</p>
+
+<p>Toinen etu käyttäjäprofiileissa on se että jokaisella käyttäjäprofiililla on omat tiedostot, yhteystiedot ja leikepöytä. Tämä tarkoittaa että sovellukset
+jotka ei kykene toimimaan ilman tunkeilevia lupia (Pääsy yhteystietoihin, tiedostoihin jne) voidaan asettaa erilliseen käyttäjäprofiiliin jossa ei ole
+sensitiivisiä tietoja.</p>
+
+<p>Kolmas etu käyttäjäprofiileissa on se että IPC (Inter Process Communication) voi toimia vain käyttäjäprofiilin sisällä, ei sen ulkona. Yleensä sovellukset
+voivat keskustella keskenään käyttäjäprofiilin sisällä ja vaihtaa tietoja jos molemmat osapuolet suostuvat. Tämä osittain rikkoo 
+<a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Sovellus-Sandboxin</a> jonka vuoksi sovellus ryhmien erittely käyttäjäprofiileihin
+voi olla hyödyllistä estääkseen tämä.</p>
 
 <h2 id="yhteen"><a href="#yhteen">Yhteensopivuuskerros</a></h2>
 <p>GrapheneOS sisältää yhteensopivuuskerroksen joka tarjoaa vaihtoehdon asentaa ja käyttää virallisia Playpalveluita ja playkauppaa
@@ -243,7 +258,7 @@ profiilikohtaisista salausavaimista tai globaalista salausavaimesta.</p>
 
 
 <h2 id="bugi"><a href="#bugi">Sovellusten yhteensopivuus ongelmat</a></h2>
-<p>GrapheneOS huomattavasti kohottaa laitteiston kykyjä tarjota parempaa suojaa muistinkorruptoitumis ongelmia vastaan. Jotkut näistä ominaisuuksista
+<p>GrapheneOS merkittävästi kohottaa laitteiston kykyjä tarjota parempaa suojaa muistinkorruptoitumis ongelmia vastaan. Jotkut näistä ominaisuuksista
 on suunniteltu suoraan nappaamaan muistinkorruptio bugi joko tarkastuksella tai muistisuojauksella ja abortoimaan prosessi ettei sitä kyetä hyväksikäyttämään.
 Jotkut ominaisuuksista mitigoi ongelmia hieman vähemmän suorasti kuten nollaamalla tiedot vapautuksen yhteydessä, eristetyillä muistialueilla, kasan randomisoinnilla,
 canary arvoilla, vartija-alueilla, viivästetyllä osoitetilan uudelleenkäytöllä <a href="https://shepherd115.github.io/Jep/features.html#komponentit">jne</a>.
@@ -267,7 +282,7 @@ muutkin täysin signeeratut käyttöjärjestelmät jossa on Verified-Boot ja tä
 <a href="https://grapheneos.org/articles/attestation-compatibility-guide">yksityiskohtaisen oppaan</a>
 sovelluskehittäjille miten laitteiston vahvistus APIta voi käyttää sallimaan Graphenen. Laitteiston vahvistus APIn käyttäminen suoraan antaa paljon
 varmemman todennuksen kuin SafetyNet joten näillä sovelluksilla ei ole mitään hävittävää jos he alkaisi käyttämään kehittyneempää APIta joka ei vaadi Googlen Playpalveluita tai palvelimia
-ja tukemaan käyttöjärjestelmää joka ei pelkästään pidä Androidin turvallisuusmallia, vaan huomattavasti myös vahvistaa sitä.</p>
+ja tukemaan käyttöjärjestelmää joka ei pelkästään pidä Androidin turvallisuusmallia, vaan merkittävästi myös vahvistaa sitä.</p>
 </section>
 
 </main>
