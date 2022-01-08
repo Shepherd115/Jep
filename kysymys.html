@@ -107,11 +107,9 @@
 <a href="https://attestation.app/about#device-support">useita laitteita</a> ja hardened_malloc tukee lähdes kaikkia Linux pohjaisia
 ympäristöjä virallisen glibc, Bionic ja musl tuen ansiosta ja on helposti lisättävissä muihinkin ympäristöihin.</p>
 
-
 <h2 id="suositellut-laitteet"><a style="color:white;" href="#suositellut-laitteet">Mitkä laitteet ovat suositeltuja?</a></h2>
 <p>Pixel 6 ja Pixel 6 Pro ovat lippulaiva puhelimia paljon paremmalla laitteistolla kuin edellisten sukupolvien laitteet (kamerat, CPU, GPU, näyttö, akku)
-, 5 vuoden turvallisuuspäivitys takuu ja merkittäviä turvallisuus parannuksia (Tensor ja TitanM2). GrapheneOS tarjoaa kokeellisen tuen näille laitteille
-ja ensimmäinen vakaa versio tulee pian. On vahvasti suositeltavaa ostaa joko Pixel 6 tai Pixel 6 Pro.</p>
+, 5 vuoden turvallisuuspäivitys takuu ja merkittäviä turvallisuus parannuksia (Tensor ja TitanM2).</p>
 
 <p>Halvempi Pixel 6 on suhteellisen halpa laitteistoon ja 5 vuoden tukeen verrattuna. Pixel 6 Pro sisältää 50% enemmän muistia (12GB eikä 8GB), isomman näytön,
 kolmas takakamera jossa 4x zoom ja parempi etukamera. Molemmissa laitteissa on sama SoC (CPU, GPU jne) ja samat takakamerat. Pixel 6 on melko iso ja Pixel
@@ -137,7 +135,6 @@ Laitteessa on oltava aktiivinen ja pitkä tuki päivityksille ja laitteet jotka 
 <p>Jotta laite voisi olla tuettu, siihen on oltava resursseja valmiina ja jokaisen julkaisun tulee olla robusti ja vakaa sekä kaikki normaalit toiminnot
 käytössä ja suuri määrä testausta jokaiselle julkaisulle.</p>
 
-
 <h2 id="milloin-laitteita"><a style="color:white;" href="#milloin-laitteita">Milloin useammat laitteet tulee olemaan tuettuja?</a></h2>
 <p>Laajempi laitetuki voi tapahtua vain kun yhteisö (yritykset, organisaatiot ja yksilöt) astuvat tekemään huomattavia, jatkuvia muutoksia
 tekemään nykyisten laitteiden ylläpitämisestä helpompaa. Kun nykyisten laitteiden tukeminen on helpompaa, voi ensi tutkiminen ja kehitys
@@ -150,7 +147,6 @@ ja alkaa kehittämään tukea tälle ja testaamaan sitä.</p>
 
 <p>Pitäisi myös olla selvää että oletus on että ihmiset ostaa laitteen joka tukee Graphenea sen sijan että projekti tukisi jo henkilöiden olemassa
 olevia laitteita. Tämä voi muuntua jos yhteisö astuu tekemään muutoksia.</p>
-
 
 <h2 id="miksi-loppuu"><a style="color:white;" href="#miksi-loppuu">Miksi GrapheneOS pudottaa laitetuen kun OEM ei tue sitä enää?</a></h2>
 <p>GrapheneOS yrittää tarjota mahdollisimman yksityisiä ja turvallisia laitteita. Se ei voi tehdä sitä kun laiteohjelmisto, kernel ja vendor koodi
@@ -210,7 +206,6 @@ sovellusta ja sovellus signeerataan kehittäjän toimesta. Näiden päivittämin
 olla raskasta. Jotkit sovellukset kuitenkin sisältää ominaisuuden päivittyä itsestään.</li><br>
 </ul>
 
-
 <h2 id="sovellukset"><a style="color:white;" href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></h2>
 <p>Android käyttää Linuxin user-based suojausmekanismia tunnistaakseen ja eristääkseen sovellusten resursseja. Tämä eristää sovellukset toisistaan ja suojelee tiedostoja
 ja järjestelmää haitallisilta sovelluksilta. Tehdäkseen tämän, Android asettaa jokaiselle sovellukselle oman tunnisteen (UID) ja suorittaa tämän omana prosessinaan.
@@ -219,24 +214,45 @@ prosessi tasoisesti Linuxin ominaisuuksien avulla kuten käyttäjä ja ryhmä tu
 oman hiekkalaatikon resursseihin. Sovellukset eivät kykene "vakoilemaan" käyttäjää, ellei käyttäjä ole erikseen myöntänyt tähän lupaa kuten sallimalla kameran käytön.</p>
 
 <p>Sillä sovellus-sandbox on kernelissä, tämän turvallisuusominaisuudet ulottuvat kaikkeen joka on kernelin yläpuolella, kuten käyttöjärjestelmän standardikirjastoihin, sovellusten kehyksiin,
-sovellusten runtimeen ja jokaiseen käyttäjän asentamaan sovellukseen jne jonka vuoksi sovellus sandboxin vahvistaminen parantaa huomattavasti koko käyttöjärjestelmän turvallisuutta.
+sovellusten runtimeen ja jokaiseen käyttäjän asentamaan sovellukseen jne jonka vuoksi sovellus sandboxin vahvistaminen parantaa merkittävästi koko käyttöjärjestelmän turvallisuutta.
 Yleisesti, paetakseen sovellus sandboxista, hyökkääjän on murrettava Linux kernelin turvallisuus. Joten kernelin vahvistaminen myös vahvistaa sovellus-sandboxia. GrapheneOS
 vahvistaa näitä molempia kuten dokumentoitu <a href="https://shepherd115.github.io/Jep/features.html">Ominaisuudet</a> sivulla.</p>
 
 <h2 id="laite-tunnistin"><a style="color:white;" href="#laite-tunnistin">Onko sovelluksilla pääsy laitetunnisteisiin?</a></h2>
-<div id="teksti">Android 10 myötä, sovellukset eivät voi saada pääsyä muuttumattomiin laitetietoihin kuten sarjanumeroon, MAC osoitteeseen, IMEI/MEIDiin, SIM kortin sarjanumeroon jne. Ainoastaan tietyt käyttöjärjestelmän komponentit joilla on <code>READ_PRIVILEGED_PHONE_STATE</code> white-listattu saa pääsyn näihin. Sovellukset jotka kohdentamat Android 10 käyttöjärjestelmää saa <code>SecurityException</code> virheen ja vanhemmat tyhjän arvon yhteensopivuuden vuoksi. Siitä syystä että näistä tuli oletuksia Andridissa, GrapheneOS ei enää tee rajoituksia tällä alueella. Sovellukset voivat kuitenkin määrittää mikä laitemalli on käytössä, esimerkiksi Pixel5.<br><br>Entä ei-laitteisto pohjaiset tunnistimet - Sovellukset voivat havaita että tämä on GrapheneOS turvallisuus / yksityisyys vahvistusten vuoksi. Sovelluksilla on pääsy globaaleihin laite-asetuksiin kuten tietoon onko tumma-teema käytössä, aikavyöhyke ja IP osoite. GrapheneOS aikoo tulevaisuudessa lisätä rajoituksia tälle alueelle ellei näistä tule oletuksia Androidissa. Sovellukset voivat luoda oman 128 bittisen tai suuremman satunnaisen arvon ja käyttää sitä tunnisteena, sovellukset voi myös luoda tietoja heidän omassa kansiossaan ja käyttää tätä tunnisteena ilman lupaa. Uudemmat sovellukset (TargetSDK yli 29) ei pysty säilyttämään tätä sovelluksen poistuttua mutta vanhemmat pystyy. <code>ANDROID_ID</code> on 64 bittinen satunnainen arvo joka muodostuu sovelluksen signeeraus avaimesta ja profiilista, 64 bitin koko tarkoittaa ettei se ole kovin hyödyllinen tunniste sillä sen pieni arvo.</div>
+<p>Android 10 myötä, sovellukset eivät voi saada pääsyä muuttumattomiin laitetunnisteisiin kuten sarjanumeroon, MAC osoitteeseen, IMEI/MEID tietoihin tai
+SIM kortin sarjanumeroon. Ainoastaan tietyt käyttöjärjestelmän komponentit joilla on <code>READ_PRIVILEGED_PHONE_STATE</code> lupa voi saada näihin pääsyn.
+Sovellukset jotka ovat tarkoitettu Android 10 tai korkeammille saavat <code>SecurityException</code> virheen ja vanhemmat sovellukset tyhjän arvon
+yhteensopivuuden vuoksi.<p>
 
+<p>Sillä näistä rajoituksista tuli standardeja, GrapheneOS ainoastaan tekee pienen muutoksen poistaakseen vanhojen sovellusten pääsyn sarjanumeron
+vanhaan muotoon, joka oli silti olemassa yhteensopivuuden vuoksi. Se ennen vaati rajumpia toimia kuten sarjanumeroon pääsyn estäminen mutta nämä ovat nykyään 
+standardeja.</p>
+
+<p>Sovellukset voivat määritellä laitteen mallin (Kuten sen että se on esim Pixel 6) joko suoraan tai ei suoraan laitteiston ja ohjelmiston
+ominaisuuksien vuoksi.</p>
+
+<p>Sen lisäksi ettei sovelluksilla ole pääsyä muuttumattomiin laitetunnistimiin, sovelluksille altistetaan vain pieni osa käyttöjärjestelmän konfiguroinnista.
+Sovellukset voivat havaita että ne ovat GrapheneOS käyttöjärjestelmällä vahvistusten vuoksi ja voivat tunnistaa oman sovellusasennuksensa
+sovellustietojen perusteella ja voivat tunnistaa käyttäjäprofiilin. Esimerkkejä globaaleista OS konfiguroinneista jotka ovat avoinna sovelluksille ovat aikavyöhyke,
+onko tummateema käytössä, verkon maakoodi jne. Samanlailla kuin lisäosat ja selain konfiguraatiot, näidenkin perusteella sovellukset voivat yrittää tunnistaa
+käyttäjän. GrapheneOS luultavasti lisää rajoituksia tälle alueelle jos AOSP ei sitä tee.</p>
+
+<p>Sovellukset voivat luoda heidän oman 128 bittisen tai suuremman arvon ja käyttää sitä sovelluksen asennuksen tunnisteena. Sovellukset voivat
+luoda tietoja heidän omassaan sovelluskohtaisessa tiedostokansiossa vaatimatta lupaa, ja vanhemmassa tiedostomallissa ennen API 29, nämä tiedot säilyvät
+sovelluksen poistamisen jälkeen, joten sitä voidaan käyttää varastoimaan tunniste. Tämä on kuitenkin käyttäjän hallinnassa ja käyttäjä voi poistaa nämä
+tiedot.</p>
+
+<p><code>ANDROID_ID</code> on 64 bittinen satunnainen numero joka muodostuu profiilista ja sovelluksen signeerausavaimesta. 64 bitin raja tarkoittaa
+ettei se ole kovin hyödyllinen tunniste mahdollisten yhteensattumien vuoksi. Se on yhdistetty profiilin elinaikaan eikä säily profiilin poistuessa
+tai tehdasasetuksissa.</p>
 
 <h2 id="leike"><a style="color:white;" href="#leike">Onko sovelluksilla pääsy leikepöytään?</a></h2>
 <div id="teksti">Android10 myötä, ainoastaan konfiguroidulla näppäimistöllä ja sillä hetkellä auki oleva sovellus saa pääsyn leikepöytään. Sovellukset jotka ovat auki taustalla eivät saa tähän pääsyä. GrapheneOS ennen rajoitti sovellusten pääsyä leikepöytään taustalla mutta tästä tuli oletus joten se poistettiin.<br>Android 12 lisää myös ilmoituksen kun sovellus käyttää leikepöytää.</div>
 
-
 <h2 id="verkkoyhteys"><a style="color:white;" style="color:white;" href="#verkkoyhteys">Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></h2>
 <div id="teksti">Sovellukset eivät voi monitoroida verkkoyhteyksiä ellei niistä ole tehty aktiivista VPN palvelua käyttäjän toimesta. Sovellukset eivät voi normaalisti saada pääsyä verkkotilastoihin ja eivät voi suoraan pyytää pääsyä niihin.</div>
 
-
 <h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Turvallisuus / Yksityisyys</h3>
-
 
 <h2 id="yhteydet"><a style="color:white;" href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></h2>
 <div id="teksti">GrapheneOS tekee yhteyksiä ulkomaailmaan testatakseen yhteyksiä, havaitsemaan captive portaaleja ja ladatakseen päivityksiä. Tunnistettavia tietoja ei lähetetä. GrapheneOS ei sisällä analytiikkaa. Tarkat yhteydet löytyy <a href="https://grapheneos.org/faq#default-connections">tästä</a></div>
@@ -246,7 +262,6 @@ vahvistaa näitä molempia kuten dokumentoitu <a href="https://shepherd115.githu
 
 <h2 id="android"><a style="color:white;" href="#android">Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?</a></h2>
 <div ud="teksti">Niinkuin muutkin isot Android päivitykset, tämäkin toi suuria parannuksia yksityisyyteen ja turvallisuuteen joka on myös mahdollistanut joidenkin GrapheneOS ominaisuuksien jättämistä pois sillä ne ovat nyt itse Androidissa. Siellä on myös paljon under-the-hood muutoksia kuten Rustin adoptointi ja AndroidRuntimen vahvistuksia. Lista muunnoksista löytyy <a href="https://developer.android.com/about/versions/12/summary">Tästä</a></div>
-
 
 <h2 id="verkot"><a style="color:white;" href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></h2>
 <div>GrapheneOS aina olettaa että puhelinoperaattorit ovat vihollisia. Se jättää pois useita sovelluksia mitkä ovat AOSPssä jotka antavat puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myöskin päivittää kellon itse sen sijan että luottaisi että puhelinoperaattori tekisi tätä. Aika on nimittäin arvokasta jota voidaan hyväksi käyttää, tämän takia TitanM siru sisältää kokonaan oman kellon jota se itse määrää.
@@ -258,21 +273,17 @@ GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#
 <h2 id="fsp"><a style="color:white;" href="#fsp">Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></h2>
 <div id="teksti">Ei. Tämä olisi vaarallista ja tarpeetonta. TitanM käsittelee brute-force hyökkäykset paljon kehittyneemmin kuin vain poistamalla avaimet. TitanM siru itsessään on äärettömän pieni (Noin riisin kokoinen) ja on luonteeltaan erittäin vaikea kohde. TitanM on myös integroitu laitteen salaus prosessiin ja säilöö tokenssit joista luodaan avaimet salauksen purkuun eikä se vapauta näitä ennen kuin oikea salsana on syötetty. Tarkoittaen että yritykset päästä laitteeseen on tehtävä juuri sen TitanM sirun kautta. Brute-force hyökkäyksen aikana TitanM rankaisee hyökkääjää pidentämällä aikaa ennen uutta yritystä. Ensimmäisen viiden yrityksen jälkeen TitanM sammuttaa pääsyn tokensseihin 30 sekunniksi ja sammuttaa sormenjälki lukijan. Tämän jälkeen TitanM progressiivisesti pidentää aikaa kunnes uuden yrityksen aika on yksi päivä. Vaikka käyttöjärjestelmä olisi hyökkääjän hallussa, niin ei ajastinta voi ohittaa sillä TitanM sisältää oman kellon josta OS ei pidä mitään kontrollia. Tämä ei suojaa jos laitteen salasana on jotain helppoa kuten 12345 tai lemmikin nimi mutta tarjoaa lähes murtamattoman suojan vain 6 lukuisella PIN koodilla. On myös hyvä huomioida että GrapheneOS sallii maksimissaan 64 merkkisten salasanojen käytön jos kokee että tarvitsee entistä vahvemman suojan. </div>
 
-
 <h2 id="bundle"><a style="color:white;" href="#bundle">Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></h2>
 <div id="teksti">Siellä on haittoja sovellusten ennalta-asentamiseen ja vain muutamia etuja. Sen sijan että GrapheneOS ennalta-asentaisi kasan sovelluksia, on loogisempaa käyttäjän itse asentaa haluamansa sovellukset F-Droidin, Aurora Storen tai Play kaupan kautta. GrapheneOS suunnittelee omaa first-party sovellusten päivitys järjestelmää ja "sovelluskauppaa" joka on robustimpi ja turvallisempi kuin muut vaihtoehdot. Sovellusten ennalta asentaminen lisäisi myös hyökkäyspintaa, ellei käyttäjät kytke näitä pois päältä. Sovellusten ennalta-asentaminen olisi myös kamala kumota sillä sovelluksen poistaminen käyttöjärjestelmästä johtaisi käyttäjien tietojen tuhoutumiseen.<br><br>GrapheneOS keskittyy oleellisten turvallisuus / yksityisyys parannusten tekemiseen ja satunnaisten sovellusten ennalta-asentaminen on yleensä tämän ulkopuolella ja sitä vastaan.</div>
 
-
 <h2 id="root"><a style="color:white;" href="#root">Onko GrapheneOS roottausta?</a></h2>
 <div id="teksti">Ei, GrapheneOS on suunniteltu minimoimaan oikeudet ja hyökkäyspinta ja roottaaminen olisi tämän vastakohta. Androidin arkkitehtuuri on suuniteltu minimaalisten lupien ympärille. Oletuksena kuudella prosessilla on lupa suoriutua roottina ja silloinkin nämä on hyvin rajattuja SElinuxin vuoksi ja kokonaan rajoittamatonta roottia ei ole olemassa Androidissa. Vaikka antaisi vain tietyille sovelluksille root pääsyn voi hyökkääjä käyttää esimerkiksi clickjacking tekniikkaa tai hyväksikäyttää root oikeutettua sovellusta. Verified-boot havaitsisi muutokset ja kumoaisi nämä palauttaakseen laitteen tilaan jossa se läpäisee signatuuri tarkastuksen, tämä tarkoittaisi että roottaaminen myös vaatisi verified-bootin jättämistä kokonaan pois mikä osittain tuhoaa Androidin turvallisuusmallin.</div>
-
 
 <h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Muut</h3>
 
 <section id="reuna">
 <h2 id="perustus"><a style="color:white;" href="#perustus">Miten GrapheneOS perustettiin?</a></h2>
 <div id="teksti"><a href="https://twitter.com/DanielMicay">Daniel Micay</a> perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei vielä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää.<br><br> Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
-
 
 <h2 id="tarkoitus"><a style="color:white;" href="#tarkoitus">Mikä on tämän sivuston tarkoitus?</a></h2>
 <div id="teksti">Tämän sivuston tarkoitus on antaa selkeää suomenkielistä tietoa GrapheneOS projektista aktiivisesti seuraten muutoksia käyttöjärjestelmässä sekä dokumentaatiossa ja muokaten tätä sivustoa näiden mukaisesti. Huollan sivua yksin pienillä resursseilla joten käytössä on Github Pages ainakin toistaiseksi. Sivustolla ei ole käytössä yhtään javascriptiä joten sivustoa on mahdollista käyttää selaimella jossa Javascript on kytketty pois. Sivustolla ei myöskään ole Google Analyticsiä tai muuta vastaavaa. Sivuston lähdekoodiin pääsee <a href="https://github.com/Shepherd115/Jep">Tästä</a>.
