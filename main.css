@@ -1,4 +1,4 @@
-/* Perus pohja ja ulkönäkö määrittely alkaa */
+/* Perus pohja ja ulkönäkö määrittely*/
 body {
     display: flex;
     flex-direction: column;
@@ -16,10 +16,12 @@ body {
     background-size: 400px 600px;
 }
 
+/*Parantaa näkyvyyttyä iPhoneilla*/
 html {
     height: -webkit-fill-available;
 }
 
+/*Sivuston järjestys*/
 main {
     margin-left: auto;
     margin-right: auto;
@@ -30,40 +32,43 @@ main {
     box-sizing: border-box;
     overflow-wrap: break-word;
 }
-/* Perus pohja ja ulkonäkö määrittely loppuu */
 
-/* Väri poikkeuksien luettelo alkaa */
+/*Kaikkien linkkien väri normaaliksi ja ilman alaviivaa*/
 a {
     color:#1565c0;
     text-decoration:none;
 }
 
+/*<code> Pätkät eri fontilla ja värillä*/
 code {
     background-color: #424242;
     font-family: "Roboto Mono", monospace;
 }
 
+/*Otsikko tekstit keskelle ja valkoiseksi*/
 h1 {
   text-align:center;
   color:white;
 }
 
+/*Muuntaa linkkien värin ja alleviivaa ne hoverissa*/
 a:hover {
     background-color: #252627;
     text-decoration:underline;
 }
 
+/*Varmistaa että linkit pysyy valkoisina*/
 h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
     color: white;
 }
 
+/*p1 tekstit valkoiseksi ilman alaviivaa*/
 p1 {
     color:white;
     text-decoration:none;
 }
-/* Väripoikkeuksien luettelo loppuu */
 
-/* Ajankohtaiset osion määrittely alkaa */
+
 #ajan-kohtaista {
   text-align:left;
   font-weight: bold;
@@ -71,9 +76,8 @@ p1 {
   padding:10px;
   margin:5px;
 }
-/* Ajankohtaiset osion määrittely loppuu */
 
-/* Navigointipalkin määrittely alkaa */
+/*Määrittää navigointipalkin ulkonäön*/
 #navigointi ul {
     display: flex;
     flex-wrap: nowrap;
