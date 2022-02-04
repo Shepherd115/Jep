@@ -317,6 +317,37 @@ SElinux käytäntöjä</a> ja poistamalla turhia ominaisuuksia kuten system_othe
 kuten salausavaimia. Androidissa taas on Hardware-backed Keystore ja Pixel
 puhelimissa kokonaan oma siru näille (TitanM ja TitanM2)</p>
 
+<p>Muutamia Linuxin ongelmia on lueteltu tässä:</p>
+
+<p>Yleisesti käytetty Flatpak sisältää merkittäviä reikiä. Useat sovellukset sisältävät <code>filesystem=home</code> tai <code>filesystem=host</code> luvan joka
+antaa täyden read-write pääsyn <code>Home</code> kansioon. Se myös mahdollistaa
+hiekkalaatikosta pakenemisen kirjoittamalla <code>~/.bashrc</code> tiedostoon. Flatpakin Github
+organisaatiossa noin 550 sovellusta sisältävät jomman kumman luvista 
+kuten <a href="https://github.com/flathub/com.dropbox.Client/blob/a97e98e2f8386d59cf04b9e3ccb0c575ba9f6954/com.dropbox.Client.json#L15">Dropbox,</a>
+<a href="https://github.com/flathub/org.libreoffice.LibreOffice/blob/6d9d7f43d5a0562a1269cd0df078b2bdb4a3144b/org.libreoffice.LibreOffice.json#L631">LibreOffice</a>
+ja <a href="https://github.com/flathub/org.gimp.GIMP/blob/f819d5614ca19d3ffff99f2040881a873daa175f/org.gimp.GIMP.json#L14">GIMP</a>.
+Flatpak myös sallii pääsyn X11 sockettiin  mikä antaa luo suuren hiekkalaatikko reiän sillä X11 ei
+sisällä GUI eristystä. Flatpak myös antaa täyden pääsyn kansioihin kuten <ocde>/sys</code>
+ja <code>/proc</code> sen sijan että se antaisi pääsyn vain tarvittaviin tiedostoihin.</p>
+
+<p>Useat Linux ohjelmat on kirjoitettu C tai C++ 
+kielellä <a href="https://msrc-blog.microsoft.com/2019/07/16/a-proactive-approach-to-more-secure-code/">joka on useimpien turvallisuusreikien syynä.</a>
+Android taas käyttää pääosin Javaa ja on siirtymässä kokonaan Kotliniin</p> 
+
+<p>CFI - CFI eli Control Flow Integrity on turvallisuusmekanismi jolla pyritään estämään
+muutokset alkuperäiseen kontrollin kulkuun. Tämä on äärettömän tärkeää sillä vuonna 2016 AOSP (Android)
+raportoi että noin 86% kaikista haavoittuvuuksista on muistiturvallisuuteen liittyviä. Android 8.1
+otti käyttöön CFIn media-stackissa ja Android 9 antoi sen myös muihin komponentteihin ja kerneliin.
+Muut Linuxit ei ole vielä ottanut tätä käyttöön.</p>
+
+<p>Yksi isoimmista muistinkorruptoitumis haavoittuvuus luokista on alustamaton muistin. Windows
+käyttää InitAll:ia alustamaan pinon muuttujat nollaan kernelissä ja osittain user_space koodiin.
+Linuxilla sielä on joitain tekniikoita mutta ne ei koske user_space koodia. Android taas käyttää Scudoa
+ja GrapheneOS hardened_malloc:cia.</p>
+
+<p>Runsaasti muitakin esimerkkejä joita en ala luettelemaan kuten itse kernelin ongelmat, VBS:n puuttuminen,
+olematon raja rootin välillä jne.</p>
+
 <h2 id="muut"><a style="color:white;" href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></h2>
 <div id="teksti">GrapheneOS keskittyy täysin turvallisuus / yksityisyys parannuksiin itse käyttöjärjestelmässä, ei markkinointiin ja kolmannen osapuolen sovellusten ennalta asentamiseen kuten Signaalin. Useat muut kuten LineageOS ei mahdollista bootloaderin lukitsemista mikä kytkee verified-bootin pois mikä on iso osa Androidin turvallisuusmallia. Käyttää <a href="https://github.com/LineageOS/hudson/blob/master/lineage-build-targets">user-debug buildseja</a> oletuksena joka lisää hyökkäyspintaa, <a href="https://github.com/LineageOS/android_system_sepolicy/search?q=userdebug&type=code">heikentää SElinux sääntöjä</a>, ei anna minkäänlaista <a href="https://source.android.com/security/verifiedboot/verified-boot#rollback-protection">roll-back suojaa</a> ja jopa antaa käyttäjän itse alentaa version eikä kuljeta laiteohjelmisto päivityksiä.</div>
 
