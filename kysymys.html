@@ -72,7 +72,7 @@
 <h2>Muut</h2>
 <ul style="border-left:3px solid grey;">
   <li><a href="#perustus">Miten GrapheneOS perustettiin?</a></li>
-  <li><a href="#tarkoitus">Mikä on tämän sivuston tarkoitus?</a></li>
+  <li><a href="#tarkoitus">Linux Puhelimet VS GrapheneOS</a></li>
   <li><a href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></li>
 </ul>
 </ul>
@@ -285,21 +285,37 @@ GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#
 <h2 id="perustus"><a style="color:white;" href="#perustus">Miten GrapheneOS perustettiin?</a></h2>
 <div id="teksti"><a href="https://twitter.com/DanielMicay">Daniel Micay</a> perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei vielä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää.<br><br> Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
 
-<h2 id="tarkoitus"><a style="color:white;" href="#tarkoitus">Mikä on tämän sivuston tarkoitus?</a></h2>
-<div id="teksti">Tämän sivuston tarkoitus on antaa selkeää suomenkielistä tietoa GrapheneOS projektista aktiivisesti seuraten muutoksia käyttöjärjestelmässä sekä dokumentaatiossa ja muokaten tätä sivustoa näiden mukaisesti. Huollan sivua yksin pienillä resursseilla joten käytössä on Github Pages ainakin toistaiseksi. Sivustolla ei ole käytössä yhtään javascriptiä joten sivustoa on mahdollista käyttää selaimella jossa Javascript on kytketty pois. Sivustolla ei myöskään ole Google Analyticsiä tai muuta vastaavaa. Sivuston lähdekoodiin pääsee <a href="https://github.com/Shepherd115/Jep">Tästä</a>.
-Lähteet:</div>
+<h2 id="tarkoitus"><a style="color:white;" href="#tarkoitus">Linux Puhelimet VS GrapheneOS</a></h2>
+<p>pöytäkone Linuxit ei ole turvallisia tai yksityisiä (<a href="https://grsecurity.net/10_years_of_linux_security.pdf">Lähde1</a>, <a href="https://twitter.com/grsecurity/status/1249850031357788162">lähde2</a>, <a href="https://github.com/ossf/wg-securing-critical-projects/blob/main/presentations/The_state_of_the_Linux_kernel_security.pdf">lähde3</a>, <a href="https://www.openwall.com/lists/oss-security/2020/10/05/5">lähde4</a>, <a href="https://twitter.com/spendergrsec/status/1308734202330963970">lähde5</a>, <a href="https://madaidans-insecurities.github.io/linux.html">lähde6</a>). Tämä pätee myös Linux puhelimiin.
+Puhelimet kuten Librem 5 ja Pinephone on suuri taka-askel perinteisistä mobiilikäyttöjärjestelmistä
+kuten Androidista. Linux puhelimista puuttuu kunnollinen turvallisuus malli ja <a href="https://madaidans-insecurities.github.io/linux.html">Madaidanin Linux Artikkeli</a>
+pätee Linux puhelimiin myös. Siellä ei ole yhtäkään Linux puhelinta toistaiseksi
+joissa olisi järkevä turvallisuusmalli. Niissä ei ole moderneja turvallisuusominaisuuksia
+kuten koko systeemiä koskevia MAC käytäntöjä (Kuten SElinux), verified-boottia,
+sovellushiekkalaatikkoa, exploittien estämis tekniikoita jne.</p>
+
+<p>Debian forkit kuten PureOS yrittää osittain parantaa turvallisuutta mutta ei onnistu siinä
+kovin hyvin</p>
+
 <ul>
-<li><a href="https://grapheneos.org">grapheneos</a></li>
-<li><a href="https://www.akc3n.org/">akc3n</a></li>
-<li><a href="https://madaidans-insecurities.github.io/index.html">Madaidans-insecurities</a></li>
-<li><a href="https://github.com/Lelmister101/blog">Somenerd blog</a></li>
-<li><a href="https://source.android.com/security/">source.android.com.security</a></li>
-<li><a href="https://github.com/Peter-Easton/GrapheneOS-Knowledge">Peter-Easton GrapheneOS-Knowledge</a></li>
-<li><a href="https://hub.libranet.de/wiki/graphene-os/wiki/Home">GrapheneOS Wiki</a></li>
-<li><a href="https://arxiv.org/abs/1904.05572">Arxiv</a></li>
-<li><a href="https://security.googleblog.com">Google blog</a></li>
-<li><a href="https://privacyguides.org/android/">Privacyguide</a></li>
+<li>PureOS ei käytä exec-shied paikkaa jotta sysctl ei olisi olemassa alun perinkään</li>
+<li>Kexec tarkoitus on estää roottia käynnistämästä virheellistä kerneliä mutta root
+voi tehä paljon muuta muokatakseen kerneliä, kuten ladata kerneln moduuli. Toisinkuin GrapheneOS
+joka käyttää kokonaan monoliittista kerneliä jossa dynaamisesti ladattavat kernel moduulit ovat kokonaan
+poissa käytöstä</li>
+<li>Kernel sympolien piilottaminen <code>kptr_restrict</code> kautta sivuuttaa faktan
+että ne silti ovat täysin näkyvissä <code>System.map</code> tiedostossa.</li>
 </ul>
+
+<p>Itse laitteistosta myös puuttuu useita ominaisuuksia kuten verified-boot jonka tehtävä olisi
+tarkistaa että kaikki suoritettu koodi tulee luotetusta lähteestä. Androidissa on täysi
+verified-boot ja Pixel puhelimissa <a href="https://android.googlesource.com/platform/external/avb/+/master/README.md#pixel-2-and-later">tuki asettaa omat signeeraus avaimet</a>. GrapheneOS
+myös vahvistaa tätä entisestään kuten asettamalla dexpreoptin käyttöjärjestelmän sovelluksille, <a href="https://github.com/GrapheneOS/platform_system_sepolicy">tiukentamalla
+SElinux käytäntöjä</a> ja poistamalla turhia ominaisuuksia kuten system_other odex.</p>
+
+<p>Laitteisto ei myöskään sisällä minkäänlaista varastoa jossa säilöä salausmateriaalia 
+kuten salausavaimia. Androidissa taas on Hardware-backed Keystore ja Pixel
+puhelimissa kokonaan oma siru näille (TitanM ja TitanM2)</p>
 
 <h2 id="muut"><a style="color:white;" href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></h2>
 <div id="teksti">GrapheneOS keskittyy täysin turvallisuus / yksityisyys parannuksiin itse käyttöjärjestelmässä, ei markkinointiin ja kolmannen osapuolen sovellusten ennalta asentamiseen kuten Signaalin. Useat muut kuten LineageOS ei mahdollista bootloaderin lukitsemista mikä kytkee verified-bootin pois mikä on iso osa Androidin turvallisuusmallia. Käyttää <a href="https://github.com/LineageOS/hudson/blob/master/lineage-build-targets">user-debug buildseja</a> oletuksena joka lisää hyökkäyspintaa, <a href="https://github.com/LineageOS/android_system_sepolicy/search?q=userdebug&type=code">heikentää SElinux sääntöjä</a>, ei anna minkäänlaista <a href="https://source.android.com/security/verifiedboot/verified-boot#rollback-protection">roll-back suojaa</a> ja jopa antaa käyttäjän itse alentaa version eikä kuljeta laiteohjelmisto päivityksiä.</div>
