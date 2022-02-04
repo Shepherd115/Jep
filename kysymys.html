@@ -286,7 +286,7 @@ GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#
 <div id="teksti"><a href="https://twitter.com/DanielMicay">Daniel Micay</a> perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei vielä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää.<br><br> Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
 
 <h2 id="tarkoitus"><a style="color:white;" href="#tarkoitus">Linux Puhelimet VS GrapheneOS</a></h2>
-<p>pöytäkone Linuxit ei ole turvallisia tai yksityisiä (<a href="https://grsecurity.net/10_years_of_linux_security.pdf">Lähde1</a>, <a href="https://twitter.com/grsecurity/status/1249850031357788162">lähde2</a>, <a href="https://github.com/ossf/wg-securing-critical-projects/blob/main/presentations/The_state_of_the_Linux_kernel_security.pdf">lähde3</a>, <a href="https://www.openwall.com/lists/oss-security/2020/10/05/5">lähde4</a>, <a href="https://twitter.com/spendergrsec/status/1308734202330963970">lähde5</a>, <a href="https://madaidans-insecurities.github.io/linux.html">lähde6</a>). Tämä pätee myös Linux puhelimiin.
+<p>Pöytäkone Linuxit eivät ole turvallisia tai yksityisiä (<a href="https://grsecurity.net/10_years_of_linux_security.pdf">Lähde1</a>, <a href="https://twitter.com/grsecurity/status/1249850031357788162">lähde2</a>, <a href="https://github.com/ossf/wg-securing-critical-projects/blob/main/presentations/The_state_of_the_Linux_kernel_security.pdf">lähde3</a>, <a href="https://www.openwall.com/lists/oss-security/2020/10/05/5">lähde4</a>, <a href="https://twitter.com/spendergrsec/status/1308734202330963970">lähde5</a>, <a href="https://madaidans-insecurities.github.io/linux.html">lähde6</a>). Tämä pätee myös Linux puhelimiin.
 Puhelimet kuten Librem 5 ja Pinephone on suuri taka-askel perinteisistä mobiilikäyttöjärjestelmistä
 kuten Androidista. Linux puhelimista puuttuu kunnollinen turvallisuus malli ja <a href="https://madaidans-insecurities.github.io/linux.html">Madaidanin Linux Artikkeli</a>
 pätee Linux puhelimiin myös. Siellä ei ole yhtäkään Linux puhelinta toistaiseksi
@@ -319,20 +319,20 @@ puhelimissa kokonaan oma siru näille (TitanM ja TitanM2)</p>
 
 <p>Muutamia Linuxin ongelmia on lueteltu tässä:</p>
 
-<p>Yleisesti käytetty Flatpak sisältää merkittäviä reikiä. Useat sovellukset sisältävät <code>filesystem=home</code> tai <code>filesystem=host</code> luvan joka
+<p>Yleisesti käytetty sandbox/hiekkalaatikko on Flatpak mutta sisältää merkittäviä reikiä. Useat sovellukset sisältävät <code>filesystem=home</code> tai <code>filesystem=host</code> luvan joka
 antaa täyden read-write pääsyn <code>Home</code> kansioon. Se myös mahdollistaa
 hiekkalaatikosta pakenemisen kirjoittamalla <code>~/.bashrc</code> tiedostoon. Flatpakin Github
 organisaatiossa noin 550 sovellusta sisältävät jomman kumman luvista 
 kuten <a href="https://github.com/flathub/com.dropbox.Client/blob/a97e98e2f8386d59cf04b9e3ccb0c575ba9f6954/com.dropbox.Client.json#L15">Dropbox,</a>
 <a href="https://github.com/flathub/org.libreoffice.LibreOffice/blob/6d9d7f43d5a0562a1269cd0df078b2bdb4a3144b/org.libreoffice.LibreOffice.json#L631">LibreOffice</a>
 ja <a href="https://github.com/flathub/org.gimp.GIMP/blob/f819d5614ca19d3ffff99f2040881a873daa175f/org.gimp.GIMP.json#L14">GIMP</a>.
-Flatpak myös sallii pääsyn X11 sockettiin  mikä antaa luo suuren hiekkalaatikko reiän sillä X11 ei
-sisällä GUI eristystä. Flatpak myös antaa täyden pääsyn kansioihin kuten <ocde>/sys</code>
+Flatpak myös sallii pääsyn X11 sockettiin mikä luo suuren hiekkalaatikko reiän sillä X11 ei
+sisällä GUI eristystä. Flatpak myös antaa täyden pääsyn kansioihin kuten <cocde>/sys</code>
 ja <code>/proc</code> sen sijan että se antaisi pääsyn vain tarvittaviin tiedostoihin.</p>
 
-<p>Useat Linux ohjelmat on kirjoitettu C tai C++ 
+<p>Useat Linux ohjelmat ovat kirjoitettu C tai C++ 
 kielellä <a href="https://msrc-blog.microsoft.com/2019/07/16/a-proactive-approach-to-more-secure-code/">joka on useimpien turvallisuusreikien syynä.</a>
-Android taas käyttää pääosin Javaa ja on siirtymässä kokonaan Kotliniin</p> 
+Android taas käyttää pääosin Javaa ja on siirtymässä kokonaan Kotliniin.</p> 
 
 <p>CFI - CFI eli Control Flow Integrity on turvallisuusmekanismi jolla pyritään estämään
 muutokset alkuperäiseen kontrollin kulkuun. Tämä on äärettömän tärkeää sillä vuonna 2016 AOSP (Android)
