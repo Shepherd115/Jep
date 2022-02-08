@@ -164,7 +164,7 @@ JIT moottori ja <a href="https://madaidans-insecurities.github.io/firefox-chromi
 <h2 id="auditor"><a href="#auditor">Auditor</a></h2>
 <p>Auditor ja <a href="https://source.android.com/security/verifiedboot">Verified-Boot</a> toimii viimeisenä puolustuslinjana. Verified-Boot varmistaa että
 kaikki suoritettu koodi tulee luotettavasta lähteestä, hyökkääjän tai korruptoitumisen sijan. Auditorin tarkoitus sen sijan on hankkia Verified-Boot tiedot
-luottamatta laitteen UI kerrokseen.
+luottamatta laitteen UI kerrokseen.</p>
 
 <p>Verified-Boot luo luottamusketjun joka aloittaa muuttumattomasta RoTista (Root-Of-Trust), menee bootloaderiin sekä boot osioon ja muihinkin vahvistettuihin 
 osioihin kuten <code>system</code> ja <code>vendor</code>. Jokaisen käynnistyksen yhteydessä, jokainen vaihe vahvistaa seuraavan vaiheen autenttisuuden ja 
@@ -172,7 +172,7 @@ koskemattomuuden ennen ketjun jatkamista.</p>
 
 <p>Auditing prosessi vaatii kaksi laitetta, Auditorin joka voi olla mikä vain Android laite jossa on vähintään Android 8 sekä Auditee eli vahvistettava laite
 jonka on oltava laite joka on julkaistu vähintään Android 8 kanssa. Jokainen laitemalli pitää myös olla erikseen integroitu sovellukseen. Lista
-tuetuista Auditee laitteista löytyy <a href="https://attestation.app/about#device-support">Tästä</a>.
+tuetuista Auditee laitteista löytyy <a href="https://attestation.app/about#device-support">Tästä</a>.</p>
 
 <p>Auditor sovellus luo pysyvän laitteistopohjaisen avaimen jota Verified-Boot suojelee, sillä avainvarasto ei anna avaimia käytettäväksi jos itse OS ei
 läpäise vahvistusta. Auditor signeeraa jokaisen vahvistuksen tällä pysyvällä avaimella. Ensimmäinen
