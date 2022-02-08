@@ -26,6 +26,11 @@ html {
   text-align:center;
 }
 
+#middlewhite a {
+    color:white;
+    text-align:center;
+}
+
 /*Sivuston järjestys*/
 main {
     margin-left: auto;
