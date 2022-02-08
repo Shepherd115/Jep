@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="fi"
+<html lang="fi">
 <head>
-    <link href="main.css" rel="stylesheet">
-    <link rel="alternate" hreflang="fi" href="http://shepherd115.github.io/Jep/index.html">
+    <link href="main.css" rel="stylesheet"/>
+    <link rel="alternate" hreflang="fi" href="http://shepherd115.github.io/Jep/index.html"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta charset="UTF-8">
-    <meta name="author" content="Shepherd">
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Shepherd"/>
     <title>Suomalaista GrapheneOS tietoa</title>
-    <meta name="description" content="GrapheneOS - Turvallinen & Yksityinen OS Android sovellusten yhteensopivuudella"/>
+    <meta name="description" content="Suomalaista GrapheneOS tietoa"/>
     <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
     <meta property="og:image:width" content="512"/>
-    <meta property="og:image:height" content="512"/
+    <meta property="og:image:height" content="512"/>
     <meta property="og:image:alt" content="GrapheneOS logo"/>
     <meta property="og:site_name" content="GrapheneOS"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Suomalaista GrapheneOS tietoa"/>
+    <meta property="og:url" content="https://shepherd115.github.io/jep/index.html"/>
     <link rel="canonical" href="https://shepherd115.github.io/Jep/index.html"/>
     <link rel="icon" href="favicon.ico"/>
     <link rel="icon" sizes="any" type="image/svg+xml" href="favicon.svg"/>
@@ -33,15 +36,17 @@
 </nav>
 <main>
 
-<h1>Suomalaista GrapheneOS Tietoa<img id="kuvah" src="mask-icon.svg"></h1>
+<h1>Suomalaista GrapheneOS Tietoa<img id="kuvah" src="mask-icon.svg" alt="GrapheneOS logo"></h1>
     
-<p style="text-align:center;">"If I were configuring a smartphone today, I'd use Daniel Micays GrapheneOS as the base operating system"<br>
--Edward Snowden (<a href="https://twitter.com/Snowden/status/1175430722733129729?ref_src=twsrc%5Etfw">lähde</a>)</p>
+
+<p id="middlewhite"><a id="middlewhite" href="https://twitter.com/Snowden/status/1175430722733129729?ref_src=twsrc%5Etfw">"If I were configuring a 
+smartphone today, I'd use Daniel Micays GrapheneOS as the base operating system"</a><br>-Edward Snowden</p>
+
 
 <p>GrapheneOS on turvallisuus ja yksityisyys painotteinen mobiilikäyttöjärjestelmä Android sovellusten yhteensopivuudella jota kehitetään voittoa
 tavoittelemattomana avoimen lähdekoodin projektina. Se keskittyy yksityisyys ja turvallisuus teknologioiden tutkimiseen ja kehitykseen kuten merkittäviin
 parannuksiin sandboxeihin, yleisten tietoturvareikien sulkemiseen sekä käyttöoikeus mallin vahvistamiseen. 
-Se <a href="https://shepherd115.github.io/Jep/kysymys.html#perustus">perustettiin</a> 2014 ja oli ennen tunnettu nimellä CopperheadOS.</p>
+Se <a href="https://shepherd115.github.io/Jep/kysymys.html#perustus">perustettiin</a> vuonna 2014 ja oli ennen tunnettu nimellä CopperheadOS.</p>
 
 <p>GrapheneOS parantaa käyttöjärjestelmän turvallisuutta ja yksityisyyttä pohjasta ylöspäin. Se ottaa käyttöön teknologioita sulkeakseen useita tietoturvareikiä
 sekä tekee yleisten hyökkäysten suorittamisesta merkittävästi vaikeampaa. Se parantaa itse käyttöjärjestelmän turvallisuutta sekä sovelluksien joita siinä on.
@@ -49,18 +54,20 @@ sekä tekee yleisten hyökkäysten suorittamisesta merkittävästi vaikeampaa. S
 käyttäjäkokemukseen vaikuttamista turvallisuus ja yksityisyys ominaisuuksillaan mutta tämä ei ole aina mahdollista, ja GrapheneOS lisääkin useita kytkimiä
 ominaisuuksille kuten Network lupa, Sensors lupa, rajoituksia kun laite on lukittu (USB, kamera, quick tiles) jne.</p>
 
+<section id="ajan-kohtaista">
 <ul>
-  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/features.html">Ominaisuudet</a> sivu sisältää yhteenvedon ominaisuuksista joita GrapheneOS lisää AOSPn päälle</p>
-  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/kautto.html">Käyttö</a> sivu sisältää yleiseen käyttöön liittyviä asioita</p>
-  <p id="ajan-kohtaista"><a href="https://shepherd115.github.io/Jep/kysymys.html">Q&A</a> sivu sisältää yleisiä kysymyksiä ja vastauksia projektista</p>
+  <li><a href="https://shepherd115.github.io/Jep/features.html">Ominaisuudet</a> sivu sisältää yhteenvedon ominaisuuksista joita GrapheneOS lisää AOSPn päälle</li>
+  <li><a href="https://shepherd115.github.io/Jep/kautto.html">Käyttö</a> sivu sisältää yleiseen käyttöön liittyviä asioita</li>
+  <li><a href="https://shepherd115.github.io/Jep/kysymys.html">Q&A</a> sivu sisältää yleisiä kysymyksiä ja vastauksia projektista</li>
 </ul>
+</section>
 
 <p>GrapheneOS myös kehittää useita turvallisuus ja yksityisyys keskittyneitä sovelluksia ja palveluita. <a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> 
 on vahvistettu Chromium selain sekä laitteen WebViewin tarjoaja. GrapheneOS myös sisältää PDF lukijan, <a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> 
 sovelluksen jonka tarkoitus on vahvistaa laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus, oma moderni kamerasovellus sekä Seedvault 
 salattujen varmuuskopioiden luomiseen.</p>
 
-<p>Sivuston Lähteet:</p>
+<p>Sivuston lähteet:</p>
 <ul>
 <li><a href="https://grapheneos.org">grapheneos</a></li>
 <li><a href="https://www.akc3n.org/">akc3n</a></li>
@@ -73,7 +80,7 @@ salattujen varmuuskopioiden luomiseen.</p>
 <li><a href="https://security.googleblog.com">Google blog</a></li>
 <li><a href="https://privacyguides.org/android/">Privacyguide</a></li>
 </ul>
-
+<section>
         <footer>
             <a href="https://shepherd115.github.io/Jep/"><img src="mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
