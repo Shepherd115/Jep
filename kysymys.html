@@ -31,7 +31,7 @@
 </nav>
 
 <main id="q&a">
-<h1><a href="#q&a"></a></h1>
+<a href="#q&a"></a>
 
 <h1><a href="#q&a">Q&A<img id="kuvah" src="mask-icon.svg" alt="GrapheneOS Logo"></a></h1>
 
@@ -119,13 +119,6 @@ hinta, muistin määrä (Pixel 6 Pro sisältää 50% enemmän. 12GB siis) sekä 
 <p>Pixel 5a, Pixel 5 ja Pixel 4a(5g) on viidennen sukupolven Pixel puhelimia joissa on kaikissa
 sama vuoden 2020 Qualcomm SoC. Näillä laitteilla on noin 2-3 vuotta tukea jäljellä ja ovat
 kohtalainen valinta jos Pixel 6 tai Pixel 6 Pro ei ole vaihtoehto.</p>
-
-<p>Seuraavat laitteet ovat kohtalaisia vaihtoehtoja jos Pixel 6 tai Pixel 6 Pro ei ole saatavilla:</p>
-<ul>
-<li>Pixel 5a (barbet)</li>
-<li>Pixel 5 (redfin)</li>
-<li>Pixel 4a (5G) (bramble)
-</ul>
 
 <h2 id="tulevaisuuden-laitteet"><a style="color:white;" href="#tulevaisuuden-laitteet">Mitkä laitteet tulee olemaan tuettuja tulevaisuudessa?</a></h2>
 <p>Laitteet ovat tarkasti ja varovasti valittuja niiden ominaisuuksien perusteella laajan laitetuen sijan. Laaja laitetuki on vastike projektin
@@ -269,11 +262,32 @@ tai tehdasasetuksissa.</p>
 <div ud="teksti">Niinkuin muutkin isot Android päivitykset, tämäkin toi suuria parannuksia yksityisyyteen ja turvallisuuteen joka on myös mahdollistanut joidenkin GrapheneOS ominaisuuksien jättämistä pois sillä ne ovat nyt itse Androidissa. Siellä on myös paljon under-the-hood muutoksia kuten Rustin adoptointi ja AndroidRuntimen vahvistuksia. Lista muunnoksista löytyy <a href="https://developer.android.com/about/versions/12/summary">Tästä</a></div>
 
 <h2 id="verkot"><a style="color:white;" href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></h2>
-<div>GrapheneOS aina olettaa että puhelinoperaattorit ovat vihollisia. Se jättää pois useita sovelluksia mitkä ovat AOSPssä jotka antavat puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myöskin päivittää kellon itse sen sijan että luottaisi että puhelinoperaattori tekisi tätä. Aika on nimittäin arvokasta jota voidaan hyväksi käyttää, tämän takia TitanM siru sisältää kokonaan oman kellon jota se itse määrää.
-Puhelin verkostot käyttävät erittäin epä-turvallisia teknologioita ja niillä on useita luotettavia osapuolia. Luotto on asia mitä ei pitäisi olla tietoturvassa, kenenkään ei pitäisi luottaa että palvelu tekee asiat oikein, on oltava kunnollinen ja robusti tapa joka välttää luottamista muuhun kuin osapuoleen kehen haluat ottaa yhteyttä. Luotettavin järjestelmä on järjestelmä johon ei tarvitse luottaa.
-<br><br>Kaikilla virallisesti tuetuilla laitteilla on tuki ottaa käyttöön lentokonetila mutta ottaa käyttöön wifi samaan aikaan. Tämä estää kaikki yhteydet puhelinoperaattoriin ja mahdollistaa laitteen käytön wifi-only laitteena. MAC osoitteen randomisointi on aina käytössä kun laite skannaa wifi verkkoja. Pixel puhelimissa on laiteohjelmistotuki MAC osoitteen randomisointiin mikä menee yli perus randomisoinnin 
-Useilla muilla laitteilla laite wifi skannaus vuotaa tunnisteita.
-GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#lte">LTE-only</a> vaihtoehdon joka kytkee 2g/3g/5g yhteyden kokonaan pois ja käyttää pelkästään 4g:tä. Tämä on ainoastaan pienentämään hyökkäyspintaa poistamalla vanhentunutta koodia eikä pidä erehtyä että se on jotain mikä tekisi puhelinoperaattorista luotettavan. Perus puhelut eivät toimi kun LTE-only on käytössä.
+<p>GrapheneOS aina olettaa että verkostot ovat vihamielisiä ja välttää näihin luottamista, niin kuin
+kaikki modernit järjestelmät. Se jättää pois useita puhelinoperaattori sovelluksia jotka ovat
+stock-Androidilla jotka myöntävät puhelinoperaattoreille hallitsevia oikeuksia. GrapheneOS myös
+välttää puhelinverkostoihin luottamista muilla tavoilla. GrapheneOS esimerkiksi muodostaa HTTPS
+yhteyden osoitteeseen <code>https://time.grapheneos.org/</code> päivittääkseen kellonajan sivuston
+date header osion avulla. Tämä on täysi korvike Androidin tyypilliselle kellonajan päivittämiselle
+joka tapahtuu puhelinverkostojen kautta ja käyttää SNTP:tä fallbackkina. Tämän tarkoitus on estää
+hyökkäyksiä jotka perustuvat sertifikaatin / avaimen vanhentumisiin. Yleinen NTP / SNTP protokolla
+ei muutenkaan tarjoa minkäänlaista todennusta.</p>
+
+<p>Puhelinverkostot <a href="https://en.wikipedia.org/wiki/SMS#Vulnerabilities">käyttävät 
+erittäin epäturvallisia protokollia</a> ja niillä on useita luotettuja
+osapuolia. Luotto ei ole asia mitä pitäisi olla tietoturvassa. Ei pitäisi luottaa että ihmiset
+tekee oikein vaan on oltava tapa joka välttää näihin luottamista kuten päästä-päähän salaus
+ja HTTPS. Useimmat modernit järjestelmät, sovellukset ja palvelut toimivat jo näin.</p>
+
+<p>Perinteisiä puheluita ja tekstiviestejä pitäisi välttää sillä ne eivät ole turvallisia ja
+ne luottavat sokeasti puhelinoperaattoriin. On tärkeää käyttää aina päästä-päähän salausta
+verkostoihin luottamisen sijan.</p>
+
+<p>Lentokonetilan käyttäminen kokonaan poistaa käytöstä puhelinverkostoyhteydet mutta Wi-Fi
+voidaan ottaa samaan aikaan käyttöön. Tämä mahdollistaa laitteen käytön Wi-Fi Only laitteena.</p>
+
+<p>GrapheneOS lisää <a href="https://shepherd115.github.io/Jep/kautto.html#lte">LTE-Only</a> tilan
+ mutta se on ainoastaan pienentämään hyökkäyspintaa. Ei pitäisi erehtyä luulemaan että se 
+tekee puhelinverkostosta luotetun</p>
 
 <h2 id="fsp"><a style="color:white;" href="#fsp">Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></h2>
 <div id="teksti">Ei. Tämä olisi vaarallista ja tarpeetonta. TitanM käsittelee brute-force hyökkäykset paljon kehittyneemmin kuin vain poistamalla avaimet. TitanM siru itsessään on äärettömän pieni (Noin riisin kokoinen) ja on luonteeltaan erittäin vaikea kohde. TitanM on myös integroitu laitteen salaus prosessiin ja säilöö tokenssit joista luodaan avaimet salauksen purkuun eikä se vapauta näitä ennen kuin oikea salsana on syötetty. Tarkoittaen että yritykset päästä laitteeseen on tehtävä juuri sen TitanM sirun kautta. Brute-force hyökkäyksen aikana TitanM rankaisee hyökkääjää pidentämällä aikaa ennen uutta yritystä. Ensimmäisen viiden yrityksen jälkeen TitanM sammuttaa pääsyn tokensseihin 30 sekunniksi ja sammuttaa sormenjälki lukijan. Tämän jälkeen TitanM progressiivisesti pidentää aikaa kunnes uuden yrityksen aika on yksi päivä. Vaikka käyttöjärjestelmä olisi hyökkääjän hallussa, niin ei ajastinta voi ohittaa sillä TitanM sisältää oman kellon josta OS ei pidä mitään kontrollia. Tämä ei suojaa jos laitteen salasana on jotain helppoa kuten 12345 tai lemmikin nimi mutta tarjoaa lähes murtamattoman suojan vain 6 lukuisella PIN koodilla. On myös hyvä huomioida että GrapheneOS sallii maksimissaan 64 merkkisten salasanojen käytön jos kokee että tarvitsee entistä vahvemman suojan. </div>
