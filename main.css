@@ -16,6 +16,16 @@ body {
     background-size: 400px 600px;
 }
 
+#vasenviiva {
+  border-left: 3px solid grey;
+}
+
+#qaotsikot {
+  border-bottom: 3px solid grey;
+  text-align: center;
+  font-size: 150%;
+}
+
 /*Parantaa näkyvyyttyä iPhoneilla*/
 html {
     height: -webkit-fill-available;

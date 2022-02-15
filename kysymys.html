@@ -23,23 +23,23 @@
 
 <nav id="navigointi">
 <ul>
-<li class="hover-underline-animation"><a href="index.html">GrapheneOS</a></li>
-<li class="hover-underline-animation"><a href="features.html">Ominaisuudet</a></li>
-<li class="hover-underline-animation"><a href="kautto.html">Käyttö</a></li>
-<li class="hover-underline-animation" aria-current="page"><a href="kysymys.html">Q&A</a></li>
+<li><a href="index.html">GrapheneOS</a></li>
+<li><a href="features.html">Ominaisuudet</a></li>
+<li><a href="kautto.html">Käyttö</a></li>
+<li aria-current="page"><a href="kysymys.html">Q&A</a></li>
 </ul>
 </nav>
 
 <main id="q&a">
 <h1><a href="#q&a"></a></h1>
 
-<h1><a href="#q&a">Q&A<img id="kuvah" src="mask-icon.svg"></a></h1>
+<h1><a href="#q&a">Q&A<img id="kuvah" src="mask-icon.svg" alt="GrapheneOS Logo"></a></h1>
 
 <nav id="sisältö">
 <h2><a href="#sisältö">Sisältö</a></h2>
 
 <h2>Laitteisto</h2>
-<ul style="border-left:3px solid grey;">
+<ul id="vasenviiva">
   <li><a href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></li>
   <li><a href="#suositellut-laitteet">Mitkä laitteet ovat suositeltuja?</a></li>
   <li><a href="#tulevaisuuden-laitteet">Mitkä laitteet tulee olemaan tuettuja tulevaisuudessa?</a></li>
@@ -50,7 +50,7 @@
 </ul>
 
 <h2>Sovellukset</h2>
-<ul style="border-left:3px solid grey;">
+<ul id="vasenviiva">
   <li><a href="#mista">Mistä GrapheneOS käyttäjät saavat sovelluksia?</a></li>
   <li><a href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></li>
   <li><a href="#laite-tunnistin">Onko sovelluksilla pääsy laitetunnisteisiin?</a></li>
@@ -59,7 +59,7 @@
 </ul>
 
 <h2>Turvallisuus / Yksityisyys</h2>
-<ul style="border-left:3px solid grey;">
+<ul id="vasenviiva">
   <li><a href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></li>
   <li><a href="#palomuuri">Tarjoaako GrapheneOS palomuurin?</a></li>
   <li><a href="#android">Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?</a></li>
@@ -70,15 +70,13 @@
 </ul>
 
 <h2>Muut</h2>
-<ul style="border-left:3px solid grey;">
+<ul id="vasenviiva">
   <li><a href="#perustus">Miten GrapheneOS perustettiin?</a></li>
-  <li><a href="#tarkoitus">Linux Puhelimet VS GrapheneOS</a></li>
   <li><a href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></li>
-</ul>
 </ul>
 </nav>
 
-<h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Laitteisto</h3>
+<h3 id="qaotsikot">Laitteisto</h3>
 
 <h2 id="laite-tuki"><a style="color:white;" href="#laite-tuki">Mitkä laitteet ovat tuettuja?</a></h2>
 <p>Seuraavat laitteet ovat virallisesti käyttöön valmiita laitteita GrapheneOS tuen kanssa:</p>
@@ -108,12 +106,19 @@
 ympäristöjä virallisen glibc, Bionic ja musl tuen ansiosta ja on helposti lisättävissä muihinkin ympäristöihin.</p>
 
 <h2 id="suositellut-laitteet"><a style="color:white;" href="#suositellut-laitteet">Mitkä laitteet ovat suositeltuja?</a></h2>
-<p>Pixel 6 ja Pixel 6 Pro ovat lippulaiva puhelimia paljon paremmalla laitteistolla kuin edellisten sukupolvien laitteet (kamerat, CPU, GPU, näyttö, akku)
-, 5 vuoden turvallisuuspäivitys takuu ja merkittäviä turvallisuus parannuksia (Tensor ja TitanM2).</p>
+<p>AJANKOHTAISTA! GrapheneOS ilmoitti Twitterissä että "We're going to be collaborating with 
+a hardware vendor to get a device produced with comparable security and support for alternative 
+operating systems as Pixels. We can't publish details right now but we're optimistic about it 
+and hope to have real news about it in a few months."</p>
 
-<p>Halvempi Pixel 6 on suhteellisen halpa laitteistoon ja 5 vuoden tukeen verrattuna. Pixel 6 Pro sisältää 50% enemmän muistia (12GB eikä 8GB), isomman näytön,
-kolmas takakamera jossa 4x zoom ja parempi etukamera. Molemmissa laitteissa on sama SoC (CPU, GPU jne) ja samat takakamerat. Pixel 6 on melko iso ja Pixel
-6 Pro vielä isompi.</p>
+<p>Pixel 6 ja Pixel 6 Pro ovat lippulaiva puhelimia, joissa on merkittävästi parempi laitteisto kuin
+vanhempien sukupolvien laitteissa sekä 5 vuoden ajan turvallisuuspäivityksiä. On vahvasti suositeltavaa
+ostaa jompikumpi näistä puhelimista. Isoimmat erot näiden välillä on kameran ominaisuudet,
+hinta, muistin määrä (Pixel 6 Pro sisältää 50% enemmän. 12GB siis) sekä laitteen koko.</p>
+
+<p>Pixel 5a, Pixel 5 ja Pixel 4a(5g) on viidennen sukupolven Pixel puhelimia joissa on kaikissa
+sama vuoden 2020 Qualcomm SoC. Näillä laitteilla on noin 2-3 vuotta tukea jäljellä ja ovat
+kohtalainen valinta jos Pixel 6 tai Pixel 6 Pro ei ole vaihtoehto.</p>
 
 <p>Seuraavat laitteet ovat kohtalaisia vaihtoehtoja jos Pixel 6 tai Pixel 6 Pro ei ole saatavilla:</p>
 <ul>
@@ -174,14 +179,14 @@ jos täytyisi luetella kaikki poikkeudet.</p>
 <li>Samsung Galaxy S4 (jflte)</li>
 </ul>
 
-
+<section>
 <h2 id="baseband"><a style="color:white;" href="#baseband">Onko baseband eristetty?</a></h2>
 <p>Kyllä, baseband on eristetty kaikilla tuetuilla laitteilla. Muistipääsy on osioitu IOMMUn toimesta ja rajoitettu sisäiseen muistiin sekä
 muistiin joka on jaettu ajuri implementaation toimesta. Baseband kaikilla tuetuilla laitteilla joissa on Qualcommin SoC implementoi
 Wi-Fin ja Bluetoothin omina sandboxattuina prosesseina.</p>
 </section>
 
-<h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Sovellukset</h3>
+<h3 id="qaotsikot">Sovellukset</h3>
 
 
 <h2 id="mista"><a style="color:white;" href="#mista">Mistä GrapheneOS käyttäjät saavat sovelluksia?</a></h2>
@@ -252,7 +257,7 @@ tai tehdasasetuksissa.</p>
 <h2 id="verkkoyhteys"><a style="color:white;" style="color:white;" href="#verkkoyhteys">Onko sovelluksilla pääsy verkkoyhteyksiin ja tilastoihin?</a></h2>
 <div id="teksti">Sovellukset eivät voi monitoroida verkkoyhteyksiä ellei niistä ole tehty aktiivista VPN palvelua käyttäjän toimesta. Sovellukset eivät voi normaalisti saada pääsyä verkkotilastoihin ja eivät voi suoraan pyytää pääsyä niihin.</div>
 
-<h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Turvallisuus / Yksityisyys</h3>
+<h3 id="qaotsikot">Turvallisuus / Yksityisyys</h3>
 
 <h2 id="yhteydet"><a style="color:white;" href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></h2>
 <div id="teksti">GrapheneOS tekee yhteyksiä ulkomaailmaan testatakseen yhteyksiä, havaitsemaan captive portaaleja ja ladatakseen päivityksiä. Tunnistettavia tietoja ei lähetetä. GrapheneOS ei sisällä analytiikkaa. Tarkat yhteydet löytyy <a href="https://grapheneos.org/faq#default-connections">tästä</a></div>
@@ -279,74 +284,11 @@ GrapheneOS myös lisää <a href="https://shepherd115.github.io/Jep/kautto.html#
 <h2 id="root"><a style="color:white;" href="#root">Onko GrapheneOS roottausta?</a></h2>
 <div id="teksti">Ei, GrapheneOS on suunniteltu minimoimaan oikeudet ja hyökkäyspinta ja roottaaminen olisi tämän vastakohta. Androidin arkkitehtuuri on suuniteltu minimaalisten lupien ympärille. Oletuksena kuudella prosessilla on lupa suoriutua roottina ja silloinkin nämä on hyvin rajattuja SElinuxin vuoksi ja kokonaan rajoittamatonta roottia ei ole olemassa Androidissa. Vaikka antaisi vain tietyille sovelluksille root pääsyn voi hyökkääjä käyttää esimerkiksi clickjacking tekniikkaa tai hyväksikäyttää root oikeutettua sovellusta. Verified-boot havaitsisi muutokset ja kumoaisi nämä palauttaakseen laitteen tilaan jossa se läpäisee signatuuri tarkastuksen, tämä tarkoittaisi että roottaaminen myös vaatisi verified-bootin jättämistä kokonaan pois mikä osittain tuhoaa Androidin turvallisuusmallin.</div>
 
-<h3 style="border-bottom: 3px solid grey;text-align:center;font-size:150%;">Muut</h3>
+<h3 id="qaotsikot">Muut</h3>
 
 <section id="reuna">
 <h2 id="perustus"><a style="color:white;" href="#perustus">Miten GrapheneOS perustettiin?</a></h2>
 <div id="teksti"><a href="https://twitter.com/DanielMicay">Daniel Micay</a> perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei vielä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää.<br><br> Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
-
-<h2 id="tarkoitus"><a style="color:white;" href="#tarkoitus">Linux Puhelimet VS GrapheneOS</a></h2>
-<p>Pöytäkone Linuxit eivät ole turvallisia tai yksityisiä (<a href="https://grsecurity.net/10_years_of_linux_security.pdf">Lähde1</a>, <a href="https://twitter.com/grsecurity/status/1249850031357788162">lähde2</a>, <a href="https://github.com/ossf/wg-securing-critical-projects/blob/main/presentations/The_state_of_the_Linux_kernel_security.pdf">lähde3</a>, <a href="https://www.openwall.com/lists/oss-security/2020/10/05/5">lähde4</a>, <a href="https://twitter.com/spendergrsec/status/1308734202330963970">lähde5</a>, <a href="https://madaidans-insecurities.github.io/linux.html">lähde6</a>). Tämä pätee myös Linux puhelimiin.
-Puhelimet kuten Librem 5 ja Pinephone on suuri taka-askel perinteisistä mobiilikäyttöjärjestelmistä
-kuten Androidista. Linux puhelimista puuttuu kunnollinen turvallisuus malli ja <a href="https://madaidans-insecurities.github.io/linux.html">Madaidanin Linux Artikkeli</a>
-pätee Linux puhelimiin myös. Siellä ei ole yhtäkään Linux puhelinta toistaiseksi
-joissa olisi järkevä turvallisuusmalli. Niissä ei ole moderneja turvallisuusominaisuuksia
-kuten koko systeemiä koskevia MAC käytäntöjä (Kuten SElinux), verified-boottia,
-sovellushiekkalaatikkoa, exploittien estämis tekniikoita jne.</p>
-
-<p>Debian forkit kuten PureOS yrittää osittain parantaa turvallisuutta mutta ei onnistu siinä
-kovin hyvin</p>
-
-<ul>
-<li>PureOS ei käytä exec-shied paikkaa jotta sysctl ei olisi olemassa alun perinkään</li>
-<li>Kexec tarkoitus on estää roottia käynnistämästä virheellistä kerneliä mutta root
-voi tehä paljon muuta muokatakseen kerneliä, kuten ladata kerneln moduuli. Toisinkuin GrapheneOS
-joka käyttää kokonaan monoliittista kerneliä jossa dynaamisesti ladattavat kernel moduulit ovat kokonaan
-poissa käytöstä</li>
-<li>Kernel sympolien piilottaminen <code>kptr_restrict</code> kautta sivuuttaa faktan
-että ne silti ovat täysin näkyvissä <code>System.map</code> tiedostossa.</li>
-</ul>
-
-<p>Itse laitteistosta myös puuttuu useita ominaisuuksia kuten verified-boot jonka tehtävä olisi
-tarkistaa että kaikki suoritettu koodi tulee luotetusta lähteestä. Androidissa on täysi
-verified-boot ja Pixel puhelimissa <a href="https://android.googlesource.com/platform/external/avb/+/master/README.md#pixel-2-and-later">tuki asettaa omat signeeraus avaimet</a>. GrapheneOS
-myös vahvistaa tätä entisestään kuten asettamalla dexpreoptin käyttöjärjestelmän sovelluksille, <a href="https://github.com/GrapheneOS/platform_system_sepolicy">tiukentamalla
-SElinux käytäntöjä</a> ja poistamalla turhia ominaisuuksia kuten system_other odex.</p>
-
-<p>Laitteisto ei myöskään sisällä minkäänlaista varastoa jossa säilöä salausmateriaalia 
-kuten salausavaimia. Androidissa taas on Hardware-backed Keystore ja Pixel
-puhelimissa kokonaan oma siru näille (TitanM ja TitanM2)</p>
-
-<p>Muutamia Linuxin ongelmia on lueteltu tässä:</p>
-
-<p>Yleisesti käytetty sandbox/hiekkalaatikko on Flatpak mutta sisältää merkittäviä reikiä. Useat sovellukset sisältävät <code>filesystem=home</code> tai <code>filesystem=host</code> luvan joka
-antaa täyden read-write pääsyn <code>Home</code> kansioon. Se myös mahdollistaa
-hiekkalaatikosta pakenemisen kirjoittamalla <code>~/.bashrc</code> tiedostoon. Flatpakin Github
-organisaatiossa noin 550 sovellusta sisältävät jomman kumman luvista 
-kuten <a href="https://github.com/flathub/com.dropbox.Client/blob/a97e98e2f8386d59cf04b9e3ccb0c575ba9f6954/com.dropbox.Client.json#L15">Dropbox,</a>
-<a href="https://github.com/flathub/org.libreoffice.LibreOffice/blob/6d9d7f43d5a0562a1269cd0df078b2bdb4a3144b/org.libreoffice.LibreOffice.json#L631">LibreOffice</a>
-ja <a href="https://github.com/flathub/org.gimp.GIMP/blob/f819d5614ca19d3ffff99f2040881a873daa175f/org.gimp.GIMP.json#L14">GIMP</a>.
-Flatpak myös sallii pääsyn X11 sockettiin mikä luo suuren hiekkalaatikko reiän sillä X11 ei
-sisällä GUI eristystä. Flatpak myös antaa täyden pääsyn kansioihin kuten <cocde>/sys</code>
-ja <code>/proc</code> sen sijan että se antaisi pääsyn vain tarvittaviin tiedostoihin.</p>
-
-<p>Useat Linux ohjelmat ovat kirjoitettu C tai C++ 
-kielellä <a href="https://msrc-blog.microsoft.com/2019/07/16/a-proactive-approach-to-more-secure-code/">joka on useimpien turvallisuusreikien syynä.</a>
-Android taas käyttää pääosin Javaa ja on siirtymässä kokonaan Kotliniin.</p> 
-
-<p>CFI - CFI eli Control Flow Integrity on turvallisuusmekanismi jolla pyritään estämään
-muutokset alkuperäiseen kontrollin kulkuun. Tämä on äärettömän tärkeää sillä vuonna 2016 AOSP (Android)
-raportoi että noin 86% kaikista haavoittuvuuksista on muistiturvallisuuteen liittyviä. Android 8.1
-otti käyttöön CFIn media-stackissa ja Android 9 antoi sen myös muihin komponentteihin ja kerneliin.
-Muut Linuxit ei ole vielä ottanut tätä käyttöön.</p>
-
-<p>Yksi isoimmista muistinkorruptoitumis haavoittuvuus luokista on alustamaton muistin. Windows
-käyttää InitAll:ia alustamaan pinon muuttujat nollaan kernelissä ja osittain user_space koodiin.
-Linuxilla sielä on joitain tekniikoita mutta ne ei koske user_space koodia. Android taas käyttää Scudoa
-ja GrapheneOS hardened_malloc:cia.</p>
-
-<p>Runsaasti muitakin esimerkkejä joita en ala luettelemaan kuten itse kernelin ongelmat, VBS:n puuttuminen,
-olematon raja rootin välillä jne.</p>
 
 <h2 id="muut"><a style="color:white;" href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></h2>
 <div id="teksti">GrapheneOS keskittyy täysin turvallisuus / yksityisyys parannuksiin itse käyttöjärjestelmässä, ei markkinointiin ja kolmannen osapuolen sovellusten ennalta asentamiseen kuten Signaalin. Useat muut kuten LineageOS ei mahdollista bootloaderin lukitsemista mikä kytkee verified-bootin pois mikä on iso osa Androidin turvallisuusmallia. Käyttää <a href="https://github.com/LineageOS/hudson/blob/master/lineage-build-targets">user-debug buildseja</a> oletuksena joka lisää hyökkäyspintaa, <a href="https://github.com/LineageOS/android_system_sepolicy/search?q=userdebug&type=code">heikentää SElinux sääntöjä</a>, ei anna minkäänlaista <a href="https://source.android.com/security/verifiedboot/verified-boot#rollback-protection">roll-back suojaa</a> ja jopa antaa käyttäjän itse alentaa version eikä kuljeta laiteohjelmisto päivityksiä.</div>

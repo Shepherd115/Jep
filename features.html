@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fi"
+<html lang="fi">
 <head>
     <link href="main.css" rel="stylesheet">
     <link rel="alternate" hreflang="fi" href="http://shepherd115.github.io/Jep/index.html">
@@ -10,7 +10,7 @@
     <meta name="description" content="GrapheneOS - Turvallinen & Yksityinen OS Android sovellusten yhteensopivuudella"/>
     <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
     <meta property="og:image:width" content="512"/>
-    <meta property="og:image:height" content="512"/
+    <meta property="og:image:height" content="512"/>
     <meta property="og:image:alt" content="GrapheneOS logo"/>
     <meta property="og:site_name" content="GrapheneOS"/>
     <link rel="canonical" href="https://shepherd115.github.io/Jep/features.html"/>
@@ -31,7 +31,7 @@
 </nav>
 <main>
 
-<h1>Ominaisuudet<img id="kuvah" src="mask-icon.svg"></h1>
+<h1>Ominaisuudet<img id="kuvah" src="mask-icon.svg" alt="GrapheneOS Logo"></h1>
 <p>GrapheneOS aloittaa AOSPn <a href="https://arxiv.org/abs/1904.05572">vahvasta</a> turvallisuusmallista ja huolehtii ettei se satuta tätä tai lisää
 hyökkäyspintaa. GrapheneOS sisältää kattavan lajitelman tarkasti suunniteltuja komponentteja jotka toimivat harmoniassa 
 parantaen muistisuojausta, sulkemaan kokonaisia exploitti luokkia sekä tekee useiden hyökkäysten suorittamisesta merkittävästi vaikeampaa. 
@@ -43,16 +43,16 @@ itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sov
 
 <h1>Laitteisto (Pixel 5)</h1>
 
-<ul style="border-left: 3px solid white;">
-<li>Täysi <a href="https://source.android.com/security/verifiedboot/">Verified-Boot</a> ja tuki omille signeeraus avaimille - Takaa että kaikki suoritettu koodi tulee luotettavasta lähteestä</li><br>
-<li><a href="https://www.blog.google/products/pixel/titan-m-makes-pixel-3-our-most-secure-phone-yet/">Titan M</a> - Titan M on Pixel puhelimien HSM siru joka varastoi krytpograafisen materiaalin käyttäen StrongBox avainvarastoa. Myös integroitu Verified-Boot prosessiin sekä tarjoaa <a href="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html">insider-attack-resistancen</a> joka estää Googlea tai hyökkääjää asentamasta haitallista laiteohjelmisto versiota</li><br>
-<li>Aiemmissa Pixeleissä kuin Pixel 6 on Qualcommin SoC joka implementoi modernit exploittien mitigointikyvyt sekä robustin IOMMUn eristämään fyysiset komponentit toisistaan</li><br>
-<li>Pixelien kernelit kootaan useiden vahvistusten kanssa johon kuuluu esimerkiksi CFI ja ShadowCallStack ja GrapheneOS parantaa näitä entisestään</li><br>
+<ul id="vasenviiva">
+<li>Täysi <a href="https://source.android.com/security/verifiedboot/">Verified-Boot</a> ja tuki omille signeeraus avaimille - Takaa että kaikki suoritettu koodi tulee luotettavasta lähteestä</li>
+<li><a href="https://www.blog.google/products/pixel/titan-m-makes-pixel-3-our-most-secure-phone-yet/">Titan M</a> - Titan M on Pixel puhelimien HSM siru joka varastoi krytpograafisen materiaalin käyttäen StrongBox avainvarastoa. Myös integroitu Verified-Boot prosessiin sekä tarjoaa <a href="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html">insider-attack-resistancen</a> joka estää Googlea tai hyökkääjää asentamasta haitallista laiteohjelmisto versiota</li>
+<li>Aiemmissa Pixeleissä kuin Pixel 6 on Qualcommin SoC joka implementoi modernit exploittien mitigointikyvyt sekä robustin IOMMUn eristämään fyysiset komponentit toisistaan</li>
+<li>Pixelien kernelit kootaan useiden vahvistusten kanssa johon kuuluu esimerkiksi CFI ja ShadowCallStack ja GrapheneOS parantaa näitä entisestään</li>
 <li>Kunnollinen <a href="https://shepherd115.github.io/Jep/kautto.html#wifi">MAC osoitteen randomisointi</a></li>
 </ul>
 
-<h1>Käyttöjärjestelmä<img id="kuvah" src="mask-icon.svg"></h1>
-<ul style="border-left: 3px solid white;">
+<h1>Käyttöjärjestelmä<img id="kuvah" src="mask-icon.svg" alt="GRapheneOS Logo"></h1>
+<ul id="vasenviiva">
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">Hardened memory allocator</a>
  - Tämä on turvallisuus painotteinen yleiseen käyttöön tarkoitettu dynaaminen muistinvaraaja. Se tarjoaa merkittäviä vahvistuksia muistinkorruptoitumis haavoittuvuuksia vastaan. 
 Hardened_mallocin <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">README.md</a> sisältää tarkan ja yksityiskohtaisen dokumentaation 
@@ -103,7 +103,6 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#bundle">Minimaalinen määrä ennalta asennettuja sovelluksia / palveluita</a></li>
   <li>Ei Googlen palveluita (GooglePlayPalvelut) tai sovelluksia integroitu itse käyttöjärjestelmään</li>
 </ul>
-</div>
 
         <footer>
             <a href="https://shepherd115.github.io/Jep/"><img src="mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
@@ -115,6 +114,5 @@ turvallisuusominaisuuksista ja rakenteesta.</li>
             </ul>
         </footer>
 </main>
-</section>
 </body>
 </html>
