@@ -292,11 +292,12 @@ footer a, footer a:visited {
         color: black;
       }
 
-      #kuvah {
+    #kuvah {
         height: 2rem;
         width: 2rem;
         vertical-align: middle;
         margin-right: 0.5rem;
+        filter: invert(1%);
     }
 
 }
