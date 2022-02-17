@@ -16,6 +16,10 @@ body {
     background-size: 400px 600px;
 }
 
+#valkoinen {
+  color: white;
+}
+
 #vasenviiva {
   border-left: 3px solid grey;
 }
@@ -192,3 +196,100 @@ footer a, footer a:visited {
     margin-right: 0.5rem;
 }
 /* GrapheneOS logon muokkaus loppuu */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #fafafa;;
+        color: rgba(0 0 0 / 87%);
+    }
+
+    #middlewhite {
+        color:black;
+        text-align:center;
+    }
+
+    #middlewhite a {
+        color:black;
+        text-align:center;
+    }
+
+    #navigointi ul {
+        display: flex;
+        flex-wrap: nowrap;
+        margin: 0;
+        overflow-x: auto;
+        padding: 0;
+        background-color: #818991;
+    }
+    
+    #navigointi {
+        white-space: nowrap;
+    }
+    
+    #navigointi ul li {
+        list-style-type: none;
+        display: flex;
+    }
+    
+    #navigointi ul li a {
+        display: flex;
+        text-decoration: none;
+        padding: 1em;
+        align-items: center;
+        font-size:100%;
+        color:rgb(71, 66, 66);
+        font-weight: bold;
+    }
+    
+    #navigointi ul li a:visited {
+        color: rgb(71, 66, 66);
+    }
+    
+    #navigointi ul li[aria-current] {
+      font-size:110%;
+      color:black;
+      background-color:#818991;
+    }
+    
+    #navigointi ul li[aria-current] a {
+        color: black;
+        font-size:110%;
+    }
+    
+    #navigointi ul li a:hover {
+      font-size:110%;
+      color:black;
+      background-color: #818991;
+    }
+
+    h1 {
+        color:black;
+    }
+
+    a:hover {
+        background-color: #fafafa;
+        text-decoration:underline;
+    }
+
+    a {
+        color: #1565c0;
+    }
+
+    a:visited {
+        color: #1565c0;
+    }
+
+    h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
+        color: black;
+    }
+
+    code {
+        background-color: grey;
+        font-family: "Roboto Mono", monospace;
+    }
+
+    #valkoinen {
+        color: black;
+      }
+
+}
