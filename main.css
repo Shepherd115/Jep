@@ -197,7 +197,7 @@ footer a, footer a:visited {
 }
 /* GrapheneOS logon muokkaus loppuu */
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     body {
         background: #fafafa;;
         color: rgba(0 0 0 / 87%);
@@ -291,5 +291,12 @@ footer a, footer a:visited {
     #valkoinen {
         color: black;
       }
+
+      #kuvah {
+        height: 2rem;
+        width: 2rem;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+    }
 
 }
