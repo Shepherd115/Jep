@@ -23,10 +23,10 @@
 
 <nav id="navigointi">
 <ul>
-<li class="hover-underline-animation"><a href="index.html">GrapheneOS</a></li>
-<li class="hover-underline-animation" aria-current="page"><a href="features.html">Ominaisuudet</a></li>
-<li class="hover-underline-animation"><a href="kautto.html">Käyttö</a></li>
-<li class="hover-underline-animation"><a href="kysymys.html">Q&A</a></li>
+<li><a href="index.html">GrapheneOS</a></li>
+<li aria-current="page"><a href="features.html">Ominaisuudet</a></li>
+<li><a href="kautto.html">Käyttö</a></li>
+<li><a href="kysymys.html">Q&A</a></li>
 </ul>
 </nav>
 <main>
@@ -57,12 +57,39 @@ itse käyttöjärjestelmään hyödyttömien ominaisuuksien tai satunnaisten sov
  - Tämä on turvallisuus painotteinen yleiseen käyttöön tarkoitettu dynaaminen muistinvaraaja. Se tarjoaa merkittäviä vahvistuksia muistinkorruptoitumis haavoittuvuuksia vastaan. 
 Hardened_mallocin <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md#security-properties">README.md</a> sisältää tarkan ja yksityiskohtaisen dokumentaation 
 turvallisuusominaisuuksista ja rakenteesta.</li>
+<ul>
+<li>Kokonaan oma muistialue metatiedoille jota ei koskaan käytetä varauksille</li>
+<li>Globaaleissa muuttujissa oleva tila on kokonaan read-only alustamisen jälkeen ja osoittimet osoittavat eristettyyn metatietoalueeseen jolloin
+kirjaston osoitteen vuoto ei vuotaisi kirjoitettavan tilan osoitetta</li>
+<li>Erilliset muistialueet myös suurille ja pienille (slab) varauksille jossa on suuren entropian satunnainen pohja ja osoitetiloja ei koskaan
+käytetä alueiden välillä</li>
+<li>Virheellisten vapautusten havaitseminen</li>
+<li>Zero-on-free sekä write-after-free:n havaitseminen tarkistamalla että muisti on yhä nollattu ennen sen uudelleenkäyttämistä</li>
+<li>Hienojakoinen randomisointi muistialueissa</li>
+<li>Aggressiiviset järjestystarkastukset</li>
+<li>Muistisuojattuja vartija-alueita varauksien ympärillä</li>
+<li>Satunnaisia canary-arvoja estämään / havaitsemaan muistinylivuototilanteita tai muita keon korruptoitumisia kun canary-arvo
+tarkistetaan (pääosin vapautuksen yhteydessä)</li>
+</ul>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/platform_bionic">Hardened libc</a> standardikirjasto joka kulkee käsi-kädessä hardened_mallocin kanssa ja tarjoaa suojaa muistin korruptoitumishaavoittuvuuksia vastaan.</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#sovellukset">Vahvempi sovellusten hiekkalaatikko</a> / sandbox</li>
   <li>Tiukennetut <a href="https://github.com/GrapheneOS/platform_system_sepolicy">SElinux säännöt</a></li>
   <li>Vahvistettu / Hardened app runtime</li>
   <li>Vahvistettu / Hardened compiler toolchain</li>
   <li>Vahvistettu / <a href="https://github.com/GrapheneOS/device_google_sunfish-kernel">Hardened kernel</a></li>
+<ul>
+<li>Tuki dynaamisesti ladattaville kernel moduuleille poistettu käytöstä ja minimaalinen sarja moduuleja laitteen mallille on rakennettu
+kerneliin parantamaan CFIn (Control Flow Integrity) tehokkuutta ja pienentämään hyökkäyspintaa</li>
+<li>4-tasoiset sivupöydät otettu käyttöön arm64 pohjalla antamaan merkittävästi suuremman osoitetilan (48 bittiä 39 sijan)
+sekä merkittävästi suuremman entropian Address Space Layout Randomization (33 bittiä 24 sijan)</li>
+<li>Satunnaisia canary-arvoja asetetaan kernelin kekoon estämään / havaitsemaan ylivuototilanteita ja muita keon korruptoitumisia
+kun canary-arvo tarkastetaan</li>
+<li>Muisti pyyhitään (nollataan) heti kun se on vapautettu alemman tason kernel sivuvaraajassa ja korkeamman tason keon varaajassa.
+Tämä pienentää sensitiivisten tietojen elinaikaa sekä estää use-after-free haavoittuvuuksia</li>
+<li>Kernelin pinon varaukset ovat nollattu</li>
+<li>Hyökkäyspinnan pienennys poistamalla käytöstä perf ja ptrace</li>
+<li>Useita linux-hardened projektin vahvistuksia käytössä</li>
+</ul>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#selain">Vanadium</a> joka on vahvistettu forkki chromium selaimesta sekä laitteen webviewin tarjoaja</li>
   <li><a href="https://shepherd115.github.io/Jep/kautto.html#auditor">Auditor</a> sovellus vahvistamaan laitteen identiteetti sekä käyttöjärjestelmän autenttisuus ja koskemattomuus</li>
   <li>Tarkemmat laitteisto ja ohjelmistotiedot asetuksissa</li>
