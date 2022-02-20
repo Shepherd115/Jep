@@ -199,17 +199,17 @@ footer a, footer a:visited {
 
 @media (prefers-color-scheme: light) {
     body {
-        background: #fafafa;;
-        color: rgba(0 0 0 / 87%);
+        background: #a8a2a2;
+        color: rgba(0, 0, 0, 0.87);
     }
 
     #middlewhite {
-        color:black;
+        color:rgba(0, 0, 0, 0.87);
         text-align:center;
     }
 
     #middlewhite a {
-        color:black;
+        color:rgba(0, 0, 0, 0.87);
         text-align:center;
     }
 
@@ -219,7 +219,7 @@ footer a, footer a:visited {
         margin: 0;
         overflow-x: auto;
         padding: 0;
-        background-color: #818991;
+        background-color:#a8a2a2;
     }
     
     #navigointi {
@@ -248,7 +248,7 @@ footer a, footer a:visited {
     #navigointi ul li[aria-current] {
       font-size:110%;
       color:black;
-      background-color:#818991;
+      background-color:#a8a2a2;
     }
     
     #navigointi ul li[aria-current] a {
@@ -267,7 +267,7 @@ footer a, footer a:visited {
     }
 
     a:hover {
-        background-color: #fafafa;
+        background-color: #a8a2a2;
         text-decoration:underline;
     }
 
