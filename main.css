@@ -128,7 +128,15 @@ p1 {
     align-items: center;
     font-size:100%;
     color:grey;
-    font-weight: bold;
+    letter-spacing: 0.6px;
+    text-shadow: 0.3px 0.3px;
+    font-weight: 400;
+}
+
+#otsikot {
+    letter-spacing: 0.6px;
+    text-shadow: 0.3px 0.3px;
+    font-weight: 400;
 }
 
 #navigointi ul li a:visited {
@@ -144,6 +152,12 @@ p1 {
 #navigointi ul li[aria-current] a {
     color: white;
     font-size:110%;
+}
+
+h2 {
+    letter-spacing: 0.6px;
+    text-shadow: 0.3px 0.3px;
+    font-weight: 400;
 }
 
 #navigointi ul li a:hover {
