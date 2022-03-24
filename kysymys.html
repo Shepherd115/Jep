@@ -52,7 +52,6 @@
 
 <h2>Sovellukset</h2>
 <ul id="vasenviiva">
-  <li><a href="#mista">Mistä GrapheneOS käyttäjät saavat sovelluksia?</a></li>
   <li><a href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></li>
   <li><a href="#laite-tunnistin">Onko sovelluksilla pääsy laitetunnisteisiin?</a></li>
   <li><a href="#leike">Onko sovelluksilla pääsy leikepöytään?</a></li>
@@ -63,9 +62,7 @@
 <ul id="vasenviiva">
   <li><a href="#yhteydet">Mitä yhteyksiä GrapheneOS tekee?</a></li>
   <li><a href="#palomuuri">Tarjoaako GrapheneOS palomuurin?</a></li>
-  <li><a href="#android">Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?</a></li>
   <li><a href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></li>
-  <li><a href="#fsp">Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></li>
   <li><a href="#bundle">Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></li>
   <li><a href="#root">Onko GrapheneOS roottausta?</a></li>
 </ul>
@@ -73,7 +70,6 @@
 <h2>Muut</h2>
 <ul id="vasenviiva">
   <li><a href="#perustus">Miten GrapheneOS perustettiin?</a></li>
-  <li><a href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></li>
 </ul>
 </nav>
 
@@ -182,29 +178,6 @@ Wi-Fin ja Bluetoothin omina sandboxattuina prosesseina.</p>
 
 <h3 id="qaotsikot">Sovellukset</h3>
 
-
-<h2 id="mista"><a id="valkoinen" href="#mista">Mistä GrapheneOS käyttäjät saavat sovelluksia?</a></h2>
-<p>AJANKOHTAISTA - GrapheneOS kehittää omaa sovellusarkistoa joka tulee tarjoamaan robustimman ja turvallisemman vaihtoehdon kuin muut.</p>
-
-<p>GrapheneOS ei sisällä toistaiseksi omaa "sovelluskauppaa" joten käyttäjien on itse hankittava nämä muista lähteistä ja ymmärrettävä tämän riskit.
-yleisimmin käytetyt sovelluskaupat ovat F-Droid, Aurora Store, <a href="https://shepherd115.github.io/Jep/kautto.html#yhteen">yhteensopivuuskerroksen</a> 
-Google Playkauppa, kehittäjän sivulta tai GitHubista. Mikään näistä ei ole täydelinen mutta jotkut ovat parempia kuin toiset.</p>
-<ul>
-<li>F-Droid - Useimmat sovellukset jota F-Droid jakaa ovat F-Droidin kehittäjien signeeraamia joiden avaimet pidetään verkossa. Tarkoittaen että F-Droid
-kehittäjät tai hyökkääjä kuka ottaa F-Droidin infrastruktuurista hallun kykenee kuljettamaan haitallisia sovelluksia käyttäjille. F-Droid sovellus on myös
-erittäin epävakaa ja vanha (TargetSDK 26) eikä sitä huolleta enään. Säälittävän heikko infrastruktuuri onkin syy miksei jotkin kehittäjät halua laittaa 
-sovelluksiaan sinne, kuten Signal.</li><br>
-<li>Google Playkauppa - Toisinkuin F-Droid, Googlen Playkaupassa signeeraus avaimet ovat aina kehittäjien hallinnassa ja itse Google tai hyökkääjä kuka 
-ottaisi infrastruktuurin haltuun ei kykenisi kuljettamaan haitallisia sovelluksia. Google Playkauppa on myös hyvin huollettu ja vakaa (TargetSDK31).</li><br>
-<li>Aurora Store - Tämä on Google Playkauppa Frontend jonka ideana on tarjota "anonyymi" tapa saada Googlen Playpasta sovelluksia. Aurora Store ei kierrä
-vaatimusta kirjautua Playkauppaan, jos valitsee "anonyymin" niin käyttää dummy käyttäjää, samanlaisen minkä voisi tehdä itse oikeaan Playkauppaan.
-Aurora Store myös vaatii vanhentuneen luvan kaikkiin tiedostoihin toimiakseen, ei käytä TLS pinnausta ja on vain turha välikäsi johtaen useampaan luotettuun
-henkilöön.</li><br>
-<li>Kehittäjän sivu / Github - APKn saaminen suoraan kehittäjältä on toistaiseksi paras vaihtoehto Googlen Playkaupan jälkeen. Se ei vaadi kolmannenosapuolen
-sovellusta ja sovellus signeerataan kehittäjän toimesta. Näiden päivittäminen voi kumminkin olla ongelma ja manuaalisesti uuden APKn hakeminen joka kerta voi
-olla raskasta. Jotkit sovellukset kuitenkin sisältää ominaisuuden päivittyä itsestään.</li><br>
-</ul>
-
 <h2 id="sovellukset"><a id="valkoinen" href="#sovellukset">Miten GrapheneOS rajoittaa sovellusten toimintoja?</a></h2>
 <p>Android käyttää Linuxin user-based suojausmekanismia tunnistaakseen ja eristääkseen sovellusten resursseja. Tämä eristää sovellukset toisistaan ja suojelee tiedostoja
 ja järjestelmää haitallisilta sovelluksilta. Tehdäkseen tämän, Android asettaa jokaiselle sovellukselle oman tunnisteen (UID) ja suorittaa tämän omana prosessinaan.
@@ -259,9 +232,6 @@ tai tehdasasetuksissa.</p>
 <h2 id="palomuuri"><a id="valkoinen" href="#palomuuri">Tarjoaako GrapheneOS palomuurin?</a></h2>
 <div id="teksti">Kyllä, GrapheneOS perii vahvasti integroidun palomuurin Android Open Source Projectilta, jota käytetään implementoidakseen useita turvallisuusmallin osioita ja muita ominaisuuksia. GrapheneOS teki muutoksia tähän mutta nämä on nyt oletuksia joten muutokset poistettiin.<br><br>GrapheneOS lisää user-facing Network lupa kytkimen joka tarjoaa robustin tavan evätä molemmat suorat ja ei suorat yhteydet internettiin sovellukselta. Se on rakennettu Androidin Ei User-Facing INTERNET luvasta joten Android sovellusten ekosysteemi on jo kokonaan adoptoinut idean.</div>
 
-<h2 id="android"><a id="valkoinen" href="#android">Mitä turvallisuus / yksityisyys parannuksia Android 12 toi?</a></h2>
-<div ud="teksti">Niinkuin muutkin isot Android päivitykset, tämäkin toi suuria parannuksia yksityisyyteen ja turvallisuuteen joka on myös mahdollistanut joidenkin GrapheneOS ominaisuuksien jättämistä pois sillä ne ovat nyt itse Androidissa. Siellä on myös paljon under-the-hood muutoksia kuten Rustin adoptointi ja AndroidRuntimen vahvistuksia. Lista muunnoksista löytyy <a href="https://developer.android.com/about/versions/12/summary">Tästä</a></div>
-
 <h2 id="verkot"><a id="valkoinen" href="#verkot">Mitä GrapheneOS tekee puhelinverkoille?</a></h2>
 <p>GrapheneOS aina olettaa että verkostot ovat vihamielisiä ja välttää näihin luottamista, niin kuin
 kaikki modernit järjestelmät. Se jättää pois useita puhelinoperaattori sovelluksia jotka ovat
@@ -290,9 +260,6 @@ voidaan ottaa samaan aikaan käyttöön. Tämä mahdollistaa laitteen käytön W
  mutta se on ainoastaan pienentämään hyökkäyspintaa. Ei pitäisi erehtyä luulemaan että se 
 tekee puhelinverkostosta luotetun</p>
 
-<h2 id="fsp"><a id="valkoinen" href="#fsp">Tarjoaako GrapheneOS FSPn? (Factory Reset Protection)</a></h2>
-<div id="teksti">Ei. Tämä olisi vaarallista ja tarpeetonta. TitanM käsittelee brute-force hyökkäykset paljon kehittyneemmin kuin vain poistamalla avaimet. TitanM siru itsessään on äärettömän pieni (Noin riisin kokoinen) ja on luonteeltaan erittäin vaikea kohde. TitanM on myös integroitu laitteen salaus prosessiin ja säilöö tokenssit joista luodaan avaimet salauksen purkuun eikä se vapauta näitä ennen kuin oikea salsana on syötetty. Tarkoittaen että yritykset päästä laitteeseen on tehtävä juuri sen TitanM sirun kautta. Brute-force hyökkäyksen aikana TitanM rankaisee hyökkääjää pidentämällä aikaa ennen uutta yritystä. Ensimmäisen viiden yrityksen jälkeen TitanM sammuttaa pääsyn tokensseihin 30 sekunniksi ja sammuttaa sormenjälki lukijan. Tämän jälkeen TitanM progressiivisesti pidentää aikaa kunnes uuden yrityksen aika on yksi päivä. Vaikka käyttöjärjestelmä olisi hyökkääjän hallussa, niin ei ajastinta voi ohittaa sillä TitanM sisältää oman kellon josta OS ei pidä mitään kontrollia. Tämä ei suojaa jos laitteen salasana on jotain helppoa kuten 12345 tai lemmikin nimi mutta tarjoaa lähes murtamattoman suojan vain 6 lukuisella PIN koodilla. On myös hyvä huomioida että GrapheneOS sallii maksimissaan 64 merkkisten salasanojen käytön jos kokee että tarvitsee entistä vahvemman suojan. </div>
-
 <h2 id="bundle"><a id="valkoinen" href="#bundle">Miksei GrapheneOS sisällä ennalta-asennettuja sovelluksia?</a></h2>
 <div id="teksti">Siellä on haittoja sovellusten ennalta-asentamiseen ja vain muutamia etuja. Sen sijan että GrapheneOS ennalta-asentaisi kasan sovelluksia, on loogisempaa käyttäjän itse asentaa haluamansa sovellukset F-Droidin, Aurora Storen tai Play kaupan kautta. GrapheneOS suunnittelee omaa first-party sovellusten päivitys järjestelmää ja "sovelluskauppaa" joka on robustimpi ja turvallisempi kuin muut vaihtoehdot. Sovellusten ennalta asentaminen lisäisi myös hyökkäyspintaa, ellei käyttäjät kytke näitä pois päältä. Sovellusten ennalta-asentaminen olisi myös kamala kumota sillä sovelluksen poistaminen käyttöjärjestelmästä johtaisi käyttäjien tietojen tuhoutumiseen.<br><br>GrapheneOS keskittyy oleellisten turvallisuus / yksityisyys parannusten tekemiseen ja satunnaisten sovellusten ennalta-asentaminen on yleensä tämän ulkopuolella ja sitä vastaan.</div>
 
@@ -304,10 +271,6 @@ tekee puhelinverkostosta luotetun</p>
 <section id="reuna">
 <h2 id="perustus"><a id="valkoinen" href="#perustus">Miten GrapheneOS perustettiin?</a></h2>
 <div id="teksti"><a href="https://twitter.com/DanielMicay">Daniel Micay</a> perusti GrapheneOS projektin vuoden 2014 lopussa. Se alkoi soolo projektina jossa hän jatkoi hänen aiempaa turvallisuus / yksityisyys teknologia työtä. Projekti ensin loi portin OpenBSDn mallocille (Memory Allocator) Androidin Bionic-C kirjastoon ja portin PaX kernel korjauksille tuetuille laitteille. Siitä nopeasti kasvoi laaja määrä kotonakasvatettuja yksityisyys ja turvallisuus ominaisuuksia. Työ alkoi saada koodia up-streamiin AOSP:hen ja muihin up-stream projekteihin. Suuri osa näistä saatiin up-streamiin tai oli periytynyt näistä. Projekti kykeni liikkumaan erittäin nopeasti niinä päivinä sillä siellä oli paljon pieniä parannuksia joita jonkun oli tehtävä. Projekti ei vielä yrittänyt luoda robustia käyttökelpoista käyttöjärjestelmää.<br><br> Vuoden 2015 lopussa, yritys tuli projektiin mukaan ja heistä tuli projektin isoin sponsori. GrapheneOS oli ennen tunnettu nimellä CopperheadOS kun se oli tämän yrityksen alla. Tarkoitus oli rakentaa bisnestä projektin ympärille, myyden esimerkiksi tukea ja suljettuja variaatioita käyttöjärjestelmästä. Yrityksen piti palvella projektin tarpeita eikä toisinpäin. Oli sovittua että GrapheneOS pysyy yksinomaan Daniel Micayn omistuksessa ja johdossa. Yritys epäonnistui kunnioittamaan tätä. 2018 yrityksen toimitusjohtaja yritti ottaa vallan projektista mutta epäonnistui, he rampautti infrastruktuurin ja varasti lahjoitukset mutta projekti on kyennyt jatkamaan tästä. Daniel Micay irtautui yrityksestä ja nimeksi muuntui AndroidHardening josta myöhemmin tuli GrapheneOS.
-
-<h2 id="muut"><a id="valkoinen" href="#muut">Miten GrapheneOS eroaa muista yksityisyys käyttöjärjestelmistä?</a></h2>
-<div id="teksti">GrapheneOS keskittyy täysin turvallisuus / yksityisyys parannuksiin itse käyttöjärjestelmässä, ei markkinointiin ja kolmannen osapuolen sovellusten ennalta asentamiseen kuten Signaalin. Useat muut kuten LineageOS ei mahdollista bootloaderin lukitsemista mikä kytkee verified-bootin pois mikä on iso osa Androidin turvallisuusmallia. Käyttää <a href="https://github.com/LineageOS/hudson/blob/master/lineage-build-targets">user-debug buildseja</a> oletuksena joka lisää hyökkäyspintaa, <a href="https://github.com/LineageOS/android_system_sepolicy/search?q=userdebug&type=code">heikentää SElinux sääntöjä</a>, ei anna minkäänlaista <a href="https://source.android.com/security/verifiedboot/verified-boot#rollback-protection">roll-back suojaa</a> ja jopa antaa käyttäjän itse alentaa version eikä kuljeta laiteohjelmisto päivityksiä.</div>
-
 </main>
 
 

@@ -65,7 +65,7 @@ lukittu, sillä päivittäjä on suunniteltu toimimaan ilman laitteen salauksen 
 muutosloki löytyy <a href="https://grapheneos.org/releases#changelog">Tästä</a>.</p>
 
 <h2 id="update-asetukset"><a href="#update-asetukset">Päivitys asetukset</a></h2>
-<p>Päivittäjän asetukset löytyvät Settings -> System -> Advenced -> Update settings.</p>
+<p>Päivittäjän asetukset löytyvät Settings ➔ System ➔ Advenced ➔ Update settings.</p>
 
 <p>"Check for updates" näppäin manuaalisesti aiheuttaa päivittäjän hakevan päivitystä heti kuin mahdollista. Se silti odottaa että alla olevat vaatimukset
 täyttyvät.</p>
@@ -95,7 +95,7 @@ ja Auditor toimivat viimeisenä suojana.</p>
 <h2 id="update-pois"><a href="#update-pois">Päivitysten pois kytkeminen</a></h2>
 <p>On vahvasti suositeltavaa jättää automaattiset päivitykset päälle. On kuitenkin mahdollista
 kytkeä päivittäjäsovellus pois käytöstä sijainnista 
-Asetukset -> Sovellukset -> Näytä Järjestelmä -> System Updater.</p>
+Asetukset ➔ Sovellukset ➔ Näytä Järjestelmä ➔ System Updater.</p>
 
 <h2 id="update-sideload"><a href="#update-sideload">Päivitysten Sideloading</a></h2>
 <p>Päivitykset voidaan ladata <a href="https://grapheneos.org/releases">Releases</a> sivulta ja 
@@ -196,18 +196,20 @@ todistehaaste ja lähettää tämän sertifikaattiketjun Auditorille. Auditor va
 näillä tuoreilla avaimilla.</p>
 
 <h2 id="yhteen"><a href="#yhteen">Yhteensopivuuskerros</a></h2>
-<p>GrapheneOS sisältää yhteensopivuuskerroksen joka tarjoaa vaihtoehdon asentaa ja käyttää virallisia Playpalveluita ja playkauppaa
-normaalissa sovellus <a href="https://source.android.com/security/app-sandbox">sandboxissa.</a> Playpalvelut eivät saa minkäänlaisia
-erityisiä oikeuksia tai kykyjä eikä ohita sovellus sandboxia niin kuin stock-Androidilla jossa he saavat suuret hallitsevat oikeudet
-johon mikään muu sovellus ei kykene. Näiden sijan, GrapheneOS yhteensopivuuskerros sisältää fall-back koodia opettaen näille miten toimia
-normaalissa sovellus sandboxissa. Se ei myöskään ole minkäänlainen backend käyttöjärjestelmän palveluille ja OS itse ei käytä niitä 
-mihinkään
+  <p>GrapheneOS sisältää yhteensopivuuskerroksen joka antaa mahdollisuuden asentaa ja käyttää virallista Google Play kauppaa ja palveluita
+  normaalissa sovellushiekkalaatikossa. Nämä eivät saa minkäänlaisia erityisiä oikeuksia eikä ne ohita sovellushiekkalaatikkoa niin kuin
+  stock-Androidilla. Näiden sijan GrapheneOS käyttää fallback koodia joka opettaa sovelluksia toimimaan normaalissa sovellusympäristössä.
+  Itse käyttöjärjestelmä ei myöskään käytä näitä mihinkään.</p>
 
-<br><br>Sillä GrapheneOS mahdollistaa playpalveluiden asentamisen normaaleina sovelluksina, ne asennetaan vain tiettyyn <a href="https://shepherd115.github.io/Jep/kautto.html#profiili">käyttäjäprofiiliin</a>
-ja ainoastaan sovellukset samassa käyttäjäprofiilissa voi käyttää niitä ja niiden on erikseen haluttava käyttää niitä. Kuten kaikkien muidenkin
-sovellusten kohdalla, se ei saa pääsyä käyttäjän tietoihin ellei se kysy tähän lupaa ja käyttäjä mene itse antamaan näitä sille.
-Sovellukset samassa käyttäjäprofiilissa voi keskustella yhdessä yhteisellä päätöksellä ja tämä pätee myös Playpalveluihin.
-Perustoiminnot ja APIt ovat lähes kokonaan tuettuja ja yhteensopivuuskerros myös tarjoaa dynaamiset moduulit esimerkiksi karttojen toimintaan.</p>
+  <p>Sillä Google Play kauppa ja palvelut ovat normaaleja sovelluksia Graphenella, ne asennetaan tiettyyn käyttäjäprofiiliin ja ainoastaan
+  sovellukset siinä käyttäjäprofiilissa voivat käyttää niitä jos ne haluavat. Kuten muutkin sovellukset, Google Play kauppa tai palvelut
+  eivät voi saada pääsyä käyttäjän tietoihin ellei käyttäjä erikseen näitä anna esimerkiksi lupien kautta. Näillä ei myöskään ole pääsyä
+  laitetunnisteisiin kuten IMEI/MEID, sarjanumero ja muihin tietoihin.</p>
+
+  <p>Yhteensopivuuskerroksen osat voidaan asentaa ja päivittää GrapheneOS 'Apps' sovelluksen kautta ja sen asetukset löytyvät sijainnista
+  Settings ➔ Apps ➔ Sandboxed Google Play. Oletuksena "Reroute location requests to OS APIs' on päällä joka uudelleenohjaa
+  sijaintipyynnöt käyttämään käyttöjärjestelmän APIta sijainnin hakemiseksi. Tämän voi kytkeä pois päältä jos haluaa käyttää Googlen
+  sijaintipalveluita sen sijan. Asetuksien määrä tulee lisääntymään tulevaisuudessa.</p>
 
 <h2 id="lte"><a href="#lte">LTE-only</a></h2>
 <p>Tapauksessa jossa on luotettava LTE yhteys, voi hyökkäyspintaa vähentää poistamalla 2G, 3G ja 5G yhteydet asetuksista LTE-Only kytkimellä.
@@ -220,7 +222,7 @@ vaikeampaa poistamalla jättimäisiä määriä hyökkäyspintaa.</p>
 
 <h2 id="usb"><a href="#usb">USB-Laitteet</a></h2>
 <p>Oletuksena, GrapheneOS hylkää USB yhteydet kun laite on käynnissä ja näyttö lukittu. Tämän asetukset löytyvät 
-Asetukset -> Suojaus -> USB accessories. Vaihtoehdot ovat:</p>
+Asetukset ➔ Suojaus ➔ USB accessories. Vaihtoehdot ovat:</p>
 <ul>
 <li>Hylkää USB pyynnöt</li>
 <li>Salli USB pyynnöt kun laite on avattu (oletus)</li>

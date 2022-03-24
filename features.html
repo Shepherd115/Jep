@@ -101,7 +101,12 @@ Tämä pienentää sensitiivisten tietojen elinaikaa sekä estää use-after-fre
   <li>Kyky luoda 16 käyttäjäprofiilia neljän sijan</li>
   <li>Oma turvallisuuteen keskittynyt sovellusarkisto jota tällä hetkellä käytetään omien sovelluksien sekä yhteensopivuuskerroksen osien jakamiseen</li>
   <li>Tiukempi implementaatio vaihtoehtoisesta sormenjälki avaamisesta jossa ainoastaan 5 yritystä sallitaan 20 sijan ennen pysyvää lukitsemista</li>
-  <li>Paranneltu verified-boot paremmilla turvallisuusominaisuuksilla ja pienennetyllä hyökkäyspinnalla (kokonainen <a href="https://source.android.com/devices/tech/dalvik/art-class-loader-context">dexpreopt</a> käyttöjärjestelmän sovelluksille, SElinux vahvistuksia, useiden hyödyttömien ominaisuuksien poistamista kuten <a href="https://source.android.com/security/verifiedboot/verify-system-other-partition">system_other odex</a> ja paljon muutakin)</li>
+  <li>Paranneltu verified-boot paremmilla turvallisuusominaisuuksilla ja pienennetyllä hyökkäyspinnalla</li>
+  <ul>
+    <li>Täysi dexpreopt käyttöjärjestelmän sovelluksille</li>
+    <li>SElinux muutoksia</li>
+    <li>Useiden turhien asioiden poistaminen kuten system_other odex</li>
+  </ul>
   <li>Turvallinen sovellusten laukaisu malli <a href="https://shepherd115.github.io/Jep/kautto.html#exec">(Exec)</a></li>
   <li>Network lupakytkin estämään molemmat suorat ja ei suorat pääsyt verkkoihin. Localhost on myös suojattu tämän avulla mikä on tärkeää estämään sovelluksia kommunikoimasta käyttäjäprofiilien välillä. Toisinkuin palomuuri tyylinen asettelu, Network lupakytkin estää sovelluksia käyttämästä verkkoja käyttöjärjestelmän APIen kautta tai muiden sovellusten kunhan ne ovat merkitty oikein</li>
   <li>INTERNET lupa jota käytetään Network lupakytminen perustana on vahvistettu ja kunnollinen tuki mahdollistaen estämisen/sallimisen per-profiili kohtaisesti</li>
@@ -121,6 +126,7 @@ Tämä pienentää sensitiivisten tietojen elinaikaa sekä estää use-after-fre
   <li>Vaatii laitteen avausta ennen kuin sensitiiviä ominaisuuksia quick-tilesseissä voi käyttää (Wifi, lentokonetila, GPS, NFC jne)</li>
   <li><a href="https://shepherd115.github.io/Jep/kysymys.html#bundle">Minimaalinen määrä ennalta asennettuja sovelluksia / palveluita</a></li>
   <li>Ei Googlen palveluita (GooglePlayPalvelut) tai sovelluksia integroitu itse käyttöjärjestelmään</li>
+  <li>Kyky estää muita käyttäjäprofiileja asentamasta sovelluksia</li>
 </ul>
 
         <footer>

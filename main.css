@@ -151,8 +151,7 @@ p1 {
 
 #navigointi ul li[aria-current] a {
     color: white;
-    font-size:110%;
-    
+    font-size:110%; 
 }
 
 h2 {
@@ -164,7 +163,6 @@ h2 {
 #navigointi ul li a:hover {
   font-size:110%;
   color:white;
-  border-bottom: 3px solid grey;
 }
 /* Navigointipalkin määrittely loppuu */
 
@@ -181,18 +179,6 @@ h2 {
     letter-spacing: 0.6px;
     text-shadow: 0.3px 0.3px;
     font-weight: 400;
-}
-
-@media only screen and (min-width: 768px) {
-    #navigointi ul li[aria-current] a {
-        font-size:110%;
-        border-bottom: 3px solid grey;
-    }
-     
-    #navigointi ul li a:hover {
-      font-size:110%;
-      border-bottom: 3px solid grey;
-    }
 }
 
 footer {
