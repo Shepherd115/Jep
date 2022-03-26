@@ -49,6 +49,10 @@
   <li><a href="#selain">Selain</a></li>
   <li><a href="#auditor">Auditor</a></li>
   <li><a href="#yhteen">Yhteensopivuskerros</a></li>
+  <ul>
+    <li><a href="#yhteensopivuus-kerroksen-konfigurointi">Yhteensopvuuskerroksen Konfigurointi</a></li>
+    <li><a href="#yhteensopivuus-kerroksen-asentaminen">Yhteensopivuskerroksen Asentaminen</a></li>
+  </ul>
   <li><a href="#lte">LTE-only</a></li>
   <li><a href="#usb">USB-Laitteet</a></li>
   <li><a href="#wifi">Wi-Fi yksityisyys</a></li>
@@ -202,15 +206,51 @@ näillä tuoreilla avaimilla.</p>
   stock-Androidilla. Näiden sijan GrapheneOS käyttää fallback koodia joka opettaa sovelluksia toimimaan normaalissa sovellusympäristössä.
   Itse käyttöjärjestelmä ei myöskään käytä näitä mihinkään.</p>
 
-  <p>Sillä Google Play kauppa ja palvelut ovat normaaleja sovelluksia Graphenella, ne asennetaan tiettyyn käyttäjäprofiiliin ja ainoastaan
-  sovellukset siinä käyttäjäprofiilissa voivat käyttää niitä jos ne haluavat. Kuten muutkin sovellukset, Google Play kauppa tai palvelut
-  eivät voi saada pääsyä käyttäjän tietoihin ellei käyttäjä erikseen näitä anna esimerkiksi lupien kautta. Näillä ei myöskään ole pääsyä
-  laitetunnisteisiin kuten IMEI/MEID, sarjanumero ja muihin tietoihin.</p>
+  <p>Perus toiminnot ja APIt ovat lähes kokonaan tuettuja ja se myös sisältää tuen dynaamisesti ladattaville moduleille. 
+  Yhteensopivuuskerrosta tullaan parantamaan ajan myötä jonka yhteydessä se saa lisää toimintoja.</p>
+    
+  <p>GrapheneOS tarjoaa erillisen yhteensopivuuskerroksen Play Store sovellukselle joka opettaa tälle asentamisen, päivittämisen ja
+  poistamisen ilman suuria oikeuksia. Se kysyy käyttäjältä lupaa saako se olla sovelluslähde ja ensimmäisen sovelluksen asentamisen yhteydessä
+  että saako sovelluksen asentaa. Se käyttää Android 12 tuomaa tukea suorittaa päivityksiä ilman käyttäjän häiritsemistä tämän jälkeen.
 
-  <p>Yhteensopivuuskerroksen osat voidaan asentaa ja päivittää GrapheneOS 'Apps' sovelluksen kautta ja sen asetukset löytyvät sijainnista
-  Settings ➔ Apps ➔ Sandboxed Google Play. Oletuksena "Reroute location requests to OS APIs' on päällä joka uudelleenohjaa
-  sijaintipyynnöt käyttämään käyttöjärjestelmän APIta sijainnin hakemiseksi. Tämän voi kytkeä pois päältä jos haluaa käyttää Googlen
-  sijaintipalveluita sen sijan. Asetuksien määrä tulee lisääntymään tulevaisuudessa.</p>
+  <h2 id="yhteensopivuus-kerroksen-konfigurointi"><a href="#yhteensopivuus-kerroksen-konfigurointi">Yhteensopivuskerroksen Konfigurointi</a></h2>
+    <p>Yhteensopivuuskerroksen "asetukset" valikko asetukset löytyvät sijainnista Settings ➔ Apps ➔ Sandboxed Google Play.</p>
+
+    <p>Oletuksena 'Reroute location requests to OS APIs' on päällä joka uudelleenohjaa sijaintipyynnöt käyttämään käyttöjärjestelmän 
+    APIta sijainnin hakemiseksi. Tämän voi kytkeä pois päältä jos haluaa käyttää Googlen sijaintipalveluita sijainnin hakemiseksi. 
+    Sijaintipyyntöjen uudelleenohjaaminen käyttöjärjestelmän geopaikannukseen käyttää enemmän laitteen virtaa kuin
+    Googlen Play geopaikannus palvelu sillä GrapheneOS ei tarjoa verkko-pohjaista sijaintipalvelua ja implementoi sen ainoastaan
+    GNSS / A-GPS toiminnon kautta.</p>
+
+    <p>Yhteensopvuuskerroksen valikko tarjoaa myös linkin <a href="https://grapheneos.org/usage#sandboxed-google-play">GrapheneOS Usage</a> 
+    sivulle, Playpalveluiden järjestelmä-asetuksiin ja Google asetuksiin.</p>
+
+    <h2 id="yhteensopivuus-kerroksen-asentaminen"><a href="#yhteensopivuus-kerroksen-asentaminen">Yhteensopivuskerroksen Asentaminen</a></h2>
+<p>Google Play on jaettu kolmeen eri sovellukseen: </p>
+<ul>
+<li>Google Services Framework (com.google.android.gsf)</li>
+<li>Google Play services (com.google.android.gms)</li>
+<li>Google Play Store (com.android.vending)</li>
+</ul>
+
+<p>Käyttääkseen Google Playta on vain asennettava nämä 3 sovellusta haluamaan käyttäjäprofiiliin.</p>
+
+<p>Yksinkertaisin tapa on käyttää omistajaprofiilia. Sovellukset jotka ovat omistajaprofiilissa elävät hiekkalaatikossa niinkuin muissakin
+eikä saa minkäänlaisia erityisiä oikeuksia. Jos haluaa valita mitkä sovellukset käyttävät yhteensopivuuskerrosta on tämä asennettava
+käyttäjäprofiiliin jossa on nämä sovellukset.</p>
+
+<p>Avaa GrapheneOS 'Apps' sovellus ja asenna nämä kolme sovellusta. Pelkän PLay kaupan asentaminen asentaa 2 muuta sovellusta. On hyvä
+antaa "battery optimization exception" Google Play palveluille jos haluaa ilmoitusten toimivat kunnolla taustalla. Playkauppa yksin ei
+ole tarvittava mutta se on enemmän kuin vain user-facing sovellus ja tarjoaa monia toimintoja kuten Play Asset Delivery,
+Play Feature Delivery, sovelluksen sisällä ostamisen ja lisenssitarkastukset maksullisiin sovelluksiin. Playkauppa on myös turvallisin
+tapa asentaa ja päivittää sovellukset.</p>
+
+<p>Sovelluksen asentamisen jälkeen on hyvä avata Play kauppa ja painettava kirjautumista joka laukaisee alustamisen. Playkauppaan ei
+tarvitse kirjautua jos ei halua mutta tämän painaminen saa kaiken toimimaan.</p>
+
+<p>Yhteensopivuuskerros tukee myös Google Play Games palvelua jonka voi asentaa Play kaupan kautta sillä useat pelit vaativat tämän
+olemassaolon.</p>
+    
 
 <h2 id="lte"><a href="#lte">LTE-only</a></h2>
 <p>Tapauksessa jossa on luotettava LTE yhteys, voi hyökkäyspintaa vähentää poistamalla 2G, 3G ja 5G yhteydet asetuksista LTE-Only kytkimellä.
