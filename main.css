@@ -322,3 +322,34 @@ footer a, footer a:visited {
         filter: invert(1%);
     }
 }
+
+#artikkeli-otsikko {
+    background-color: rgb(87, 86, 86);
+    width: auto;
+    border: 3px solid grey;
+    padding-left: 20px;
+    margin: 35px;
+    border-radius: 15px;
+}
+#artikkeli-otsikko h2 {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+#artikkeli-otsikko p {
+    text-decoration: none;
+    color: rgb(187, 180, 180)
+}
+#artikkeli-otsikko-A {
+    text-decoration: none;
+}
+#pieni {
+    font-size: 84%;
+}
+#artikkeli-otsikko:hover {
+    background-color: rgb(87, 86, 86);
+    width: auto;
+    border: 3px solid grey;
+    padding-left: 20px;
+    margin: 50px;
+    border-radius: 15px;
+}
