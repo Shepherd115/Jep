@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="UTF-8"/>
     <meta name="author" content="Shepherd"/>
-    <title>GrapheneOS Tieto | Artikkelit - F-droid Heikkoudet</title>
+    <title>GrapheneOS Tieto | Artikkelit</title>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="description" content="Suomalaista GrapheneOS tietoa | Artikkelit"/>
     <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
@@ -39,9 +39,26 @@
 
 <main>
 
-<h1 id="otsikot">F-droid heikkoudet<img id="kuvah" src="mask-icon.svg" alt="GrapheneOS logo"></h1> 
+<h1 id="otsikot">Exec Spawning<img id="kuvah" src="mask-icon.svg" alt="GrapheneOS logo"></h1> 
 
+<h2>Katso Käyttö sivulta alustavaa tietoa aiheesta: <a href="https://shepherd115.github.io/Jep/kautto.html#exec">Exec Spawning</a></h2>
 
+<p>Normaalisti sovellusten laukaisuussa, laukaisuprosessi Zygote forkkaa mallisovellusprosessin ja tekee siitä prosessille sopivan.
+Tämä tarkoittaa että kaikki sovellukset jakavat saman randomisoinnin joten jos tämä randomisointi brute-forcetaan rikki niin se on rikki
+kaikilta sovelluksilta. Esimerkki tästä näkyy tässä <a href="https://wenke.gtisc.gatech.edu/papers/morula.pdf">Morulan paperissa</a>
+jossa Morula myös uhraa suorituskykyä turvallisuuden vuoksi. Näiden ongelmien korjaamiseksi GrapheneOS käyttää exec pohjaista prosessien
+luomista. Se kokaa prosessin kopioimisen sijan tarkoittaen sitä että randomisointi prosessille tapahtuu uudestaan.</p>
+
+<p>Exec pohjainen prosessien luominen välttää sensitiviisten tiedojen vuotamisen sovelluksille joka parantaa yksityisyyttä
+ja turvallisuutta. Ominaisuuden hintana on hieman suurempi sovellusten laukaisuaika. Se ei kuitenkaan tee mitään eroa jos sovellus
+on jo taustalla auki. Se tekee tämän tarjotakseen kunnollisen toimivan
+<a href="https://fi.wikipedia.org/wiki/ASLR">osoitetilanrandomisoinnin (ASLR)</a> ja SSPn sovelluksille ja käyttöjärjestelmälle. Se
+tulee olemaan entistä merkityksellisempi memroy-tagging ominaisuuden jälkeen. GrapheneOS lisäsi versiossa 000 kyvyn kytkeä tämän pois
+päältä mutta on vahvasti suositeltavaa välttää tätä.</p>
+
+<p>Exec on erittäin huonosti ymmärretty ja sitä yleensä katsotaan pahalla sillä vanhemmilla laitteilla (ennen Pixel 4) sovellusten
+laukaisu-aika lisääntyi huomattavasti. Exec pohjainen prosessien luominen on tärkeä GrapheneOS osa joka parantaa
+merkittävästi turvallisuutta ja yksityisyyttä</p>
 
 <article>
         <footer>
