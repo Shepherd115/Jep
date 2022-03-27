@@ -92,7 +92,6 @@ p1 {
     text-decoration:none;
 }
 
-
 #ajan-kohtaista {
   text-align:left;
   font-weight: bold;
@@ -354,4 +353,11 @@ footer a, footer a:visited {
     padding-right: 15px;
     margin: 40px;
     border-radius: 15px;
+}
+
+#musta {
+    background-color: rgb(31, 29, 29);
+    border-left: 3px solid grey;
+    padding-left: 15px;
+    padding-right: 15px;
 }

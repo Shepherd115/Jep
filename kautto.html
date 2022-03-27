@@ -128,13 +128,7 @@ siihen että jokaisella sovelluksella on sama muistisisältö ja järjestys, se 
 Address-space-Layout-Randomizationia (ASLR), keon canaryarvoja, pinon canaryarvoja jne. Se rampauttaa nämä sillä jokaisella 
 sovelluksella on jokaisen muunkin sovelluksen arvot ja nämä arvot eivät muutu ennen uudelleenkäynnistystä.</p>
 
-<p>Tämä myös tarkoittaa että jos hyökkääjä kykenee murtamaan ASLR suojauksen esimerkiksi brute-force hyökkäyksellä, jokainen prosessi
-on murrettu sillä jokaisella on samat arvot.</p>
-
-<p>Korjatakseen nämä ongelmat, GrapheneOS forkkaa mallisovellusprosessin ja execcaa tämän jossa sovellus saa omat randomisoidut arvot. 
-Tämä valitettavasti johtaa korkeampaan alku muistinkäyttöön ja pidempään sovellusten laukaisuaikaan jonka vuoksi se ei olekkaan käytössä 
-Androidissa vielä. Se lisää noin 100ms sovellusten laukaisuaikaan ja on ainoastaan huomattava vanhoilla laitteilla joissa on heikompi 
-CPU ja pienempi tallennustila.</p>
+<p>Lisätietoa exec-spawning ominaisuudesta löydät <a href="https://shepherd115.github.io/Jep/exec-spawning.html">Täältä</a>.</p>
 
 <h2 id="selain"><a href="#selain">Selain</a></h2>
 <p>GrapheneOS sisältää Vanadium sivuprojektin joka tarjoaa yksityisyys ja turvallisuus parannellun Chromium forkin. Vanadium on molemmat user-facing selain

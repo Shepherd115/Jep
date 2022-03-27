@@ -41,7 +41,7 @@
 
 <h1 id="otsikot">Exec Spawning<img id="kuvah" src="mask-icon.svg" alt="GrapheneOS logo"></h1> 
 
-<h2>Katso Käyttö sivulta alustavaa tietoa aiheesta: <a href="https://shepherd115.github.io/Jep/kautto.html#exec">Exec Spawning</a></h2>
+<p>Katso Käyttö sivulta alustavaa tietoa aiheesta: <a href="https://shepherd115.github.io/Jep/kautto.html#exec">Exec Spawning</a></p>
 
 <p>Normaalisti sovellusten laukaisuussa, laukaisuprosessi Zygote forkkaa mallisovellusprosessin ja tekee siitä prosessille sopivan.
 Tämä tarkoittaa että kaikki sovellukset jakavat saman randomisoinnin joten jos tämä randomisointi brute-forcetaan rikki niin se on rikki
@@ -56,9 +56,28 @@ on jo taustalla auki. Se tekee tämän tarjotakseen kunnollisen toimivan
 tulee olemaan entistä merkityksellisempi memroy-tagging ominaisuuden jälkeen. GrapheneOS lisäsi versiossa 000 kyvyn kytkeä tämän pois
 päältä mutta on vahvasti suositeltavaa välttää tätä.</p>
 
+<p>Useat turvallisuusteknologia tutkijat ovat puhuneet yllä olevista ongelmista ja kutsuvat tätä nimellä "per boot ASLR" sillä
+randomisointi tapahtuu vain kerran käynnistyksen yhteydessä. Esimerkiksi Project Zeron blogin Samuel puhuu siitä 
+miten <a href="https://googleprojectzero.blogspot.com/2020/01/remote-iphone-exploitation-part-2.html">tämän tyylinen ASLR
+on heikkous</a>:</p>
+  
+<p id="musta">"One security relevant aspect of the shared cache is that it is mapped at the same address in every process, with 
+its exact location only being randomized once during device boot. This is likely due to the shared cache being mapped into all 
+userspace processes (thus reducing overall system memory usage) but also containing absolute pointers to itself, making it not 
+position independent. As such, once the base address of the shared cache is known, the addresses of pretty much all libraries in 
+any userspace process on that device, including thousands of ROP gadgets, all ObjC Classes, various strings, and much more, are also 
+known. This is sufficient for an RCE exploit."</p>
+
+<p>PaX myös <a href="https://pax.grsecurity.net/docs/aslr.txt">puhui aiheesta ja siitä miten Exec voisi olla ratkaisu</a></p>
+<p id="musta">"In practice brute forcing can be applied to bugs that are in network daemons that fork() on each connection 
+since fork() preserves the randomized layout, as opposed to execve() which replaces it with a new one. This distinction 
+between the attack methods becomes meaningless if the system has monitoring and reaction mechanisms for program crashes 
+because the reaction can then be triggered at such low levels that the two attack methods will have practically the 
+same (im)probability to succeed."</p>
+
 <p>Exec on erittäin huonosti ymmärretty ja sitä yleensä katsotaan pahalla sillä vanhemmilla laitteilla (ennen Pixel 4) sovellusten
 laukaisu-aika lisääntyi huomattavasti. Exec pohjainen prosessien luominen on tärkeä GrapheneOS osa joka parantaa
-merkittävästi turvallisuutta ja yksityisyyttä</p>
+merkittävästi turvallisuutta ja yksityisyyttä.</p>
 
 <article>
         <footer>
