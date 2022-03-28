@@ -2,11 +2,11 @@
 <html lang="fi">
 <head>
     <link href="main.css" rel="stylesheet"/>
-    <link rel="alternate" hreflang="fi" href="http://shepherd115.github.io/Jep/artikkelit.html"/>
+    <link rel="alternate" hreflang="fi" href="https://shepherd115.github.io/Jep/exec-spawning.html"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="UTF-8"/>
     <meta name="author" content="Shepherd"/>
-    <title>GrapheneOS Tieto | Artikkelit</title>
+    <title>GrapheneOS Tieto | Exec-Spawning</title>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta name="description" content="Suomalaista GrapheneOS tietoa | Artikkelit"/>
     <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
@@ -16,8 +16,8 @@
     <meta property="og:site_name" content="GrapheneOS"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Suomalaista GrapheneOS tietoa"/>
-    <meta property="og:url" content="https://shepherd115.github.io/jep/artikkelit.html"/>
-    <link rel="canonical" href="https://shepherd115.github.io/Jep/artikkelit.html"/>
+    <meta property="og:url" content="https://shepherd115.github.io/Jep/exec-spawning.html"/>
+    <link rel="canonical" href="https://shepherd115.github.io/Jep/exec-spawning.html"/>
     <link rel="icon" href="favicon.ico"/>
     <link rel="icon" sizes="any" type="image/svg+xml" href="favicon.svg"/>
     <link rel="mask-icon" href="mask-icon.svg" color="#1a1a1a"/>
@@ -41,20 +41,23 @@
 
 <h1 id="otsikot">Exec Spawning<img id="kuvah" src="mask-icon.svg" alt="GrapheneOS logo"></h1> 
 
-<p>Katso Käyttö sivulta alustavaa tietoa aiheesta: <a href="https://shepherd115.github.io/Jep/kautto.html#exec">Exec Spawning</a></p>
-
-<p>Normaalisti sovellusten laukaisuussa, laukaisuprosessi Zygote forkkaa mallisovellusprosessin ja tekee siitä prosessille sopivan.
-Tämä tarkoittaa että kaikki sovellukset jakavat saman randomisoinnin joten jos tämä randomisointi brute-forcetaan rikki niin se on rikki
-kaikilta sovelluksilta. Esimerkki tästä näkyy tässä <a href="https://wenke.gtisc.gatech.edu/papers/morula.pdf">Morulan paperissa</a>
-jossa Morula myös uhraa suorituskykyä turvallisuuden vuoksi. Näiden ongelmien korjaamiseksi GrapheneOS käyttää exec pohjaista prosessien
-luomista. Se kokaa prosessin kopioimisen sijan tarkoittaen sitä että randomisointi prosessille tapahtuu uudestaan.</p>
-
-<p>Exec pohjainen prosessien luominen välttää sensitiviisten tiedojen vuotamisen sovelluksille joka parantaa yksityisyyttä
+<p>Exec pohjainen sovellustenlaukaisu välttää sensitiivisten tietojen vuotamisen sovelluksille joka parantaa yksityisyyttä
 ja turvallisuutta. Ominaisuuden hintana on hieman suurempi sovellusten laukaisuaika. Se ei kuitenkaan tee mitään eroa jos sovellus
-on jo taustalla auki. Se tekee tämän tarjotakseen kunnollisen toimivan
+on jo taustalla auki. GrapheneOS tekee tämän tarjotakseen kunnollisen toimivan
 <a href="https://fi.wikipedia.org/wiki/ASLR">osoitetilanrandomisoinnin (ASLR)</a> ja SSPn sovelluksille ja käyttöjärjestelmälle. Se
-tulee olemaan entistä merkityksellisempi memroy-tagging ominaisuuden jälkeen. GrapheneOS lisäsi versiossa 000 kyvyn kytkeä tämän pois
-päältä mutta on vahvasti suositeltavaa välttää tätä.</p>
+tulee olemaan entistä merkityksellisempi memroy-tagging ominaisuuden jälkeen. GrapheneOS lisäsi versiossa 2022032715 
+kyvyn kytkeä tämän pois päältä mutta on vahvasti suositeltavaa välttää tätä.</p>
+
+<p>Yleisemmessä Zygote mallissa mallisovellusprosessi luodaan joka käynnistyksen yhteydessä ja jokainen sovellus luodaan sen kloonina. Tämä johtaa
+siihen että jokaisella sovelluksella on sama alku muistisisältö ja järjestys. Zygote forkkaa mallisovellusprosessin ja tekee 
+siitä prosessille sopivan. Tämä tarkoittaa että kaikki sovellukset jakavat saman randomisoinnin joten jos tämä randomisointi 
+brute-forcetaan rikki niin se on rikki kaikilta sovelluksilta. Esimerkki tästä näkyy 
+tässä <a href="https://wenke.gtisc.gatech.edu/papers/morula.pdf">Morulan paperissa</a> jossa Morula myös uhraa suorituskykyä 
+turvallisuuden vuoksi. Zygote malli heikentää useita turvallisuusominaisuuksia jotka perustuvat randomisointiin, 
+kuten Address Space Layout Randomization (ASLR), pinon canary-arvot, keon canary-arvot, memory-tagging jne.
+Se rampauttaa nämä sillä jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä arvot eivät muutu ennen
+uudelleenkäynnistämistä. Zygote pohjaa käytetään myös käyttäjäprofiilien välillä joten se tarjoaa tilapäisen tunnisteen
+käyttäjäprofiilien välillä jaettujen randomisoitujen arvojen kautta.</p>
 
 <p>Useat turvallisuusteknologia tutkijat ovat puhuneet yllä olevista ongelmista ja kutsuvat tätä nimellä "per boot ASLR" sillä
 randomisointi tapahtuu vain kerran käynnistyksen yhteydessä. Esimerkiksi Project Zeron blogin Samuel puhuu siitä 
@@ -75,9 +78,12 @@ between the attack methods becomes meaningless if the system has monitoring and 
 because the reaction can then be triggered at such low levels that the two attack methods will have practically the 
 same (im)probability to succeed."</p>
 
-<p>Exec on erittäin huonosti ymmärretty ja sitä yleensä katsotaan pahalla sillä vanhemmilla laitteilla (ennen Pixel 4) sovellusten
-laukaisu-aika lisääntyi huomattavasti. Exec pohjainen prosessien luominen on tärkeä GrapheneOS osa joka parantaa
-merkittävästi turvallisuutta ja yksityisyyttä.</p>
+<p>Exploittien kehittäjä ja turvallisuusteknologiatutkija Connor McGarr on 
+myös <a href="https://www.crowdstrike.com/blog/state-of-exploit-development-part-1/">maininnut ongelman</a> ja siitä miten se 
+heikentää Windows käyttöjärjestelmän turvallisuutta.</p>
+
+<p id="musta">"Because Windows only performs ASLR on a per-boot basis, all processes share the same address space 
+layout once the system has started. Therefore, ASLR is not effective against a local attacker that already has achieved code execution."</p>
 
 <article>
         <footer>

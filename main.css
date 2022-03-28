@@ -360,4 +360,6 @@ footer a, footer a:visited {
     border-left: 3px solid grey;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
