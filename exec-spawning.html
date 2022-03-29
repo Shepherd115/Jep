@@ -44,9 +44,9 @@
 <p>Exec pohjainen sovellustenlaukaisu välttää sensitiivisten tietojen vuotamisen sovelluksille joka parantaa yksityisyyttä
 ja turvallisuutta. Ominaisuuden hintana on hieman suurempi sovellusten laukaisuaika. Se ei kuitenkaan tee mitään eroa jos sovellus
 on jo taustalla auki. GrapheneOS tekee tämän tarjotakseen kunnollisen toimivan
-<a href="https://fi.wikipedia.org/wiki/ASLR">osoitetilanrandomisoinnin (ASLR)</a> ja SSPn sovelluksille ja käyttöjärjestelmälle. Se
-tulee olemaan entistä merkityksellisempi memroy-tagging ominaisuuden jälkeen. GrapheneOS lisäsi versiossa 2022032715 
-kyvyn kytkeä tämän pois päältä mutta on vahvasti suositeltavaa välttää tätä.</p>
+<a href="https://fi.wikipedia.org/wiki/ASLR">osoitetilanrandomisoinnin</a> (ASLR) 
+ja <a href="https://fi.wikipedia.org/wiki/Stack_Smashing_Protection">SSP</a>n sovelluksille ja käyttöjärjestelmälle (mukaan lukien system_server).
+GrapheneOS lisäsi versiossa 2022032715 kyvyn kytkeä tämän pois päältä mutta on vahvasti suositeltavaa välttää tätä.</p>
 
 <p>Yleisemmessä Zygote mallissa mallisovellusprosessi luodaan joka käynnistyksen yhteydessä ja jokainen sovellus luodaan sen kloonina. Tämä johtaa
 siihen että jokaisella sovelluksella on sama alku muistisisältö ja järjestys. Zygote forkkaa mallisovellusprosessin ja tekee 
