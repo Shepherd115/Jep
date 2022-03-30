@@ -48,14 +48,17 @@ on jo taustalla auki. GrapheneOS tekee tämän tarjotakseen kunnollisen toimivan
 ja <a href="https://fi.wikipedia.org/wiki/Stack_Smashing_Protection">SSP</a>n sovelluksille ja käyttöjärjestelmälle (mukaan lukien system_server).
 GrapheneOS lisäsi versiossa 2022032715 kyvyn kytkeä tämän pois päältä mutta on vahvasti suositeltavaa välttää tätä.</p>
 
-<p>Yleisemmessä Zygote mallissa mallisovellusprosessi luodaan joka käynnistyksen yhteydessä ja jokainen sovellus luodaan sen kloonina. Tämä johtaa
-siihen että jokaisella sovelluksella on sama alku muistisisältö ja järjestys. Zygote forkkaa mallisovellusprosessin ja tekee 
-siitä prosessille sopivan. Tämä tarkoittaa että kaikki sovellukset jakavat saman randomisoinnin joten jos tämä randomisointi 
-brute-forcetaan rikki niin se on rikki kaikilta sovelluksilta. Esimerkki tästä näkyy 
-tässä <a href="https://wenke.gtisc.gatech.edu/papers/morula.pdf">Morulan paperissa</a> jossa Morula myös uhraa suorituskykyä 
-turvallisuuden vuoksi. Zygote malli heikentää useita turvallisuusominaisuuksia jotka perustuvat randomisointiin, 
-kuten Address Space Layout Randomization (ASLR), pinon canary-arvot, keon canary-arvot, memory-tagging jne.
-Se rampauttaa nämä sillä jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä arvot eivät muutu ennen
+  <article id="middlewhite">
+    <p><a href="https://wenke.gtisc.gatech.edu/papers/morula.pdf">"Zygote weakens Address Space Layout Randomization
+      (ASLR) because all application processes are created with largely
+      identical memory layouts."</a><br>-Morula</p>
+  </article>
+
+<p>Androidin Zygote mallissa mallisovellusprosessi luodaan käynnistyksen yhteydessä ja jokainen sovellus luodaan sen kloonina. Tämä
+tarkoittaa sitä että jokainen sovellus jakaa saman randomisoinnin, muistisisällön ja järjestyksen.
+Zygote malli heikentää useita turvallisuusominaisuuksia jotka perustuvat randomisointiin, kuten 
+Address Space Layout Randomization (ASLR), pinon canary-arvot, keon canary-arvot, memory-tagging jne. Se rampauttaa nämä sillä 
+jokaisella sovelluksella on pääsy muiden sovellusten arvoihin ja nämä arvot eivät muutu ennen
 uudelleenkäynnistämistä. Zygote pohjaa käytetään myös käyttäjäprofiilien välillä joten se tarjoaa tilapäisen tunnisteen
 käyttäjäprofiilien välillä jaettujen randomisoitujen arvojen kautta.</p>
 
