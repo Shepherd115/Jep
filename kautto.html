@@ -86,10 +86,13 @@ ennen vakaaseen pääsyä.</p>
 <p>"Automatic reboot" tarkoittaa laitteen automaattista uudelleenkäynnistämistä kun päivitys on suoritettu loppuun ja laitetta ei ole käytetty hetkeen.</p>
 
 <h2 id="update-turvallisuus"><a href="#update-turvallisuus">Päivitys Turvallisuus</a></h2>
-<p>GrapheneOS päivittäjäsovellus ei sokeasti luota päivityspalvelimeen ja TLS yhteyteen. Päivitykset
-ovat signeerattu ja vahvistettu sekä alennukset estetään. Päivitysprotokolla ei lähetä tunnistettavia
-tietoja. Päivityspalvelin päätyy ainoastaan tietämään laitteen IP osoitteen, version jota se yrittää
-hakea ja version josta se yrittää hakea. Päivittäjäsovellus toimii myös VPN / Tor yhteyden kanssa.</p>
+<p><code>update_client</code> välttää päivityspalvelimilta saatuihin tietoihin signatuuri vahvistuksen ja alennussuojan avulla.
+Verified-boot tarjoaa toisen signatuuritarkastus kerroksen sekä alennussuojan. GrapheneOS palvelimilla ei ole pääsyä GrapheneOS
+signeerausavaimiin. Päivitysprotokolla ei lähetä tunnistettavia
+tietoja. <code>update_client</code> toimii myös VPN / Tor yhteyden kanssa.
+GrapheneOS ei kykene rakentamaan, signeeraamaan ja kuljettavaan haitallista päivitystä tietylle
+käyttäjälle IMEI, sarjanumeron tai muiden tietojen perusteella. Päivityspalvelin päätyy ainoastaan
+tietämään laitteen IP osoitteen, version jota se yrittää hakea ja version josta se yrittää hakea.</p>
 
 <p>Päivityspaketit sisältävät sisäisen signatuurin jonka <code>update_client</code> vahvistaa
 (Tai recovery jos on käytössä <a href="https://shepherd115.github.io/Jep/kautto.html#update-sideload">Sideload</a>).
