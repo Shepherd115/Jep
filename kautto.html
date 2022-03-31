@@ -47,6 +47,7 @@
     </ul>
   <li><a href="#exec">Exec Spawning</a></li>
   <li><a href="#selain">Selain</a></li>
+  <li><a href="#salaus">Laitteen salaus</a></li>
   <li><a href="#auditor">Auditor</a></li>
   <li><a href="#yhteen">Yhteensopivuskerros</a></li>
   <ul>
@@ -174,6 +175,68 @@ Gecko ei sisällä WebView implementaatiota joten sitä on käytettävä nykyise
 pitämistä joka tuplaisi hyökkäyspinnan. Firefox / Gecko myös rampauttaa ja ohittaa useita GrapheneOS vahvistuksia ja siitä puuttuu useita ominaisuuksia kuten
 tiukka seccomp-bpf filtteri, oma eristetty prosessi verkkotoiminnalle, CFI (Control Flow Integrity), CIG (Code Integrity Guard), vahvistettu
 JIT moottori ja <a href="https://madaidans-insecurities.github.io/firefox-chromium.html">paljon muuta</a>.</p>
+
+<h2 id="salaus"><a href="#salaus">Laitteen salaus</a></h2>
+<p>GrapheneOS käyttää paranneltua versiota modernista Androidin tiedostojärjestelmä-pohjaisesta levysalauksesta. Kaikilla tuetuilla
+  laitteilla on laitteistotuki tähän.</p>
+  
+  <p><code>data</code> osio säilöö kaiken pysyvän käyttöjärjestelmän tiedot. Kokolevynsalaus on implementoitu tiedostojärjestelmä-pohjaisen
+  salauksen kautta metatietojen salauksen lisäksi. Kaikki tiedot, tiedostojen nimet ja muut metatiedot varastoidaan aina salattuna.
+  Se on implementoitu Linux kernelin toimesta osana ext4 / f2fs implementaatiota.</p>
+  
+  <p>Levynsalaus avaimet ovat satunnaisesti luotu käyttäen korkealaatuista CSPRNG algoritmia ja ne säilötään salattuna
+  avaimensalaus avaimella. Avaimensalaus avaimet luodaan runtimen yhteydessä ja niitä ei koskaan varastoida mihinkään.</p>
+  
+  <p>Sensitiivinen tieto säilötään käyttäjäprofiileissa. Käyttäjäprofiileilla on oma uniikki satunnaisesti luotu levynsalaus avain
+  ja oma avain jolla tämä salataan. Omistajaprofiili on erityinen ja sitä käytetään koko järjestelmää koskevien tietojen varastoimiseen.
+  Tämän vuoksi omistajaprofiili on avattava käynnistyksen jälkeen ensin ennen kuin muita profiileja voi käyttää. Omistajaprofiililla
+  ei ole pääsyä muiden käyttäjäprofiilien tietoihin. Tiedostojärjestelmä-pohjainen salaus on suunniteltu niin että tiedostoja voi poistaa
+  vaikkei niiden salausavaimiin ole pääsyä. Tämän vuoksi omistajaprofiili voi poistaa muita käyttäjäprofiileja.</p>
+  
+  <p>GrapheneOS lisää kyvyn lopettaa käyttökerran käyttäjäjprofiiliin kirjautumisen jälkeen. Se lisää End Session napin lukitusnäytölle
+  sekä globaaliin toiminta valikkoon johon pääsee pitämällä Power nappia pohjassa. Tätä ei voi tehdä omistajaprofiilille ilman laitteen
+  uudelleenkäynnistämistä sillä se säilöö koko järjestelmää koskevia tietoja.</p>
+  
+  <p>Toissijaisen käyttäjäprofiilin käyttäminen arkikäytössä mahdollistaa laitteen käytön ilman arkikäyttöprofiilin salauksen purkamista.
+  Se myös mahdollistaa käyttäjäprofiilin asettamisen takaisin lepoon käytön jälkeen ilman laitteen uudelleenkäynnistämistä. Vaikka käyttäisi
+  samaa salasanaa käyttäjäprofiilien välillä, jokainen käyttäjäprofiili tulisi silti saamaan uniikin avaimensalaus avaimen ja
+  käyttöjärjestelmän luvaton haltuunotto ei vuotaisi toisen salasanaa. Etu eri salasanojen käyttämisessä on jos hyökkääjä fyysisesti
+  näkee sinun syöttävän salasanan.</p>
+  
+  <p>Tiedostotiedot salataan käyttäen algoritmia AES-256-XTS ja tiedostojen nimet algoritmilla AES-256-CTS. Uniikki avain muodostetaan
+  algoritmilla HKDF-SHA512 jokaiselle normaalille tiedostolle ja kansiolle profiilin salausavaimesta tai globaalista salausavaimesta.
+  Kansioavainta käytetään salaamaan tiedostojen nimet. GrapheneOS lisää tiedosto nimen täytettä (padding) 16 bitistä 32 bittiin.</p>
+  
+  <p>OS muodostaa salasana tokenin käyttäjäprofiilin lukitusnäytön salasanasta käyttäen scryptiä. Tätä käytetään pää syötteenä
+  avainten muodostamiseen</p>
+  
+  <p>OS säilöö korkean entropian satunnaisen arvon Weaver tokenina secure elementillä (Titan M tai Titan M2 Pixel puhelimissa) ja
+  käyttää sitä toisena syötteenä avainten muodostamiseen. Weaver token varastoidaan Weaver avaimen rinnalla joka muodostetaan
+  salasana tokenista. Jotta Weaver token saadaan, secure element vaatii oikean Weaver avaimen. Turvallista sisäistä ajastinta käytetään
+  implementoidakseen laitteistopohjaisia viivästyksiä jokaisen avaimen muodostamis yrityksen jälkeen. Se nopeasti kasvaa kokonaiseenpäivään
+  ennen kuin salasanaa voi yrittää uudelleen. Weaver myös tarjoaa hyvän tavan tietojen pyyhkimiseen sillä secure element voi luotettavasti
+  pyyhkiä Weaver paikan. Käyttäjäprofiilin poistaminen pyyhkii tätä vastaavan Weaver paikan ja tehdasasetusten palauttaminen
+  kaikki Weaver paikat. Secure element myös tarjoaa
+  <a href="https://android-developers.googleblog.com/2018/05/insider-attack-resistance.html?msclkid=4339d079b11a11ecb34244953bdd94c4">Insider attack resistance</a>
+  ominaisuuden jonka tarkoitus on estää laiteohjelmistopäivityksen ennen kuin omistajaprofiiliin on kirjauduttu.</p>
+  
+  <p>Viivästykset joita secure element valvoo:</p>
+  
+  <ul>
+  <li>0 - 4 väärää yritystä: ei viivettä</li>
+  <li>5 väärää yritystä: 30 sekunnin viive</li>
+  <li>6 - 9 väärää yritystä: ei viivettä</li>
+  <li>10 - 29 väärää yritystä: 30 sekunnin viive</li>
+  <li>30 - 139 väärää yritystä: 30 × 2⌊(n - 30) ÷ 10⌋ jossa 'n' tarkoittaa väärien yritysten määrää. Tämä tarkoittaa että joka viive tuplaantuu
+  joka kymmenes yritys</li>
+  <li>140 tai enemmän vääriä yrityksiä: 1 päivä</li>
+  </ul>
+  
+  <p>GrapheneOS ainoastaan tukee laitteita joissa on Weaver.</p>
+  
+  <p>Useat sovellukset käyttävät laitteiston avainvarastoa, heidän omaa salausimplementaatiota tai näiden yhdistelmää tarjotakseen
+  toisen salaus kerroksen. Esimerkiksi sovellus voi käyttää laitteiston avainvarastoa salatakseen tietoja avaimella joka on
+  ainoastaan käytössä kun laite on avattu.</p>
 
 <h2 id="auditor"><a href="#auditor">Auditor</a></h2>
 <p>Auditor ja <a href="https://source.android.com/security/verifiedboot">Verified-Boot</a> toimii viimeisenä puolustuslinjana. Verified-Boot varmistaa että
